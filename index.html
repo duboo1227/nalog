@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F2F4F6">
+<title>규나의 출근 일지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+
+<!-- 로그인 -->
+<div class="login" id="loginView" hidden>
+  <div class="label">출근 일지</div>
+  <h1>규나의 출근 일지</h1>
+  <p class="muted" style="margin:0">이메일로 로그인 링크를 보내줄게. 메일의 링크를 누르면 바로 들어와져.</p>
+  <form id="loginForm" style="display:flex;flex-direction:column;gap:10px">
+    <input type="email" id="loginEmail" required placeholder="이메일 주소" autocomplete="email" style="width:100%;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:11px 12px">
+    <button class="btn primary" type="submit" id="loginBtn">로그인 링크 받기</button>
+  </form>
+  <div class="notice" id="loginMsg" hidden></div>
+</div>
+
+<div class="wrap" id="appView" hidden>
+  <header class="top">
+    <div class="titlerow">
+      <div>
+        <div class="label" id="todayLabel">출근 일지</div>
+        <h1>규나의 출근 일지</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div class="datepick">
+          <button id="prevDay" aria-label="전날">‹</button>
+          <input type="date" id="datePick" aria-label="기록 날짜">
+          <button id="nextDay" aria-label="다음날">›</button>
+          <button id="goToday" class="todaybtn">오늘</button>
+        </div>
+        <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="logout">로그아웃</button></div>
+      </div>
+    </div>
+    <div class="overview">
+      <div>
+        <div class="wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+        <div class="grid35" id="grid35" aria-label="최근 5주 기록"></div>
+      </div>
+      <div class="checks" id="checks"></div>
+      <div class="month" id="month"></div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <a href="#news">① 경제뉴스</a>
+    <a href="#diary">② 일기</a>
+    <a href="#books">③ 독서</a>
+    <a href="#study">④ 공부</a>
+    <a href="#cases">⑤ 케이스</a>
+  </nav>
+  <div class="status" id="status" aria-live="polite"></div>
+
+  <!-- ① NEWS -->
+  <section class="view" id="v-news">
+    <div class="panel">
+      <div class="phead"><h2>경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
+      <div class="paperchips" id="paperChips"></div>
+      <ul class="heads" id="heads"><li class="empty" style="border:0">불러오는 중…</li></ul>
+      <div class="muted" style="font-size:12.5px">매일 06:40, 12:10에 자동으로 모아와. '+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨.</div>
+    </div>
+    <div class="panel">
+      <div class="phead"><h2>내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
+      <ul class="artlist" id="artList"></ul>
+      <form id="artForm" style="display:flex;flex-direction:column;gap:10px">
+        <div class="row">
+          <label class="field"><span>기사 제목</span><input type="text" id="artTitle" placeholder="직접 추가할 기사"></label>
+          <label class="field"><span>링크 (선택)</span><input type="url" id="artUrl" placeholder="https://"></label>
+        </div>
+        <label class="field"><span>한 줄 생각</span><input type="text" id="artMemo" placeholder="왜 중요한지, 내 투자에 주는 의미"></label>
+        <div><button class="btn primary" type="submit">기사 추가</button></div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="phead"><h2>신문 경제면 바로가기</h2></div>
+      <div class="papers" id="papers"></div>
+    </div>
+  </section>
+
+  <!-- ② DIARY -->
+  <section class="view" id="v-diary" hidden>
+    <div class="panel">
+      <div class="phead"><h2 id="diaryTitle">어제 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
+      <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="어제를 한 문장으로"></label>
+      <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="어제 있었던 일, 느낀 것, 다음에 다르게 할 것"></textarea></label>
+    </div>
+    <div class="panel"><h2>지난 일기</h2><div class="pastlist" id="pastDiary"></div></div>
+  </section>
+
+  <!-- ③ BOOKS -->
+  <section class="view" id="v-books" hidden>
+    <div class="panel">
+      <div class="phead"><h2>오늘 읽은 책</h2><span class="mono" id="pageTally">0 / 5쪽</span></div>
+      <div class="meter" id="pageMeter"><i style="width:0%"></i></div>
+      <label class="field"><span>책 제목</span><input type="text" id="bookTitle" list="bookList" placeholder="읽고 있는 책"></label>
+      <datalist id="bookList"></datalist>
+      <div class="row">
+        <label class="field"><span>시작 쪽</span><input type="number" id="bookFrom" inputmode="numeric" min="0"></label>
+        <label class="field"><span>끝 쪽</span><input type="number" id="bookTo" inputmode="numeric" min="0"></label>
+      </div>
+      <label class="field"><span>인상 깊은 문장</span><textarea id="bookQuote" rows="2"></textarea></label>
+      <label class="field"><span>내 생각</span><textarea id="bookNote" rows="3"></textarea></label>
+      <div class="muted" style="font-size:13px" id="bookHint"></div>
+    </div>
+    <div class="panel">
+      <h2>독서 기록</h2>
+      <div class="tablewrap"><table><thead><tr><th>날짜</th><th>책</th><th>쪽</th><th>문장</th></tr></thead><tbody id="bookRows"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- ④ STUDY -->
+  <section class="view" id="v-study" hidden>
+    <div class="panel">
+      <div class="phead"><h2>오늘 공부</h2><span class="mono muted" id="studyTotal">0분</span></div>
+      <div id="studyItems" style="display:flex;flex-direction:column;gap:14px"></div>
+      <datalist id="subjList"></datalist>
+      <div><button class="btn" id="studyAdd" type="button">+ 공부 항목 추가</button></div>
+    </div>
+    <div class="panel">
+      <h2>이번 달 과목별 누적</h2>
+      <div class="tablewrap"><table><thead><tr><th>과목</th><th>일수</th><th>시간</th></tr></thead><tbody id="subjRows"></tbody></table></div>
+    </div>
+    <div class="panel"><h2>최근 공부 기록</h2><div class="pastlist" id="pastStudy"></div></div>
+  </section>
+
+  <!-- ⑤ CASES -->
+  <section class="view" id="v-cases" hidden>
+    <div class="panel">
+      <div class="phead"><h2>케이스 모음</h2><button class="btn primary" id="newCase" type="button">+ 새 케이스</button></div>
+      <div class="notice">이미지 올리기 전에 환자 이름·등록번호·생년월일이 화면에 남아 있지 않은지 꼭 확인해줘. 이미지는 본인만 열 수 있는 비공개 저장소에 들어가.</div>
+      <input type="text" id="caseSearch" placeholder="제목, 소견, 메모, 태그로 검색">
+      <div class="chips" id="caseFilter"></div>
+      <div class="cases" id="caseGrid"></div>
+    </div>
+  </section>
+</div>
+
+<div class="modal" id="caseModal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle" id="caseSheet"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
