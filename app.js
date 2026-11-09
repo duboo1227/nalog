@@ -833,13 +833,22 @@ function dailyQuoteIndex(dateStr, n) {
   for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
   return order[pos];
 }
+let quoteIdx = null;   // null = 오늘의 명언, 숫자 = 새로고침으로 고른 명언
 function renderQuote() {
-  const el = $("#quoteLine");
-  if (!QUOTES.length) { el.hidden = true; return; }
-  const q = QUOTES[dailyQuoteIndex(TODAY, QUOTES.length)];
+  const el = $("#quoteLine"), btn = $("#quoteRefresh");
+  if (!QUOTES.length) { el.hidden = true; btn.hidden = true; return; }
+  if (quoteIdx === null) quoteIdx = dailyQuoteIndex(TODAY, QUOTES.length);
+  const q = QUOTES[quoteIdx];
   el.innerHTML = `<span class="qt">“${esc(q.t)}”</span><span class="qa">— ${esc(q.a)}</span>`;
-  el.hidden = false;
+  el.hidden = false; btn.hidden = QUOTES.length < 2;
+  el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade");
 }
+$("#quoteRefresh").addEventListener("click", () => {
+  if (QUOTES.length < 2) return;
+  let n; do { n = Math.floor(Math.random() * QUOTES.length); } while (n === quoteIdx);
+  quoteIdx = n; renderQuote();
+  const b = $("#quoteRefresh"); b.classList.remove("spin"); void b.offsetWidth; b.classList.add("spin");
+});
 
 /* ---------------- 날짜·탭 ---------------- */
 function setDate(d) {

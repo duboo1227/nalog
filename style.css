@@ -418,3 +418,12 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .artbody{display:flex;flex-direction:column;gap:8px;padding:0 12px 12px;border-top:1px dashed var(--line);padding-top:10px}
 .artbody .arthead{display:flex;align-items:center;gap:10px}
 .installsteps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.5}
+
+/* 명언 새로고침 */
+.quotewrap{display:flex;align-items:center;gap:6px;min-width:0;max-width:100%}
+.quotewrap .quote{min-width:0}
+.qrefresh{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--surface);cursor:pointer;font-size:15px;line-height:1;display:grid;place-items:center}
+.qrefresh:hover{border-color:var(--accent)}
+.qrefresh.spin{animation:qspin .5s ease}
+@keyframes qspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.qrefresh.spin{animation:none}}
