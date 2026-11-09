@@ -326,3 +326,5 @@ textarea.diary{font-family:var(--body);font-size:16px;background:repeating-linea
 .lockbox input[type=password]{width:100%;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:9px 11px}
 .lockicon{font-size:38px;line-height:1}
 details.past.locked summary{color:var(--muted)}
+.lockstate{font-size:13.5px;color:var(--ok);font-family:var(--display)}
+.heads .star{font-size:14px}

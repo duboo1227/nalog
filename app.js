@@ -213,7 +213,7 @@ function renderNews() {
     if (newsPage >= pagesN) newsPage = pagesN - 1;
     const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
     const saved = new Set((day.news || []).map(a => a.url));
-    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a><div class="time">${it.main ? "⭐ 메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${esc(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
     $("#heads")._list = pageList;
     $("#pager").hidden = pagesN < 2;
     $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
@@ -268,6 +268,12 @@ function diaryMode(m) {   // "edit" | "locked" | "setup"
   $("#diarySetup").hidden = m !== "setup";
   $("#diaryLockRow").hidden = m !== "edit";
   $("#diaryLockCancel").hidden = lockIntent !== "lock";
+  $("#openAndUnlock").hidden = lockIntent === "lock";
+  const openLocked = m === "edit" && !!day.diaryLocked && !!diaryKey;
+  $("#lockChkWrap").hidden = openLocked;
+  $("#lockState").hidden = !openLocked;
+  $("#unlockDay").hidden = !openLocked;
+  $("#relock").hidden = !openLocked;
 }
 async function fillDiary() {
   const date = cur;
@@ -275,7 +281,7 @@ async function fillDiary() {
   $("#diaryLockMsg").textContent = ""; $("#diaryPw").value = "";
   lockedDraft = null;
   if (day.diaryLocked) {
-    $("#diaryLockChk").checked = true; $("#relock").hidden = !diaryKey;
+    $("#diaryLockChk").checked = true;
     if (!diaryKey) { lockIntent = "open"; $("#diaryLockedTitle").textContent = "🔒 잠긴 일기야"; $("#diaryCount").textContent = "🔒"; diaryMode("locked"); return; }
     try {
       const plain = await decObj(diaryKey, day.diaryEnc);
@@ -286,7 +292,7 @@ async function fillDiary() {
     } catch (_) { diaryKey = null; lockIntent = "open"; diaryMode("locked"); $("#diaryLockMsg").textContent = "비밀번호를 다시 입력해줘."; }
     return;
   }
-  $("#diaryLockChk").checked = false; $("#relock").hidden = true;
+  $("#diaryLockChk").checked = false;
   $("#diaryOne").value = day.diaryOne || ""; $("#diaryText").value = day.diary || "";
   $("#diaryCount").textContent = (day.diary || "").length + "자";
   diaryMode("edit");
@@ -331,17 +337,22 @@ $("#diaryLockChk").addEventListener("change", async e => {
     if (diaryKey) await doUnlockForever();
   }
 });
-$("#diaryUnlockForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const pw = $("#diaryPw").value; if (!pw || !settings.diaryLock) return;
+$("#diaryUnlockForm").addEventListener("submit", e => { e.preventDefault(); tryPassword(false); });
+$("#openAndUnlock").addEventListener("click", () => tryPassword(true));
+$("#unlockDay").addEventListener("click", () => { if (diaryKey) doUnlockForever(); });
+async function tryPassword(unlockAfter) {
+  const pw = $("#diaryPw").value; if (!pw) { $("#diaryPw").focus(); $("#diaryLockMsg").textContent = "비밀번호를 입력해줘."; return; }
+  if (!settings.diaryLock) return;
   $("#diaryLockMsg").textContent = "확인 중…";
   try {
     const key = await deriveKey(pw, settings.diaryLock.salt);
     await decObj(key, settings.diaryLock.check);
     diaryKey = key; $("#diaryPw").value = "";
-    if (lockIntent === "lock") { diaryMode("edit"); await doLock(); } else { await fillDiary(); renderPastDiary(); }
+    if (lockIntent === "lock") { diaryMode("edit"); await doLock(); }
+    else if (unlockAfter) { await doUnlockForever(); }
+    else { await fillDiary(); renderPastDiary(); }
   } catch (_) { $("#diaryLockMsg").textContent = "비밀번호가 달라 🙅"; }
-});
+}
 $("#diaryLockCancel").addEventListener("click", () => { if (lockIntent === "lock") diaryMode("edit"); });
 $("#diarySetupForm").addEventListener("submit", async e => {
   e.preventDefault();

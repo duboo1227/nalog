@@ -125,8 +125,12 @@
     <div class="panel">
       <div class="phead"><h2 id="diaryTitle">어제 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
       <div class="lockrow" id="diaryLockRow">
-        <label class="chkline"><input type="checkbox" id="diaryLockChk"> 🔒 이 날 일기 잠그기</label>
-        <button class="linkbtn" id="relock" type="button" hidden>다시 잠그기</button>
+        <label class="chkline" id="lockChkWrap"><input type="checkbox" id="diaryLockChk"> 🔒 이 날 일기 잠그기</label>
+        <span class="lockstate" id="lockState" hidden>🔓 잠긴 일기를 열어둔 상태</span>
+        <span style="display:flex;gap:12px">
+          <button class="btn" id="unlockDay" type="button" hidden>🔓 잠금 풀기</button>
+          <button class="linkbtn" id="relock" type="button" hidden>다시 잠그기</button>
+        </span>
       </div>
       <div id="diaryEditor" style="display:flex;flex-direction:column;gap:12px">
         <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="어제를 한 문장으로"></label>
@@ -137,8 +141,9 @@
         <b id="diaryLockedTitle">🔒 잠긴 일기야</b>
         <form id="diaryUnlockForm" class="todoform">
           <input type="password" id="diaryPw" placeholder="일기 비밀번호" autocomplete="current-password">
-          <button class="btn primary" type="submit">열기</button>
+          <button class="btn primary" type="submit" value="open">열기</button>
         </form>
+        <button class="btn ghost" id="openAndUnlock" type="button">🔓 열고 잠금 풀기</button>
         <div class="muted" id="diaryLockMsg" style="font-size:13px;min-height:18px"></div>
         <button class="linkbtn" id="diaryLockCancel" type="button">취소</button>
       </div>
