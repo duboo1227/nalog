@@ -23,7 +23,7 @@ const SOURCES = [
     feeds: ["https://www.yna.co.kr/rss/economy.xml", gn("yna.co.kr")] },
 ];
 
-const PER_SOURCE = 10;
+const PER_SOURCE = 30;
 const MAX_AGE_H = 36;
 
 const kstDate = (d = new Date()) =>
@@ -86,7 +86,7 @@ async function collect(src) {
       let items = parseRss(xml, src.name);
       const now = Date.now();
       const fresh = items.filter(i => !i.pubDate || now - Date.parse(i.pubDate) < MAX_AGE_H * 3600e3);
-      if (fresh.length >= 3) items = fresh;
+      if (fresh.length >= 15) items = fresh;
       // 중복 제목 제거
       const seen = new Set();
       items = items.filter(i => (seen.has(i.title) ? false : seen.add(i.title)));
