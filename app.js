@@ -805,12 +805,21 @@ const QUOTES = [
   { t: "위대한 일을 하는 유일한 방법은 자신이 하는 일을 사랑하는 것이다.", a: "스티브 잡스, 2005 스탠퍼드 연설" },
   { t: "성공은 매일 반복한 작은 노력들의 합이다.", a: "로버트 콜리어" },
 ];
+// 명언 n개를 섞은 순서대로 하루 하나씩 → n일 동안 겹치지 않고, 한 바퀴 돌면 새로 섞음
+function dailyQuoteIndex(dateStr, n) {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const dayNum = Math.floor(Date.UTC(y, m - 1, d) / 864e5);
+  const cycle = Math.floor(dayNum / n), pos = dayNum % n;
+  let seed = (cycle * 2654435761 + 12345) >>> 0;
+  const rnd = () => { seed = (seed + 0x6D2B79F5) >>> 0; let t = seed; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const order = [...Array(n).keys()];
+  for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+  return order[pos];
+}
 function renderQuote() {
   const el = $("#quoteLine");
   if (!QUOTES.length) { el.hidden = true; return; }
-  let h = 0; for (const c of TODAY) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  h = (h ^ (h >>> 13)) * 2654435761 >>> 0;
-  const q = QUOTES[h % QUOTES.length];
+  const q = QUOTES[dailyQuoteIndex(TODAY, QUOTES.length)];
   el.innerHTML = `<span class="qt">“${esc(q.t)}”</span><span class="qa">— ${esc(q.a)}</span>`;
   el.hidden = false;
 }
