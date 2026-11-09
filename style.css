@@ -162,3 +162,32 @@ details.past p{white-space:pre-wrap;margin:8px 0 0;font-family:var(--display)}
 .pastebox b{font-weight:600}
 .pastebox span{font-size:12.5px;color:var(--muted)}
 .pastebox:focus,.pastebox.over{border-color:var(--accent);background:var(--accent-soft)}
+
+/* ---- 월 달력 ---- */
+:root{--hl:rgba(255,226,64,.78)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--hl:rgba(255,214,10,.42)}}
+:root[data-theme="dark"]{--hl:rgba(255,214,10,.42)}
+.calpanel{gap:10px}
+.calhead{display:flex;align-items:center;gap:6px}
+.calhead h2{font-size:22px;min-width:9.5em;text-align:center}
+.navbtn{font-size:20px;padding:2px 12px}
+.calweek,.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.calweek span{text-align:center;font-size:12px;color:var(--muted);font-weight:600}
+.calweek .sun,.calgrid .sun .num{color:var(--danger)}
+.calweek .sat,.calgrid .sat .num{color:var(--accent)}
+.calgrid .d{position:relative;height:clamp(46px,12vw,74px);border:0;border-radius:10px;background:transparent;cursor:pointer;display:flex;align-items:flex-start;justify-content:center;padding-top:8px;font-family:var(--mono);font-size:15px;color:var(--ink);isolation:isolate}
+.calgrid .d:hover:not(:disabled){background:var(--sunk)}
+.calgrid .d.blank{cursor:default}
+.calgrid .d.future{opacity:.35;cursor:default}
+.calgrid .d .num{position:relative;z-index:1;line-height:1.3}
+/* 형광펜: 살짝 기울어진 노란 띠 */
+.calgrid .d.filled::before{content:"";position:absolute;left:10%;right:10%;top:22%;bottom:22%;background:var(--hl);border-radius:4px 10px 6px 12px / 8px 5px 10px 6px;transform:rotate(-2.5deg);z-index:0}
+.calgrid .d.today .num{font-size:19px;font-weight:700;color:var(--ink)}
+.calgrid .d.today.sun .num{color:var(--danger)}
+.calgrid .d.today.sat .num{color:var(--accent)}
+.calfoot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.legend{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:22px;height:10px;background:var(--hl);border-radius:3px 6px 4px 7px;transform:rotate(-3deg)}
+.dayhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+#dayHead .overview{grid-template-columns:1fr;margin-top:12px}
+#calToday{white-space:nowrap}

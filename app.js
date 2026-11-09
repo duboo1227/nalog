@@ -67,16 +67,41 @@ function saveDay() { days[cur] = JSON.parse(JSON.stringify(day)); queueDay(cur, 
 function allDays() { return Object.entries(days).map(([date, x]) => Object.assign({ date }, x)).sort((a, b) => a.date < b.date ? 1 : -1); }
 
 /* ---------------- 상단 요약 ---------------- */
+function filledDay(d) {
+  const x = days[d];
+  if (x && Object.values(flags(x)).some(Boolean)) return true;
+  return Object.values(cases).some(c => c.date === d);
+}
+let calMonth = TODAY.slice(0, 7);
+function renderCal() {
+  const [y, m] = calMonth.split("-").map(Number);
+  $("#calTitle").textContent = `${y}년 ${m}월`;
+  const first = `${calMonth}-01`, lead = wd(first);
+  const nDays = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  let html = "";
+  for (let i = 0; i < lead; i++) html += `<span class="d blank"></span>`;
+  let filled = 0;
+  for (let i = 1; i <= nDays; i++) {
+    const d = `${calMonth}-${String(i).padStart(2, "0")}`, w = wd(d), fut = d > TODAY, f = !fut && filledDay(d);
+    if (f) filled++;
+    html += `<button class="d${d === TODAY ? " today" : ""}${f ? " filled" : ""}${fut ? " future" : ""}${w === 0 ? " sun" : w === 6 ? " sat" : ""}" data-d="${d}" ${fut ? "disabled" : ""} aria-label="${lab(d)}${f ? ", 기록 있음" : ""}"><span class="num">${i}</span></button>`;
+  }
+  $("#calGrid").innerHTML = html;
+  let pg = 0, mins = 0;
+  allDays().forEach(x => { if (x.date.slice(0, 7) === calMonth) { pg += pages(x.book); mins += sumMin(x); } });
+  const cs = Object.values(cases).filter(c => (c.date || "").slice(0, 7) === calMonth).length;
+  $("#calStats").textContent = `기록 ${filled}일 · 독서 ${pg}쪽 · 공부 ${(mins / 60).toFixed(1)}시간 · 케이스 ${cs}개`;
+  $("#calNext").disabled = calMonth >= TODAY.slice(0, 7);
+}
+$("#calPrev").onclick = () => { const [y, m] = calMonth.split("-").map(Number); calMonth = new Date(Date.UTC(y, m - 2, 1)).toISOString().slice(0, 7); renderCal(); };
+$("#calNext").onclick = () => { const [y, m] = calMonth.split("-").map(Number); calMonth = new Date(Date.UTC(y, m, 1)).toISOString().slice(0, 7); renderCal(); };
+$("#calToday").onclick = () => { calMonth = TODAY.slice(0, 7); renderCal(); };
+$("#calGrid").addEventListener("click", e => { const b = e.target.closest("[data-d]"); if (!b || b.disabled) return; setDate(b.dataset.d); location.hash = "#news"; window.scrollTo(0, 0); });
+$("#backCal").onclick = () => { calMonth = cur.slice(0, 7); location.hash = "#cal"; };
+
 function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
-  const end = addDays(TODAY, 6 - wd(TODAY)), start = addDays(end, -34);
-  let html = "";
-  for (let i = 0; i < 35; i++) {
-    const d = addDays(start, i), x = days[d], lv = x ? Object.values(flags(x)).filter(Boolean).length : 0, fut = d > TODAY;
-    html += `<button class="cell${d === cur ? " sel" : ""}${fut ? " future" : ""}" data-d="${d}" data-lv="${lv}" ${fut ? "disabled" : ""} title="${lab(d)} · ${lv}/4"></button>`;
-  }
-  $("#grid35").innerHTML = html;
   const f = flags(day);
   const items = [["news", "경제뉴스", (day.news || []).length + "건"], ["diary", "어제 일기", f.diary ? "작성" : "미작성"], ["book", "독서 5쪽", pages(day.book) + "쪽"], ["study", "공부", sumMin(day) + "분"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot"></i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
@@ -387,16 +412,18 @@ function setDate(d) {
   fillAll(); renderAll(); loadNews(d);
 }
 function fillAll() { fillDiary(); fillBook(); fillStudy(); }
-function renderAll() { renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderCases(); }
+function renderAll() { renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderCases(); }
 $("#prevDay").onclick = () => setDate(addDays(cur, -1));
 $("#nextDay").onclick = () => setDate(addDays(cur, 1));
 $("#goToday").onclick = () => setDate(TODAY);
 $("#datePick").addEventListener("change", e => { if (e.target.value) setDate(e.target.value); });
-$("#grid35").addEventListener("click", e => { const b = e.target.closest("[data-d]"); if (b && !b.disabled) setDate(b.dataset.d); });
 
-const VIEWS = ["news", "diary", "books", "study", "cases"];
+const VIEWS = ["cal", "news", "diary", "books", "study", "cases"];
 function route() {
-  const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "news";
+  const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "cal";
+  $("#dayHead").hidden = v === "cal";
+  $("#todayLabel").textContent = v === "cal" ? "오늘 · " + lab(TODAY) : (cur === TODAY ? "오늘 · " + lab(cur) : lab(cur));
+  if (v === "cal") renderCal();
   VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
   document.querySelectorAll("#tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + v ? "page" : "false"));
 }

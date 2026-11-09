@@ -33,33 +33,48 @@
         <div class="label" id="todayLabel">하루기록</div>
         <h1>규나의 하루기록</h1>
       </div>
-      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-        <div class="datepick">
-          <button id="prevDay" aria-label="전날">‹</button>
-          <input type="date" id="datePick" aria-label="기록 날짜">
-          <button id="nextDay" aria-label="다음날">›</button>
-          <button id="goToday" class="todaybtn">오늘</button>
-        </div>
-        <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="logout">로그아웃</button></div>
-      </div>
-    </div>
-    <div class="overview">
-      <div>
-        <div class="wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
-        <div class="grid35" id="grid35" aria-label="최근 5주 기록"></div>
-      </div>
-      <div class="checks" id="checks"></div>
-      <div class="month" id="month"></div>
+      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="logout">로그아웃</button></div>
     </div>
   </header>
 
-  <nav class="tabs" id="tabs">
-    <a href="#news">① 경제뉴스</a>
-    <a href="#diary">② 일기</a>
-    <a href="#books">③ 독서</a>
-    <a href="#study">④ 공부</a>
-    <a href="#cases">⑤ 케이스</a>
-  </nav>
+  <!-- 월 달력 (첫 화면) -->
+  <section class="view" id="v-cal" hidden>
+    <div class="panel calpanel">
+      <div class="calhead">
+        <button class="btn ghost navbtn" id="calPrev" aria-label="이전 달">‹</button>
+        <h2 id="calTitle">2026년 11월</h2>
+        <button class="btn ghost navbtn" id="calNext" aria-label="다음 달">›</button>
+        <button class="btn" id="calToday" style="margin-left:auto">오늘</button>
+      </div>
+      <div class="calweek"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="sat">토</span></div>
+      <div class="calgrid" id="calGrid"></div>
+      <div class="calfoot"><span class="legend"><i></i>기록한 날</span><span id="calStats"></span></div>
+    </div>
+  </section>
+
+  <!-- 하루 화면 -->
+  <div id="dayHead" hidden>
+    <div class="dayhead">
+      <button class="btn ghost" id="backCal">‹ 달력</button>
+      <div class="datepick">
+        <button id="prevDay" aria-label="전날">‹</button>
+        <input type="date" id="datePick" aria-label="기록 날짜">
+        <button id="nextDay" aria-label="다음날">›</button>
+        <button id="goToday" class="todaybtn">오늘</button>
+      </div>
+    </div>
+    <div class="overview">
+      <div class="checks" id="checks"></div>
+      <div class="month" id="month"></div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <a href="#news">① 경제뉴스</a>
+      <a href="#diary">② 일기</a>
+      <a href="#books">③ 독서</a>
+      <a href="#study">④ 공부</a>
+      <a href="#cases">⑤ 케이스</a>
+    </nav>
+  </div>
   <div class="status" id="status" aria-live="polite"></div>
 
   <!-- ① NEWS -->
