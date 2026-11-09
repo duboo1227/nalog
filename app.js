@@ -100,9 +100,12 @@ function saveDay() { days[cur] = JSON.parse(JSON.stringify(day)); queueDay(cur, 
 function allDays() { return Object.entries(days).map(([date, x]) => Object.assign({ date }, x)).sort((a, b) => a.date < b.date ? 1 : -1); }
 
 /* ---------------- 상단 요약 ---------------- */
+// 그날 영어(문장·단어) 추가 개수
+function engCount(d) { return [...(vocab.words || []), ...(vocab.sentences || [])].filter(x => x.date === d).length; }
 function filledDay(d) {
   const x = days[d];
   if (x && anyRecord(x)) return true;
+  if (engCount(d) > 0) return true;
   return Object.values(cases).some(c => c.date === d);
 }
 let calMonth = TODAY.slice(0, 7);
@@ -166,7 +169,7 @@ function renderCal() {
   let pg = 0, mins = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) === calMonth) { pg += pages(x.book); mins += sumMin(x); } });
   const cs = Object.values(cases).filter(c => (c.date || "").slice(0, 7) === calMonth).length;
-  $("#calStats").textContent = `기록 ${filled}일 · 독서 ${sheetTxt(pg)} · 공부 ${(mins / 60).toFixed(1)}시간 · 케이스 ${cs}개`;
+  $("#calStats").textContent = `기록 ${filled}일 · 독서 ${sheetTxt(pg)} · 공부 ${(mins / 60).toFixed(1)}시간 · 영어 ${[...(vocab.words || []), ...(vocab.sentences || [])].filter(x => (x.date || "").slice(0, 7) === calMonth).length}개 · 케이스 ${cs}개`;
   $("#calNext").disabled = calMonth >= TODAY.slice(0, 7);
 }
 $("#calPrev").onclick = () => { const [y, m] = calMonth.split("-").map(Number); calMonth = new Date(Date.UTC(y, m - 2, 1)).toISOString().slice(0, 7); renderCal(); };
@@ -178,13 +181,13 @@ $("#backCal").onclick = () => { calMonth = cur.slice(0, 7); location.hash = "#ca
 function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
-  const f = flags(day);
-  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
+  const f = flags(day); f.english = engCount(cur) > 0;
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"], ["english", "🦉 영어", engCount(cur) + "개"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
   Object.values(cases).forEach(c => { if ((c.date || "").slice(0, 7) === ym) cs++; });
-  $("#month").innerHTML = `<span class="muted">${Number(ym.slice(5))}월</span><span>일기 <b>${dd}</b>일</span><span>독서 <b>${sheets(pg)}</b>장</span><span>공부 <b>${(mins / 60).toFixed(1)}</b>시간</span><span>케이스 <b>${cs}</b>개</span>`;
+  $("#month").innerHTML = `<span class="muted">${Number(ym.slice(5))}월</span><span>일기 <b>${dd}</b>일</span><span>독서 <b>${sheets(pg)}</b>장</span><span>공부 <b>${(mins / 60).toFixed(1)}</b>시간</span><span>영어 <b>${[...(vocab.words || []), ...(vocab.sentences || [])].filter(x => (x.date || "").slice(0, 7) === ym).length}</b>개</span><span>케이스 <b>${cs}</b>개</span>`;
 }
 
 /* ---------------- ① 뉴스 ---------------- */
@@ -737,7 +740,7 @@ const VOCAB_DATE = "1970-01-02";   // 단어장은 날짜와 상관없이 쌓이
 let vocab = { words: [], sentences: [] };
 let engKind = "sentences", engFilter = "todo", engHide = false;
 const openEng = new Set();
-function saveVocab() { queueDay(VOCAB_DATE, vocab, 300); }
+function saveVocab() { queueDay(VOCAB_DATE, vocab, 300); renderOverview(); renderCal(); }
 const engList = () => vocab[engKind] || (vocab[engKind] = []);
 function renderEnglish() {
   const ws = vocab.words || [], ss = vocab.sentences || [];
