@@ -369,3 +369,30 @@ nav.tabs a[aria-current="page"]{font-weight:600}
 .tb-head h2{font-family:var(--display);font-weight:400}
 nav.tabs a{font-family:var(--display);font-size:14px;font-weight:400}
 nav.tabs a[aria-current="page"]{font-weight:400}
+
+/* ================= 파스텔 그린 테마 ================= */
+:root{
+  --bg:#F1F9F4; --surface:#FFFFFF; --sunk:#E2F3E9; --ink:#2E3F37; --muted:#7A9387; --line:#CDE7D8;
+  --accent:#3E9D73; --accent-soft:#DCF2E5; --accent-2:#8FD1AE; --ok:#2F9E8A; --ok-2:#86D2C4;
+  --warn:#DD952A; --danger:#DE5A6B; --sat:#4A86C5;
+  --mint:#EAF6D8; --butter:#FFF3C4; --sky:#E4F1FA;
+  --dots:rgba(62,157,115,.09); --btn-ink:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17201B; --surface:#202C25; --sunk:#121915; --ink:#E5F3EB; --muted:#9BB4A7; --line:#33463B;
+  --accent:#7FD3A8; --accent-soft:#234032; --accent-2:#4F9E77; --ok:#72CDBD; --ok-2:#3F8F81;
+  --warn:#F0B45C; --danger:#FF7D8E; --sat:#7FB2EA;
+  --mint:#2A3A22; --butter:#3B3620; --sky:#1E2E3D;
+  --dots:rgba(127,211,168,.06); --btn-ink:#17201B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17201B; --surface:#202C25; --sunk:#121915; --ink:#E5F3EB; --muted:#9BB4A7; --line:#33463B;
+  --accent:#7FD3A8; --accent-soft:#234032; --accent-2:#4F9E77; --ok:#72CDBD; --ok-2:#3F8F81;
+  --warn:#F0B45C; --danger:#FF7D8E; --sat:#7FB2EA;
+  --mint:#2A3A22; --butter:#3B3620; --sky:#1E2E3D;
+  --dots:rgba(127,211,168,.06); --btn-ink:#17201B; color-scheme:dark}
+.btn.primary,.chip[aria-pressed="true"],.heads .add.on,.dday{color:var(--btn-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:var(--btn-ink)}}
+:root[data-theme="dark"] .btn.primary{color:var(--btn-ink)}
+.meter i{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 6px,var(--accent-2) 6px,var(--accent-2) 12px)}
+.meter.full i{background:repeating-linear-gradient(45deg,var(--ok),var(--ok) 6px,var(--ok-2) 6px,var(--ok-2) 12px)}
+.calweek .sat,.calgrid .sat .num,.calgrid .d.today.sat .num{color:var(--sat)}
