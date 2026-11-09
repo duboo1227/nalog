@@ -863,6 +863,21 @@ function route() {
 }
 window.addEventListener("hashchange", route);
 
+/* ---------------- 앱 설치 (PWA) ---------------- */
+if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("/sw.js").catch(() => {});
+const isStandalone = () => window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+let installEvt = null;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; if (!isStandalone()) $("#installBtn").hidden = false; });
+if (isIOS && !isStandalone()) $("#installBtn").hidden = false;
+$("#installBtn").addEventListener("click", async () => {
+  if (installEvt) { installEvt.prompt(); const r = await installEvt.userChoice; if (r.outcome === "accepted") $("#installBtn").hidden = true; installEvt = null; return; }
+  $("#installModal").hidden = false;
+});
+$("#installClose").addEventListener("click", () => { $("#installModal").hidden = true; });
+$("#installModal").addEventListener("click", e => { if (e.target.id === "installModal") $("#installModal").hidden = true; });
+window.addEventListener("appinstalled", () => { $("#installBtn").hidden = true; });
+
 /* ---------------- 로그인 ---------------- */
 const AUTH_ERR = m => /Invalid login credentials/i.test(m) ? "이메일이나 비밀번호가 달라. 아직 비밀번호를 안 만들었으면 아래 '메일로 로그인 링크 받기'로 들어간 다음 🔑 비밀번호에서 만들어줘."
   : /rate limit/i.test(m) ? "메일은 1시간에 2통까지만 보낼 수 있어. 잠시 후 다시 해보거나, 비밀번호로 로그인해줘."

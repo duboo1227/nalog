@@ -5,11 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F1F9F4">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="알았구나">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>✨알았구나🧑🏻‍🩰</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261109123925">
+<link rel="stylesheet" href="style.css?v=20261109124244">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -40,7 +47,7 @@
           <div class="quote" id="quoteLine" hidden></div>
         </div>
       </div>
-      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="setPwBtn" type="button">🔑 비밀번호</button><button class="linkbtn" id="logout">로그아웃</button></div>
+      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="installBtn" type="button" hidden>📲 앱 설치</button><button class="linkbtn" id="setPwBtn" type="button">🔑 비밀번호</button><button class="linkbtn" id="logout">로그아웃</button></div>
     </div>
   </header>
 
@@ -93,7 +100,7 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1239-25</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1242-44</div>
 
   <!-- ① NEWS -->
   <section class="view" id="v-news">
@@ -228,6 +235,19 @@
   </section>
 </div>
 
+<div class="modal" id="installModal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="installTitle" style="max-width:420px">
+    <div class="phead"><h2 id="installTitle">📲 홈 화면에 앱으로 추가</h2><button class="x" id="installClose" aria-label="닫기">×</button></div>
+    <ol class="installsteps">
+      <li><b>사파리</b>로 이 사이트를 열어줘 (크롬·카톡 안에서는 안 돼)</li>
+      <li>아래쪽 <b>공유 버튼</b>(네모에 화살표 ↑) 누르기</li>
+      <li>목록을 내려서 <b>홈 화면에 추가</b> 누르기</li>
+      <li>오른쪽 위 <b>추가</b> 누르면 끝 ✨</li>
+    </ol>
+    <div class="muted" style="font-size:12.5px">홈 화면 앱에서는 처음 한 번 <b>이메일 + 비밀번호</b>로 로그인해줘.</div>
+  </div>
+</div>
+
 <div class="modal" id="pwModal" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pwTitle" style="max-width:420px">
     <div class="phead"><h2 id="pwTitle">🔑 로그인 비밀번호</h2><button class="x" id="pwClose" aria-label="닫기">×</button></div>
@@ -246,7 +266,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261109123925"></script>
-<script src="app.js?v=20261109123925"></script>
+<script src="config.js?v=20261109124244"></script>
+<script src="app.js?v=20261109124244"></script>
 </body>
 </html>
