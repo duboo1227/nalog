@@ -22,6 +22,8 @@ jobs:
           node-version: 20
       - name: 헤드라인 수집
         run: node scripts/fetch-news.mjs
+        env:
+          DEBUG_TOPS: "1"
       - name: 커밋
         run: |
           git config user.name "news-bot"
