@@ -114,6 +114,7 @@ function renderNews() {
       // 신문사별로 번갈아 섞어서 한 페이지에 여러 신문이 보이게
       list = []; const max = Math.max(...srcs.map(s => s.items.length));
       for (let r = 0; r < max; r++) srcs.forEach(s => { if (s.items[r]) list.push(Object.assign({ src: s.name }, s.items[r])); });
+      list = list.slice(0, PER_PAGE); // 전체는 10개만
     } else list = srcs.find(s => s.name === newsPaper).items.map(i => Object.assign({ src: newsPaper }, i));
     const pagesN = Math.max(1, Math.ceil(list.length / PER_PAGE));
     if (newsPage >= pagesN) newsPage = pagesN - 1;
@@ -246,9 +247,10 @@ $("#caseGrid").addEventListener("click", e => { const b = e.target.closest("[dat
 $("#newCase").addEventListener("click", () => openCase(null, true));
 
 let editCase = null;
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
 function openCase(id, editing) {
   const src = id ? cases[id] : null;
-  editCase = { isNew: !src, data: src ? JSON.parse(JSON.stringify(src)) : { id: crypto.randomUUID(), date: TODAY, title: "", region: "갑상선", findings: "", impression: "", memo: "", tags: [], images: [] } };
+  editCase = { isNew: !src, data: src ? JSON.parse(JSON.stringify(src)) : { id: uuid(), date: TODAY, title: "", region: "갑상선", findings: "", impression: "", memo: "", tags: [], images: [] } };
   renderCaseSheet(editing);
   $("#caseModal").hidden = false; document.body.style.overflow = "hidden";
 }
@@ -278,8 +280,12 @@ async function renderCaseSheet(editing) {
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="cTags" value="${esc((c.tags || []).join(", "))}" placeholder="예: 석회화, f/u, 조직검사"></label>
     <div class="field"><span>이미지 (메모 사진, 캡처)</span>
       <div class="uploads">${(c.images || []).map((p, k) => `<div class="u"><img src="${esc(imgUrl(p))}" alt=""><button data-rm-img="${k}" aria-label="이미지 빼기">×</button></div>`).join("")}</div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px">
-        <label class="btn" style="display:inline-block">이미지 추가<input type="file" id="cFile" accept="image/*" multiple hidden></label>
+      <div class="pastebox" id="cPaste" contenteditable="true" role="textbox" aria-label="이미지 붙여넣기 칸" inputmode="none">
+        <b>여기에 이미지 붙여넣기</b>
+        <span>PC: 복사 후 Ctrl+V (⌘V) · 폰: 이 칸을 길게 눌러 '붙여넣기' · 끌어다 놓기도 돼</span>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px">
+        <label class="linkbtn" style="cursor:pointer">파일에서 선택<input type="file" id="cFile" accept="image/*" multiple hidden></label>
         <span class="muted" style="font-size:12.5px" id="cUpMsg">한 장당 20MB까지</span>
       </div>
     </div>
@@ -288,27 +294,51 @@ async function renderCaseSheet(editing) {
       <div style="display:flex;gap:8px"><button class="btn primary" data-act="save">저장</button><button class="btn ghost" data-act="close">취소</button></div>
       ${editCase.isNew ? "" : `<button class="btn danger" data-act="del">삭제</button>`}
     </div>`;
-  $("#cFile").addEventListener("change", uploadFiles);
+  $("#cFile").addEventListener("change", e => uploadFiles([...e.target.files]));
+  const box = $("#cPaste");
+  // 붙여넣기 칸에 글자가 들어가지 않게
+  box.addEventListener("beforeinput", e => { if (e.inputType !== "insertFromPaste") e.preventDefault(); });
+  box.addEventListener("dragover", e => { e.preventDefault(); box.classList.add("over"); });
+  box.addEventListener("dragleave", () => box.classList.remove("over"));
+  box.addEventListener("drop", e => { e.preventDefault(); box.classList.remove("over"); uploadFiles(imagesFrom(e.dataTransfer)); });
 }
+function imagesFrom(dt) {
+  if (!dt) return [];
+  let files = [...(dt.files || [])].filter(f => f.type.startsWith("image/"));
+  if (!files.length && dt.items) files = [...dt.items].filter(i => i.kind === "file" && i.type.startsWith("image/")).map(i => i.getAsFile()).filter(Boolean);
+  return files;
+}
+// 케이스 편집 화면이 열려 있으면 어디서든 Ctrl+V로 이미지 추가
+document.addEventListener("paste", e => {
+  if ($("#caseModal").hidden || !$("#cPaste")) return;
+  const files = imagesFrom(e.clipboardData);
+  if (!files.length) { if (e.target.closest && e.target.closest("#cPaste")) { e.preventDefault(); $("#cUpMsg").textContent = "클립보드에 이미지가 없어. 이미지를 먼저 복사해줘."; } return; }
+  e.preventDefault();
+  uploadFiles(files);
+});
 function readForm() {
   const c = editCase.data;
   c.date = $("#cDate").value || TODAY; c.region = $("#cRegion").value; c.title = $("#cTitle").value.trim();
   c.findings = $("#cFind").value; c.impression = $("#cImp").value; c.memo = $("#cMemo").value;
   c.tags = $("#cTags").value.split(",").map(s => s.trim()).filter(Boolean);
 }
-async function uploadFiles(e) {
-  const files = [...e.target.files]; if (!files.length) return;
+let uploading = false;
+async function uploadFiles(files) {
+  if (!files || !files.length || uploading) return;
+  uploading = true;
   readForm(); const msg = $("#cUpMsg"); let err = "";
   for (const [i, f] of files.entries()) {
     msg.textContent = `올리는 중 ${i + 1}/${files.length}…`;
     if (f.size > 20 * 1024 * 1024) { err = `${f.name}: 20MB 초과`; continue; }
-    const ext = (f.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const fromType = (f.type.split("/")[1] || "").replace("jpeg", "jpg").replace(/[^a-z0-9]/g, "");
+    const ext = fromType || (f.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
     const path = `${user.id}/${editCase.data.id}/${Date.now()}-${i}.${ext}`;
     const { error } = await sb.storage.from("cases").upload(path, f, { contentType: f.type || "image/jpeg" });
     if (error) err = `${f.name}: ${error.message}`; else editCase.data.images.push(path);
   }
+  uploading = false;
   await renderCaseSheet(true);
-  if (err) $("#cUpMsg").textContent = err;
+  $("#cUpMsg").textContent = err || `이미지 ${editCase.data.images.length}장 · 저장을 눌러야 케이스에 반영돼`;
 }
 async function saveCase() {
   readForm();
