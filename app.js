@@ -45,13 +45,13 @@ async function flushDay(date) {
   writing[date] = true;
   const { error } = await sb.from("days").upsert({ user_id: user.id, date, data, updated_at: new Date().toISOString() });
   writing[date] = false;
-  if (error) status("저장 실패: " + error.message); else status("저장됨 " + stamp());
+  if (error) status("저장 실패: " + error.message); else status("저장됨 💾 " + stamp());
 }
 window.addEventListener("beforeunload", e => { if (Object.keys(pending).length) { Object.keys(pending).forEach(flushDay); e.preventDefault(); e.returnValue = ""; } });
 document.addEventListener("visibilitychange", () => { if (document.hidden) Object.keys(pending).forEach(d => { clearTimeout(timers[d]); flushDay(d); }); });
 
 /* ---------------- 하루 데이터 ---------------- */
-function blankDay() { return { diaryOne: "", diary: "", news: [], book: { title: "", from: "", to: "", quote: "", note: "" }, study: [] }; }
+function blankDay() { return { todos: [], diaryOne: "", diary: "", news: [], book: { title: "", from: "", to: "", quote: "", note: "" }, study: [] }; }
 function getDay(d) { const x = days[d]; const b = blankDay(); if (!x) return b; const c = JSON.parse(JSON.stringify(x)); return Object.assign(b, c, { book: Object.assign(b.book, c.book || {}) }); }
 function pages(b) { const f = Number(b && b.from), t = Number(b && b.to); return (b && b.from !== "" && b.to !== "" && b.from != null && b.to != null && t >= f) ? (t - f + 1) : 0; }
 function sumMin(x) { return (x.study || []).reduce((a, s) => a + (Number(s.minutes) || 0), 0); }
@@ -63,16 +63,62 @@ function flags(x) {
     study: (x.study || []).some(s => (s.subject || "").trim() || (s.content || "").trim())
   };
 }
+function anyRecord(x) {
+  return Object.values(flags(x)).some(Boolean) || (x.todos || []).some(t => t.done);
+}
 function saveDay() { days[cur] = JSON.parse(JSON.stringify(day)); queueDay(cur, day); renderOverview(); }
 function allDays() { return Object.entries(days).map(([date, x]) => Object.assign({ date }, x)).sort((a, b) => a.date < b.date ? 1 : -1); }
 
 /* ---------------- 상단 요약 ---------------- */
 function filledDay(d) {
   const x = days[d];
-  if (x && Object.values(flags(x)).some(Boolean)) return true;
+  if (x && anyRecord(x)) return true;
   return Object.values(cases).some(c => c.date === d);
 }
 let calMonth = TODAY.slice(0, 7);
+const STICKERS = ["🌸", "🍀", "⭐", "🍓", "🐣", "🌼", "🍒", "🫧", "🧸", "🍑", "🌈", "🐥"];
+
+/* ---------------- 오늘 할 일 ---------------- */
+const onCal = () => $("#dayHead").hidden;
+const todoDate = () => onCal() ? TODAY : cur;
+function dayObj(date) { return date === cur ? day : getDay(date); }
+function commitDay(date, x) {
+  if (date === cur) day = x;
+  days[date] = JSON.parse(JSON.stringify(x));
+  queueDay(date, x);
+}
+// 오늘 처음 열면 이전 날 못 끝낸 할 일을 넘겨옴
+function carryTodos() {
+  const x = dayObj(TODAY);
+  if (x.todosInit) return;
+  const prev = allDays().find(d => d.date < TODAY && (d.todos || []).length);
+  const carry = prev ? prev.todos.filter(t => !t.done).map(t => ({ text: t.text, done: false, from: t.from || prev.date })) : [];
+  if (!carry.length) return;
+  x.todos = carry.concat(x.todos || []); x.todosInit = true;
+  commitDay(TODAY, x);
+}
+function renderTodos() {
+  const date = todoDate(), x = dayObj(date), list = x.todos || [];
+  $("#tbTitle").textContent = date === TODAY ? "✅ 오늘 할 일" : `✅ ${lab(date)} 할 일`;
+  const done = list.filter(t => t.done).length;
+  $("#tbCount").textContent = list.length ? `${done}/${list.length}` : "";
+  $("#todoList").innerHTML = list.length ? list.map((t, i) => `<li class="${t.done ? "done" : ""}">
+      <label><input type="checkbox" data-todo="${i}" ${t.done ? "checked" : ""}><span class="tt">${esc(t.text)}</span></label>
+      ${t.from ? `<span class="from">${short(t.from)}부터</span>` : ""}
+      <button class="x" data-del-todo="${i}" aria-label="삭제">×</button></li>`).join("")
+    : `<li class="empty">${date === TODAY ? "오늘 할 일을 적어봐 ✍️" : "이 날은 할 일이 없었어 ☁️"}</li>`;
+}
+function editTodos(fn) {
+  const date = todoDate(), x = dayObj(date);
+  x.todos = (x.todos || []).slice(); fn(x.todos); x.todosInit = true;
+  commitDay(date, x); renderTodos(); renderCal(); renderOverview();
+}
+$("#todoForm").addEventListener("submit", e => {
+  e.preventDefault(); const t = $("#todoInput").value.trim(); if (!t) return;
+  editTodos(l => l.push({ text: t, done: false })); $("#todoInput").value = ""; $("#todoInput").focus();
+});
+$("#todoList").addEventListener("change", e => { const c = e.target.closest("[data-todo]"); if (!c) return; editTodos(l => { l[Number(c.dataset.todo)] = Object.assign({}, l[Number(c.dataset.todo)], { done: c.checked }); }); });
+$("#todoList").addEventListener("click", e => { const b = e.target.closest("[data-del-todo]"); if (!b) return; editTodos(l => l.splice(Number(b.dataset.delTodo), 1)); });
 function renderCal() {
   const [y, m] = calMonth.split("-").map(Number);
   $("#calTitle").textContent = `${y}년 ${m}월`;
@@ -84,7 +130,7 @@ function renderCal() {
   for (let i = 1; i <= nDays; i++) {
     const d = `${calMonth}-${String(i).padStart(2, "0")}`, w = wd(d), fut = d > TODAY, f = !fut && filledDay(d);
     if (f) filled++;
-    html += `<button class="d${d === TODAY ? " today" : ""}${f ? " filled" : ""}${fut ? " future" : ""}${w === 0 ? " sun" : w === 6 ? " sat" : ""}" data-d="${d}" ${fut ? "disabled" : ""} aria-label="${lab(d)}${f ? ", 기록 있음" : ""}"><span class="num">${i}</span></button>`;
+    html += `<button class="d${d === TODAY ? " today" : ""}${f ? " filled" : ""}${fut ? " future" : ""}${w === 0 ? " sun" : w === 6 ? " sat" : ""}" data-d="${d}" ${fut ? "disabled" : ""} aria-label="${lab(d)}${f ? ", 기록 있음" : ""}"><span class="num">${i}</span>${f ? `<span class="stk" aria-hidden="true">${STICKERS[(i * 7 + m) % STICKERS.length]}</span>` : ""}</button>`;
   }
   $("#calGrid").innerHTML = html;
   let pg = 0, mins = 0;
@@ -103,8 +149,8 @@ function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
   const f = flags(day);
-  const items = [["news", "경제뉴스", (day.news || []).length + "건"], ["diary", "어제 일기", f.diary ? "작성" : "미작성"], ["book", "독서 5쪽", pages(day.book) + "쪽"], ["study", "공부", sumMin(day) + "분"]];
-  $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot"></i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5쪽", pages(day.book) + "쪽"], ["study", "✏️ 공부", sumMin(day) + "분"]];
+  $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
   Object.values(cases).forEach(c => { if ((c.date || "").slice(0, 7) === ym) cs++; });
@@ -179,7 +225,7 @@ $("#artList").addEventListener("input", e => { const m = e.target.closest("[data
 
 /* ---------------- ② 일기 ---------------- */
 function fillDiary() {
-  $("#diaryTitle").textContent = `${lab(addDays(cur, -1))} 일기`;
+  $("#diaryTitle").textContent = `🌙 ${lab(addDays(cur, -1))} 일기`;
   $("#diaryOne").value = day.diaryOne || ""; $("#diaryText").value = day.diary || "";
   $("#diaryCount").textContent = (day.diary || "").length + "자";
 }
@@ -412,7 +458,7 @@ function setDate(d) {
   fillAll(); renderAll(); loadNews(d);
 }
 function fillAll() { fillDiary(); fillBook(); fillStudy(); }
-function renderAll() { renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderCases(); }
+function renderAll() { renderTodos(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderCases(); }
 $("#prevDay").onclick = () => setDate(addDays(cur, -1));
 $("#nextDay").onclick = () => setDate(addDays(cur, 1));
 $("#goToday").onclick = () => setDate(TODAY);
@@ -424,6 +470,7 @@ function route() {
   $("#dayHead").hidden = v === "cal";
   $("#todayLabel").textContent = v === "cal" ? "오늘 · " + lab(TODAY) : (cur === TODAY ? "오늘 · " + lab(cur) : lab(cur));
   if (v === "cal") renderCal();
+  $("#todoBox").hidden = false; renderTodos();
   VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
   document.querySelectorAll("#tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + v ? "page" : "false"));
 }
@@ -457,6 +504,7 @@ async function startApp(session) {
   cases = {}; c.data.forEach(r => cases[r.id] = r);
   status("");
   setDate(cur);
+  carryTodos(); renderTodos();
 }
 
 let started = false;

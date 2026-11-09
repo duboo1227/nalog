@@ -191,3 +191,93 @@ details.past p{white-space:pre-wrap;margin:8px 0 0;font-family:var(--display)}
 .dayhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
 #dayHead .overview{grid-template-columns:1fr;margin-top:12px}
 #calToday{white-space:nowrap}
+
+/* ---- 오늘 할 일 ---- */
+.todobox{margin-top:16px;background:var(--surface);border:1.5px solid var(--ink);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.tb-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tb-head h2{font-size:22px}
+.todolist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.todolist li{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);min-width:0}
+.todolist li:first-child{border-top:0}
+.todolist label{display:flex;align-items:center;gap:10px;flex:1;min-width:0;cursor:pointer}
+.todolist input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);flex:none}
+.todolist .tt{font-size:17px;font-weight:700;color:var(--ink);overflow-wrap:anywhere}
+.todolist li.done .tt{text-decoration:line-through;color:var(--muted);font-weight:500}
+.todolist .from{font-size:11.5px;color:var(--warn);font-family:var(--mono);white-space:nowrap}
+.todolist li.empty{color:var(--muted);font-size:14px}
+.todoform{display:flex;gap:8px}
+.todoform input{flex:1;min-width:0;border:1px solid var(--line);background:var(--bg);border-radius:9px;padding:9px 11px}
+
+/* ================= 귀여운 파스텔 테마 ================= */
+:root{
+  --bg:#FFF4F7; --surface:#FFFFFF; --sunk:#FFE8EF; --ink:#4B3A48; --muted:#9C8595; --line:#F6D5E0;
+  --accent:#EE6A97; --accent-soft:#FFE0EB; --ok:#4DB487; --warn:#E89A2C; --danger:#E5577A;
+  --mint:#D8F3E7; --butter:#FFF1BF; --sky:#DDEEFF;
+  --hl:rgba(255,226,64,.8);
+  --display:"Jua", "Gowun Dodum", system-ui, sans-serif;
+  --body:"Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --dots:rgba(238,106,151,.09);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#211A22; --surface:#2C232E; --sunk:#1A141B; --ink:#F8EAF1; --muted:#B9A1B1; --line:#463848;
+  --accent:#FF9CBE; --accent-soft:#4A2D3C; --ok:#6FD3A5; --warn:#F2B55C; --danger:#FF7E9B;
+  --mint:#203A31; --butter:#3D3620; --sky:#1F2E40; --hl:rgba(255,214,10,.42); --dots:rgba(255,156,190,.06); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#211A22; --surface:#2C232E; --sunk:#1A141B; --ink:#F8EAF1; --muted:#B9A1B1; --line:#463848;
+  --accent:#FF9CBE; --accent-soft:#4A2D3C; --ok:#6FD3A5; --warn:#F2B55C; --danger:#FF7E9B;
+  --mint:#203A31; --butter:#3D3620; --sky:#1F2E40; --hl:rgba(255,214,10,.42); --dots:rgba(255,156,190,.06); color-scheme:dark}
+
+body{background-color:var(--bg);background-image:radial-gradient(var(--dots) 2.5px, transparent 2.6px);background-size:22px 22px}
+h1,h2,h3{font-weight:400;letter-spacing:.01em}
+.titlerow h1{font-size:32px}
+.panel,.overview,.todobox{border-radius:22px;border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.btn{border-radius:999px;border-width:2px;font-family:var(--display);font-weight:400;letter-spacing:.02em}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#2C232E}}
+:root[data-theme="dark"] .btn.primary{color:#2C232E}
+input[type=text],input[type=url],input[type=number],input[type=date],input[type=email],textarea,select,.todoform input{border-radius:14px;border:2px solid var(--line)}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);outline:none}
+nav.tabs{border-bottom:2px dashed var(--line)}
+nav.tabs a{font-family:var(--display);font-size:15px;border-radius:999px;border:2px solid transparent}
+nav.tabs a[aria-current="page"]{background:var(--accent-soft);color:var(--ink);border-color:var(--accent)}
+.label{font-family:var(--display);letter-spacing:.04em;text-transform:none;font-size:13px;color:var(--accent)}
+.chip{border-width:2px;font-family:var(--display)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.notice{background:var(--butter);border-radius:14px}
+.tag{background:var(--mint);color:var(--ink)}
+
+/* 할 일 상자: 맨 위, 진하게 */
+.todobox{border-color:var(--accent);box-shadow:0 5px 0 var(--accent-soft);background:var(--surface)}
+.tb-head h2{font-size:24px}
+.todolist .tt{font-size:18px;font-weight:700}
+.todolist input[type=checkbox]{accent-color:var(--accent)}
+.todolist .from{color:var(--accent)}
+
+/* 체크 상태 */
+.chk .dot{width:auto;height:auto;border:0;border-radius:0;font-style:normal;background:none!important;font-size:14px}
+.chk.done .t{font-weight:700}
+
+/* 달력 */
+.calhead h2{font-family:var(--display)}
+.calgrid .d{font-family:var(--display);font-size:17px;border-radius:16px}
+.calgrid .d:hover:not(:disabled){background:var(--accent-soft)}
+.calgrid .d.today .num{font-size:22px;font-weight:700}
+.calgrid .d .stk{position:absolute;right:6%;bottom:6%;font-size:13px;z-index:1;line-height:1}
+@media (max-width:480px){.calgrid .d .stk{font-size:10px;right:2%;bottom:3%}}
+
+/* 헤드라인·리스트 */
+.heads .n,.brief .n{color:var(--accent)}
+.heads .add{border-radius:999px;border-width:2px;font-family:var(--display)}
+.heads .add.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.papers a{border-radius:16px;border-width:2px;font-family:var(--display)}
+.papers a:hover{border-color:var(--accent);background:var(--accent-soft)}
+.meter{height:12px;background:var(--sunk);border:2px solid var(--line)}
+.meter i{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 6px,#F58BB0 6px,#F58BB0 12px)}
+.meter.full i{background:repeating-linear-gradient(45deg,var(--ok),var(--ok) 6px,#7ED3AC 6px,#7ED3AC 12px)}
+details.past{border-radius:16px;border-width:2px;background:var(--surface)}
+.case{border-radius:18px;border-width:2px}
+.pastebox{border-radius:18px;border-width:2px;background:var(--sky)}
+.modal .sheet{border-radius:22px}
+textarea.diary{font-family:var(--body);font-size:16px;background:repeating-linear-gradient(var(--surface),var(--surface) 31px,var(--line) 31px,var(--line) 32px);line-height:32px;padding-top:4px}
+.login h1{font-size:34px}
+.todaybtn,.datepick button{white-space:nowrap;flex:none}
