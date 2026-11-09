@@ -331,7 +331,7 @@ details.past.locked summary{color:var(--muted)}
 
 /* ---- 명언 ---- */
 .titleline{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
-.quote{position:relative;border:2px solid var(--accent);background:var(--surface);border-radius:16px;padding:7px 14px;max-width:min(460px,100%);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;color:var(--ink);font-family:var(--body)}
+.quote{cursor:default!important;position:relative;border:2px solid var(--accent);background:var(--surface);border-radius:16px;padding:7px 14px;max-width:min(460px,100%);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;color:var(--ink);font-family:var(--body)}
 .quote::before{content:"";position:absolute;left:-9px;top:50%;width:14px;height:14px;background:var(--surface);border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-50%) rotate(45deg)}
 .quote .qt{font-weight:700;font-size:14.5px;line-height:1.45}
 .quote .qa{font-size:12px;color:var(--muted)}

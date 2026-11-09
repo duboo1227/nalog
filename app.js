@@ -790,38 +790,18 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#caseM
 
 
 /* ---------------- 명언 ---------------- */
-// 출처가 분명한 것 위주. 출처가 불확실한 건 '전해지는 말'로 표시.
-// 규나가 컨펌한 명언만
+// 규나가 대화에서 컨펌한 명언만 여기에 추가. 하루에 하나, 날짜마다 랜덤(같은 날엔 같은 명언).
 const QUOTES = [
-  { id: "jjy1", t: "무슨 일이든 할 수 있다고 생각하는 사람이 해내는 법이다. 의심하면 의심하는 만큼밖에는 못하고, 할 수 없다고 생각하면 할 수 없다.", a: "아산 정주영, 주베일 산업항 공사 현장에서" }
 ];
-let quoteIdx = 0, quoteTimer = null;
-const chosenQuotes = () => QUOTES.filter(q => (settings.quotes || []).includes(q.id));
 function renderQuote() {
-  const list = chosenQuotes(), el = $("#quoteLine");
-  clearInterval(quoteTimer);
-  if (!list.length) { el.hidden = true; $("#quotePick").textContent = "💬 명언 고르기"; return; }
-  $("#quotePick").textContent = "💬 명언";
+  const el = $("#quoteLine");
+  if (!QUOTES.length) { el.hidden = true; return; }
+  let h = 0; for (const c of TODAY) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  h = (h ^ (h >>> 13)) * 2654435761 >>> 0;
+  const q = QUOTES[h % QUOTES.length];
+  el.innerHTML = `<span class="qt">“${esc(q.t)}”</span><span class="qa">— ${esc(q.a)}</span>`;
   el.hidden = false;
-  const show = () => { const q = list[quoteIdx % list.length]; el.innerHTML = `<span class="qt">“${esc(q.t)}”</span><span class="qa">— ${esc(q.a)}</span>`; el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade"); };
-  quoteIdx = quoteIdx % list.length; show();
-  if (list.length > 1) quoteTimer = setInterval(() => { quoteIdx++; show(); }, 10000);
 }
-$("#quoteLine").addEventListener("click", () => { quoteIdx++; renderQuote(); });
-function renderQuoteList() {
-  const sel = new Set(settings.quotes || []);
-  $("#quoteList").innerHTML = QUOTES.map(q => `<li><label><input type="checkbox" data-q="${q.id}" ${sel.has(q.id) ? "checked" : ""}><span><b>“${esc(q.t)}”</b><small>${esc(q.a)}</small></span></label></li>`).join("");
-}
-$("#quotePick").addEventListener("click", () => { renderQuoteList(); $("#quoteModal").hidden = false; document.body.style.overflow = "hidden"; });
-const closeQuotes = () => { $("#quoteModal").hidden = true; document.body.style.overflow = ""; renderQuote(); };
-$("#quoteClose").addEventListener("click", closeQuotes);
-$("#quoteDone").addEventListener("click", closeQuotes);
-$("#quoteModal").addEventListener("click", e => { if (e.target.id === "quoteModal") closeQuotes(); });
-$("#quoteList").addEventListener("change", e => {
-  const c = e.target.closest("[data-q]"); if (!c) return;
-  const s = new Set(settings.quotes || []); c.checked ? s.add(c.dataset.q) : s.delete(c.dataset.q);
-  settings.quotes = QUOTES.map(q => q.id).filter(id => s.has(id)); saveSettings();
-});
 
 /* ---------------- 날짜·탭 ---------------- */
 function setDate(d) {
@@ -906,7 +886,6 @@ function startDemo() {
    ["유방", "Fibroadenoma 의심", "Lt. 2시 1.5cm oval, circumscribed, parallel mass", "BI-RADS 3, 6개월 f/u", "Posterior enhancement 확인", ["f/u"], 1]].forEach(([region, title, findings, impression, memo, tags, n]) => {
     const id = uuid(); cases[id] = { id, date: D(n), region, title, findings, impression, memo, tags, images: [], created_at: new Date().toISOString() };
   });
-  settings.quotes = ["jjy1"];
   day = blankDay(); route(); setDate(TODAY); renderTodos(); renderQuote();
   status("");
 }

@@ -35,10 +35,10 @@
         <div class="label" id="todayLabel">하루기록</div>
         <div class="titleline">
           <h1>🌷 규나의 하루기록</h1>
-          <button class="quote" id="quoteLine" type="button" title="눌러서 다음 명언"></button>
+          <div class="quote" id="quoteLine" hidden></div>
         </div>
       </div>
-      <div class="toplinks"><button class="mini" id="quotePick" type="button">💬 명언 고르기</button><span class="muted" id="whoami"></span><button class="linkbtn" id="logout">로그아웃</button></div>
+      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="logout">로그아웃</button></div>
     </div>
   </header>
 
@@ -220,15 +220,6 @@
       <div class="cases" id="caseGrid"></div>
     </div>
   </section>
-</div>
-
-<div class="modal" id="quoteModal" hidden>
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
-    <div class="phead"><h2 id="quoteModalTitle">💬 제목 옆에 띄울 명언</h2><button class="x" id="quoteClose" aria-label="닫기">×</button></div>
-    <div class="muted" style="font-size:13px">체크한 명언만 제목 옆에 번갈아 떠. 여러 개 고르면 10초마다 바뀌고, 명언을 누르면 바로 다음 걸로 넘어가.</div>
-    <ul class="qlist" id="quoteList"></ul>
-    <div><button class="btn primary" id="quoteDone" type="button">완료</button></div>
-  </div>
 </div>
 
 <div class="modal" id="caseModal" hidden>
