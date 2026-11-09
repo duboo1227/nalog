@@ -37,8 +37,10 @@ function urlDate(u) {
   const m = u.match(/(20\d\d)[\/\-]?(0[1-9]|1[0-2])[\/\-]?(0[1-9]|[12]\d|3[01])/);
   return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null;
 }
+// 제목만 봐도 아는 유료 연재물 (구글뉴스 경유처럼 기사 페이지를 확인할 수 없을 때 대비)
+const PAID_TITLE = /(Global Money Club|머니랩|더중앙플러스|더중플|The JoongAng Plus|한경\s?프리미엄|프리미엄9|매경\s?\+|매경플러스|조선\s?멤버십|\[멤버십\])/i;
 export function isJunk(item, now = Date.now()) {
-  if (AD_WORDS.test(item.title) || AD_PATHS.test(item.link)) return true;
+  if (AD_WORDS.test(item.title) || AD_PATHS.test(item.link) || PAID_TITLE.test(item.title)) return true;
   const ud = urlDate(item.link.replace(/^https?:\/\/[^/]+/, ""));
   if (ud && now - ud > 4 * 864e5) return true;          // URL 날짜가 4일 넘게 지난 기사
   if (item.pubDate && now - Date.parse(item.pubDate) > 7 * 864e5) return true;
