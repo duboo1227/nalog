@@ -8,7 +8,7 @@ const gn = (site) =>
 // 각 신문사: 공식 RSS를 먼저 시도하고, 실패하면 구글뉴스(해당 사이트 한정) RSS로 대체
 const SOURCES = [
   { id: "joongang", pattern: /\/article\/\d{6,}/, name: "중앙일보", home: "https://www.joongang.co.kr/money",
-    feeds: ["https://rss.joins.com/joins_money_list.xml", gn("joongang.co.kr")] },
+    feeds: ["https://rss.joins.com/joins_money_list.xml", "page:https://www.joongang.co.kr/money", gn("joongang.co.kr")] },
   { id: "mk", pattern: /\/news\/[a-z]+\/\d{6,}/, name: "매일경제", home: "https://www.mk.co.kr/news/economy/",
     feeds: ["https://www.mk.co.kr/rss/30100041/", gn("mk.co.kr")] },
   { id: "chosun", pattern: /\/economy\/[a-z\-]+\/20\d\d\/\d\d\/\d\d\/[A-Z0-9]+/, name: "조선일보", home: "https://www.chosun.com/economy/",
@@ -16,9 +16,9 @@ const SOURCES = [
   { id: "donga", pattern: /\/news\/[A-Za-z]+\/article\/all\/\d{8}\/\d+/, name: "동아일보", home: "https://www.donga.com/news/Economy",
     feeds: ["https://rss.donga.com/economy.xml", gn("donga.com")] },
   { id: "hankyung", pattern: /\/article\/\d{8,}[a-z]?/, name: "한국경제", home: "https://www.hankyung.com/economy",
-    feeds: ["https://www.hankyung.com/feed/economy", gn("hankyung.com")] },
+    feeds: ["https://www.hankyung.com/feed/economy", "page:https://www.hankyung.com/economy", gn("hankyung.com")] },
   { id: "sedaily", pattern: /\/(article\/\d+|NewsView\/[A-Za-z0-9]+)/, name: "서울경제", home: "https://www.sedaily.com/",
-    feeds: [gn("sedaily.com")] },
+    feeds: ["page:https://www.sedaily.com/", gn("sedaily.com")] },
   { id: "yna", pattern: /\/view\/AKR\d+/, name: "연합뉴스", home: "https://www.yna.co.kr/economy/all",
     feeds: ["https://www.yna.co.kr/rss/economy.xml", gn("yna.co.kr")] },
 ];
@@ -104,8 +104,13 @@ async function collect(src) {
   const errors = [];
   for (const url of src.feeds) {
     try {
-      const xml = await fetchText(url);
-      let items = parseRss(xml, src.name);
+      let items;
+      if (url.startsWith("page:")) {
+        // RSS가 없는 신문: 경제면 페이지의 기사 링크를 직접 모음 (구글 경유보다 정확하고 원문 주소라 유료 여부 확인 가능)
+        const pageUrl = url.slice(5);
+        items = extractTops(await fetchText(pageUrl), pageUrl, src.pattern, 60);
+        if (items.length < 10) throw new Error(`페이지에서 ${items.length}건뿐`);
+      } else items = parseRss(await fetchText(url), src.name);
       const now = Date.now();
       const strict = url.includes("news.google.com");
       items = items.filter(i => !isJunk(i, now) && !NONECON.test(i.title) && (!strict || ECON.test(i.title)));
@@ -116,7 +121,7 @@ async function collect(src) {
       const seen = new Set();
       items = items.filter(i => (seen.has(i.title) ? false : seen.add(i.title)));
       if (!items.length) throw new Error("기사 0건");
-      return { id: src.id, name: src.name, home: src.home, via: url.includes("news.google.com") ? "google" : "rss", items: items.slice(0, PER_SOURCE) };
+      return { id: src.id, name: src.name, home: src.home, via: url.includes("news.google.com") ? "google" : url.startsWith("page:") ? "page" : "rss", items: items.slice(0, PER_SOURCE) };
     } catch (e) { errors.push(`${url.slice(0, 60)}… ${e.message}`); }
   }
   return { id: src.id, name: src.name, home: src.home, items: [], error: errors.join(" | ") };
@@ -151,11 +156,48 @@ async function collectTops(src) {
   } catch (e) { if (process.env.DEBUG_TOPS) console.log(`[top] ${src.name}: 실패 ${e.message}`); return []; }
 }
 
+// 유료(구독자 전용) 기사 거르기: 기사 페이지를 열어 신문사별 유료 표시 확인. 결과는 캐시해서 4시간마다 다시 열지 않음
+export function isPaid(html, link) {
+  if (/"isAccessibleForFree"\s*:\s*("?false"?)/i.test(html)) return true;             // 중앙(더중앙플러스) 등 표준 표시
+  const mk = html.match(/is_paid_content\s*:\s*['"]([^'"]*)['"]/);                         // 매일경제(매경플러스)
+  if (mk && mk[1] && !/^(n|no|false|0)$/i.test(mk[1])) return true;
+  if (/chosun\.com/.test(link) && /조선멤버십/.test(html)) return true;                    // 조선일보(조선멤버십)
+  return false;
+}
+async function filterPaid(sources) {
+  const CACHE = "data/news/paywall-cache.json";
+  let cache = {}; try { cache = JSON.parse(await readFile(CACHE, "utf8")); } catch {}
+  const now = Date.now();
+  for (const k of Object.keys(cache)) if (now - cache[k].t > 7 * 864e5) delete cache[k];
+  const all = [];
+  sources.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (!i.link.includes("news.google.com") && !(i.link in cache)) all.push(i.link); }));
+  const todo = [...new Set(all)];
+  let idx = 0;
+  async function worker() {
+    while (idx < todo.length) {
+      const link = todo[idx++];
+      try { cache[link] = { paid: isPaid(await fetchText(link), link), t: now }; } catch { /* 열리지 않으면 판단 보류 */ }
+    }
+  }
+  await Promise.all(Array.from({ length: 6 }, worker));
+  let removed = 0;
+  sources.forEach(s => {
+    const keep = i => !(cache[i.link] && cache[i.link].paid);
+    const b = s.items.length + (s.tops || []).length;
+    s.items = s.items.filter(keep); s.tops = (s.tops || []).filter(keep);
+    const r = b - s.items.length - s.tops.length; removed += r;
+    if (r) console.log(`유료 제외 ${s.name}: ${r}건`);
+  });
+  await writeFile(CACHE, JSON.stringify(cache));
+  console.log(`유료 기사 확인: 새로 ${todo.length}건 열어봄, ${removed}건 제외`);
+}
+
 async function main() {
   const date = kstDate();
   const sources = await Promise.all(SOURCES.map(collect));
   const tops = await Promise.all(SOURCES.map(collectTops));
   sources.forEach((s, i) => { s.tops = tops[i]; s.topsFrom = tops[i].length ? "page" : "rss"; });
+  await filterPaid(sources);
   sources.forEach(s => console.log(`${s.name}: ${s.items.length}건 ${s.via || ""} · 메인 ${s.tops.length}건 ${s.error || ""}`));
   await mkdir("data/news", { recursive: true });
   const out = { date, generatedAt: new Date().toISOString(), sources };
