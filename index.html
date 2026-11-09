@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261109181831">
+<link rel="stylesheet" href="style.css?v=20261109182034">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -100,7 +100,7 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1818-31</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1820-34</div>
 
   <!-- ① NEWS -->
   <section class="view" id="v-news">
@@ -151,6 +151,17 @@
       <div id="diaryEditor" style="display:flex;flex-direction:column;gap:12px">
         <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="오늘을 한 문장으로"></label>
         <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="오늘 있었던 일, 느낀 것, 내일 다르게 할 것"></textarea></label>
+        <div class="field"><span>🖼️ 사진</span>
+          <div class="uploads diaryimgs" id="diaryImgs"></div>
+          <div class="pastebox" id="diaryPaste" contenteditable="true" role="textbox" aria-label="일기 사진 붙여넣기 칸" inputmode="none">
+            <b>여기에 사진 붙여넣기</b>
+            <span>PC: 복사 후 Ctrl+V (⌘V) · 폰: 이 칸을 길게 눌러 '붙여넣기' · 끌어다 놓기도 돼</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px">
+            <label class="linkbtn" style="cursor:pointer">파일에서 선택<input type="file" id="diaryFile" accept="image/*" multiple hidden></label>
+            <span class="muted" style="font-size:12.5px" id="diaryUpMsg">한 장당 20MB까지</span>
+          </div>
+        </div>
       </div>
       <div class="lockbox" id="diaryLockedBox" hidden>
         <div class="lockicon">🔐</div>
@@ -266,7 +277,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261109181831"></script>
-<script src="app.js?v=20261109181831"></script>
+<script src="config.js?v=20261109182034"></script>
+<script src="app.js?v=20261109182034"></script>
 </body>
 </html>

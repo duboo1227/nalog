@@ -445,3 +445,7 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .todolist li.done .tt{font-weight:700}
 .todolist input[type=checkbox]{width:18px;height:18px}
 .todolist li{padding:7px 0}
+
+/* 일기 사진 */
+.diaryimgs .u{width:110px;height:110px}
+.diaryimgs:empty{display:none}

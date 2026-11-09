@@ -88,7 +88,7 @@ function sumMin(x) { return (x.study || []).reduce((a, s) => a + (Number(s.minut
 function flags(x) {
   return {
     news: (x.news || []).length > 0,
-    diary: !!x.diaryLocked || ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
+    diary: !!x.diaryLocked || (x.diaryImages || []).length > 0 || ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
     book: pages(x.book) >= GOAL_SHEETS * 2,
     study: (x.study || []).some(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim())
   };
@@ -317,20 +317,76 @@ async function fillDiary() {
       if (date !== cur) return;
       lockedDraft = plain;
       $("#diaryOne").value = plain.one || ""; $("#diaryText").value = plain.text || "";
-      $("#diaryCount").textContent = (plain.text || "").length + "자 🔓"; diaryMode("edit");
+      $("#diaryCount").textContent = (plain.text || "").length + "자 🔓"; diaryMode("edit"); renderDiaryImgs();
     } catch (_) { diaryKey = null; lockIntent = "open"; diaryMode("locked"); $("#diaryLockMsg").textContent = "비밀번호를 다시 입력해줘."; }
     return;
   }
   $("#diaryLockChk").checked = false;
   $("#diaryOne").value = day.diaryOne || ""; $("#diaryText").value = day.diary || "";
   $("#diaryCount").textContent = (day.diary || "").length + "자";
-  diaryMode("edit");
+  diaryMode("edit"); renderDiaryImgs();
 }
+
+/* 일기 사진: 붙여넣기·끌어놓기·파일 선택. 잠긴 일기는 사진 목록도 암호화 */
+const curDiaryImgs = () => day.diaryLocked ? ((lockedDraft && lockedDraft.images) || []) : (day.diaryImages || []);
+async function setDiaryImgs(arr) {
+  if (day.diaryLocked) {
+    if (!diaryKey || !lockedDraft) return;
+    lockedDraft = Object.assign({}, lockedDraft, { images: arr });
+    day.diaryEnc = await encObj(diaryKey, lockedDraft); saveDay();
+  } else { day.diaryImages = arr; saveDay(); }
+  renderDiaryImgs(); renderPastDiary();
+}
+async function renderDiaryImgs() {
+  const list = curDiaryImgs(), date = cur;
+  await signPaths(list);
+  if (date !== cur) return;
+  $("#diaryImgs").innerHTML = list.map((p, k) => `<div class="u"><a href="${esc(signed[p] || "")}" target="_blank" rel="noopener"><img src="${esc(signed[p] || "")}" alt="일기 사진 ${k + 1}"></a><button type="button" data-rm-dimg="${k}" aria-label="사진 빼기">×</button></div>`).join("");
+}
+let diaryUploading = false;
+async function uploadDiaryImages(files) {
+  if (!files || !files.length || diaryUploading) return;
+  if (day.diaryLocked && !diaryKey) return;
+  diaryUploading = true;
+  const msg = $("#diaryUpMsg"), added = []; let err = "";
+  for (const [i, f] of files.entries()) {
+    msg.textContent = `올리는 중 ${i + 1}/${files.length}…`;
+    if (f.size > 20 * 1024 * 1024) { err = `${f.name}: 20MB 초과`; continue; }
+    const ext = ((f.type.split("/")[1] || "").replace("jpeg", "jpg").replace(/[^a-z0-9]/g, "")) || "jpg";
+    const path = `${user.id}/diary/${cur}/${Date.now()}-${i}.${ext}`;
+    const { error } = await sb.storage.from("cases").upload(path, f, { contentType: f.type || "image/jpeg" });
+    if (error) err = `${f.name}: ${error.message}`; else added.push(path);
+  }
+  diaryUploading = false;
+  if (added.length) await setDiaryImgs(curDiaryImgs().concat(added));
+  msg.textContent = err || (added.length ? `사진 ${added.length}장 추가했어 📷` : "");
+}
+$("#diaryFile").addEventListener("change", e => { uploadDiaryImages([...e.target.files]); e.target.value = ""; });
+$("#diaryImgs").addEventListener("click", async e => {
+  const b = e.target.closest("[data-rm-dimg]"); if (!b) return;
+  const list = curDiaryImgs().slice(), [gone] = list.splice(Number(b.dataset.rmDimg), 1);
+  await setDiaryImgs(list);
+  if (gone) sb.storage.from("cases").remove([gone]);
+});
+(() => {
+  const box = $("#diaryPaste");
+  box.addEventListener("beforeinput", e => { if (e.inputType !== "insertFromPaste") e.preventDefault(); });
+  box.addEventListener("dragover", e => { e.preventDefault(); box.classList.add("over"); });
+  box.addEventListener("dragleave", () => box.classList.remove("over"));
+  box.addEventListener("drop", e => { e.preventDefault(); box.classList.remove("over"); uploadDiaryImages(imagesFrom(e.dataTransfer)); });
+})();
+// 일기 화면에서는 어디서든 Ctrl+V로 사진 추가 (글자 붙여넣기는 그대로)
+document.addEventListener("paste", e => {
+  if ($("#v-diary").hidden || $("#diaryEditor").hidden || !$("#caseModal").hidden) return;
+  const files = imagesFrom(e.clipboardData);
+  if (!files.length) { if (e.target.closest && e.target.closest("#diaryPaste")) { e.preventDefault(); $("#diaryUpMsg").textContent = "클립보드에 사진이 없어. 사진을 먼저 복사해줘."; } return; }
+  e.preventDefault(); uploadDiaryImages(files);
+});
 function onDiaryInput() {
   const one = $("#diaryOne").value, text = $("#diaryText").value;
   if (day.diaryLocked) {
     if (!diaryKey) return;
-    lockedDraft = { one, text }; $("#diaryCount").textContent = text.length + "자 🔓";
+    lockedDraft = { one, text, images: (lockedDraft && lockedDraft.images) || [] }; $("#diaryCount").textContent = text.length + "자 🔓";
     clearTimeout(encTimer); status("저장 중…");
     const date = cur, draft = lockedDraft;
     encTimer = setTimeout(async () => { const e = await encObj(diaryKey, draft); if (date === cur && day.diaryLocked) { day.diaryEnc = e; saveDay(); } }, 600);
@@ -342,15 +398,15 @@ $("#diaryOne").addEventListener("input", onDiaryInput);
 $("#diaryText").addEventListener("input", onDiaryInput);
 
 async function doLock() {
-  const plain = { one: $("#diaryOne").value, text: $("#diaryText").value };
+  const plain = { one: $("#diaryOne").value, text: $("#diaryText").value, images: day.diaryImages || [] };
   day.diaryEnc = await encObj(diaryKey, plain);
-  day.diaryLocked = true; day.diary = ""; day.diaryOne = "";
+  day.diaryLocked = true; day.diary = ""; day.diaryOne = ""; delete day.diaryImages;
   saveDay(); renderPastDiary(); fillDiary();
   status("🔒 이 날 일기를 잠갔어");
 }
 async function doUnlockForever() {
   const plain = lockedDraft || await decObj(diaryKey, day.diaryEnc);
-  day.diary = plain.text || ""; day.diaryOne = plain.one || "";
+  day.diary = plain.text || ""; day.diaryOne = plain.one || ""; day.diaryImages = plain.images || [];
   delete day.diaryEnc; day.diaryLocked = false;
   saveDay(); renderPastDiary(); fillDiary();
   status("🔓 잠금을 풀었어");
@@ -399,7 +455,7 @@ $("#relock").addEventListener("click", () => { diaryKey = null; fillDiary(); ren
 
 // 지난 일기 달력: 일기를 쓴 날만 초록 형광펜
 let diaryMonth = null;
-function diaryWritten(x) { return !!x && (x.diaryLocked || (x.diary || "").trim() || (x.diaryOne || "").trim()); }
+function diaryWritten(x) { return !!x && (x.diaryLocked || (x.diaryImages || []).length || (x.diary || "").trim() || (x.diaryOne || "").trim()); }
 function renderPastDiary() {
   const about = cur, lastDay = TODAY;
   if (!diaryMonth) diaryMonth = about.slice(0, 7);
