@@ -234,7 +234,11 @@ function renderNews() {
   }
   const arts = day.news || [];
   $("#artCount").textContent = arts.length + "건";
-  $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li><div class="body">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener"><b>${esc(a.title)}</b></a>` : `<b>${esc(a.title)}</b>`}${a.src ? ` <span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}<input type="text" class="memo" data-memo="${i}" value="${esc(a.memo)}" placeholder="한 줄 생각" style="margin-top:6px;padding:6px 9px;font-size:14px"></div><button class="x" data-del-art="${i}" aria-label="삭제">×</button></li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
+  $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li class="art">
+      <div class="arthead"><div class="body">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener"><b>${esc(a.title)}</b></a>` : `<b>${esc(a.title)}</b>`}${a.src ? ` <span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}</div><button class="x" data-del-art="${i}" aria-label="삭제">×</button></div>
+      <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
+      <label class="field"><span>💭 구나생각</span><textarea class="artth" data-th="${i}" rows="3" placeholder="왜 중요한지, 내 투자·생활에 주는 의미">${esc(a.thought ?? a.memo ?? "")}</textarea></label>
+    </li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
 }
 $("#paperChips").addEventListener("click", e => { const b = e.target.closest("[data-paper]"); if (!b) return; newsPaper = b.dataset.paper; newsPage = 0; renderNews(); });
 $("#pagePrev").addEventListener("click", () => { if (newsPage > 0) { newsPage--; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); } });
@@ -243,19 +247,23 @@ $("#heads").addEventListener("click", e => {
   const b = e.target.closest("[data-add]"); if (!b) return;
   const it = $("#heads")._list[Number(b.dataset.add)];
   const idx = (day.news || []).findIndex(a => a.url === it.link);
-  if (idx >= 0) day.news.splice(idx, 1); else day.news = (day.news || []).concat([{ title: it.title, url: it.link, src: it.src, memo: "" }]);
+  if (idx >= 0) day.news.splice(idx, 1); else day.news = (day.news || []).concat([{ title: it.title, url: it.link, src: it.src, summary: "", thought: "" }]);
   saveDay(); renderNews();
 });
 $("#artForm").addEventListener("submit", e => {
   e.preventDefault();
   const title = $("#artTitle").value.trim(); if (!title) { $("#artTitle").focus(); return; }
   let url = $("#artUrl").value.trim(); if (url && !/^https?:\/\//.test(url)) url = "https://" + url;
-  day.news = (day.news || []).concat([{ title, url, memo: $("#artMemo").value.trim() }]);
-  $("#artTitle").value = $("#artUrl").value = $("#artMemo").value = "";
+  day.news = (day.news || []).concat([{ title, url, summary: $("#artSum").value.trim(), thought: $("#artThought").value.trim() }]);
+  $("#artTitle").value = $("#artUrl").value = $("#artSum").value = $("#artThought").value = "";
   saveDay(); renderNews();
 });
 $("#artList").addEventListener("click", e => { const b = e.target.closest("[data-del-art]"); if (!b) return; day.news.splice(Number(b.dataset.delArt), 1); saveDay(); renderNews(); });
-$("#artList").addEventListener("input", e => { const m = e.target.closest("[data-memo]"); if (!m) return; day.news[Number(m.dataset.memo)].memo = m.value; saveDay(); });
+$("#artList").addEventListener("input", e => {
+  const sm = e.target.closest("[data-sum]"), th = e.target.closest("[data-th]");
+  if (sm) { day.news[Number(sm.dataset.sum)].summary = sm.value; saveDay(); }
+  else if (th) { const a = day.news[Number(th.dataset.th)]; a.thought = th.value; delete a.memo; saveDay(); }
+});
 
 /* ---------------- ② 일기 (+ 비밀번호 잠금) ---------------- */
 // 잠근 일기는 비밀번호로 만든 키로 암호화(AES-GCM)해서 저장. 비밀번호를 잊으면 서버에서도 복구 불가.

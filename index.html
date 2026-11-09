@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261109123222">
+<link rel="stylesheet" href="style.css?v=20261109123749">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -93,7 +93,7 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1232-22</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1237-49</div>
 
   <!-- ① NEWS -->
   <section class="view" id="v-news">
@@ -111,14 +111,17 @@
     <div class="panel">
       <div class="phead"><h2>🔖 내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
       <ul class="artlist" id="artList"></ul>
+      <details class="addart"><summary>+ 목록에 없는 기사 직접 추가</summary>
       <form id="artForm" style="display:flex;flex-direction:column;gap:10px">
         <div class="row">
-          <label class="field"><span>기사 제목</span><input type="text" id="artTitle" placeholder="직접 추가할 기사"></label>
+          <label class="field"><span>기사 제목</span><input type="text" id="artTitle" placeholder="목록에 없는 기사 직접 추가"></label>
           <label class="field"><span>링크 (선택)</span><input type="url" id="artUrl" placeholder="https://"></label>
         </div>
-        <label class="field"><span>한 줄 생각</span><input type="text" id="artMemo" placeholder="왜 중요한지, 내 투자에 주는 의미"></label>
+        <label class="field"><span>📄 본문요약</span><textarea id="artSum" rows="4" placeholder="중요한 문장 복사해서 붙여넣기"></textarea></label>
+        <label class="field"><span>💭 구나생각</span><textarea id="artThought" rows="2" placeholder="왜 중요한지, 내 투자·생활에 주는 의미"></textarea></label>
         <div><button class="btn primary" type="submit">기사 추가</button></div>
       </form>
+      </details>
     </div>
     <div class="panel">
       <div class="phead"><h2>🗞️ 신문 경제면 바로가기</h2></div>
@@ -243,7 +246,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261109123222"></script>
-<script src="app.js?v=20261109123222"></script>
+<script src="config.js?v=20261109123749"></script>
+<script src="app.js?v=20261109123749"></script>
 </body>
 </html>

@@ -396,3 +396,11 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .meter i{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 6px,var(--accent-2) 6px,var(--accent-2) 12px)}
 .meter.full i{background:repeating-linear-gradient(45deg,var(--ok),var(--ok) 6px,var(--ok-2) 6px,var(--ok-2) 12px)}
 .calweek .sat,.calgrid .sat .num,.calgrid .d.today.sat .num{color:var(--sat)}
+
+/* 내가 읽은 기사 */
+.artlist li.art{flex-direction:column;align-items:stretch;gap:8px;padding:12px 14px}
+.arthead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.artsum{min-height:120px;line-height:1.65;font-size:14.5px}
+.artth{min-height:70px;line-height:1.6;font-size:14.5px}
+.addart summary{cursor:pointer;color:var(--accent);font-family:var(--display);font-size:14px;padding:4px 0}
+.addart[open] summary{margin-bottom:10px}
