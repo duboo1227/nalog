@@ -125,7 +125,7 @@ function carryTodos() {
 }
 function renderTodos() {
   const date = todoDate(), x = dayObj(date), list = x.todos || [];
-  $("#tbTitle").textContent = date === TODAY ? "✅ 오늘 할 일" : `✅ ${lab(date)} 할 일`;
+  $("#tbTitle").textContent = date === TODAY ? "📝 오늘 할 일" : `📝 ${lab(date)} 할 일`;
   const done = list.filter(t => t.done).length;
   $("#tbCount").textContent = list.length ? `${done}/${list.length}` : "";
   $("#todoList").innerHTML = list.length ? list.map((t, i) => `<li class="${t.done ? "done" : ""}">
