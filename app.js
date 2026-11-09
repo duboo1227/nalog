@@ -179,7 +179,7 @@ function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
   const f = flags(day);
-  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
@@ -306,7 +306,7 @@ function diaryMode(m) {   // "edit" | "locked" | "setup"
 }
 async function fillDiary() {
   const date = cur;
-  $("#diaryTitle").textContent = `🌙 ${lab(addDays(cur, -1))} 일기`;
+  $("#diaryTitle").textContent = cur === TODAY ? "🌙 오늘 일기" : `🌙 ${lab(cur)} 일기`;
   $("#diaryLockMsg").textContent = ""; $("#diaryPw").value = "";
   lockedDraft = null;
   if (day.diaryLocked) {
@@ -397,18 +397,18 @@ $("#diarySetupForm").addEventListener("submit", async e => {
 $("#diarySetupCancel").addEventListener("click", () => diaryMode("edit"));
 $("#relock").addEventListener("click", () => { diaryKey = null; fillDiary(); renderPastDiary(); status("🔒 다시 잠갔어"); });
 
-// 지난 일기 달력: 날짜 = 일기에 적힌 그날(기록일의 전날). 쓴 날만 초록 형광펜
+// 지난 일기 달력: 일기를 쓴 날만 초록 형광펜
 let diaryMonth = null;
 function diaryWritten(x) { return !!x && (x.diaryLocked || (x.diary || "").trim() || (x.diaryOne || "").trim()); }
 function renderPastDiary() {
-  const about = addDays(cur, -1), lastDay = addDays(TODAY, -1);
+  const about = cur, lastDay = TODAY;
   if (!diaryMonth) diaryMonth = about.slice(0, 7);
   const [y, m] = diaryMonth.split("-").map(Number);
   const first = `${diaryMonth}-01`, lead = wd(first), nDays = new Date(Date.UTC(y, m, 0)).getUTCDate();
   let html = "", count = 0;
   for (let i = 0; i < lead; i++) html += `<span class="d blank"></span>`;
   for (let i = 1; i <= nDays; i++) {
-    const d = `${diaryMonth}-${String(i).padStart(2, "0")}`, rec = days[addDays(d, 1)], w = wd(d), fut = d > lastDay;
+    const d = `${diaryMonth}-${String(i).padStart(2, "0")}`, rec = days[d], w = wd(d), fut = d > lastDay;
     const ok = !fut && diaryWritten(rec); if (ok) count++;
     html += `<button class="d${ok ? " dfilled" : ""}${d === about ? " sel" : ""}${fut ? " future" : ""}${w === 0 ? " sun" : w === 6 ? " sat" : ""}" data-dd="${d}" ${fut ? "disabled" : ""} title="${lab(d)}${ok ? (rec.diaryLocked ? " · 잠긴 일기" : " · " + (rec.diaryOne || "일기 있음")) : ""}"><span class="num">${i}</span>${ok && rec.diaryLocked ? `<span class="stk" aria-hidden="true">🔒</span>` : ""}</button>`;
   }
@@ -427,7 +427,7 @@ $("#pastDiary").addEventListener("click", e => {
   if (mv) { const [y, m] = diaryMonth.split("-").map(Number); diaryMonth = new Date(Date.UTC(y, m - 1 + Number(mv.dataset.dmove), 1)).toISOString().slice(0, 7); renderPastDiary(); return; }
   const b = e.target.closest("[data-dd]"); if (!b || b.disabled) return;
   diaryMonth = b.dataset.dd.slice(0, 7);
-  setDate(addDays(b.dataset.dd, 1));
+  setDate(b.dataset.dd);
   $("#v-diary").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
@@ -996,7 +996,7 @@ function startDemo() {
   days[D(5)] = { diaryOne: "퇴근 후 산책", diary: "날씨가 좋아서 한 시간 걸었다.", book: { title: "예시 에세이", from: 13, to: 20 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 40, minutes: 50 }] };
   days[D(3)] = { diaryOne: "공부 집중한 날", diary: "", book: { title: "예시 에세이", from: 21, to: 28 }, study: [{ taskId: t1, goalId: g1, subject: "유방초음파진단학 1회독 + 나만의 노트", from: 35, to: 72, minutes: 90, content: "BI-RADS lexicon 표로 정리" }, { taskId: t4, goalId: g2, subject: "원서 읽기", from: 1, to: 15, minutes: 30 }] };
   days[D(2)] = { news: [{ title: "예시 기사: 금리 동결", url: "", memo: "" }], todos: [{ text: "케이스 사진 정리", done: true }, { text: "보험 서류 챙기기", done: false }] };
-  days[D(1)] = { diaryOne: "케이스 정리 완료", diary: "어제 본 섬유선종 케이스를 정리했다.", book: { title: "예시 에세이", from: 29, to: 36 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 35, minutes: 40 }] };
+  days[D(1)] = { diaryOne: "케이스 정리 완료", diary: "오늘 본 섬유선종 케이스를 정리했다.", book: { title: "예시 에세이", from: 29, to: 36 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 35, minutes: 40 }] };
   days[TODAY] = { todos: [{ text: "기출 30문항 풀기", done: false }, { text: "경제 기사 3개 읽기", done: true }, { text: "보험 서류 챙기기", done: false, from: D(2) }], todosInit: true };
   cases = {};
   [["갑상선", "Thyroid nodule, K-TIRADS 4", "Rt. lobe 1.2cm hypoechoic solid nodule, microcalcification(+)", "K-TIRADS 4, FNA 권고", "Taller-than-wide 여부 횡단·종단 모두 확인할 것", ["석회화", "FNA"], 4],

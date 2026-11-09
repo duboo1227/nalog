@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261109144035">
+<link rel="stylesheet" href="style.css?v=20261109181831">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -100,7 +100,7 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1440-35</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 1818-31</div>
 
   <!-- ① NEWS -->
   <section class="view" id="v-news">
@@ -139,7 +139,7 @@
   <!-- ② DIARY -->
   <section class="view" id="v-diary" hidden>
     <div class="panel">
-      <div class="phead"><h2 id="diaryTitle">어제 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
+      <div class="phead"><h2 id="diaryTitle">🌙 오늘 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
       <div class="lockrow" id="diaryLockRow">
         <label class="chkline" id="lockChkWrap"><input type="checkbox" id="diaryLockChk"> 🔒 이 날 일기 잠그기</label>
         <span class="lockstate" id="lockState" hidden>🔓 잠긴 일기를 열어둔 상태</span>
@@ -149,8 +149,8 @@
         </span>
       </div>
       <div id="diaryEditor" style="display:flex;flex-direction:column;gap:12px">
-        <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="어제를 한 문장으로"></label>
-        <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="어제 있었던 일, 느낀 것, 다음에 다르게 할 것"></textarea></label>
+        <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="오늘을 한 문장으로"></label>
+        <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="오늘 있었던 일, 느낀 것, 내일 다르게 할 것"></textarea></label>
       </div>
       <div class="lockbox" id="diaryLockedBox" hidden>
         <div class="lockicon">🔐</div>
@@ -266,7 +266,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261109144035"></script>
-<script src="app.js?v=20261109144035"></script>
+<script src="config.js?v=20261109181831"></script>
+<script src="app.js?v=20261109181831"></script>
 </body>
 </html>
