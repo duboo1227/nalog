@@ -18,7 +18,29 @@ const PAPERS = [
   ["연합뉴스", "https://www.yna.co.kr/economy/all"], ["네이버 경제", "https://news.naver.com/section/101"]
 ];
 
-const sb = window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY);
+// ?demo 로 열면 구경 모드: 예시 데이터, 서버에 아무것도 저장하지 않음
+const DEMO = new URLSearchParams(location.search).has("demo");
+const sb = DEMO ? demoClient() : window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY);
+function demoClient() {
+  const chain = () => {
+    const q = {
+      upsert(row) { q._row = row; return q; }, select() { return q; }, delete() { return q; }, order() { return q; },
+      single() { return Promise.resolve({ data: Object.assign({ created_at: new Date().toISOString() }, q._row), error: null }); },
+      eq() { return Promise.resolve({ error: null }); }, limit() { return Promise.resolve({ data: [], error: null }); },
+      then(res, rej) { return Promise.resolve({ error: null }).then(res, rej); }
+    };
+    return q;
+  };
+  return {
+    from: chain,
+    storage: { from() { return {
+      upload(path, f) { signed[path] = URL.createObjectURL(f); return Promise.resolve({ error: null }); },
+      remove() { return Promise.resolve({}); },
+      createSignedUrls(ps) { return Promise.resolve({ data: ps.map(x => ({ path: x, signedUrl: signed[x] || "" })) }); }
+    }; } },
+    auth: { onAuthStateChange() {}, getSession() { return Promise.resolve({ data: { session: null } }); }, signOut() { return Promise.resolve(); } }
+  };
+}
 let user = null;
 let days = {};          // date -> data
 let cases = {};         // id -> row
@@ -45,7 +67,7 @@ async function flushDay(date) {
   writing[date] = true;
   const { error } = await sb.from("days").upsert({ user_id: user.id, date, data, updated_at: new Date().toISOString() });
   writing[date] = false;
-  if (error) status("저장 실패: " + error.message); else status("저장됨 💾 " + stamp());
+  if (error) status("저장 실패: " + error.message); else status(DEMO ? "구경 모드라 저장은 안 돼요 👀" : "저장됨 💾 " + stamp());
 }
 window.addEventListener("beforeunload", e => { if (Object.keys(pending).length) { Object.keys(pending).forEach(flushDay); e.preventDefault(); e.returnValue = ""; } });
 document.addEventListener("visibilitychange", () => { if (document.hidden) Object.keys(pending).forEach(d => { clearTimeout(timers[d]); flushDay(d); }); });
@@ -674,7 +696,8 @@ $("#loginForm").addEventListener("submit", async e => {
   const m = $("#loginMsg"); m.hidden = false;
   m.textContent = error ? "링크를 보내지 못했어: " + error.message : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`;
 });
-$("#logout").addEventListener("click", async () => { await sb.auth.signOut(); location.reload(); });
+$("#logout").addEventListener("click", async () => { if (DEMO) { location.href = location.pathname; return; } await sb.auth.signOut(); location.reload(); });
+$("#demoLink").addEventListener("click", () => { location.href = location.pathname + "?demo"; });
 
 async function startApp(session) {
   user = session.user;
@@ -694,11 +717,41 @@ async function startApp(session) {
   carryTodos(); renderTodos();
 }
 
+function startDemo() {
+  user = { id: "demo", email: "" };
+  $("#loginView").hidden = true; $("#appView").hidden = false; $("#demoBar").hidden = false;
+  $("#whoami").textContent = "👀 구경 중"; $("#logout").textContent = "구경 끝내기";
+  const D = n => addDays(TODAY, -n);
+  const g1 = uuid(), t1 = uuid(), t2 = uuid(), t3 = uuid(), g2 = uuid(), t4 = uuid();
+  settings = { goals: [
+    { id: g1, title: "유방초음파 전문방사선사 시험", examDate: addDays(TODAY, 40), tasks: [
+      { id: t1, name: "유방초음파진단학 1회독 + 나만의 노트", type: "pages", start: 1, end: 420 },
+      { id: t2, name: "기출문제 풀기", type: "count", target: 300, unit: "문항" },
+      { id: t3, name: "BI-RADS 아틀라스 요약표 만들기", type: "check", done: false } ] },
+    { id: g2, title: "영어 원서 한 권 끝내기", examDate: "", tasks: [
+      { id: t4, name: "원서 읽기", type: "pages", start: 1, end: 280 } ] } ] };
+  days = {};
+  days[D(6)] = { diaryOne: "새 병원 적응 2달째", diary: "오늘은 유방 검사가 많았다. 석회화 케이스를 두 개나 봤다.", news: [{ title: "예시 기사: 코스피 주간 전망", url: "", memo: "CPI 발표 전까지 관망" }], book: { title: "예시 에세이", from: 1, to: 12 }, study: [{ taskId: t1, goalId: g1, subject: "유방초음파진단학 1회독 + 나만의 노트", from: 1, to: 34, minutes: 60, content: "1장 해부학 노트 정리" }], todos: [{ text: "운동 30분", done: true }] };
+  days[D(5)] = { diaryOne: "퇴근 후 산책", diary: "날씨가 좋아서 한 시간 걸었다.", book: { title: "예시 에세이", from: 13, to: 20 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 40, minutes: 50 }] };
+  days[D(3)] = { diaryOne: "공부 집중한 날", diary: "", book: { title: "예시 에세이", from: 21, to: 28 }, study: [{ taskId: t1, goalId: g1, subject: "유방초음파진단학 1회독 + 나만의 노트", from: 35, to: 72, minutes: 90, content: "BI-RADS lexicon 표로 정리" }, { taskId: t4, goalId: g2, subject: "원서 읽기", from: 1, to: 15, minutes: 30 }] };
+  days[D(2)] = { news: [{ title: "예시 기사: 금리 동결", url: "", memo: "" }], todos: [{ text: "케이스 사진 정리", done: true }, { text: "보험 서류 챙기기", done: false }] };
+  days[D(1)] = { diaryOne: "케이스 정리 완료", diary: "어제 본 섬유선종 케이스를 정리했다.", book: { title: "예시 에세이", from: 29, to: 36 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 35, minutes: 40 }] };
+  days[TODAY] = { todos: [{ text: "기출 30문항 풀기", done: false }, { text: "경제 기사 3개 읽기", done: true }, { text: "보험 서류 챙기기", done: false, from: D(2) }], todosInit: true };
+  cases = {};
+  [["갑상선", "Thyroid nodule, K-TIRADS 4", "Rt. lobe 1.2cm hypoechoic solid nodule, microcalcification(+)", "K-TIRADS 4, FNA 권고", "Taller-than-wide 여부 횡단·종단 모두 확인할 것", ["석회화", "FNA"], 4],
+   ["유방", "Fibroadenoma 의심", "Lt. 2시 1.5cm oval, circumscribed, parallel mass", "BI-RADS 3, 6개월 f/u", "Posterior enhancement 확인", ["f/u"], 1]].forEach(([region, title, findings, impression, memo, tags, n]) => {
+    const id = uuid(); cases[id] = { id, date: D(n), region, title, findings, impression, memo, tags, images: [], created_at: new Date().toISOString() };
+  });
+  day = blankDay(); route(); setDate(TODAY); renderTodos();
+  status("");
+}
+
 let started = false;
+if (DEMO) { started = true; startDemo(); }
 sb.auth.onAuthStateChange((_ev, session) => {
   if (session && !started) { started = true; startApp(session); if (location.hash.includes("access_token")) history.replaceState(null, "", location.pathname); }
 });
-sb.auth.getSession().then(({ data }) => {
+if (!DEMO) sb.auth.getSession().then(({ data }) => {
   if (data.session) { if (!started) { started = true; startApp(data.session); } }
   else if (!location.hash.includes("access_token") && !location.search.includes("code=")) { $("#loginView").hidden = false; }
 });

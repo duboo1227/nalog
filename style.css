@@ -316,3 +316,5 @@ textarea.diary{font-family:var(--body);font-size:16px;background:repeating-linea
 .pill{display:inline-block;font-size:12px;background:var(--accent-soft);border-radius:999px;padding:0 8px;font-family:var(--mono)}
 .logform{display:flex;flex-direction:column;gap:10px;border-top:2px dashed var(--line);padding-top:12px}
 .chkline{display:flex;gap:8px;align-items:center}
+
+.demobar{margin-top:14px;background:var(--butter);border:2px dashed var(--warn);border-radius:14px;padding:8px 12px;font-size:13.5px;text-align:center;font-family:var(--display)}
