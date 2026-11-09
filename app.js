@@ -851,15 +851,43 @@ function route() {
 window.addEventListener("hashchange", route);
 
 /* ---------------- 로그인 ---------------- */
+const AUTH_ERR = m => /Invalid login credentials/i.test(m) ? "이메일이나 비밀번호가 달라. 아직 비밀번호를 안 만들었으면 아래 '메일로 로그인 링크 받기'로 들어간 다음 🔑 비밀번호에서 만들어줘."
+  : /rate limit/i.test(m) ? "메일은 1시간에 2통까지만 보낼 수 있어. 잠시 후 다시 해보거나, 비밀번호로 로그인해줘."
+  : /not authorized/i.test(m) ? "이 이메일로는 메일을 보낼 수 없어 (Supabase 팀에 등록 안 된 주소)."
+  : /signups? not allowed|Signups not allowed/i.test(m) ? "새 가입이 막혀 있어. 원래 쓰던 이메일로 로그인해줘."
+  : /Email not confirmed/i.test(m) ? "메일 인증이 아직 안 된 계정이야."
+  : m;
+function loginMsg(t) { const m = $("#loginMsg"); m.hidden = false; m.textContent = t; }
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const email = $("#loginEmail").value.trim(); if (!email) return;
+  const email = $("#loginEmail").value.trim(), password = $("#loginPw").value;
+  if (!email) return;
+  if (!password) { loginMsg("비밀번호를 입력해줘. 비밀번호가 없으면 아래 메일 링크로 로그인해."); return; }
   $("#loginBtn").disabled = true;
-  const redirect = location.origin + location.pathname;
-  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect } });
+  const { error } = await sb.auth.signInWithPassword({ email, password });
   $("#loginBtn").disabled = false;
-  const m = $("#loginMsg"); m.hidden = false;
-  m.textContent = error ? "링크를 보내지 못했어: " + error.message : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`;
+  if (error) loginMsg(AUTH_ERR(error.message));
+});
+$("#magicBtn").addEventListener("click", async () => {
+  const email = $("#loginEmail").value.trim(); if (!email) { $("#loginEmail").focus(); loginMsg("이메일을 먼저 입력해줘."); return; }
+  $("#magicBtn").disabled = true;
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + location.pathname, shouldCreateUser: true } });
+  $("#magicBtn").disabled = false;
+  loginMsg(error ? "링크를 보내지 못했어: " + AUTH_ERR(error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`);
+});
+$("#setPwBtn").addEventListener("click", () => { if (DEMO) { status("구경 모드에서는 비밀번호를 만들 수 없어 👀"); return; } $("#pwMsg").textContent = ""; $("#pwModal").hidden = false; $("#newPw1").focus(); });
+$("#pwClose").addEventListener("click", () => { $("#pwModal").hidden = true; });
+$("#pwModal").addEventListener("click", e => { if (e.target.id === "pwModal") $("#pwModal").hidden = true; });
+$("#pwForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const a = $("#newPw1").value, b = $("#newPw2").value;
+  if (a.length < 6) { $("#pwMsg").textContent = "6자 이상으로 만들어줘."; return; }
+  if (a !== b) { $("#pwMsg").textContent = "두 번 입력한 비밀번호가 달라."; return; }
+  $("#pwMsg").textContent = "저장 중…";
+  const { error } = await sb.auth.updateUser({ password: a });
+  if (error) { $("#pwMsg").textContent = "저장 실패: " + AUTH_ERR(error.message); return; }
+  $("#newPw1").value = $("#newPw2").value = "";
+  $("#pwMsg").textContent = "✅ 저장했어. 이제 다른 기기에서 이메일 + 이 비밀번호로 로그인하면 돼.";
 });
 $("#logout").addEventListener("click", async () => { if (DEMO) { location.href = location.pathname; return; } await sb.auth.signOut(); location.reload(); });
 $("#demoLink").addEventListener("click", () => { location.href = location.pathname + "?demo"; });
