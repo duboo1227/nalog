@@ -134,10 +134,11 @@ export function extractTops(html, base, pattern, n = 3) {
     const key = href.split("?")[0];
     const title = clean(m[2]).replace(/^단독\s*/, "[단독] ");
     if (title.length < 12 || /^(사진|영상|포토|\[?사진\]?)$/.test(title)) { continue; }
-    if (seen.has(key)) continue;
+    const tkey = title.replace(/\[[^\]]*\]?$/, "").replace(/[\s"“”'‘’…·]/g, "").slice(0, 16);
+    if (seen.has(key) || seen.has(tkey)) continue;
     const it = { title, link: href, pubDate: null };
     if (isJunk(it) || NONECON.test(title) || !ECON.test(title)) continue;
-    seen.add(key); out.push(it);
+    seen.add(key); seen.add(tkey); out.push(it);
   }
   return out;
 }
