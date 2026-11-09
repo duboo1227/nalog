@@ -427,3 +427,5 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .qrefresh.spin{animation:qspin .5s ease}
 @keyframes qspin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.qrefresh.spin{animation:none}}
+.qrefresh.spin{animation:qthink .5s ease}
+@keyframes qthink{0%{transform:rotate(0)}25%{transform:rotate(-18deg) scale(1.1)}60%{transform:rotate(14deg) scale(1.1)}100%{transform:rotate(0)}}
