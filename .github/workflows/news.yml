@@ -2,8 +2,7 @@ name: 경제뉴스 수집
 
 on:
   schedule:
-    - cron: "40 21 * * *"   # 매일 06:40 KST
-    - cron: "10 3 * * *"    # 매일 12:10 KST (점심 업데이트)
+    - cron: "17 1,5,9,13,17,21 * * *"   # 4시간마다: KST 02·06·10·14·18·22시 17분
   workflow_dispatch: {}
 
 permissions:

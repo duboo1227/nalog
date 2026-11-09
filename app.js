@@ -196,7 +196,7 @@ function renderNews() {
   if (!news) { $("#heads").innerHTML = `<li class="empty" style="border:0">불러오는 중…</li>`; $("#paperChips").innerHTML = ""; $("#newsStamp").textContent = ""; }
   else if (news.missing || !news.sources.length) {
     $("#paperChips").innerHTML = ""; $("#newsStamp").textContent = lab(cur);
-    $("#heads").innerHTML = `<li class="empty" style="border:0">${cur === TODAY ? "오늘 헤드라인은 아직 수집 전이야 (06:40에 자동 수집)." : "이 날짜의 헤드라인 기록이 없어."} 아래 바로가기로 읽어도 돼.</li>`;
+    $("#heads").innerHTML = `<li class="empty" style="border:0">${cur === TODAY ? "오늘 헤드라인은 아직 수집 전이야 (06시쯤 자동 수집)." : "이 날짜의 헤드라인 기록이 없어."} 아래 바로가기로 읽어도 돼.</li>`;
   } else {
     $("#newsStamp").textContent = `${short(news.date)} ${hhmm(news.generatedAt)} 수집`;
     const srcs = news.sources.filter(s => s.items.length);
