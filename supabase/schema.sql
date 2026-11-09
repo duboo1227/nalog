@@ -1,4 +1,4 @@
--- 규나의 출근 일지 — Supabase 설정
+-- 규나의 하루기록 — Supabase 설정
 -- Supabase 대시보드 → SQL Editor → New query 에 전체를 붙여넣고 Run.
 
 -- 1) 하루 기록 (뉴스 메모, 일기, 독서, 공부)
