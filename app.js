@@ -24,6 +24,8 @@ let days = {};          // date -> data
 let cases = {};         // id -> row
 let news = null;        // current news json
 let newsPaper = "전체";
+let newsPage = 0;
+const PER_PAGE = 10;
 let cur = TODAY;
 let day = null;
 let caseFilter = "전체";
@@ -86,6 +88,7 @@ function renderOverview() {
 
 /* ---------------- ① 뉴스 ---------------- */
 async function loadNews(date) {
+  newsPage = 0;
   news = null; renderNews();
   const tryUrls = [CFG.NEWS_BASE + date + ".json", "data/news/" + date + ".json"];
   for (const u of tryUrls) {
@@ -96,6 +99,7 @@ async function loadNews(date) {
 }
 function renderNews() {
   $("#papers").innerHTML = PAPERS.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}<small>경제면</small></a>`).join("");
+  if (!news || news.missing || !news.sources.length) $("#pager").hidden = true;
   if (!news) { $("#heads").innerHTML = `<li class="empty" style="border:0">불러오는 중…</li>`; $("#paperChips").innerHTML = ""; $("#newsStamp").textContent = ""; }
   else if (news.missing || !news.sources.length) {
     $("#paperChips").innerHTML = ""; $("#newsStamp").textContent = lab(cur);
@@ -106,17 +110,29 @@ function renderNews() {
     if (newsPaper !== "전체" && !srcs.some(s => s.name === newsPaper)) newsPaper = "전체";
     $("#paperChips").innerHTML = ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
     let list;
-    if (newsPaper === "전체") list = srcs.flatMap(s => s.items.slice(0, 3).map(i => Object.assign({ src: s.name }, i)));
-    else list = srcs.find(s => s.name === newsPaper).items.map(i => Object.assign({ src: newsPaper }, i));
+    if (newsPaper === "전체") {
+      // 신문사별로 번갈아 섞어서 한 페이지에 여러 신문이 보이게
+      list = []; const max = Math.max(...srcs.map(s => s.items.length));
+      for (let r = 0; r < max; r++) srcs.forEach(s => { if (s.items[r]) list.push(Object.assign({ src: s.name }, s.items[r])); });
+    } else list = srcs.find(s => s.name === newsPaper).items.map(i => Object.assign({ src: newsPaper }, i));
+    const pagesN = Math.max(1, Math.ceil(list.length / PER_PAGE));
+    if (newsPage >= pagesN) newsPage = pagesN - 1;
+    const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
     const saved = new Set((day.news || []).map(a => a.url));
-    $("#heads").innerHTML = list.map((it, i) => `<li><span class="n">${String(i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a><div class="time">${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
-    $("#heads")._list = list;
+    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a><div class="time">${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    $("#heads")._list = pageList;
+    $("#pager").hidden = pagesN < 2;
+    $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
+    $("#pagePrev").disabled = newsPage === 0;
+    $("#pageNext").disabled = newsPage >= pagesN - 1;
   }
   const arts = day.news || [];
   $("#artCount").textContent = arts.length + "건";
   $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li><div class="body">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener"><b>${esc(a.title)}</b></a>` : `<b>${esc(a.title)}</b>`}${a.src ? ` <span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}<input type="text" class="memo" data-memo="${i}" value="${esc(a.memo)}" placeholder="한 줄 생각" style="margin-top:6px;padding:6px 9px;font-size:14px"></div><button class="x" data-del-art="${i}" aria-label="삭제">×</button></li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
 }
-$("#paperChips").addEventListener("click", e => { const b = e.target.closest("[data-paper]"); if (!b) return; newsPaper = b.dataset.paper; renderNews(); });
+$("#paperChips").addEventListener("click", e => { const b = e.target.closest("[data-paper]"); if (!b) return; newsPaper = b.dataset.paper; newsPage = 0; renderNews(); });
+$("#pagePrev").addEventListener("click", () => { if (newsPage > 0) { newsPage--; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); } });
+$("#pageNext").addEventListener("click", () => { newsPage++; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); });
 $("#heads").addEventListener("click", e => {
   const b = e.target.closest("[data-add]"); if (!b) return;
   const it = $("#heads")._list[Number(b.dataset.add)];
