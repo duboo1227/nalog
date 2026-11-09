@@ -1,6 +1,6 @@
 {
  "date": "2026-11-09",
- "generatedAt": "2026-11-09T02:21:12.157Z",
+ "generatedAt": "2026-11-09T02:24:05.623Z",
  "sources": [
   {
    "id": "joongang",
@@ -185,6 +185,11 @@
    "via": "rss",
    "items": [
     {
+     "title": "보험연구원, 스위스 생갈렌대와 AI·자율주행 보험 연구 협력",
+     "link": "https://www.mk.co.kr/news/economy/12202208",
+     "pubDate": "2026-11-09T02:22:15.000Z"
+    },
+    {
      "title": "코인 과세 “다음에, 다음에 또 다음에”…정부가 자초한 ‘합리적 불신’ [기자24시]",
      "link": "https://www.mk.co.kr/news/economy/12202134",
      "pubDate": "2026-11-09T01:41:15.000Z"
@@ -328,16 +333,11 @@
      "title": "매월 56만원 대출이자 vs 56만원 ‘따박따박’ 저축 … 5년 후 자산 차이는?",
      "link": "https://www.mk.co.kr/news/economy/12200763",
      "pubDate": "2026-11-07T20:30:00.000Z"
-    },
-    {
-     "title": "보험금 분쟁 막는 데 집중…지급 공정성·소비자 보호 강화하는 보험사",
-     "link": "https://www.mk.co.kr/news/economy/12201540",
-     "pubDate": "2026-11-07T13:05:40.000Z"
     }
    ],
    "tops": [
     {
-     "title": "단독 \"회사 복지 부러웠는데\" … 건강검진비도 과세 대상? 국세청이 삼성그룹 금융 계열사의 건강검진비 지원금을 '근로소득'으로 판단하면서 사내 복지 혜택에 대한 과세 기준 논란이 수면 위로 부상하게 됐다는 해석이 나온다.",
+     "title": "[단독] \"회사 복지 부러웠는데\" … 건강검진비도 과세 대상? 국세청이 삼성그룹 금융 계열사의 건강검진비 지원금을 '근로소득'으로 판단하면서 사내 복지 혜택에 대한 과세 기준 논란이 수면 위로 부상하게 됐다는 해석이 나온다.",
      "link": "https://www.mk.co.kr/news/economy/12201878",
      "pubDate": null
     },
@@ -360,6 +360,11 @@
    "home": "https://www.chosun.com/economy/",
    "via": "rss",
    "items": [
+    {
+     "title": "하락 출발 코스피 장중 5000선 ‘사수전’...상승 하락 오락가락",
+     "link": "https://www.chosun.com/economy/money/2026/11/09/NIHDMEXVGVAS3LRU7CZXDBJ3AU/",
+     "pubDate": "2026-11-09T01:11:16.000Z"
+    },
     {
      "title": "저출생·고령화에 양육·돌봄 부담 급증...한국 총부양비 OECD 최저에서 2048년 최고로",
      "link": "https://www.chosun.com/economy/economy_general/2026/11/08/FTPUPARHLZAGDA2N6FILGFB7DA/",
@@ -424,11 +429,6 @@
      "title": "배터리 시장 판도 바뀐다… 韓은 美 ESS 성장에 ‘미소’, 中은 공급 과잉에 ‘울상’",
      "link": "https://www.chosun.com/economy/industry-company/2026/11/09/GJRTCY3EGBRDGMLCHA3TAZTEGM/",
      "pubDate": "2026-11-09T01:42:29.000Z"
-    },
-    {
-     "title": "하락 출발 코스피 장중 5000선 ‘사수전’...상승 하락 오락가락",
-     "link": "https://www.chosun.com/economy/money/2026/11/09/NIHDMEXVGVAS3LRU7CZXDBJ3AU/",
-     "pubDate": "2026-11-09T01:11:16.000Z"
     },
     {
      "title": "故 조석래 효성 명예회장, ‘한미우호상’ 수상…한미 FTA·비자면제 기여",
@@ -518,12 +518,12 @@
      "pubDate": null
     },
     {
-     "title": "삼성바이오, 폐암 치료에도 한 걸음'키트루다' 복제약 동등성 입증",
+     "title": "삼성바이오, 폐암 치료에도 한 걸음 '키트루다' 복제약 동등성 입증",
      "link": "https://www.chosun.com/economy/science/2026/11/09/BKMSKQKDKNG5JO2EJYE5UDJXTI/",
      "pubDate": null
     },
     {
-     "title": "담보 비율 의무 면제해준 정부\"빚투 키우는 거 아니냐\" 우려",
+     "title": "담보 비율 의무 면제해준 정부 \"빚투 키우는 거 아니냐\" 우려",
      "link": "https://www.chosun.com/economy/money/2026/11/09/YNC3IVO7JZHCLEY4AKQIQWI3VE/",
      "pubDate": null
     }
@@ -843,6 +843,11 @@
      "pubDate": "2026-11-08T04:22:20.000Z"
     },
     {
+     "title": "[인사] 폴리뉴스",
+     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1xNkdnYVY4WnhXek5oMmlacmlTeEdURU1seXFQb1BrWjhFTzZMbURZOURJc3RIazZMNnJZWFNIMWFWNjlFY0Q1TmF1V3drbHFwMnNqeTdfTXRSdw?oc=5",
+     "pubDate": "2026-11-09T02:17:45.000Z"
+    },
+    {
      "title": "\"분당 대신 여기 샀다\"…아파트 거래량 108% 폭증한 동네",
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB2NTNjZFF5cmxqU0pOb2xTaUs2MnRPZms4UUV6alZNd1RhbE1VWlF1QWktSFBuYVFvRXQtdmx5RXA0bk5Ic0pRak5VZFpRclpoamRmVFJLd1hxUQ?oc=5",
      "pubDate": "2026-11-08T23:41:13.000Z"
@@ -856,11 +861,6 @@
      "title": "테슬라 직접 반도체 생산 본격화…日서 장비 조달 나서 [도쿄나우]",
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5yWENPWkNLRHc5dlZkSzRRZTRqOUkxYUJtekZUQzVYSld3clJxY19rRTRERVB2eHkwWWdIRmJHbDhyZkNnTXdtOTlfLUhRR1JQNVNKZ1ZzLTZzQQ?oc=5",
      "pubDate": "2026-11-09T01:28:00.000Z"
-    },
-    {
-     "title": "\"매달 15만원씩 준다더니\"…1조 넘게 쏟아붓는 사업에 '시끌'",
-     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE56YWNrVTEwZnFDSHRUR3I1YVhCUGdjX0dvblFTX2FLaVd6SVZjYXBfTEJKMnB5SG1MTFl4akdvRTd2T3dTRHZ0c3ozM2N0UnlHejRHeFpSeWp5QQ?oc=5",
-     "pubDate": "2026-11-09T01:37:48.000Z"
     }
    ],
    "tops": [
@@ -1004,14 +1004,14 @@
      "pubDate": "2026-11-08T21:30:03.000Z"
     },
     {
-     "title": "부산, 2027 세계항구도시협회 총회 개최 공식 선포",
-     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE01dUZKYU5NSk5MbmNLQ2RHNkpjZFF6Rm5sUnlJUHotbjBmTUlSTmFxQnpXbXZiUFFvd2c5bE1VUTQyU0dfNjY3aVVtWlZxZXZiZVdaX1RjNFF0MzZQdnVRc002WXBzUdIBU0FVX3lxTFBqLWV3UHM2YldiZGVqM1d1eUxYTHA2ZmFudnJ1bVNNRWpZTWxxVzROTHE2U0pPb0VQMnl0S1o1d2Q4THd5cDVUMlhuR0pSc2tLenZN?oc=5",
-     "pubDate": "2026-11-08T23:05:49.000Z"
-    },
-    {
      "title": "“코스피 극단적 과매도 국면…투매 자제하고 현금 확보해야” [증시 전문가 긴급 진단]",
      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9HNTlRb2d4UDhUU3l1V0xVM0pQcE9VajVHWnZrNDR5cE5xdUlEZ2NTUkZqcEJVZE40ZHFmcEtWakxkRWEyQXBjVzdhY2tMbThDb3fSAVNBVV95cUxPQ3NqcHVGQWFMV1V2MzJjWHJNSFZ0TmZUZ0pHWk9rYzAxX1V3enE2c3VZR3kwbGFJa1pDUnpfbUtWZHdJdHRKa0cwSjRRTm5wTHpWSQ?oc=5",
      "pubDate": "2026-11-08T08:55:21.000Z"
+    },
+    {
+     "title": "부산, 2027 세계항구도시협회 총회 개최 공식 선포",
+     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE01dUZKYU5NSk5MbmNLQ2RHNkpjZFF6Rm5sUnlJUHotbjBmTUlSTmFxQnpXbXZiUFFvd2c5bE1VUTQyU0dfNjY3aVVtWlZxZXZiZVdaX1RjNFF0MzZQdnVRc002WXBzUdIBU0FVX3lxTFBqLWV3UHM2YldiZGVqM1d1eUxYTHA2ZmFudnJ1bVNNRWpZTWxxVzROTHE2U0pPb0VQMnl0S1o1d2Q4THd5cDVUMlhuR0pSc2tLenZN?oc=5",
+     "pubDate": "2026-11-08T23:05:49.000Z"
     },
     {
      "title": "중랑구, 신보와 소상공인 지원 위한 MOU 체결",
@@ -1019,14 +1019,14 @@
      "pubDate": "2026-11-08T14:45:32.000Z"
     },
     {
-     "title": "종로구, ‘경복궁 서측 안심골목길 조성사업’ 이달 마무리",
-     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9rUmdxajdSeHJQV2ZGd1JEbE41NGlNQnVJWG1lSGFPYjQ2M01VMjQ5RjgyRlJXR2JpVl90bERmQUNneHVVQkszd19DNFZ5U1VNcGfSAVNBVV95cUxOM0F5eTFiQ2h2ZG9FZDFSU2RFaHZGMlAxVFBQMThZWEF5TkVrYzlFT3RMZHNlcE1nTnprRUJtVUp4TGdDUWw1NGdCVENFb0RiMW0waw?oc=5",
-     "pubDate": "2026-11-08T14:45:33.000Z"
-    },
-    {
      "title": "[열린송현] 어느 청년 회계사의 국회 앞 피켓 시위",
      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9pdFpFZG5yZWJYZVh2bUR4Uml2SkVkZzlwM2IyS1Nfb2lERThfOWlvNWk1TzFjY0JuUlhGVnRRRHZIWFZsLUdQZmx5Zk5meW5sVnfSAVNBVV95cUxQT0NNLWphZzNTaW1wcDM1Tm54TnV2dDVnenpuMTRyZjd6RmRYNzRaUk92SUN5VEVpeG5vWjNEVElBMzB2eHczZmRobUJUV1R6b1M1aw?oc=5",
      "pubDate": "2026-11-08T20:00:00.000Z"
+    },
+    {
+     "title": "종로구, ‘경복궁 서측 안심골목길 조성사업’ 이달 마무리",
+     "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9rUmdxajdSeHJQV2ZGd1JEbE41NGlNQnVJWG1lSGFPYjQ2M01VMjQ5RjgyRlJXR2JpVl90bERmQUNneHVVQkszd19DNFZ5U1VNcGfSAVNBVV95cUxOM0F5eTFiQ2h2ZG9FZDFSU2RFaHZGMlAxVFBQMThZWEF5TkVrYzlFT3RMZHNlcE1nTnprRUJtVUp4TGdDUWw1NGdCVENFb0RiMW0waw?oc=5",
+     "pubDate": "2026-11-08T14:45:33.000Z"
     },
     {
      "title": "서울시, ‘잠실 한강 자전거장’ 14일 개방",
@@ -1041,7 +1041,7 @@
    ],
    "tops": [
     {
-     "title": "단독“그룹 타깃 해킹 의심” 금감원, 미래에셋 현장점검",
+     "title": "[단독] “그룹 타깃 해킹 의심” 금감원, 미래에셋 현장점검",
      "link": "https://www.sedaily.com/article/20111862",
      "pubDate": null
     },
@@ -1217,6 +1217,11 @@
    ],
    "tops": [
     {
+     "title": "신호위반 차량만 골라서 '쾅'…렌터카로 사고 유발한 21명 덜미",
+     "link": "https://www.yna.co.kr/view/AKR20261109069500004?section=economy/all",
+     "pubDate": null
+    },
+    {
      "title": "코스피, '5천피' 공방 후 1%대 상승세…코스닥도 상승전환",
      "link": "https://www.yna.co.kr/view/AKR20261109066300008?section=economy/all",
      "pubDate": null
@@ -1224,11 +1229,6 @@
     {
      "title": "안산시 경제사절단, '우호도시' 독일 아헨특구 대표단과 간담회",
      "link": "https://www.yna.co.kr/view/AKR20261109063800061?section=economy/all",
-     "pubDate": null
-    },
-    {
-     "title": "해수부, 국내 기업 베트남 해양플랜트 서비스 시장 진출 지원",
-     "link": "https://www.yna.co.kr/view/AKR20261109018700051?section=economy/all",
      "pubDate": null
     }
    ],
