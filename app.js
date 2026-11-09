@@ -48,7 +48,10 @@ let news = null;        // current news json
 let newsPaper = "전체";
 let newsPage = 0;
 const openArts = new Set();   // 펼쳐둔 읽은 기사 번호
-const PER_PAGE = 10;
+// 한 화면에 보이는 헤드라인 수: 폰(좁은 화면) 5개, PC·태블릿 10개
+const mobileMQ = window.matchMedia("(max-width: 640px)");
+const perPage = () => mobileMQ.matches ? 5 : 10;
+mobileMQ.addEventListener("change", () => { newsPage = 0; renderNews(); });
 let cur = TODAY;
 let day = null;
 let caseFilter = "전체";
@@ -212,7 +215,7 @@ function renderNews() {
       // 각 신문 경제면 맨 위(메인) 기사부터 번갈아 10개. 메인 수집이 안 된 신문은 최신 기사로 대신
       list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items);
       const seen = new Set();
-      for (let r = 0; r < 3 && list.length < PER_PAGE; r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < PER_PAGE) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: !!(s.tops && s.tops.length) }, it)); } });
+      for (let r = 0; r < 3 && list.length < perPage(); r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < perPage()) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: !!(s.tops && s.tops.length) }, it)); } });
     } else {
       // 신문사 탭: 메인 기사(⭐)를 맨 위에, 이어서 최신 기사 (같은 기사는 한 번만)
       const src = srcs.find(s => s.name === newsPaper);
@@ -222,6 +225,7 @@ function renderNews() {
       const seenL = new Set(tops.map(t => norm(t.link))), seenT = new Set(tops.map(t => key(t.title)));
       list = tops.concat(src.items.filter(i => !seenL.has(norm(i.link)) && !seenT.has(key(i.title))).map(i => Object.assign({ src: newsPaper }, i)));
     }
+    const PER_PAGE = perPage();
     const pagesN = Math.max(1, Math.ceil(list.length / PER_PAGE));
     if (newsPage >= pagesN) newsPage = pagesN - 1;
     const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
