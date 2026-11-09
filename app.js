@@ -732,6 +732,78 @@ function renderPastStudy() {
 }
 function renderStudy() { renderGoals(); renderLogForm(); renderPastStudy(); }
 
+/* ---------------- ⑤ 영어 (듀오링고 문장·단어장) ---------------- */
+const VOCAB_DATE = "1970-01-02";   // 단어장은 날짜와 상관없이 쌓이므로 days 테이블의 이 행에 보관
+let vocab = { words: [], sentences: [] };
+let engKind = "sentences", engFilter = "todo", engHide = false;
+const openEng = new Set();
+function saveVocab() { queueDay(VOCAB_DATE, vocab, 300); }
+const engList = () => vocab[engKind] || (vocab[engKind] = []);
+function renderEnglish() {
+  const ws = vocab.words || [], ss = vocab.sentences || [];
+  $("#engTabs").innerHTML = [["sentences", "📝 문장", ss], ["words", "🔤 단어", ws]].map(([k, t, l]) =>
+    `<button class="chip" data-ekind="${k}" aria-pressed="${engKind === k}">${t} <span class="mono">${l.filter(x => !x.done).length}/${l.length}</span></button>`).join("");
+  $("#engFilter").innerHTML = [["todo", "외울 것"], ["done", "외운 것 ✓"], ["all", "전체"]].map(([k, t]) =>
+    `<button class="chip" data-efilter="${k}" aria-pressed="${engFilter === k}">${t}</button>`).join("");
+  $("#engHide").setAttribute("aria-pressed", engHide);
+  $("#engHide").textContent = engHide ? "🙈 뜻 가리는 중" : "👀 뜻 가리기";
+  const isS = engKind === "sentences";
+  $("#engEn").placeholder = isS ? "영어 문장 (예: I would like a cup of coffee.)" : "영어 단어 (예: grateful)";
+  $("#engKo").placeholder = isS ? "뜻 (예: 커피 한 잔 주세요.)" : "뜻 (예: 감사하는)";
+  $("#engFormTitle").textContent = isS ? "📝 문장 추가" : "🔤 단어 추가";
+  const q = $("#engSearch").value.trim().toLowerCase();
+  const list = engList().map((x, i) => Object.assign({ i }, x))
+    .filter(x => engFilter === "all" || (engFilter === "done" ? x.done : !x.done))
+    .filter(x => !q || [x.en, x.ko, x.note].join(" ").toLowerCase().includes(q))
+    .sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.i - a.i);
+  const todayN = engList().filter(x => x.date === TODAY).length;
+  $("#engStat").textContent = `오늘 ${todayN}개 추가 · 총 ${engList().length}개`;
+  $("#engList").innerHTML = list.length ? list.map((x, n) => `<li class="eng${x.done ? " done" : ""}" data-ei="${x.i}">
+      <div class="erow">
+        <span class="en-n">${n + 1}.</span>
+        <div class="etext">
+          <div class="en">${esc(x.en)}</div>
+          <button type="button" class="ko${engHide && !openEng.has(x.i) ? " hid" : ""}" data-reveal="${x.i}">${engHide && !openEng.has(x.i) ? "눌러서 뜻 보기" : esc(x.ko || "")}</button>
+          ${x.note ? `<div class="enote">${esc(x.note)}</div>` : ""}
+          <div class="edate">${short(x.date || TODAY)}</div>
+        </div>
+        <div class="eact">
+          <button type="button" class="mini${x.done ? " on" : ""}" data-edone="${x.i}">${x.done ? "✓ 외움" : "외웠어"}</button>
+          <button type="button" class="x" data-edel="${x.i}" aria-label="삭제">×</button>
+        </div>
+      </div></li>`).join("")
+    : `<li class="empty">${engList().length ? "조건에 맞는 항목이 없어." : isS ? "듀오링고에서 외우고 싶은 문장을 위에 적어줘 🦉" : "모르는 단어를 위에 적어줘 🔤"}</li>`;
+}
+$("#engTabs").addEventListener("click", e => { const b = e.target.closest("[data-ekind]"); if (!b) return; engKind = b.dataset.ekind; openEng.clear(); renderEnglish(); });
+$("#engFilter").addEventListener("click", e => { const b = e.target.closest("[data-efilter]"); if (!b) return; engFilter = b.dataset.efilter; renderEnglish(); });
+$("#engHide").addEventListener("click", () => { engHide = !engHide; openEng.clear(); renderEnglish(); });
+$("#engSearch").addEventListener("input", renderEnglish);
+$("#engForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const en = $("#engEn").value.trim(), ko = $("#engKo").value.trim(), note = $("#engNote").value.trim();
+  if (!en) { $("#engEn").focus(); return; }
+  engList().push({ en, ko, note, date: TODAY, done: false });
+  $("#engEn").value = $("#engKo").value = $("#engNote").value = "";
+  if (engFilter === "done") engFilter = "todo";
+  saveVocab(); renderEnglish(); $("#engEn").focus();
+});
+$("#engList").addEventListener("click", e => {
+  const r = e.target.closest("[data-reveal]");
+  if (r && engHide) { const i = Number(r.dataset.reveal); openEng.has(i) ? openEng.delete(i) : openEng.add(i); renderEnglish(); return; }
+  const d = e.target.closest("[data-edone]");
+  if (d) { const x = engList()[Number(d.dataset.edone)]; x.done = !x.done; saveVocab(); renderEnglish(); return; }
+  const del = e.target.closest("[data-edel]");
+  if (del) {
+    const i = Number(del.dataset.edel), li = del.closest("li");
+    if (li.querySelector(".econfirm")) return;
+    li.insertAdjacentHTML("beforeend", `<div class="econfirm confirm">지울까? <button class="btn danger" data-eyes="${i}">삭제</button><button class="btn ghost" data-eno>취소</button></div>`);
+    return;
+  }
+  const y = e.target.closest("[data-eyes]");
+  if (y) { engList().splice(Number(y.dataset.eyes), 1); openEng.clear(); saveVocab(); renderEnglish(); return; }
+  if (e.target.closest("[data-eno]")) renderEnglish();
+});
+
 /* ---------------- ⑤ 케이스 ---------------- */
 async function signPaths(paths) {
   const need = paths.filter(p => p && !signed[p]);
@@ -941,13 +1013,13 @@ function setDate(d) {
   fillAll(); renderAll(); loadNews(d);
 }
 function fillAll() { fillDiary(); fillBook(); fillStudy(); }
-function renderAll() { renderTodos(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderCases(); }
+function renderAll() { renderTodos(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderEnglish(); renderCases(); }
 $("#prevDay").onclick = () => setDate(addDays(cur, -1));
 $("#nextDay").onclick = () => setDate(addDays(cur, 1));
 $("#goToday").onclick = () => setDate(TODAY);
 $("#datePick").addEventListener("change", e => { if (e.target.value) setDate(e.target.value); });
 
-const VIEWS = ["cal", "news", "diary", "books", "study", "cases"];
+const VIEWS = ["cal", "news", "diary", "books", "study", "english", "cases"];
 function route() {
   const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "cal";
   $("#dayHead").hidden = v === "cal";
@@ -956,6 +1028,7 @@ function route() {
   $("#todoBox").hidden = false; renderTodos();
   VIEWS.forEach(x => { $("#v-" + x).hidden = x !== v; });
   document.querySelectorAll("#tabs a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + v ? "page" : "false"));
+  const act = document.querySelector('#tabs a[aria-current="page"]'); if (act) act.scrollIntoView({ inline: "nearest", block: "nearest" });
 }
 window.addEventListener("hashchange", route);
 
@@ -1027,7 +1100,7 @@ async function startApp(session) {
     sb.from("cases").select("*").order("date", { ascending: false }).limit(2000)
   ]);
   if (d.error || c.error) { status("기록을 불러오지 못했어: " + (d.error || c.error).message); return; }
-  days = {}; d.data.forEach(r => { if (r.date === SETTINGS_DATE) settings = Object.assign({ goals: [] }, r.data || {}); else days[r.date] = r.data || {}; });
+  days = {}; d.data.forEach(r => { if (r.date === SETTINGS_DATE) settings = Object.assign({ goals: [] }, r.data || {}); else if (r.date === VOCAB_DATE) vocab = Object.assign({ words: [], sentences: [] }, r.data || {}); else days[r.date] = r.data || {}; });
   cases = {}; c.data.forEach(r => cases[r.id] = r);
   status("");
   setDate(cur);
@@ -1054,6 +1127,14 @@ function startDemo() {
   days[D(2)] = { news: [{ title: "예시 기사: 금리 동결", url: "", memo: "" }], todos: [{ text: "케이스 사진 정리", done: true }, { text: "보험 서류 챙기기", done: false }] };
   days[D(1)] = { diaryOne: "케이스 정리 완료", diary: "오늘 본 섬유선종 케이스를 정리했다.", book: { title: "예시 에세이", from: 29, to: 36 }, study: [{ taskId: t2, goalId: g1, subject: "기출문제 풀기", count: 35, minutes: 40 }] };
   days[TODAY] = { todos: [{ text: "기출 30문항 풀기", done: false }, { text: "경제 기사 3개 읽기", done: true }, { text: "보험 서류 챙기기", done: false, from: D(2) }], todosInit: true };
+  vocab = { sentences: [
+      { en: "I would like a cup of coffee, please.", ko: "커피 한 잔 주세요.", note: "would like = want의 공손한 표현", date: D(2), done: false },
+      { en: "How long have you been waiting?", ko: "얼마나 기다렸어요?", note: "현재완료진행", date: D(1), done: false },
+      { en: "She is taller than her brother.", ko: "그녀는 남동생보다 키가 크다.", note: "", date: D(4), done: true } ],
+    words: [
+      { en: "grateful", ko: "감사하는", note: "I'm grateful for your help.", date: D(1), done: false },
+      { en: "appointment", ko: "(병원 등) 예약, 약속", note: "", date: D(0), done: false },
+      { en: "receipt", ko: "영수증", note: "p 묵음 [리싯]", date: D(3), done: true } ] };
   cases = {};
   [["갑상선", "Thyroid nodule, K-TIRADS 4", "Rt. lobe 1.2cm hypoechoic solid nodule, microcalcification(+)", "K-TIRADS 4, FNA 권고", "Taller-than-wide 여부 횡단·종단 모두 확인할 것", ["석회화", "FNA"], 4],
    ["유방", "Fibroadenoma 의심", "Lt. 2시 1.5cm oval, circumscribed, parallel mass", "BI-RADS 3, 6개월 f/u", "Posterior enhancement 확인", ["f/u"], 1]].forEach(([region, title, findings, impression, memo, tags, n]) => {
