@@ -346,3 +346,10 @@ details.past.locked summary{color:var(--muted)}
 .qlist span{display:flex;flex-direction:column;gap:2px}
 .qlist b{font-weight:700;font-size:14.5px}
 .qlist small{color:var(--muted);font-size:12px}
+
+/* ---- 글씨체: 제목 T3 검은고딕, 본문 B4 IBM Plex Sans KR ---- */
+:root{
+  --display:"Black Han Sans", "IBM Plex Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  --body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+textarea.diary{font-family:var(--body)}
