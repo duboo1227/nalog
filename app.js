@@ -791,38 +791,9 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#caseM
 
 /* ---------------- 명언 ---------------- */
 // 출처가 분명한 것 위주. 출처가 불확실한 건 '전해지는 말'로 표시.
+// 규나가 컨펌한 명언만
 const QUOTES = [
-  { id: "jjy1", t: "무슨 일이든 할 수 있다고 생각하는 사람이 해내는 법이다. 의심하면 의심하는 만큼밖에는 못하고, 할 수 없다고 생각하면 할 수 없다.", a: "아산 정주영, 주베일 산업항 공사 현장에서" },
-  { id: "jjy2", t: "이봐, 해봤어?", a: "정주영" },
-  { id: "laozi", t: "천 리 길도 한 걸음부터.", a: "노자, 『도덕경』" },
-  { id: "conf1", t: "배우고 때때로 익히면 또한 기쁘지 아니한가.", a: "공자, 『논어』" },
-  { id: "conf2", t: "아는 것을 안다 하고 모르는 것을 모른다 하는 것, 이것이 아는 것이다.", a: "공자, 『논어』" },
-  { id: "bacon", t: "아는 것이 힘이다.", a: "프랜시스 베이컨" },
-  { id: "durant", t: "우리가 반복적으로 하는 행동이 곧 우리다. 탁월함은 행위가 아니라 습관이다.", a: "윌 듀랜트 (아리스토텔레스 해설)" },
-  { id: "arist", t: "시작이 전체의 절반이다.", a: "아리스토텔레스" },
-  { id: "edison", t: "천재는 1%의 영감과 99%의 노력으로 이루어진다.", a: "토머스 에디슨" },
-  { id: "jobs1", t: "Stay hungry, stay foolish.", a: "스티브 잡스, 2005 스탠퍼드 연설" },
-  { id: "jobs2", t: "위대한 일을 하는 유일한 방법은 자신이 하는 일을 사랑하는 것이다.", a: "스티브 잡스, 2005 스탠퍼드 연설" },
-  { id: "jobs3", t: "앞을 내다보며 점들을 이을 수는 없다. 뒤돌아볼 때만 이을 수 있다.", a: "스티브 잡스, 2005 스탠퍼드 연설" },
-  { id: "jobs4", t: "오늘이 내 인생의 마지막 날이라면, 지금 하려는 일을 하고 싶을까?", a: "스티브 잡스, 2005 스탠퍼드 연설" },
-  { id: "jordan", t: "나는 9,000번 넘게 슛을 놓쳤다. 실패하고 또 실패했다. 그래서 나는 성공한다.", a: "마이클 조던" },
-  { id: "ein1", t: "인생은 자전거와 같다. 균형을 잡으려면 계속 움직여야 한다.", a: "알베르트 아인슈타인" },
-  { id: "ein2", t: "성공한 사람보다 가치 있는 사람이 되려고 노력하라.", a: "알베르트 아인슈타인" },
-  { id: "ein3", t: "중요한 것은 질문을 멈추지 않는 것이다.", a: "알베르트 아인슈타인" },
-  { id: "pasteur", t: "기회는 준비된 사람에게 찾아온다.", a: "루이 파스퇴르" },
-  { id: "newton", t: "내가 더 멀리 보았다면, 거인들의 어깨 위에 서 있었기 때문이다.", a: "아이작 뉴턴" },
-  { id: "collier", t: "성공은 매일 반복한 작은 노력들의 합이다.", a: "로버트 콜리어" },
-  { id: "ovid", t: "물방울이 바위를 뚫는 것은 힘이 아니라 꾸준함 때문이다.", a: "오비디우스" },
-  { id: "rousseau", t: "인내는 쓰다. 그러나 그 열매는 달다.", a: "장 자크 루소, 『신엘로이즈』" },
-  { id: "frank1", t: "시간은 돈이다.", a: "벤저민 프랭클린" },
-  { id: "frank2", t: "일찍 자고 일찍 일어나면 건강하고, 부유하고, 현명해진다.", a: "벤저민 프랭클린" },
-  { id: "buffett1", t: "투자의 제1원칙: 돈을 잃지 마라. 제2원칙: 제1원칙을 잊지 마라.", a: "워런 버핏" },
-  { id: "buffett2", t: "남들이 탐욕스러울 때 두려워하고, 남들이 두려워할 때 탐욕스러워져라.", a: "워런 버핏" },
-  { id: "ahn", t: "하루라도 책을 읽지 않으면 입안에 가시가 돋는다.", a: "안중근" },
-  { id: "yi", t: "죽고자 하면 살 것이요, 살고자 하면 죽을 것이다.", a: "이순신" },
-  { id: "keller", t: "행복의 문 하나가 닫히면 다른 문이 열린다.", a: "헬렌 켈러" },
-  { id: "goethe", t: "서두르지 말라. 그러나 쉬지도 말라.", a: "요한 볼프강 폰 괴테" },
-  { id: "nietzsche", t: "나를 죽이지 못하는 것은 나를 더 강하게 만든다.", a: "프리드리히 니체" }
+  { id: "jjy1", t: "무슨 일이든 할 수 있다고 생각하는 사람이 해내는 법이다. 의심하면 의심하는 만큼밖에는 못하고, 할 수 없다고 생각하면 할 수 없다.", a: "아산 정주영, 주베일 산업항 공사 현장에서" }
 ];
 let quoteIdx = 0, quoteTimer = null;
 const chosenQuotes = () => QUOTES.filter(q => (settings.quotes || []).includes(q.id));
@@ -935,7 +906,7 @@ function startDemo() {
    ["유방", "Fibroadenoma 의심", "Lt. 2시 1.5cm oval, circumscribed, parallel mass", "BI-RADS 3, 6개월 f/u", "Posterior enhancement 확인", ["f/u"], 1]].forEach(([region, title, findings, impression, memo, tags, n]) => {
     const id = uuid(); cases[id] = { id, date: D(n), region, title, findings, impression, memo, tags, images: [], created_at: new Date().toISOString() };
   });
-  settings.quotes = ["jjy1", "pasteur", "collier"];
+  settings.quotes = ["jjy1"];
   day = blankDay(); route(); setDate(TODAY); renderTodos(); renderQuote();
   status("");
 }
