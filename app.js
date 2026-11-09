@@ -207,8 +207,16 @@ function renderNews() {
       // 각 신문 경제면 맨 위(메인) 기사부터 번갈아 10개. 메인 수집이 안 된 신문은 최신 기사로 대신
       list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items);
       const seen = new Set();
-      for (let r = 0; r < 3 && list.length < PER_PAGE; r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < PER_PAGE) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: r === 0 && !!(s.tops && s.tops.length) }, it)); } });
-    } else list = srcs.find(s => s.name === newsPaper).items.map(i => Object.assign({ src: newsPaper }, i));
+      for (let r = 0; r < 3 && list.length < PER_PAGE; r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < PER_PAGE) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: !!(s.tops && s.tops.length) }, it)); } });
+    } else {
+      // 신문사 탭: 메인 기사(⭐)를 맨 위에, 이어서 최신 기사 (같은 기사는 한 번만)
+      const src = srcs.find(s => s.name === newsPaper);
+      const norm = u => (u || "").split("?")[0].replace(/\/+$/, "");
+      const key = t => (t || "").replace(/[\s\[\]"“”'‘’…·]/g, "").slice(0, 18);
+      const tops = (src.tops || []).map(i => Object.assign({ src: newsPaper, main: true }, i));
+      const seenL = new Set(tops.map(t => norm(t.link))), seenT = new Set(tops.map(t => key(t.title)));
+      list = tops.concat(src.items.filter(i => !seenL.has(norm(i.link)) && !seenT.has(key(i.title))).map(i => Object.assign({ src: newsPaper }, i)));
+    }
     const pagesN = Math.max(1, Math.ceil(list.length / PER_PAGE));
     if (newsPage >= pagesN) newsPage = pagesN - 1;
     const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
