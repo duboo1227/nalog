@@ -362,3 +362,10 @@ textarea.diary{font-family:var(--body)}
 /* 카테고리 탭: 작고 얇게 */
 nav.tabs a{font-family:var(--body);font-size:13.5px;font-weight:500;padding:6px 12px}
 nav.tabs a[aria-current="page"]{font-weight:600}
+
+/* ---- 글씨체 정리: 사이트 이름만 검은고딕, 본문은 IBM Plex Sans KR, 나머지 제목류는 원래 주아 ---- */
+:root{ --display:"Jua", "IBM Plex Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif; --title:"Black Han Sans", "Jua", system-ui, sans-serif; }
+.titleline h1, .login h1{font-family:var(--title);font-weight:400}
+.tb-head h2{font-family:var(--display);font-weight:400}
+nav.tabs a{font-family:var(--display);font-size:14px;font-weight:400}
+nav.tabs a[aria-current="page"]{font-weight:400}
