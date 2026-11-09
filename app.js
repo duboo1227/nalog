@@ -60,7 +60,7 @@ function flags(x) {
     news: (x.news || []).length > 0,
     diary: ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
     book: pages(x.book) >= 5,
-    study: (x.study || []).some(s => (s.subject || "").trim() || (s.content || "").trim())
+    study: (x.study || []).some(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim())
   };
 }
 function anyRecord(x) {
@@ -149,7 +149,7 @@ function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
   const f = flags(day);
-  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5쪽", pages(day.book) + "쪽"], ["study", "✏️ 공부", sumMin(day) + "분"]];
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5쪽", pages(day.book) + "쪽"], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
@@ -266,33 +266,220 @@ function renderBooks() {
 $("#bookTitle").addEventListener("focus", e => { const ph = e.target.placeholder; if (!e.target.value && ph && ph !== "읽고 있는 책") { e.target.value = ph; day.book.title = ph; saveDay(); } });
 $("#bookFrom").addEventListener("focus", e => { const ph = e.target.placeholder; if (e.target.value === "" && ph) { e.target.value = ph; day.book.from = ph; updateMeter(); saveDay(); } });
 
-/* ---------------- ④ 공부 ---------------- */
-function fillStudy() {
-  if (!day.study.length) day.study = [{ subject: "", minutes: "", content: "" }];
-  $("#studyItems").innerHTML = day.study.map((s, i) => `<div class="studyitem" data-i="${i}">
-    <label class="field"><span>과목</span><input type="text" data-k="subject" list="subjList" value="${esc(s.subject)}" placeholder="예: 심장초음파, 영어, 투자"></label>
-    <label class="field"><span>시간(분)</span><input type="number" data-k="minutes" min="0" inputmode="numeric" value="${esc(s.minutes)}"></label>
-    <button class="x" data-del-study="${i}" aria-label="항목 삭제" style="margin-top:24px">×</button>
-    <label class="field"><span>내용</span><textarea data-k="content" placeholder="무엇을 공부했고, 무엇을 알게 됐는지">${esc(s.content)}</textarea></label>
-  </div>`).join("");
-  $("#studyTotal").textContent = sumMin(day) + "분";
+/* ---------------- ④ 공부: 목표별 달성도 ---------------- */
+const SETTINGS_DATE = "1970-01-01";   // 목표 목록은 days 테이블의 이 날짜 행에 보관
+let settings = { goals: [] };
+function saveSettings() { queueDay(SETTINGS_DATE, settings, 300); }
+const goals = () => settings.goals || (settings.goals = []);
+const findTask = id => { for (const g of goals()) for (const t of g.tasks || []) if (t.id === id) return { g, t }; return null; };
+function logsFor(taskId) {
+  const out = [];
+  allDays().forEach(x => (x.study || []).forEach(s => { if (s.taskId === taskId) out.push(Object.assign({ date: x.date }, s)); }));
+  return out;
 }
-$("#studyItems").addEventListener("input", e => {
-  const el = e.target, box = el.closest(".studyitem"); if (!box || !el.dataset.k) return;
-  day.study[Number(box.dataset.i)][el.dataset.k] = el.value; $("#studyTotal").textContent = sumMin(day) + "분"; saveDay();
+function mergeRanges(rs) {
+  rs = rs.filter(r => r[1] >= r[0]).sort((a, b) => a[0] - b[0]);
+  const out = [];
+  rs.forEach(r => { const l = out[out.length - 1]; if (l && r[0] <= l[1] + 1) l[1] = Math.max(l[1], r[1]); else out.push([r[0], r[1]]); });
+  return out;
+}
+function taskStat(t) {
+  const logs = logsFor(t.id), mins = logs.reduce((a, s) => a + (Number(s.minutes) || 0), 0);
+  if (t.type === "pages") {
+    const S = Number(t.start) || 1, E = Number(t.end) || S, total = E - S + 1;
+    const ranges = mergeRanges(logs.filter(s => s.from !== "" && s.to !== "" && s.from != null).map(s => [Math.max(S, Number(s.from)), Math.min(E, Number(s.to))]));
+    const covered = ranges.reduce((a, r) => a + r[1] - r[0] + 1, 0);
+    const maxTo = logs.reduce((a, s) => Math.max(a, Number(s.to) || 0), 0);
+    const next = Math.min(E, Math.max(S, maxTo + 1));
+    return { pct: total > 0 ? covered / total : 0, mins, logs, ranges, covered, total, next, S, E };
+  }
+  if (t.type === "count") {
+    const n = logs.reduce((a, s) => a + (Number(s.count) || 0), 0), target = Number(t.target) || 1;
+    return { pct: Math.min(1, n / target), mins, logs, n, target };
+  }
+  const done = !!t.done || logs.some(s => s.complete);
+  return { pct: done ? 1 : 0, mins, logs, done };
+}
+function goalStat(g) {
+  const ts = (g.tasks || []).map(taskStat);
+  return { pct: ts.length ? ts.reduce((a, s) => a + s.pct, 0) / ts.length : 0, mins: ts.reduce((a, s) => a + s.mins, 0), ts };
+}
+const pctTxt = p => Math.round(p * 100) + "%";
+const minTxt = m => m >= 60 ? `${Math.floor(m / 60)}시간${m % 60 ? " " + (m % 60) + "분" : ""}` : `${m}분`;
+function dday(d) {
+  if (!d) return "";
+  const diff = Math.round((Date.parse(d + "T00:00:00Z") - Date.parse(TODAY + "T00:00:00Z")) / 864e5);
+  return diff > 0 ? `D-${diff}` : diff === 0 ? "D-DAY" : `D+${-diff}`;
+}
+function rangeTxt(rs) { return rs.length ? rs.map(r => r[0] === r[1] ? `${r[0]}` : `${r[0]}–${r[1]}`).join(", ") + "쪽" : "아직 없음"; }
+function logLine(s) {
+  const what = s.from != null && s.from !== "" ? `${s.from}–${s.to}쪽` : s.count ? `${s.count}개` : s.complete ? "완료 ✔" : "";
+  return `<li><span class="mono muted">${short(s.date)}</span> ${esc(what)} ${s.minutes ? `<span class="muted">· ${minTxt(Number(s.minutes))}</span>` : ""}${s.content ? `<div class="lmemo">${esc(s.content)}</div>` : ""}</li>`;
+}
+
+let openForm = null; // "goal" | "goal:<id>" | "task:<goalId>"
+function renderGoals() {
+  const gs = goals();
+  let html = "";
+  if (openForm === "goal") html += goalFormHtml(null);
+  if (!gs.length && openForm !== "goal") html += `<div class="empty">🎯 첫 목표를 만들어봐. 예: 유방초음파 전문방사선사 시험</div>`;
+  gs.forEach((g, gi) => {
+    if (openForm === "goal:" + g.id) { html += goalFormHtml(g); return; }
+    const st = goalStat(g);
+    html += `<div class="goal" data-goal="${g.id}">
+      <div class="ghead"><h3>🎯 ${esc(g.title)}</h3>${g.examDate ? `<span class="dday" title="${esc(g.examDate)}">${dday(g.examDate)}</span>` : ""}<span class="gpct">${pctTxt(st.pct)}</span></div>
+      <div class="meter big${st.pct >= 1 ? " full" : ""}"><i style="width:${st.pct * 100}%"></i></div>
+      <div class="gmeta muted">할 일 ${(g.tasks || []).length}개 · 누적 ${minTxt(st.mins)}${g.examDate ? ` · 시험일 ${short(g.examDate)}` : ""}</div>
+      <ol class="tasks">${(g.tasks || []).map((t, ti) => {
+        const s = st.ts[ti];
+        const meta = t.type === "pages" ? `📖 ${s.covered}/${s.total}쪽 (범위 ${s.S}–${s.E}쪽) · 읽은 곳 ${rangeTxt(s.ranges)}${s.pct < 1 ? ` · <b>다음 ${s.next}쪽부터</b>` : ""}`
+          : t.type === "count" ? `🔢 ${s.n}/${s.target}${esc(t.unit || "개")}` : (s.done ? "✔ 완료" : "☐ 아직");
+        return `<li class="task${s.pct >= 1 ? " done" : ""}">
+          <div class="trow"><span class="tname">${esc(t.name)}</span><span class="tpct">${pctTxt(s.pct)}</span></div>
+          <div class="meter sm${s.pct >= 1 ? " full" : ""}"><i style="width:${s.pct * 100}%"></i></div>
+          <div class="tmeta">${meta}</div>
+          <div class="tact">
+            ${t.type === "check" ? `<button class="mini" data-toggle-task="${t.id}">${s.done ? "완료 취소" : "완료 체크 ✔"}</button>` : ""}
+            <button class="mini" data-log-task="${t.id}">✏️ 오늘 기록</button>
+            ${s.logs.length ? `<details class="tlogs"><summary>기록 ${s.logs.length}회 · ${minTxt(s.mins)}</summary><ul>${s.logs.map(logLine).join("")}</ul></details>` : ""}
+            <button class="x" data-del-task="${g.id}|${t.id}" aria-label="할 일 삭제">×</button>
+          </div></li>`;
+      }).join("")}</ol>
+      ${openForm === "task:" + g.id ? taskFormHtml(g.id) : ""}
+      <div class="gact">
+        ${openForm === "task:" + g.id ? "" : `<button class="btn" data-open="task:${g.id}">+ 할 일 추가</button>`}
+        <button class="linkbtn" data-open="goal:${g.id}">목표 수정</button>
+        <button class="linkbtn" data-del-goal="${g.id}">삭제</button>
+      </div>
+      <div class="gconfirm" id="gconf-${g.id}"></div>
+    </div>`;
+  });
+  $("#goals").innerHTML = html;
+  $("#newGoal").hidden = openForm === "goal";
+}
+function goalFormHtml(g) {
+  return `<form class="gform" data-goal-form="${g ? g.id : ""}">
+    <label class="field"><span>목표 이름</span><input type="text" name="title" required value="${esc(g ? g.title : "")}" placeholder="예: 유방초음파 전문방사선사 시험"></label>
+    <label class="field"><span>시험일·마감일 (선택)</span><input type="date" name="examDate" value="${esc(g ? g.examDate || "" : "")}"></label>
+    <div style="display:flex;gap:8px"><button class="btn primary" type="submit">${g ? "저장" : "목표 만들기"}</button><button class="btn ghost" type="button" data-open="">취소</button></div>
+  </form>`;
+}
+function taskFormHtml(gid) {
+  return `<form class="gform" data-task-form="${gid}">
+    <label class="field"><span>해야 할 일</span><input type="text" name="name" required placeholder="예: 유방초음파진단학 1회독 + 나만의 노트"></label>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="type" value="pages" checked> 📖 쪽수로</label>
+      <label><input type="radio" name="type" value="count"> 🔢 개수로</label>
+      <label><input type="radio" name="type" value="check"> ☑️ 체크만</label>
+    </div>
+    <div class="row tf-pages"><label class="field"><span>시작 쪽</span><input type="number" name="start" min="0" value="1"></label><label class="field"><span>끝 쪽</span><input type="number" name="end" min="1" placeholder="예: 420"></label></div>
+    <div class="row tf-count" hidden><label class="field"><span>목표 개수</span><input type="number" name="target" min="1" placeholder="예: 300"></label><label class="field"><span>단위</span><input type="text" name="unit" placeholder="문항, 강, 회"></label></div>
+    <div style="display:flex;gap:8px"><button class="btn primary" type="submit">추가</button><button class="btn ghost" type="button" data-open="">취소</button></div>
+  </form>`;
+}
+$("#newGoal").addEventListener("click", () => { openForm = "goal"; renderGoals(); });
+$("#goals").addEventListener("change", e => {
+  const f = e.target.closest("[data-task-form]"); if (!f || e.target.name !== "type") return;
+  f.querySelector(".tf-pages").hidden = e.target.value !== "pages";
+  f.querySelector(".tf-count").hidden = e.target.value !== "count";
 });
-$("#studyItems").addEventListener("click", e => { const b = e.target.closest("[data-del-study]"); if (!b) return; day.study.splice(Number(b.dataset.delStudy), 1); fillStudy(); saveDay(); });
-$("#studyAdd").addEventListener("click", () => { day.study.push({ subject: "", minutes: "", content: "" }); fillStudy(); });
-function renderStudy() {
-  const ym = cur.slice(0, 7), agg = {}, all = allDays();
-  all.filter(x => x.date.slice(0, 7) === ym).forEach(x => { const seen = new Set(); (x.study || []).forEach(s => { const k = (s.subject || "").trim(); if (!k) return; agg[k] = agg[k] || { days: 0, min: 0 }; agg[k].min += Number(s.minutes) || 0; if (!seen.has(k)) { agg[k].days++; seen.add(k); } }); });
-  const rows = Object.entries(agg).sort((a, b) => b[1].min - a[1].min);
-  $("#subjRows").innerHTML = rows.length ? rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${v.days}일</td><td class="num">${Math.floor(v.min / 60)}시간 ${v.min % 60}분</td></tr>`).join("") : `<tr><td colspan="3" class="empty">이번 달 공부 기록이 없어.</td></tr>`;
-  const subs = new Set(); all.forEach(x => (x.study || []).forEach(s => s.subject && subs.add(s.subject.trim())));
-  $("#subjList").innerHTML = [...subs].map(s => `<option value="${esc(s)}">`).join("");
-  const past = all.filter(x => x.date !== cur && flags(x).study).slice(0, 20);
-  $("#pastStudy").innerHTML = past.length ? past.map(x => `<details class="past"><summary><span class="mono muted">${short(x.date)}</span> ${esc(x.study.map(s => s.subject).filter(Boolean).join(" · "))} <span class="muted mono">${sumMin(x)}분</span></summary>${x.study.map(s => `<p><b>${esc(s.subject)}</b> ${esc(s.content)}</p>`).join("")}</details>`).join("") : `<div class="empty">지난 공부 기록이 쌓이면 여기에 보여.</div>`;
+$("#goals").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, fd = new FormData(f);
+  if (f.dataset.goalForm !== undefined) {
+    const title = (fd.get("title") || "").trim(); if (!title) return;
+    if (f.dataset.goalForm) { const g = goals().find(x => x.id === f.dataset.goalForm); g.title = title; g.examDate = fd.get("examDate") || ""; }
+    else goals().push({ id: uuid(), title, examDate: fd.get("examDate") || "", tasks: [] });
+  } else if (f.dataset.taskForm) {
+    const g = goals().find(x => x.id === f.dataset.taskForm), type = fd.get("type");
+    const name = (fd.get("name") || "").trim(); if (!name) return;
+    const t = { id: uuid(), name, type };
+    if (type === "pages") { t.start = Number(fd.get("start")) || 1; t.end = Number(fd.get("end")) || 0; if (t.end < t.start) { f.querySelector("[name=end]").focus(); return; } }
+    if (type === "count") { t.target = Number(fd.get("target")) || 0; t.unit = (fd.get("unit") || "").trim() || "개"; if (!t.target) { f.querySelector("[name=target]").focus(); return; } }
+    if (type === "check") t.done = false;
+    g.tasks = (g.tasks || []).concat([t]);
+  }
+  openForm = null; saveSettings(); renderGoals(); renderLogForm();
+});
+$("#goals").addEventListener("click", e => {
+  const o = e.target.closest("[data-open]");
+  if (o) { openForm = o.dataset.open || null; renderGoals(); return; }
+  const tg = e.target.closest("[data-toggle-task]");
+  if (tg) { const r = findTask(tg.dataset.toggleTask); r.t.done = !r.t.done; saveSettings(); renderGoals(); return; }
+  const lg = e.target.closest("[data-log-task]");
+  if (lg) { $("#logTask").value = lg.dataset.logTask; renderLogFields(); $("#logPanel").scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+  const dt = e.target.closest("[data-del-task]");
+  if (dt) {
+    const [gid, tid] = dt.dataset.delTask.split("|"); const g = goals().find(x => x.id === gid);
+    const box = $("#gconf-" + gid);
+    box.innerHTML = `<div class="confirm notice">할 일을 지울까? 날짜별 공부 기록은 남아 있어. <button class="btn danger" data-yes-task="${gid}|${tid}">삭제</button><button class="btn ghost" data-open="">취소</button></div>`;
+    return;
+  }
+  const yt = e.target.closest("[data-yes-task]");
+  if (yt) { const [gid, tid] = yt.dataset.yesTask.split("|"); const g = goals().find(x => x.id === gid); g.tasks = g.tasks.filter(t => t.id !== tid); saveSettings(); renderGoals(); renderLogForm(); return; }
+  const dg = e.target.closest("[data-del-goal]");
+  if (dg) { $("#gconf-" + dg.dataset.delGoal).innerHTML = `<div class="confirm notice">목표와 할 일 목록을 지울까? <button class="btn danger" data-yes-goal="${dg.dataset.delGoal}">삭제</button><button class="btn ghost" data-open="">취소</button></div>`; return; }
+  const yg = e.target.closest("[data-yes-goal]");
+  if (yg) { settings.goals = goals().filter(g => g.id !== yg.dataset.yesGoal); saveSettings(); renderGoals(); renderLogForm(); }
+});
+
+/* 오늘 공부 기록 */
+function renderLogForm() {
+  const opts = goals().map(g => `<optgroup label="🎯 ${esc(g.title)}">${(g.tasks || []).map(t => `<option value="${t.id}">${esc(t.name)}</option>`).join("")}</optgroup>`).join("");
+  const keep = $("#logTask").value;
+  $("#logTask").innerHTML = `<option value="">— 할 일 선택 (없으면 자유 기록) —</option>${opts}`;
+  if (keep && findTask(keep)) $("#logTask").value = keep;
+  renderLogFields();
 }
+function renderLogFields() {
+  const r = findTask($("#logTask").value), box = $("#logFields");
+  $("#logSubjectWrap").hidden = !!r;
+  if (!r) { box.innerHTML = ""; return; }
+  const s = taskStat(r.t);
+  if (r.t.type === "pages") box.innerHTML = `<div class="row"><label class="field"><span>몇 쪽부터</span><input type="number" id="logFrom" min="0" value="${s.next}"></label><label class="field"><span>몇 쪽까지</span><input type="number" id="logTo" min="0" placeholder="${Math.min(s.E, s.next + 9)}"></label></div><div class="muted" style="font-size:12.5px">범위 ${s.S}–${s.E}쪽 · 지금까지 ${s.covered}쪽 (${pctTxt(s.pct)})</div>`;
+  else if (r.t.type === "count") box.innerHTML = `<label class="field"><span>오늘 한 ${esc(r.t.unit || "개")} 수</span><input type="number" id="logCount" min="1"></label><div class="muted" style="font-size:12.5px">지금까지 ${s.n}/${s.target}${esc(r.t.unit || "개")}</div>`;
+  else box.innerHTML = `<label class="chkline"><input type="checkbox" id="logComplete"> 오늘 이 할 일을 끝냈어</label>`;
+}
+$("#logTask").addEventListener("change", renderLogFields);
+$("#logForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const r = findTask($("#logTask").value);
+  const entry = { minutes: $("#logMin").value, content: $("#logMemo").value.trim() };
+  if (r) {
+    entry.taskId = r.t.id; entry.goalId = r.g.id; entry.subject = r.t.name;
+    if (r.t.type === "pages") { const f = $("#logFrom").value, t = $("#logTo").value; if (f === "" || t === "" || Number(t) < Number(f)) { $("#logTo").focus(); return; } entry.from = Number(f); entry.to = Number(t); }
+    if (r.t.type === "count") { const c = Number($("#logCount").value); if (!c) { $("#logCount").focus(); return; } entry.count = c; }
+    if (r.t.type === "check") entry.complete = $("#logComplete").checked;
+  } else {
+    entry.subject = $("#logSubject").value.trim();
+    if (!entry.subject && !entry.content) { $("#logSubject").focus(); return; }
+  }
+  day.study = (day.study || []).filter(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim() || s.minutes).concat([entry]);
+  $("#logMin").value = ""; $("#logMemo").value = ""; $("#logSubject").value = "";
+  saveDay(); fillStudy(); renderGoals(); renderLogFields(); renderPastStudy();
+});
+function fillStudy() {
+  $("#logDateTitle").textContent = cur === TODAY ? "✏️ 오늘 공부 기록" : `✏️ ${lab(cur)} 공부 기록`;
+  const list = (day.study || []).filter(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim() || s.minutes);
+  $("#studyTotal").textContent = minTxt(sumMin(day));
+  $("#studyItems").innerHTML = list.length ? list.map((s, i) => {
+    const r = s.taskId ? findTask(s.taskId) : null;
+    const what = s.from != null && s.from !== "" ? `${s.from}–${s.to}쪽` : s.count ? `${s.count}${esc((r && r.t.unit) || "개")}` : s.complete ? "완료 ✔" : "";
+    return `<li><div class="body"><b>${esc(r ? r.t.name : s.subject || "자유 공부")}</b> ${what ? `<span class="pill">${what}</span>` : ""} ${s.minutes ? `<span class="muted">· ${minTxt(Number(s.minutes))}</span>` : ""}${r ? `<div class="muted" style="font-size:12.5px">🎯 ${esc(r.g.title)}</div>` : ""}${s.content ? `<div class="lmemo">${esc(s.content)}</div>` : ""}</div><button class="x" data-del-log="${i}" aria-label="기록 삭제">×</button></li>`;
+  }).join("") : `<li class="empty" style="border:0;padding:0">아직 기록이 없어. 아래에서 할 일을 고르고 몇 쪽 했는지 적어줘 📝</li>`;
+  $("#studyItems")._list = list;
+}
+$("#studyItems").addEventListener("click", e => {
+  const b = e.target.closest("[data-del-log]"); if (!b) return;
+  const target = $("#studyItems")._list[Number(b.dataset.delLog)];
+  day.study = (day.study || []).filter(s => s !== target);
+  saveDay(); fillStudy(); renderGoals(); renderLogFields(); renderPastStudy();
+});
+function renderPastStudy() {
+  const past = allDays().filter(x => x.date !== cur && flags(x).study).slice(0, 20);
+  $("#pastStudy").innerHTML = past.length ? past.map(x => `<details class="past"><summary><span class="mono muted">${short(x.date)}</span> ${esc(x.study.map(s => s.subject).filter(Boolean).join(" · "))} <span class="muted mono">${minTxt(sumMin(x))}</span></summary><ul class="plain">${x.study.map(s => logLine(Object.assign({ date: x.date }, s)).replace("<li>", "<li><b>" + esc(s.subject || "") + "</b> ")).join("")}</ul></details>`).join("") : `<div class="empty">지난 공부 기록이 쌓이면 여기에 보여.</div>`;
+}
+function renderStudy() { renderGoals(); renderLogForm(); renderPastStudy(); }
 
 /* ---------------- ⑤ 케이스 ---------------- */
 async function signPaths(paths) {
@@ -500,7 +687,7 @@ async function startApp(session) {
     sb.from("cases").select("*").order("date", { ascending: false }).limit(2000)
   ]);
   if (d.error || c.error) { status("기록을 불러오지 못했어: " + (d.error || c.error).message); return; }
-  days = {}; d.data.forEach(r => days[r.date] = r.data || {});
+  days = {}; d.data.forEach(r => { if (r.date === SETTINGS_DATE) settings = Object.assign({ goals: [] }, r.data || {}); else days[r.date] = r.data || {}; });
   cases = {}; c.data.forEach(r => cases[r.id] = r);
   status("");
   setDate(cur);

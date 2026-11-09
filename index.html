@@ -152,14 +152,22 @@
   <!-- ④ STUDY -->
   <section class="view" id="v-study" hidden>
     <div class="panel">
-      <div class="phead"><h2>✏️ 오늘 공부</h2><span class="mono muted" id="studyTotal">0분</span></div>
-      <div id="studyItems" style="display:flex;flex-direction:column;gap:14px"></div>
-      <datalist id="subjList"></datalist>
-      <div><button class="btn" id="studyAdd" type="button">+ 공부 항목 추가</button></div>
+      <div class="phead"><h2>🎯 내 목표</h2><button class="btn primary" id="newGoal" type="button">+ 새 목표</button></div>
+      <div id="goals" class="goals"></div>
     </div>
-    <div class="panel">
-      <h2>🏆 이번 달 과목별 누적</h2>
-      <div class="tablewrap"><table><thead><tr><th>과목</th><th>일수</th><th>시간</th></tr></thead><tbody id="subjRows"></tbody></table></div>
+    <div class="panel" id="logPanel">
+      <div class="phead"><h2 id="logDateTitle">✏️ 오늘 공부 기록</h2><span class="mono muted" id="studyTotal">0분</span></div>
+      <ul class="artlist" id="studyItems"></ul>
+      <form id="logForm" class="logform">
+        <label class="field"><span>어떤 할 일?</span><select id="logTask"></select></label>
+        <label class="field" id="logSubjectWrap"><span>과목 (자유 기록)</span><input type="text" id="logSubject" placeholder="예: 영어 단어, 투자 공부"></label>
+        <div id="logFields"></div>
+        <div class="row">
+          <label class="field"><span>공부 시간(분)</span><input type="number" id="logMin" min="0" inputmode="numeric" placeholder="예: 40"></label>
+        </div>
+        <label class="field"><span>메모 (노트 정리 내용, 헷갈린 것)</span><textarea id="logMemo" rows="3" placeholder="예: BI-RADS 4 세분류 정리, 석회화 형태 표 노트에 옮김"></textarea></label>
+        <div><button class="btn primary" type="submit">기록 추가 ✏️</button></div>
+      </form>
     </div>
     <div class="panel"><h2>🗂️ 최근 공부 기록</h2><div class="pastlist" id="pastStudy"></div></div>
   </section>
