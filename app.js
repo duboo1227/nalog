@@ -76,12 +76,16 @@ document.addEventListener("visibilitychange", () => { if (document.hidden) Objec
 function blankDay() { return { todos: [], diaryOne: "", diary: "", news: [], book: { title: "", from: "", to: "", quote: "", note: "" }, study: [] }; }
 function getDay(d) { const x = days[d]; const b = blankDay(); if (!x) return b; const c = JSON.parse(JSON.stringify(x)); return Object.assign(b, c, { book: Object.assign(b.book, c.book || {}) }); }
 function pages(b) { const f = Number(b && b.from), t = Number(b && b.to); return (b && b.from !== "" && b.to !== "" && b.from != null && b.to != null && t >= f) ? (t - f + 1) : 0; }
+// 종이 1장 = 2쪽, 하루 목표 5장(=10쪽)
+const GOAL_SHEETS = 5;
+const sheets = p => Math.round(p / 2 * 10) / 10;
+const sheetTxt = p => `${sheets(p)}장`;
 function sumMin(x) { return (x.study || []).reduce((a, s) => a + (Number(s.minutes) || 0), 0); }
 function flags(x) {
   return {
     news: (x.news || []).length > 0,
     diary: !!x.diaryLocked || ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
-    book: pages(x.book) >= 5,
+    book: pages(x.book) >= GOAL_SHEETS * 2,
     study: (x.study || []).some(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim())
   };
 }
@@ -158,7 +162,7 @@ function renderCal() {
   let pg = 0, mins = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) === calMonth) { pg += pages(x.book); mins += sumMin(x); } });
   const cs = Object.values(cases).filter(c => (c.date || "").slice(0, 7) === calMonth).length;
-  $("#calStats").textContent = `기록 ${filled}일 · 독서 ${pg}쪽 · 공부 ${(mins / 60).toFixed(1)}시간 · 케이스 ${cs}개`;
+  $("#calStats").textContent = `기록 ${filled}일 · 독서 ${sheetTxt(pg)} · 공부 ${(mins / 60).toFixed(1)}시간 · 케이스 ${cs}개`;
   $("#calNext").disabled = calMonth >= TODAY.slice(0, 7);
 }
 $("#calPrev").onclick = () => { const [y, m] = calMonth.split("-").map(Number); calMonth = new Date(Date.UTC(y, m - 2, 1)).toISOString().slice(0, 7); renderCal(); };
@@ -171,12 +175,12 @@ function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
   const f = flags(day);
-  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5쪽", pages(day.book) + "쪽"], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 어제 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
   Object.values(cases).forEach(c => { if ((c.date || "").slice(0, 7) === ym) cs++; });
-  $("#month").innerHTML = `<span class="muted">${Number(ym.slice(5))}월</span><span>일기 <b>${dd}</b>일</span><span>독서 <b>${pg}</b>쪽</span><span>공부 <b>${(mins / 60).toFixed(1)}</b>시간</span><span>케이스 <b>${cs}</b>개</span>`;
+  $("#month").innerHTML = `<span class="muted">${Number(ym.slice(5))}월</span><span>일기 <b>${dd}</b>일</span><span>독서 <b>${sheets(pg)}</b>장</span><span>공부 <b>${(mins / 60).toFixed(1)}</b>시간</span><span>케이스 <b>${cs}</b>개</span>`;
 }
 
 /* ---------------- ① 뉴스 ---------------- */
@@ -398,13 +402,13 @@ function fillBook() {
   updateMeter();
 }
 function updateMeter() {
-  const p = pages(day.book); $("#pageTally").textContent = `${p} / 5쪽`;
-  $("#pageMeter").firstElementChild.style.width = Math.min(100, p / 5 * 100) + "%";
-  $("#pageMeter").classList.toggle("full", p >= 5);
+  const p = pages(day.book); $("#pageTally").textContent = `${sheets(p)} / ${GOAL_SHEETS}장 (${p}쪽)`;
+  $("#pageMeter").firstElementChild.style.width = Math.min(100, p / (GOAL_SHEETS * 2) * 100) + "%";
+  $("#pageMeter").classList.toggle("full", p >= GOAL_SHEETS * 2);
 }
 function renderBooks() {
   const list = allDays().filter(x => x.book && (x.book.title || pages(x.book)));
-  $("#bookRows").innerHTML = list.length ? list.slice(0, 90).map(x => `<tr><td class="num">${short(x.date)}</td><td>${esc(x.book.title)}</td><td class="num">${x.book.from || "?"}–${x.book.to || "?"} <span class="muted">(${pages(x.book)})</span></td><td>${esc(x.book.quote)}</td></tr>`).join("") : `<tr><td colspan="4" class="empty">기록이 쌓이면 여기에 표로 보여.</td></tr>`;
+  $("#bookRows").innerHTML = list.length ? list.slice(0, 90).map(x => `<tr><td class="num">${short(x.date)}</td><td>${esc(x.book.title)}</td><td class="num">${x.book.from || "?"}–${x.book.to || "?"} <span class="muted">(${pages(x.book)}쪽·${sheetTxt(pages(x.book))})</span></td><td>${esc(x.book.quote)}</td></tr>`).join("") : `<tr><td colspan="4" class="empty">기록이 쌓이면 여기에 표로 보여.</td></tr>`;
   $("#bookList").innerHTML = [...new Set(list.map(x => x.book.title).filter(Boolean))].map(t => `<option value="${esc(t)}">`).join("");
 }
 [["#bookTitle", "title"], ["#bookFrom", "from"], ["#bookTo", "to"], ["#bookQuote", "quote"], ["#bookNote", "note"]].forEach(([s, k]) => {

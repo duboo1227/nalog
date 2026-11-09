@@ -166,12 +166,12 @@
   <!-- ③ BOOKS -->
   <section class="view" id="v-books" hidden>
     <div class="panel">
-      <div class="phead"><h2>📖 오늘 읽은 책</h2><span class="mono" id="pageTally">0 / 5쪽</span></div>
+      <div class="phead"><h2>📖 오늘 읽은 책</h2><span class="mono" id="pageTally">0 / 5장</span></div>
       <div class="meter" id="pageMeter"><i style="width:0%"></i></div>
       <label class="field"><span>책 제목</span><input type="text" id="bookTitle" list="bookList" placeholder="읽고 있는 책"></label>
       <datalist id="bookList"></datalist>
       <div class="row">
-        <label class="field"><span>시작 쪽</span><input type="number" id="bookFrom" inputmode="numeric" min="0"></label>
+        <label class="field"><span>시작 쪽 (1장 = 2쪽)</span><input type="number" id="bookFrom" inputmode="numeric" min="0"></label>
         <label class="field"><span>끝 쪽</span><input type="number" id="bookTo" inputmode="numeric" min="0"></label>
       </div>
       <label class="field"><span>인상 깊은 문장</span><textarea id="bookQuote" rows="2"></textarea></label>
