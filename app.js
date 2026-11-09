@@ -397,12 +397,39 @@ $("#diarySetupForm").addEventListener("submit", async e => {
 $("#diarySetupCancel").addEventListener("click", () => diaryMode("edit"));
 $("#relock").addEventListener("click", () => { diaryKey = null; fillDiary(); renderPastDiary(); status("🔒 다시 잠갔어"); });
 
+// 지난 일기 달력: 날짜 = 일기에 적힌 그날(기록일의 전날). 쓴 날만 초록 형광펜
+let diaryMonth = null;
+function diaryWritten(x) { return !!x && (x.diaryLocked || (x.diary || "").trim() || (x.diaryOne || "").trim()); }
 function renderPastDiary() {
-  const list = allDays().filter(x => x.date !== cur && (x.diaryLocked || (x.diary || "").trim() || (x.diaryOne || "").trim())).slice(0, 30);
-  $("#pastDiary").innerHTML = list.length ? list.map(x => x.diaryLocked
-    ? `<details class="past locked"><summary><span class="mono muted">${short(addDays(x.date, -1))}</span> 🔒 잠긴 일기</summary><p class="muted">비밀번호로 잠긴 일기야. 달력에서 그 날짜로 들어가서 열어줘.</p></details>`
-    : `<details class="past"><summary><span class="mono muted">${short(addDays(x.date, -1))}</span> ${esc(x.diaryOne || "(요약 없음)")}</summary><p>${esc(x.diary)}</p></details>`).join("") : `<div class="empty">지난 일기가 쌓이면 여기에 보여.</div>`;
+  const about = addDays(cur, -1), lastDay = addDays(TODAY, -1);
+  if (!diaryMonth) diaryMonth = about.slice(0, 7);
+  const [y, m] = diaryMonth.split("-").map(Number);
+  const first = `${diaryMonth}-01`, lead = wd(first), nDays = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  let html = "", count = 0;
+  for (let i = 0; i < lead; i++) html += `<span class="d blank"></span>`;
+  for (let i = 1; i <= nDays; i++) {
+    const d = `${diaryMonth}-${String(i).padStart(2, "0")}`, rec = days[addDays(d, 1)], w = wd(d), fut = d > lastDay;
+    const ok = !fut && diaryWritten(rec); if (ok) count++;
+    html += `<button class="d${ok ? " dfilled" : ""}${d === about ? " sel" : ""}${fut ? " future" : ""}${w === 0 ? " sun" : w === 6 ? " sat" : ""}" data-dd="${d}" ${fut ? "disabled" : ""} title="${lab(d)}${ok ? (rec.diaryLocked ? " · 잠긴 일기" : " · " + (rec.diaryOne || "일기 있음")) : ""}"><span class="num">${i}</span>${ok && rec.diaryLocked ? `<span class="stk" aria-hidden="true">🔒</span>` : ""}</button>`;
+  }
+  $("#pastDiary").innerHTML = `<div class="calhead dcalhead">
+      <button class="btn ghost navbtn" data-dmove="-1" aria-label="이전 달">‹</button>
+      <h3>${y}년 ${m}월</h3>
+      <button class="btn ghost navbtn" data-dmove="1" aria-label="다음 달" ${diaryMonth >= lastDay.slice(0, 7) ? "disabled" : ""}>›</button>
+      <span class="muted" style="margin-left:auto;font-size:13px">${count}일 썼어</span>
+    </div>
+    <div class="calweek"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="sat">토</span></div>
+    <div class="calgrid dcal">${html}</div>
+    <div class="muted" style="font-size:12.5px">날짜를 누르면 그날 일기가 위에 열려. 🔒는 잠긴 일기야.</div>`;
 }
+$("#pastDiary").addEventListener("click", e => {
+  const mv = e.target.closest("[data-dmove]");
+  if (mv) { const [y, m] = diaryMonth.split("-").map(Number); diaryMonth = new Date(Date.UTC(y, m - 1 + Number(mv.dataset.dmove), 1)).toISOString().slice(0, 7); renderPastDiary(); return; }
+  const b = e.target.closest("[data-dd]"); if (!b || b.disabled) return;
+  diaryMonth = b.dataset.dd.slice(0, 7);
+  setDate(addDays(b.dataset.dd, 1));
+  $("#v-diary").scrollIntoView({ behavior: "smooth", block: "start" });
+});
 
 /* ---------------- ③ 독서 ---------------- */
 function lastBook() { return allDays().find(x => x.date < cur && x.book && x.book.title); }
