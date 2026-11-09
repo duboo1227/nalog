@@ -318,3 +318,11 @@ textarea.diary{font-family:var(--body);font-size:16px;background:repeating-linea
 .chkline{display:flex;gap:8px;align-items:center}
 
 .demobar{margin-top:14px;background:var(--butter);border:2px dashed var(--warn);border-radius:14px;padding:8px 12px;font-size:13.5px;text-align:center;font-family:var(--display)}
+
+/* ---- 일기 잠금 ---- */
+.lockrow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
+.lockbox{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 12px;border:2px dashed var(--line);border-radius:18px;background:var(--bg);text-align:center}
+.lockbox .todoform{width:100%;max-width:320px}
+.lockbox input[type=password]{width:100%;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:9px 11px}
+.lockicon{font-size:38px;line-height:1}
+details.past.locked summary{color:var(--muted)}

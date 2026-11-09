@@ -49,6 +49,8 @@ const ENT = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", middo
 function clean(s = "") {
   return s
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<\/(p|div|span|em|strong|b)>\s*<(p|div|span|em|strong|b)\b/gi, "</$1> <$2")
     .replace(/<[^>]+>/g, "")
     .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
@@ -125,7 +127,7 @@ export function extractTops(html, base, pattern, n = 3) {
     if (!pattern.test(href)) continue;
     try { href = new URL(href, base).href; } catch { continue; }
     const key = href.split("?")[0];
-    const title = clean(m[2]);
+    const title = clean(m[2]).replace(/^단독\s*/, "[단독] ");
     if (title.length < 12 || /^(사진|영상|포토|\[?사진\]?)$/.test(title)) { continue; }
     if (seen.has(key)) continue;
     const it = { title, link: href, pubDate: null };

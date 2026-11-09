@@ -80,7 +80,7 @@ function sumMin(x) { return (x.study || []).reduce((a, s) => a + (Number(s.minut
 function flags(x) {
   return {
     news: (x.news || []).length > 0,
-    diary: ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
+    diary: !!x.diaryLocked || ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
     book: pages(x.book) >= 5,
     study: (x.study || []).some(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim())
   };
@@ -204,16 +204,16 @@ function renderNews() {
     $("#paperChips").innerHTML = ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
     let list;
     if (newsPaper === "전체") {
-      // 신문사별로 번갈아 섞어서 한 페이지에 여러 신문이 보이게
-      list = []; const max = Math.max(...srcs.map(s => s.items.length));
-      for (let r = 0; r < max; r++) srcs.forEach(s => { if (s.items[r]) list.push(Object.assign({ src: s.name }, s.items[r])); });
-      list = list.slice(0, PER_PAGE); // 전체는 10개만
+      // 각 신문 경제면 맨 위(메인) 기사부터 번갈아 10개. 메인 수집이 안 된 신문은 최신 기사로 대신
+      list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items);
+      const seen = new Set();
+      for (let r = 0; r < 3 && list.length < PER_PAGE; r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < PER_PAGE) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: r === 0 && !!(s.tops && s.tops.length) }, it)); } });
     } else list = srcs.find(s => s.name === newsPaper).items.map(i => Object.assign({ src: newsPaper }, i));
     const pagesN = Math.max(1, Math.ceil(list.length / PER_PAGE));
     if (newsPage >= pagesN) newsPage = pagesN - 1;
     const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
     const saved = new Set((day.news || []).map(a => a.url));
-    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a><div class="time">${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.title)}</a><div class="time">${it.main ? "⭐ 메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
     $("#heads")._list = pageList;
     $("#pager").hidden = pagesN < 2;
     $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
@@ -245,18 +245,124 @@ $("#artForm").addEventListener("submit", e => {
 $("#artList").addEventListener("click", e => { const b = e.target.closest("[data-del-art]"); if (!b) return; day.news.splice(Number(b.dataset.delArt), 1); saveDay(); renderNews(); });
 $("#artList").addEventListener("input", e => { const m = e.target.closest("[data-memo]"); if (!m) return; day.news[Number(m.dataset.memo)].memo = m.value; saveDay(); });
 
-/* ---------------- ② 일기 ---------------- */
-function fillDiary() {
+/* ---------------- ② 일기 (+ 비밀번호 잠금) ---------------- */
+// 잠근 일기는 비밀번호로 만든 키로 암호화(AES-GCM)해서 저장. 비밀번호를 잊으면 서버에서도 복구 불가.
+const te = new TextEncoder(), td = new TextDecoder();
+const b64 = u8 => { let s = ""; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s); };
+const ub64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function deriveKey(pw, saltB64) {
+  const base = await crypto.subtle.importKey("raw", te.encode(pw), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({ name: "PBKDF2", salt: ub64(saltB64), iterations: 210000, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+}
+async function encObj(key, obj) { const iv = crypto.getRandomValues(new Uint8Array(12)); const ct = new Uint8Array(await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, te.encode(JSON.stringify(obj)))); return { iv: b64(iv), ct: b64(ct) }; }
+async function decObj(key, e) { return JSON.parse(td.decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: ub64(e.iv) }, key, ub64(e.ct)))); }
+
+let diaryKey = null;       // 이번 접속 동안만 메모리에 보관
+let lockIntent = null;     // "lock" | "open"
+let lockedDraft = null;    // 잠긴 날 편집 중인 평문 (화면에만)
+let encTimer = null;
+
+function diaryMode(m) {   // "edit" | "locked" | "setup"
+  $("#diaryEditor").hidden = m !== "edit";
+  $("#diaryLockedBox").hidden = m !== "locked";
+  $("#diarySetup").hidden = m !== "setup";
+  $("#diaryLockRow").hidden = m !== "edit";
+  $("#diaryLockCancel").hidden = lockIntent !== "lock";
+}
+async function fillDiary() {
+  const date = cur;
   $("#diaryTitle").textContent = `🌙 ${lab(addDays(cur, -1))} 일기`;
+  $("#diaryLockMsg").textContent = ""; $("#diaryPw").value = "";
+  lockedDraft = null;
+  if (day.diaryLocked) {
+    $("#diaryLockChk").checked = true; $("#relock").hidden = !diaryKey;
+    if (!diaryKey) { lockIntent = "open"; $("#diaryLockedTitle").textContent = "🔒 잠긴 일기야"; $("#diaryCount").textContent = "🔒"; diaryMode("locked"); return; }
+    try {
+      const plain = await decObj(diaryKey, day.diaryEnc);
+      if (date !== cur) return;
+      lockedDraft = plain;
+      $("#diaryOne").value = plain.one || ""; $("#diaryText").value = plain.text || "";
+      $("#diaryCount").textContent = (plain.text || "").length + "자 🔓"; diaryMode("edit");
+    } catch (_) { diaryKey = null; lockIntent = "open"; diaryMode("locked"); $("#diaryLockMsg").textContent = "비밀번호를 다시 입력해줘."; }
+    return;
+  }
+  $("#diaryLockChk").checked = false; $("#relock").hidden = true;
   $("#diaryOne").value = day.diaryOne || ""; $("#diaryText").value = day.diary || "";
   $("#diaryCount").textContent = (day.diary || "").length + "자";
+  diaryMode("edit");
 }
+function onDiaryInput() {
+  const one = $("#diaryOne").value, text = $("#diaryText").value;
+  if (day.diaryLocked) {
+    if (!diaryKey) return;
+    lockedDraft = { one, text }; $("#diaryCount").textContent = text.length + "자 🔓";
+    clearTimeout(encTimer); status("저장 중…");
+    const date = cur, draft = lockedDraft;
+    encTimer = setTimeout(async () => { const e = await encObj(diaryKey, draft); if (date === cur && day.diaryLocked) { day.diaryEnc = e; saveDay(); } }, 600);
+    return;
+  }
+  day.diaryOne = one; day.diary = text; $("#diaryCount").textContent = text.length + "자"; saveDay();
+}
+$("#diaryOne").addEventListener("input", onDiaryInput);
+$("#diaryText").addEventListener("input", onDiaryInput);
+
+async function doLock() {
+  const plain = { one: $("#diaryOne").value, text: $("#diaryText").value };
+  day.diaryEnc = await encObj(diaryKey, plain);
+  day.diaryLocked = true; day.diary = ""; day.diaryOne = "";
+  saveDay(); renderPastDiary(); fillDiary();
+  status("🔒 이 날 일기를 잠갔어");
+}
+async function doUnlockForever() {
+  const plain = lockedDraft || await decObj(diaryKey, day.diaryEnc);
+  day.diary = plain.text || ""; day.diaryOne = plain.one || "";
+  delete day.diaryEnc; day.diaryLocked = false;
+  saveDay(); renderPastDiary(); fillDiary();
+  status("🔓 잠금을 풀었어");
+}
+$("#diaryLockChk").addEventListener("change", async e => {
+  if (e.target.checked) {
+    e.target.checked = false;
+    if (!settings.diaryLock) { diaryMode("setup"); $("#pw1").focus(); return; }
+    if (diaryKey) { await doLock(); return; }
+    lockIntent = "lock"; $("#diaryLockedTitle").textContent = "🔒 잠그려면 일기 비밀번호를 입력해줘"; diaryMode("locked"); $("#diaryPw").focus();
+  } else {
+    e.target.checked = true;
+    if (diaryKey) await doUnlockForever();
+  }
+});
+$("#diaryUnlockForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const pw = $("#diaryPw").value; if (!pw || !settings.diaryLock) return;
+  $("#diaryLockMsg").textContent = "확인 중…";
+  try {
+    const key = await deriveKey(pw, settings.diaryLock.salt);
+    await decObj(key, settings.diaryLock.check);
+    diaryKey = key; $("#diaryPw").value = "";
+    if (lockIntent === "lock") { diaryMode("edit"); await doLock(); } else { await fillDiary(); renderPastDiary(); }
+  } catch (_) { $("#diaryLockMsg").textContent = "비밀번호가 달라 🙅"; }
+});
+$("#diaryLockCancel").addEventListener("click", () => { if (lockIntent === "lock") diaryMode("edit"); });
+$("#diarySetupForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const a = $("#pw1").value, b = $("#pw2").value;
+  if (a.length < 4) { $("#setupMsg").textContent = "4자 이상으로 만들어줘."; return; }
+  if (a !== b) { $("#setupMsg").textContent = "두 번 입력한 비밀번호가 달라."; return; }
+  const salt = b64(crypto.getRandomValues(new Uint8Array(16)));
+  diaryKey = await deriveKey(a, salt);
+  settings.diaryLock = { salt, check: await encObj(diaryKey, "ok") };
+  saveSettings(); $("#pw1").value = $("#pw2").value = ""; $("#setupMsg").textContent = "";
+  diaryMode("edit"); await doLock();
+});
+$("#diarySetupCancel").addEventListener("click", () => diaryMode("edit"));
+$("#relock").addEventListener("click", () => { diaryKey = null; fillDiary(); renderPastDiary(); status("🔒 다시 잠갔어"); });
+
 function renderPastDiary() {
-  const list = allDays().filter(x => x.date !== cur && ((x.diary || "").trim() || (x.diaryOne || "").trim())).slice(0, 30);
-  $("#pastDiary").innerHTML = list.length ? list.map(x => `<details class="past"><summary><span class="mono muted">${short(addDays(x.date, -1))}</span> ${esc(x.diaryOne || "(요약 없음)")}</summary><p>${esc(x.diary)}</p></details>`).join("") : `<div class="empty">지난 일기가 쌓이면 여기에 보여.</div>`;
+  const list = allDays().filter(x => x.date !== cur && (x.diaryLocked || (x.diary || "").trim() || (x.diaryOne || "").trim())).slice(0, 30);
+  $("#pastDiary").innerHTML = list.length ? list.map(x => x.diaryLocked
+    ? `<details class="past locked"><summary><span class="mono muted">${short(addDays(x.date, -1))}</span> 🔒 잠긴 일기</summary><p class="muted">비밀번호로 잠긴 일기야. 달력에서 그 날짜로 들어가서 열어줘.</p></details>`
+    : `<details class="past"><summary><span class="mono muted">${short(addDays(x.date, -1))}</span> ${esc(x.diaryOne || "(요약 없음)")}</summary><p>${esc(x.diary)}</p></details>`).join("") : `<div class="empty">지난 일기가 쌓이면 여기에 보여.</div>`;
 }
-$("#diaryOne").addEventListener("input", e => { day.diaryOne = e.target.value; saveDay(); });
-$("#diaryText").addEventListener("input", e => { day.diary = e.target.value; $("#diaryCount").textContent = day.diary.length + "자"; saveDay(); });
 
 /* ---------------- ③ 독서 ---------------- */
 function lastBook() { return allDays().find(x => x.date < cur && x.book && x.book.title); }

@@ -100,7 +100,7 @@
         <span class="mono muted" id="pageInfo">1 / 1</span>
         <button class="btn" id="pageNext" type="button">다음 ›</button>
       </div>
-      <div class="muted" style="font-size:12.5px">4시간마다(02·06·10·14·18·22시) 자동으로 모아와. '+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨.</div>
+      <div class="muted" style="font-size:12.5px">4시간마다(02·06·10·14·18·22시) 자동으로 모아와. '전체'는 각 신문 경제면 맨 위 기사(⭐ 메인)부터 보여줘. '+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨.</div>
     </div>
     <div class="panel">
       <div class="phead"><h2>🔖 내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
@@ -124,8 +124,36 @@
   <section class="view" id="v-diary" hidden>
     <div class="panel">
       <div class="phead"><h2 id="diaryTitle">어제 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
-      <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="어제를 한 문장으로"></label>
-      <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="어제 있었던 일, 느낀 것, 다음에 다르게 할 것"></textarea></label>
+      <div class="lockrow" id="diaryLockRow">
+        <label class="chkline"><input type="checkbox" id="diaryLockChk"> 🔒 이 날 일기 잠그기</label>
+        <button class="linkbtn" id="relock" type="button" hidden>다시 잠그기</button>
+      </div>
+      <div id="diaryEditor" style="display:flex;flex-direction:column;gap:12px">
+        <label class="field"><span>한 줄 요약</span><input type="text" id="diaryOne" placeholder="어제를 한 문장으로"></label>
+        <label class="field"><span>일기</span><textarea class="diary" id="diaryText" placeholder="어제 있었던 일, 느낀 것, 다음에 다르게 할 것"></textarea></label>
+      </div>
+      <div class="lockbox" id="diaryLockedBox" hidden>
+        <div class="lockicon">🔐</div>
+        <b id="diaryLockedTitle">🔒 잠긴 일기야</b>
+        <form id="diaryUnlockForm" class="todoform">
+          <input type="password" id="diaryPw" placeholder="일기 비밀번호" autocomplete="current-password">
+          <button class="btn primary" type="submit">열기</button>
+        </form>
+        <div class="muted" id="diaryLockMsg" style="font-size:13px;min-height:18px"></div>
+        <button class="linkbtn" id="diaryLockCancel" type="button">취소</button>
+      </div>
+      <div class="lockbox" id="diarySetup" hidden>
+        <div class="lockicon">🗝️</div>
+        <b>일기 비밀번호 만들기</b>
+        <form id="diarySetupForm" style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px">
+          <input type="password" id="pw1" placeholder="비밀번호 (4자 이상)" autocomplete="new-password">
+          <input type="password" id="pw2" placeholder="한 번 더" autocomplete="new-password">
+          <button class="btn primary" type="submit">만들고 잠그기</button>
+        </form>
+        <div class="notice" style="font-size:12.5px;text-align:left">⚠️ 잠긴 일기는 이 비밀번호로 암호화돼서 저장돼. <b>비밀번호를 잊으면 나도, 서버도 일기를 되살릴 수 없어.</b> 꼭 기억할 수 있는 걸로 만들어줘.</div>
+        <div class="muted" id="setupMsg" style="font-size:13px;min-height:18px"></div>
+        <button class="linkbtn" id="diarySetupCancel" type="button">취소</button>
+      </div>
     </div>
     <div class="panel"><h2>💌 지난 일기</h2><div class="pastlist" id="pastDiary"></div></div>
   </section>
