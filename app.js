@@ -47,6 +47,7 @@ let cases = {};         // id -> row
 let news = null;        // current news json
 let newsPaper = "전체";
 let newsPage = 0;
+const openArts = new Set();   // 펼쳐둔 읽은 기사 번호
 const PER_PAGE = 10;
 let cur = TODAY;
 let day = null;
@@ -185,7 +186,7 @@ function renderOverview() {
 
 /* ---------------- ① 뉴스 ---------------- */
 async function loadNews(date) {
-  newsPage = 0;
+  newsPage = 0; openArts.clear();
   news = null; renderNews();
   const tryUrls = [CFG.NEWS_BASE + date + ".json", "data/news/" + date + ".json"];
   for (const u of tryUrls) {
@@ -234,11 +235,14 @@ function renderNews() {
   }
   const arts = day.news || [];
   $("#artCount").textContent = arts.length + "건";
-  $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li class="art">
-      <div class="arthead"><div class="body">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener"><b>${esc(a.title)}</b></a>` : `<b>${esc(a.title)}</b>`}${a.src ? ` <span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}</div><button class="x" data-del-art="${i}" aria-label="삭제">×</button></div>
-      <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
-      <label class="field"><span>💭 구나생각</span><textarea class="artth" data-th="${i}" rows="3" placeholder="왜 중요한지, 내 투자·생활에 주는 의미">${esc(a.thought ?? a.memo ?? "")}</textarea></label>
-    </li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
+  $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li class="art"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
+      <summary><span class="artn">${i + 1}.</span><span class="artt">${esc(a.title)}</span>${(a.summary || a.thought || a.memo) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
+      <div class="artbody">
+        <div class="arthead">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">🔗 기사 열기</a>` : `<span class="muted">링크 없음</span>`}${a.src ? `<span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}<button class="x" data-del-art="${i}" aria-label="삭제" style="margin-left:auto">×</button></div>
+        <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
+        <label class="field"><span>💭 구나생각</span><textarea class="artth" data-th="${i}" rows="3" placeholder="왜 중요한지, 내 투자·생활에 주는 의미">${esc(a.thought ?? a.memo ?? "")}</textarea></label>
+      </div>
+    </details></li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
 }
 $("#paperChips").addEventListener("click", e => { const b = e.target.closest("[data-paper]"); if (!b) return; newsPaper = b.dataset.paper; newsPage = 0; renderNews(); });
 $("#pagePrev").addEventListener("click", () => { if (newsPage > 0) { newsPage--; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); } });
@@ -247,7 +251,7 @@ $("#heads").addEventListener("click", e => {
   const b = e.target.closest("[data-add]"); if (!b) return;
   const it = $("#heads")._list[Number(b.dataset.add)];
   const idx = (day.news || []).findIndex(a => a.url === it.link);
-  if (idx >= 0) day.news.splice(idx, 1); else day.news = (day.news || []).concat([{ title: it.title, url: it.link, src: it.src, summary: "", thought: "" }]);
+  if (idx >= 0) { day.news.splice(idx, 1); openArts.clear(); } else day.news = (day.news || []).concat([{ title: it.title, url: it.link, src: it.src, summary: "", thought: "" }]);
   saveDay(); renderNews();
 });
 $("#artForm").addEventListener("submit", e => {
@@ -258,7 +262,8 @@ $("#artForm").addEventListener("submit", e => {
   $("#artTitle").value = $("#artUrl").value = $("#artSum").value = $("#artThought").value = "";
   saveDay(); renderNews();
 });
-$("#artList").addEventListener("click", e => { const b = e.target.closest("[data-del-art]"); if (!b) return; day.news.splice(Number(b.dataset.delArt), 1); saveDay(); renderNews(); });
+$("#artList").addEventListener("click", e => { const b = e.target.closest("[data-del-art]"); if (!b) return; day.news.splice(Number(b.dataset.delArt), 1); openArts.clear(); saveDay(); renderNews(); });
+$("#artList").addEventListener("toggle", e => { const d = e.target.closest("[data-art]"); if (!d) return; const i = Number(d.dataset.art); d.open ? openArts.add(i) : openArts.delete(i); }, true);
 $("#artList").addEventListener("input", e => {
   const sm = e.target.closest("[data-sum]"), th = e.target.closest("[data-th]");
   if (sm) { day.news[Number(sm.dataset.sum)].summary = sm.value; saveDay(); }

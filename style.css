@@ -404,3 +404,16 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .artth{min-height:70px;line-height:1.6;font-size:14.5px}
 .addart summary{cursor:pointer;color:var(--accent);font-family:var(--display);font-size:14px;padding:4px 0}
 .addart[open] summary{margin-bottom:10px}
+
+/* 읽은 기사: 번호+제목만, 누르면 펼침 */
+.artlist li.art{padding:0;border:1.5px solid var(--line);border-radius:12px;background:var(--surface)}
+.artlist li.art details{width:100%}
+.artlist li.art summary{display:flex;gap:8px;align-items:baseline;padding:10px 12px;cursor:pointer;list-style:none}
+.artlist li.art summary::-webkit-details-marker{display:none}
+.artlist li.art summary::after{content:"▾";margin-left:auto;color:var(--muted);font-size:12px;transition:transform .2s}
+.artlist li.art details[open] summary::after{transform:rotate(180deg)}
+.artn{font-family:var(--display);color:var(--accent);flex:none}
+.artt{font-weight:600;overflow-wrap:anywhere;min-width:0}
+.artdot{font-size:12px;flex:none}
+.artbody{display:flex;flex-direction:column;gap:8px;padding:0 12px 12px;border-top:1px dashed var(--line);padding-top:10px}
+.artbody .arthead{display:flex;align-items:center;gap:10px}
