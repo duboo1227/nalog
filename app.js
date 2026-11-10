@@ -211,10 +211,15 @@ function renderNews() {
   } else {
     $("#newsStamp").textContent = `${short(news.date)} ${hhmm(news.generatedAt)} 수집`;
     const srcs = news.sources.filter(s => s.items.length);
-    if (newsPaper !== "전체" && !srcs.some(s => s.name === newsPaper)) newsPaper = "전체";
-    $("#paperChips").innerHTML = ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
+    const kws = settings.keywords || [];
+    const kwHit = t => kws.some(k => k && (t || "").toLowerCase().includes(k.toLowerCase()));
+    const kwAll = []; { const seen = new Set(); srcs.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (kwHit(i.title) && !seen.has(i.link)) { seen.add(i.link); kwAll.push(Object.assign({ src: s.name, main: (s.tops || []).includes(i) }, i)); } })); }
+    if (newsPaper === "관심" && !kws.length) newsPaper = "전체";
+    if (newsPaper !== "전체" && newsPaper !== "관심" && !srcs.some(s => s.name === newsPaper)) newsPaper = "전체";
+    $("#paperChips").innerHTML = (kws.length ? `<button class="chip kwchip" data-paper="관심" aria-pressed="${newsPaper === "관심"}">💡 관심 ${kwAll.length}</button>` : "") + ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
     let list;
-    if (newsPaper === "전체") {
+    if (newsPaper === "관심") list = kwAll;
+    else if (newsPaper === "전체") {
       // 각 신문 경제면 맨 위(메인) 기사부터 번갈아 10개. 메인 수집이 안 된 신문은 최신 기사로 대신
       list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items);
       const seen = new Set();
@@ -233,7 +238,9 @@ function renderNews() {
     if (newsPage >= pagesN) newsPage = pagesN - 1;
     const start = newsPage * PER_PAGE, pageList = list.slice(start, start + PER_PAGE);
     const saved = new Set((day.news || []).map(a => a.url));
-    $("#heads").innerHTML = pageList.map((it, i) => `<li><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${esc(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    const mark = t => { let h = esc(t); kws.forEach(k => { if (!k) return; const re = new RegExp(esc(k).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"); h = h.replace(re, m => `<mark>${m}</mark>`); }); return h; };
+    if (!pageList.length && newsPaper === "관심") $("#heads").innerHTML = `<li class="empty" style="border:0">오늘은 관심 키워드가 들어간 기사가 없어.</li>`;
+    else $("#heads").innerHTML = pageList.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
     $("#heads")._list = pageList;
     $("#pager").hidden = pagesN < 2;
     $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
@@ -251,6 +258,16 @@ function renderNews() {
       </div>
     </details></li>`).join("") : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 누르거나 직접 추가해줘.</li>`;
 }
+function renderKw() {
+  const kws = settings.keywords || [];
+  $("#kwRow").innerHTML = `<span class="muted">💡 관심 키워드</span>${kws.map((k, i) => `<span class="kw-tag">${esc(k)}<button type="button" data-kwdel="${i}" aria-label="${esc(k)} 빼기">×</button></span>`).join("")}<input type="text" id="kwInput" placeholder="+ 추가 (예: 엔비디아)" autocomplete="off">`;
+}
+$("#kwRow").addEventListener("keydown", e => {
+  if (e.target.id !== "kwInput" || e.key !== "Enter" || e.isComposing) return;
+  e.preventDefault(); const v = e.target.value.trim(); if (!v) return;
+  settings.keywords = [...new Set([...(settings.keywords || []), v])]; saveSettings(); renderKw(); renderNews(); $("#kwInput").focus();
+});
+$("#kwRow").addEventListener("click", e => { const b = e.target.closest("[data-kwdel]"); if (!b) return; settings.keywords.splice(Number(b.dataset.kwdel), 1); saveSettings(); renderKw(); renderNews(); });
 $("#paperChips").addEventListener("click", e => { const b = e.target.closest("[data-paper]"); if (!b) return; newsPaper = b.dataset.paper; newsPage = 0; renderNews(); });
 $("#pagePrev").addEventListener("click", () => { if (newsPage > 0) { newsPage--; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); } });
 $("#pageNext").addEventListener("click", () => { newsPage++; renderNews(); $("#v-news").scrollIntoView({ block: "start" }); });
@@ -296,15 +313,22 @@ let diaryKey = null;       // 이번 접속 동안만 메모리에 보관
 let lockIntent = null;     // "lock" | "open"
 let lockedDraft = null;    // 잠긴 날 편집 중인 평문 (화면에만)
 let encTimer = null;
+let newLocked = false;        // 아직 안 쓴 날을 '기본 잠금'으로 여는 중 (첫 입력 때 실제로 잠김)
+let skipDefaultFor = null;    // 그 날만 기본 잠금 해제
+const defaultLockOn = () => settings.diaryDefaultLock !== false;
 
-function diaryMode(m) {   // "edit" | "locked" | "setup"
+function diaryMode(m) {   // "edit" | "locked" | "setup" | "change"
   $("#diaryEditor").hidden = m !== "edit";
   $("#diaryLockedBox").hidden = m !== "locked";
   $("#diarySetup").hidden = m !== "setup";
+  $("#diaryChange").hidden = m !== "change";
+  $("#lockMeta").hidden = m === "setup" || m === "change";
+  $("#pwChangeBtn").hidden = !settings.diaryLock;
+  $("#diaryDefaultChk").checked = defaultLockOn();
   $("#diaryLockRow").hidden = m !== "edit";
   $("#diaryLockCancel").hidden = lockIntent !== "lock";
   $("#openAndUnlock").hidden = lockIntent === "lock";
-  const openLocked = m === "edit" && !!day.diaryLocked && !!diaryKey;
+  const openLocked = m === "edit" && (!!day.diaryLocked || newLocked) && !!diaryKey;
   $("#lockChkWrap").hidden = openLocked;
   $("#lockState").hidden = !openLocked;
   $("#unlockDay").hidden = !openLocked;
@@ -314,12 +338,21 @@ async function fillDiary() {
   const date = cur;
   $("#diaryTitle").textContent = cur === TODAY ? "🌙 오늘 일기" : `🌙 ${lab(cur)} 일기`;
   $("#diaryLockMsg").textContent = ""; $("#diaryPw").value = "";
-  lockedDraft = null;
+  lockedDraft = null; newLocked = false;
+  // 기본 잠금: 아직 안 쓴 날은 비밀번호를 알아야 쓸 수 있음
+  if (!day.diaryLocked && !diaryWritten(day) && defaultLockOn() && skipDefaultFor !== cur) {
+    if (!settings.diaryLock) { lockIntent = "newsetup"; $("#setupTitle").textContent = "🔐 일기는 기본 잠금이야. 비밀번호부터 만들어줘"; diaryMode("setup"); $("#diaryCount").textContent = "🔒"; return; }
+    if (!diaryKey) { lockIntent = "open"; $("#diaryLockedTitle").textContent = "🔒 일기는 잠금 모드야. 비밀번호를 넣으면 쓸 수 있어"; $("#diaryCount").textContent = "🔒"; diaryMode("locked"); return; }
+    newLocked = true; lockedDraft = { one: "", text: "", images: [] };
+    $("#diaryLockChk").checked = true;
+    $("#diaryOne").value = ""; $("#diaryText").value = ""; $("#diaryCount").textContent = "0자 🔓";
+    diaryMode("edit"); renderDiaryImgs(); return;
+  }
   if (day.diaryLocked) {
     $("#diaryLockChk").checked = true;
     if (!diaryKey) { lockIntent = "open"; $("#diaryLockedTitle").textContent = "🔒 잠긴 일기야"; $("#diaryCount").textContent = "🔒"; diaryMode("locked"); return; }
     try {
-      const plain = await decObj(diaryKey, day.diaryEnc);
+      const plain = day.diaryEnc ? await decObj(diaryKey, day.diaryEnc) : { one: "", text: "", images: [] };
       if (date !== cur) return;
       lockedDraft = plain;
       $("#diaryOne").value = plain.one || ""; $("#diaryText").value = plain.text || "";
@@ -336,6 +369,7 @@ async function fillDiary() {
 /* 일기 사진: 붙여넣기·끌어놓기·파일 선택. 잠긴 일기는 사진 목록도 암호화 */
 const curDiaryImgs = () => day.diaryLocked ? ((lockedDraft && lockedDraft.images) || []) : (day.diaryImages || []);
 async function setDiaryImgs(arr) {
+  if (newLocked) { day.diaryLocked = true; newLocked = false; }
   if (day.diaryLocked) {
     if (!diaryKey || !lockedDraft) return;
     lockedDraft = Object.assign({}, lockedDraft, { images: arr });
@@ -390,6 +424,7 @@ document.addEventListener("paste", e => {
 });
 function onDiaryInput() {
   const one = $("#diaryOne").value, text = $("#diaryText").value;
+  if (newLocked) { day.diaryLocked = true; newLocked = false; }
   if (day.diaryLocked) {
     if (!diaryKey) return;
     lockedDraft = { one, text, images: (lockedDraft && lockedDraft.images) || [] }; $("#diaryCount").textContent = text.length + "자 🔓";
@@ -411,7 +446,8 @@ async function doLock() {
   status("🔒 이 날 일기를 잠갔어");
 }
 async function doUnlockForever() {
-  const plain = lockedDraft || await decObj(diaryKey, day.diaryEnc);
+  const plain = lockedDraft || (day.diaryEnc ? await decObj(diaryKey, day.diaryEnc) : { one: "", text: "", images: [] });
+  skipDefaultFor = cur;
   day.diary = plain.text || ""; day.diaryOne = plain.one || ""; day.diaryImages = plain.images || [];
   delete day.diaryEnc; day.diaryLocked = false;
   saveDay(); renderPastDiary(); fillDiary();
@@ -425,12 +461,16 @@ $("#diaryLockChk").addEventListener("change", async e => {
     lockIntent = "lock"; $("#diaryLockedTitle").textContent = "🔒 잠그려면 일기 비밀번호를 입력해줘"; diaryMode("locked"); $("#diaryPw").focus();
   } else {
     e.target.checked = true;
+    if (newLocked) { skipDefaultFor = cur; fillDiary(); return; }
     if (diaryKey) await doUnlockForever();
   }
 });
 $("#diaryUnlockForm").addEventListener("submit", e => { e.preventDefault(); tryPassword(false); });
 $("#openAndUnlock").addEventListener("click", () => tryPassword(true));
-$("#unlockDay").addEventListener("click", () => { if (diaryKey) doUnlockForever(); });
+$("#unlockDay").addEventListener("click", () => {
+  if (newLocked) { skipDefaultFor = cur; fillDiary(); status("🔓 이 날은 잠그지 않고 쓸게"); return; }
+  if (diaryKey) doUnlockForever();
+});
 async function tryPassword(unlockAfter) {
   const pw = $("#diaryPw").value; if (!pw) { $("#diaryPw").focus(); $("#diaryLockMsg").textContent = "비밀번호를 입력해줘."; return; }
   if (!settings.diaryLock) return;
@@ -454,9 +494,51 @@ $("#diarySetupForm").addEventListener("submit", async e => {
   diaryKey = await deriveKey(a, salt);
   settings.diaryLock = { salt, check: await encObj(diaryKey, "ok") };
   saveSettings(); $("#pw1").value = $("#pw2").value = ""; $("#setupMsg").textContent = "";
-  diaryMode("edit"); await doLock();
+  if (diaryWritten(day)) { diaryMode("edit"); await doLock(); } else { await fillDiary(); status("🔐 비밀번호를 만들었어. 이제 일기는 자동으로 잠겨"); }
 });
-$("#diarySetupCancel").addEventListener("click", () => diaryMode("edit"));
+$("#diarySetupCancel").addEventListener("click", () => { if (lockIntent === "newsetup") { skipDefaultFor = cur; fillDiary(); } else diaryMode("edit"); });
+$("#diaryDefaultChk").addEventListener("change", e => {
+  settings.diaryDefaultLock = e.target.checked; saveSettings(); skipDefaultFor = null;
+  status(e.target.checked ? "🔐 새 일기는 자동으로 잠겨" : "새 일기는 잠그지 않고 써"); fillDiary();
+});
+// 일기 비밀번호 변경: 잠긴 일기 전부 새 키로 다시 암호화해서 설정과 함께 한 번에 저장
+let prevMode = "edit";
+$("#pwChangeBtn").addEventListener("click", () => { prevMode = !$("#diaryLockedBox").hidden ? "locked" : "edit"; $("#changeMsg").textContent = ""; diaryMode("change"); $("#pwOld").focus(); });
+$("#diaryChangeCancel").addEventListener("click", () => { fillDiary(); });
+$("#diaryChangeForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const o = $("#pwOld").value, a = $("#pwNew1").value, b = $("#pwNew2").value, msg = $("#changeMsg");
+  if (!settings.diaryLock) return;
+  if (a.length < 4) { msg.textContent = "새 비밀번호는 4자 이상으로 만들어줘."; return; }
+  if (a !== b) { msg.textContent = "새 비밀번호 두 번 입력한 게 달라."; return; }
+  msg.textContent = "확인 중…";
+  let oldKey;
+  try { oldKey = await deriveKey(o, settings.diaryLock.salt); await decObj(oldKey, settings.diaryLock.check); }
+  catch (_) { msg.textContent = "지금 비밀번호가 달라 🙅"; return; }
+  clearTimeout(encTimer);
+  await Promise.all(Object.keys(pending).map(d => { clearTimeout(timers[d]); return flushDay(d); }));
+  msg.textContent = "잠긴 일기 다시 잠그는 중…";
+  try {
+    const salt = b64(crypto.getRandomValues(new Uint8Array(16)));
+    const newKey = await deriveKey(a, salt);
+    const changed = {}, rows = [];
+    for (const [date, x] of Object.entries(days)) {
+      if (!x.diaryLocked || !x.diaryEnc) continue;
+      const plain = await decObj(oldKey, x.diaryEnc);
+      const y = JSON.parse(JSON.stringify(x)); y.diaryEnc = await encObj(newKey, plain);
+      changed[date] = y; rows.push({ user_id: user.id, date, data: y, updated_at: new Date().toISOString() });
+    }
+    const newSettings = Object.assign({}, settings, { diaryLock: { salt, check: await encObj(newKey, "ok") } });
+    rows.push({ user_id: user.id, date: SETTINGS_DATE, data: newSettings, updated_at: new Date().toISOString() });
+    const { error } = await sb.from("days").upsert(rows);
+    if (error) { msg.textContent = "변경 실패 (아무것도 안 바뀌었어): " + error.message; return; }
+    Object.assign(days, changed); settings = newSettings; diaryKey = newKey;
+    if (changed[cur]) day.diaryEnc = changed[cur].diaryEnc;
+    $("#pwOld").value = $("#pwNew1").value = $("#pwNew2").value = "";
+    status(`🔑 일기 비밀번호를 바꿨어 (잠긴 일기 ${rows.length - 1}개 다시 잠금)`);
+    fillDiary();
+  } catch (err) { msg.textContent = "변경 중 문제가 생겼어 (아무것도 안 바뀌었어): " + (err.message || err); }
+});
 $("#relock").addEventListener("click", () => { diaryKey = null; fillDiary(); renderPastDiary(); status("🔒 다시 잠갔어"); });
 
 // 지난 일기 달력: 일기를 쓴 날만 초록 형광펜
@@ -512,7 +594,31 @@ function updateMeter() {
   $("#pageMeter").firstElementChild.style.width = Math.min(100, p / (GOAL_SHEETS * 2) * 100) + "%";
   $("#pageMeter").classList.toggle("full", p >= GOAL_SHEETS * 2);
 }
+// 책장: 책 제목별로 모아 진행률(읽은 쪽 / 전체 쪽)과 완독 표시. 전체 쪽수·완독은 settings.books에 저장
+function bookStats() {
+  const m = {};
+  allDays().forEach(x => { const b = x.book; if (!b || !b.title || !pages(b)) return; const t = b.title.trim();
+    (m[t] = m[t] || { title: t, ranges: [], days: 0, first: x.date, last: x.date, maxPage: 0 });
+    m[t].ranges.push([Number(b.from), Number(b.to)]); m[t].days++; if (x.date < m[t].first) m[t].first = x.date; if (x.date > m[t].last) m[t].last = x.date; m[t].maxPage = Math.max(m[t].maxPage, Number(b.to) || 0); });
+  return Object.values(m).map(b => { const read = mergeRanges(b.ranges).reduce((a, r) => a + r[1] - r[0] + 1, 0); const meta = (settings.books || {})[b.title] || {}; return Object.assign(b, { read, total: meta.total || 0, done: !!meta.done }); })
+    .sort((a, b) => (a.done - b.done) || b.last.localeCompare(a.last));
+}
+function renderShelf() {
+  const bs = bookStats();
+  $("#shelf").innerHTML = bs.length ? bs.map((b, i) => {
+    const pct = b.total ? Math.min(1, b.maxPage / b.total) : 0;
+    return `<li class="book${b.done ? " done" : ""}">
+      <div class="trow"><span class="tname">${b.done ? "✅ " : "📖 "}${esc(b.title)}</span><span class="tpct">${b.total ? Math.round(pct * 100) + "%" : ""}</span></div>
+      ${b.total ? `<div class="meter sm${b.done || pct >= 1 ? " full" : ""}"><i style="width:${(b.done ? 1 : pct) * 100}%"></i></div>` : ""}
+      <div class="tmeta">${b.maxPage}쪽까지 · 읽은 쪽 ${b.read}쪽(${sheetTxt(b.read)}) · ${b.days}일 · ${short(b.first)}~${short(b.last)}</div>
+      <div class="tact"><label class="muted" style="font-size:12.5px">전체 <input type="number" class="booktotal" data-btotal="${esc(b.title)}" value="${b.total || ""}" min="1" placeholder="쪽" style="width:72px;padding:3px 6px"> 쪽</label>
+      <button class="mini${b.done ? " on" : ""}" type="button" data-bdone="${esc(b.title)}">${b.done ? "✓ 완독" : "완독 표시"}</button></div></li>`; }).join("")
+    : `<li class="empty">책을 읽고 기록하면 여기 책장에 쌓여.</li>`;
+}
+$("#shelf").addEventListener("change", e => { const t = e.target.closest("[data-btotal]"); if (!t) return; const b = (settings.books = settings.books || {}); b[t.dataset.btotal] = Object.assign({}, b[t.dataset.btotal], { total: Number(t.value) || 0 }); saveSettings(); renderShelf(); });
+$("#shelf").addEventListener("click", e => { const t = e.target.closest("[data-bdone]"); if (!t) return; const b = (settings.books = settings.books || {}); const cur0 = b[t.dataset.bdone] || {}; b[t.dataset.bdone] = Object.assign({}, cur0, { done: !cur0.done, doneDate: !cur0.done ? TODAY : undefined }); saveSettings(); renderShelf(); });
 function renderBooks() {
+  renderShelf();
   const list = allDays().filter(x => x.book && (x.book.title || pages(x.book)));
   $("#bookRows").innerHTML = list.length ? list.slice(0, 90).map(x => `<tr><td class="num">${short(x.date)}</td><td>${esc(x.book.title)}</td><td class="num">${x.book.from || "?"}–${x.book.to || "?"} <span class="muted">(${pages(x.book)}쪽·${sheetTxt(pages(x.book))})</span></td><td>${esc(x.book.quote)}</td></tr>`).join("") : `<tr><td colspan="4" class="empty">기록이 쌓이면 여기에 표로 보여.</td></tr>`;
   $("#bookList").innerHTML = [...new Set(list.map(x => x.book.title).filter(Boolean))].map(t => `<option value="${esc(t)}">`).join("");
@@ -743,9 +849,57 @@ const VOCAB_DATE = "1970-01-02";   // 단어장은 날짜와 상관없이 쌓이
 let vocab = { words: [], sentences: [] };
 let engKind = "sentences", engFilter = "todo", engHide = false;
 const openEng = new Set();
+// 간격 반복 복습: 추가 다음 날부터 1→3→7→14→30일 간격. 다섯 번 연속 기억하면 자동으로 '외움'
+const SRS = [1, 3, 7, 14, 30];
+const dueOf = x => x.due || addDays(x.date || TODAY, 1);
+function reviewQueue() {
+  const q = [];
+  ["sentences", "words"].forEach(k => (vocab[k] || []).forEach((x, i) => { if (!x.done && dueOf(x) <= TODAY) q.push({ k, i }); }));
+  return q.sort((a, b) => dueOf(vocab[a.k][a.i]).localeCompare(dueOf(vocab[b.k][b.i])));
+}
+let review = null;   // { q: [...], pos, flipped, right, wrong }
+function renderReview() {
+  const q = reviewQueue();
+  if (!review) {
+    $("#reviewCard").hidden = true;
+    const nextDue = [...(vocab.words || []), ...(vocab.sentences || [])].filter(x => !x.done).map(dueOf).sort()[0];
+    $("#reviewBar").innerHTML = q.length
+      ? `<span>🔁 오늘 복습할 것 <b>${q.length}개</b></span><button class="btn primary" id="reviewStart" type="button">복습 시작</button>`
+      : `<span class="muted">🔁 오늘 복습 끝!${nextDue ? ` 다음 복습은 ${short(nextDue)}` : ""}</span>`;
+    return;
+  }
+  $("#reviewBar").innerHTML = `<span>🔁 ${Math.min(review.pos + 1, review.q.length)} / ${review.q.length} · 😊 ${review.right} · 😵 ${review.wrong}</span><button class="linkbtn" id="reviewStop" type="button">그만하기</button>`;
+  const c = $("#reviewCard"); c.hidden = false;
+  if (review.pos >= review.q.length) {
+    c.innerHTML = `<div class="rc-done">🎉 오늘 복습 끝! 기억 ${review.right}개 · 다시 볼 것 ${review.wrong}개</div><div><button class="btn primary" id="reviewStop" type="button">닫기</button></div>`;
+    return;
+  }
+  const { k, i } = review.q[review.pos], x = vocab[k][i];
+  c.innerHTML = `<div class="rc-kind">${k === "words" ? "🔤 단어" : "📝 문장"} · 단계 ${x.level || 0}/5</div>
+    <div class="rc-en">${esc(x.en)}</div>
+    ${review.flipped ? `<div class="rc-ko">${esc(x.ko || "(뜻 없음)")}</div>${x.note ? `<div class="enote">${esc(x.note)}</div>` : ""}
+      <div class="rc-btns"><button class="btn" id="rvWrong" type="button">😵 까먹었어</button><button class="btn primary" id="rvRight" type="button">😊 기억났어</button></div>`
+    : `<div><button class="btn" id="rvFlip" type="button">뜻 보기</button></div>`}`;
+}
+$("#v-english").addEventListener("click", e => {
+  const id = e.target.id;
+  if (id === "reviewStart") { review = { q: reviewQueue(), pos: 0, flipped: false, right: 0, wrong: 0 }; renderReview(); }
+  else if (id === "reviewStop") { review = null; renderReview(); renderEnglish(); }
+  else if (id === "rvFlip") { review.flipped = true; renderReview(); }
+  else if (id === "rvRight" || id === "rvWrong") {
+    const { k, i } = review.q[review.pos], x = vocab[k][i];
+    if (id === "rvRight") {
+      x.level = (x.level || 0) + 1; review.right++;
+      if (x.level >= SRS.length) { x.done = true; delete x.due; } else x.due = addDays(TODAY, SRS[x.level]);
+    } else { x.level = 0; x.due = addDays(TODAY, 1); review.wrong++; }
+    x.lastReview = TODAY;
+    review.pos++; review.flipped = false; saveVocab(); renderReview();
+  }
+});
 function saveVocab() { queueDay(VOCAB_DATE, vocab, 300); renderOverview(); renderCal(); }
 const engList = () => vocab[engKind] || (vocab[engKind] = []);
 function renderEnglish() {
+  if (!review) renderReview();
   const ws = vocab.words || [], ss = vocab.sentences || [];
   $("#engTabs").innerHTML = [["sentences", "📝 문장", ss], ["words", "🔤 단어", ws]].map(([k, t, l]) =>
     `<button class="chip" data-ekind="${k}" aria-pressed="${engKind === k}">${t} <span class="mono">${l.filter(x => !x.done).length}/${l.length}</span></button>`).join("");
@@ -771,7 +925,7 @@ function renderEnglish() {
           <div class="en">${esc(x.en)}</div>
           <button type="button" class="ko${engHide && !openEng.has(x.i) ? " hid" : ""}" data-reveal="${x.i}">${engHide && !openEng.has(x.i) ? "눌러서 뜻 보기" : esc(x.ko || "")}</button>
           ${x.note ? `<div class="enote">${esc(x.note)}</div>` : ""}
-          <div class="edate">${short(x.date || TODAY)}</div>
+          <div class="edate">${short(x.date || TODAY)} 추가${x.done ? "" : ` · 복습 ${dueOf(x) <= TODAY ? "오늘" : short(dueOf(x))} · ${x.level || 0}/5단계`}</div>
         </div>
         <div class="eact">
           <button type="button" class="mini${x.done ? " on" : ""}" data-edone="${x.i}">${x.done ? "✓ 외움" : "외웠어"}</button>
@@ -797,7 +951,7 @@ $("#engList").addEventListener("click", e => {
   const r = e.target.closest("[data-reveal]");
   if (r && engHide) { const i = Number(r.dataset.reveal); openEng.has(i) ? openEng.delete(i) : openEng.add(i); renderEnglish(); return; }
   const d = e.target.closest("[data-edone]");
-  if (d) { const x = engList()[Number(d.dataset.edone)]; x.done = !x.done; saveVocab(); renderEnglish(); return; }
+  if (d) { const x = engList()[Number(d.dataset.edone)]; x.done = !x.done; if (!x.done) { x.level = 0; x.due = addDays(TODAY, 1); } saveVocab(); renderEnglish(); return; }
   const del = e.target.closest("[data-edel]");
   if (del) {
     const i = Number(del.dataset.edel), li = del.closest("li");
@@ -826,14 +980,58 @@ async function renderCases() {
   $("#caseFilter").innerHTML = ["전체", ...REGIONS].filter(r => r === "전체" || counts[r]).map(r => `<button class="chip" aria-pressed="${r === caseFilter}" data-r="${r}">${r} <span class="mono">${r === "전체" ? all.length : counts[r]}</span></button>`).join("");
   const q = $("#caseSearch").value.trim().toLowerCase();
   const list = all.filter(c => (caseFilter === "전체" || c.region === caseFilter) && (!q || [c.title, c.findings, c.impression, c.memo, (c.tags || []).join(" ")].join(" ").toLowerCase().includes(q)));
-  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? `<img src="${esc(imgUrl(c.images[0]))}" alt="" loading="lazy">` : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span> <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
+  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? `<img src="${esc(imgUrl(c.images[0]))}" alt="" loading="lazy">` : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
 }
 $("#caseFilter").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; caseFilter = b.dataset.r; renderCases(); });
 $("#caseSearch").addEventListener("input", renderCases);
 $("#caseGrid").addEventListener("click", e => { const b = e.target.closest("[data-case]"); if (b) openCase(b.dataset.case, false); });
 $("#newCase").addEventListener("click", () => openCase(null, true));
 
+/* 케이스 퀴즈: 사진(없으면 소견 일부 가림)을 보고 떠올린 뒤 정답 확인. 자주 틀린 것·안 본 것 우선 */
+let quiz = null;  // { id, shown }
+function pickQuizCase(exclude) {
+  const pool = caseList().filter(c => (caseFilter === "전체" || c.region === caseFilter) && ((c.images || []).length || c.findings));
+  if (!pool.length) return null;
+  const w = c => { const m = (settings.caseMeta || {})[c.id] || {}; return 1 + (m.wrong || 0) * 2 + (m.right || m.wrong ? 0 : 2) - Math.min(m.right || 0, 3) * 0.25; };
+  const cand = pool.length > 1 ? pool.filter(c => c.id !== exclude) : pool;
+  const total = cand.reduce((a, c) => a + w(c), 0); let r = Math.random() * total;
+  for (const c of cand) { r -= w(c); if (r <= 0) return c; }
+  return cand[cand.length - 1];
+}
+async function renderQuiz() {
+  const box = $("#caseQuiz");
+  $("#caseGrid").hidden = !!quiz; box.hidden = !quiz; $("#quizBtn").textContent = quiz ? "📋 목록 보기" : "🧠 퀴즈";
+  if (!quiz) return;
+  const c = cases[quiz.id];
+  if (!c) { box.innerHTML = `<div class="empty">퀴즈로 낼 케이스가 없어. 사진이나 소견이 있는 케이스를 먼저 남겨줘.</div>`; return; }
+  await signPaths(c.images || []);
+  const m = (settings.caseMeta || {})[c.id] || {};
+  box.innerHTML = `<div class="quizhead"><span class="tag">${esc(c.region)}</span> <span class="muted" style="font-size:12.5px">맞힘 ${m.right || 0} · 틀림 ${m.wrong || 0}</span></div>
+    ${(c.images || []).length ? `<div class="quizimgs">${c.images.map(p => `<img src="${esc(imgUrl(p))}" alt="퀴즈 이미지">`).join("")}</div>` : `<div class="notice">사진이 없는 케이스야. 소견을 보고 진단·분류를 맞혀봐.<div class="pre" style="margin-top:6px">${esc(c.findings)}</div></div>`}
+    <div class="muted" style="font-size:13.5px">💭 소견, 진단명, 분류를 먼저 떠올려봐.</div>
+    ${quiz.shown ? `<div class="quizans">
+        <div><b>${esc(c.title || "(제목 없음)")}</b> ${clsOf(c.id) ? `<span class="tag cls">${esc(clsOf(c.id))}</span>` : ""}</div>
+        ${c.findings && (c.images || []).length ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
+        ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
+        ${c.memo ? `<div><div class="label">메모</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
+      </div>
+      <div class="rc-btns"><button class="btn" data-quiz="wrong" type="button">😵 틀렸어</button><button class="btn primary" data-quiz="right" type="button">😊 맞혔어</button></div>`
+    : `<div><button class="btn primary" data-quiz="show" type="button">정답 보기</button> <button class="linkbtn" data-quiz="skip" type="button">다른 케이스</button></div>`}`;
+}
+$("#quizBtn").addEventListener("click", () => { if (quiz) { quiz = null; } else { const c = pickQuizCase(); quiz = { id: c ? c.id : null, shown: false }; } renderQuiz(); });
+$("#caseQuiz").addEventListener("click", e => {
+  const b = e.target.closest("[data-quiz]"); if (!b) return;
+  const a = b.dataset.quiz;
+  if (a === "show") { quiz.shown = true; renderQuiz(); return; }
+  if (a === "right" || a === "wrong") { const m = cmeta(quiz.id); m[a] = (m[a] || 0) + 1; m.last = TODAY; saveSettings(); }
+  const n = pickQuizCase(quiz.id); quiz = { id: n ? n.id : null, shown: false }; renderQuiz();
+});
+
 let editCase = null;
+// 케이스 분류·퀴즈 기록은 설정 행(settings.caseMeta)에 보관 (cases 표는 그대로)
+const CLASS_OPTS = { "유방": ["BI-RADS 0", "BI-RADS 1", "BI-RADS 2", "BI-RADS 3", "BI-RADS 4A", "BI-RADS 4B", "BI-RADS 4C", "BI-RADS 5", "BI-RADS 6"], "갑상선": ["K-TIRADS 1", "K-TIRADS 2", "K-TIRADS 3", "K-TIRADS 4", "K-TIRADS 5"] };
+const cmeta = id => ((settings.caseMeta || (settings.caseMeta = {}))[id] || (settings.caseMeta[id] = {}));
+const clsOf = id => (settings.caseMeta && settings.caseMeta[id] && settings.caseMeta[id].cls) || "";
 const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
 function openCase(id, editing) {
   const src = id ? cases[id] : null;
@@ -847,7 +1045,7 @@ async function renderCaseSheet(editing) {
   await signPaths(c.images || []);
   if (!editing) {
     sh.innerHTML = `<div class="phead"><h2 id="caseModalTitle">${esc(c.title || "(제목 없음)")}</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
-      <div><span class="tag">${esc(c.region)}</span> <span class="mono muted">${esc(c.date)}</span> ${(c.tags || []).map(t => `<span class="muted">#${esc(t)}</span>`).join(" ")}</div>
+      <div><span class="tag">${esc(c.region)}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted">${esc(c.date)}</span> ${(c.tags || []).map(t => `<span class="muted">#${esc(t)}</span>`).join(" ")}</div>
       ${c.findings ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
       ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
       ${c.memo ? `<div><div class="label">메모 / 배운 점</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
@@ -860,6 +1058,7 @@ async function renderCaseSheet(editing) {
       <label class="field"><span>날짜</span><input type="date" id="cDate" value="${esc(c.date)}"></label>
       <label class="field"><span>부위</span><select id="cRegion">${REGIONS.map(r => `<option${r === c.region ? " selected" : ""}>${r}</option>`).join("")}</select></label>
     </div>
+    <label class="field"><span>분류 (BI-RADS · K-TIRADS 등)</span><input type="text" id="cClass" list="cClassList" value="${esc(clsOf(c.id))}" placeholder="예: BI-RADS 4A"><datalist id="cClassList">${(CLASS_OPTS[c.region] || [...CLASS_OPTS["유방"], ...CLASS_OPTS["갑상선"]]).map(o => `<option value="${o}">`).join("")}</datalist></label>
     <label class="field"><span>제목 (진단명·소견명)</span><input type="text" id="cTitle" value="${esc(c.title)}" placeholder="예: Thyroid nodule, K-TIRADS 4"></label>
     <label class="field"><span>Findings</span><textarea id="cFind" rows="3">${esc(c.findings)}</textarea></label>
     <label class="field"><span>Impression</span><textarea id="cImp" rows="2">${esc(c.impression)}</textarea></label>
@@ -882,6 +1081,7 @@ async function renderCaseSheet(editing) {
       ${editCase.isNew ? "" : `<button class="btn danger" data-act="del">삭제</button>`}
     </div>`;
   $("#cFile").addEventListener("change", e => uploadFiles([...e.target.files]));
+  $("#cRegion").addEventListener("change", e => { $("#cClassList").innerHTML = (CLASS_OPTS[e.target.value] || [...CLASS_OPTS["유방"], ...CLASS_OPTS["갑상선"]]).map(o => `<option value="${o}">`).join(""); });
   const box = $("#cPaste");
   // 붙여넣기 칸에 글자가 들어가지 않게
   box.addEventListener("beforeinput", e => { if (e.inputType !== "insertFromPaste") e.preventDefault(); });
@@ -908,6 +1108,7 @@ function readForm() {
   c.date = $("#cDate").value || TODAY; c.region = $("#cRegion").value; c.title = $("#cTitle").value.trim();
   c.findings = $("#cFind").value; c.impression = $("#cImp").value; c.memo = $("#cMemo").value;
   c.tags = $("#cTags").value.split(",").map(s => s.trim()).filter(Boolean);
+  editCase.cls = ($("#cClass") ? $("#cClass").value.trim() : "");
 }
 let uploading = false;
 async function uploadFiles(files) {
@@ -939,6 +1140,7 @@ async function saveCase() {
   const removed = before.filter(p => !c.images.includes(p));
   if (removed.length) await sb.storage.from("cases").remove(removed);
   cases[c.id] = data; status("케이스 저장됨 " + stamp());
+  if ((editCase.cls || "") !== clsOf(c.id)) { cmeta(c.id).cls = editCase.cls; saveSettings(); }
   return true;
 }
 $("#caseSheet").addEventListener("click", async e => {
@@ -1019,16 +1221,17 @@ function setDate(d) {
   fillAll(); renderAll(); loadNews(d);
 }
 function fillAll() { fillDiary(); fillBook(); fillStudy(); }
-function renderAll() { renderTodos(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderEnglish(); renderCases(); }
+function renderAll() { renderTodos(); renderBackupNag(); renderKw(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderEnglish(); renderCases(); }
 $("#prevDay").onclick = () => setDate(addDays(cur, -1));
 $("#nextDay").onclick = () => setDate(addDays(cur, 1));
 $("#goToday").onclick = () => setDate(TODAY);
 $("#datePick").addEventListener("change", e => { if (e.target.value) setDate(e.target.value); });
 
-const VIEWS = ["cal", "news", "diary", "books", "study", "english", "cases"];
+const VIEWS = ["cal", "week", "news", "diary", "books", "study", "english", "cases"];
 function route() {
   const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "cal";
-  $("#dayHead").hidden = v === "cal";
+  $("#dayHead").hidden = v === "cal" || v === "week";
+  if (v === "week") renderWeek();
   $("#todayLabel").textContent = v === "cal" ? "오늘 · " + lab(TODAY) : (cur === TODAY ? "오늘 · " + lab(cur) : lab(cur));
   if (v === "cal") renderCal();
   $("#todoBox").hidden = false; renderTodos();
@@ -1037,6 +1240,126 @@ function route() {
   const act = document.querySelector('#tabs a[aria-current="page"]'); if (act) act.scrollIntoView({ inline: "nearest", block: "nearest" });
 }
 window.addEventListener("hashchange", route);
+
+/* ---------------- 주간 회고 ---------------- */
+let weekStart = null;   // 월요일
+const mondayOf = d => addDays(d, -((wd(d) + 6) % 7));
+function renderWeek() {
+  if (!weekStart) weekStart = mondayOf(TODAY);
+  const ds = [...Array(7).keys()].map(i => addDays(weekStart, i)), end = ds[6];
+  $("#weekTitle").textContent = `${lab(weekStart)} ~ ${lab(end)}`;
+  $("#weekNext").disabled = addDays(weekStart, 7) > TODAY;
+  let rec = 0, pg = 0, mins = 0, tDone = 0, tAll = 0, arts = [], diaries = [], studies = [];
+  ds.forEach(d => { const x = days[d]; if (filledDay(d)) rec++; if (!x) return;
+    pg += pages(x.book); mins += sumMin(x);
+    (x.todos || []).forEach(t => { tAll++; if (t.done) tDone++; });
+    (x.news || []).forEach(a => arts.push(Object.assign({ date: d }, a)));
+    if (diaryWritten(x)) diaries.push({ date: d, one: x.diaryLocked ? "🔒 잠긴 일기" : (x.diaryOne || (x.diary || "").slice(0, 40) || "📷 사진 일기") });
+    (x.study || []).forEach(st => { if (st.taskId || st.subject) studies.push(Object.assign({ date: d }, st)); });
+  });
+  const eng = [...(vocab.words || []), ...(vocab.sentences || [])].filter(x => x.date >= weekStart && x.date <= end).length;
+  const cs = Object.values(cases).filter(c => c.date >= weekStart && c.date <= end).length;
+  const goalMin = {}; studies.forEach(st => { const r = st.taskId ? findTask(st.taskId) : null; const k = r ? r.g.title : (st.subject || "자유 공부"); goalMin[k] = (goalMin[k] || 0) + (Number(st.minutes) || 0); });
+  $("#weekBody").innerHTML = `
+    <div class="weekstats">
+      <div><b>${rec}</b><span>/7일 기록</span></div><div><b>${sheets(pg)}</b><span>장 독서</span></div><div><b>${(mins / 60).toFixed(1)}</b><span>시간 공부</span></div>
+      <div><b>${eng}</b><span>개 영어</span></div><div><b>${arts.length}</b><span>개 기사</span></div><div><b>${tAll ? tDone + "/" + tAll : "0"}</b><span>할 일</span></div>
+    </div>
+    ${cs ? `<div class="muted" style="font-size:13px">🩺 케이스 ${cs}개</div>` : ""}
+    <div class="weeksec"><h3>📔 일기 한 줄</h3>${diaries.length ? `<ul class="plain">${diaries.map(d => `<li><span class="mono muted">${short(d.date)}</span> ${esc(d.one)}</li>`).join("")}</ul>` : `<div class="empty">이번 주 일기가 없어.</div>`}</div>
+    <div class="weeksec"><h3>✏️ 공부</h3>${Object.keys(goalMin).length ? `<ul class="plain">${Object.entries(goalMin).map(([k, v]) => `<li>${esc(k)} <span class="muted">${minTxt(v)}</span></li>`).join("")}</ul>` : `<div class="empty">이번 주 공부 기록이 없어.</div>`}</div>
+    <div class="weeksec"><h3>💭 구나생각</h3>${arts.filter(a => (a.thought ?? a.memo)).length ? `<ul class="plain">${arts.filter(a => (a.thought ?? a.memo)).map(a => `<li><span class="mono muted">${short(a.date)}</span> <b>${esc(a.title)}</b><div class="lmemo">${esc(a.thought ?? a.memo)}</div></li>`).join("")}</ul>` : `<div class="empty">이번 주에 적은 구나생각이 없어.</div>`}</div>`;
+}
+$("#weekBtn").addEventListener("click", () => { weekStart = mondayOf(TODAY); location.hash = "#week"; });
+$("#weekPrev").addEventListener("click", () => { weekStart = addDays(weekStart, -7); renderWeek(); });
+$("#weekNext").addEventListener("click", () => { weekStart = addDays(weekStart, 7); renderWeek(); });
+$("#weekBack").addEventListener("click", () => { location.hash = "#cal"; });
+
+/* ---------------- 통합 검색 ---------------- */
+function runSearch() {
+  const q = $("#gSearch").value.trim().toLowerCase(), box = $("#gResults");
+  if (q.length < 1) { box.innerHTML = ""; box.hidden = true; return; }
+  const out = [], hit = t => (t || "").toLowerCase().includes(q);
+  const snip = t => { t = String(t || ""); const i = t.toLowerCase().indexOf(q); const a = Math.max(0, i - 18); return (a ? "…" : "") + esc(t.slice(a, i)) + "<mark>" + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length, i + q.length + 40)) + (i + q.length + 40 < t.length ? "…" : ""); };
+  Object.entries(days).forEach(([d, x]) => {
+    if (!x.diaryLocked) { if (hit(x.diaryOne)) out.push([d, "diary", "📔", snip(x.diaryOne)]); else if (hit(x.diary)) out.push([d, "diary", "📔", snip(x.diary)]); }
+    (x.todos || []).forEach(t => hit(t.text) && out.push([d, "cal", "📝", snip(t.text)]));
+    (x.news || []).forEach(a => { const f = [a.title, a.summary, a.thought ?? a.memo].find(hit); if (f) out.push([d, "news", "📰", snip(f)]); });
+    if (x.book) { const f = [x.book.title, x.book.quote, x.book.note].find(hit); if (f) out.push([d, "books", "📚", snip(f)]); }
+    (x.study || []).forEach(st => { const f = [st.subject, st.content].find(hit); if (f) out.push([d, "study", "✏️", snip(f)]); });
+  });
+  Object.values(cases).forEach(c => { const f = [c.title, c.findings, c.impression, c.memo, (c.tags || []).join(" "), clsOf(c.id)].find(hit); if (f) out.push([c.date, "cases", "🩺", snip(f), c.id]); });
+  ["sentences", "words"].forEach(k => (vocab[k] || []).forEach(x => { const f = [x.en, x.ko, x.note].find(hit); if (f) out.push([x.date || TODAY, "english", "🦉", snip(f)]); }));
+  out.sort((a, b) => (b[0] || "").localeCompare(a[0] || ""));
+  box.hidden = false;
+  box.innerHTML = out.length ? `<div class="muted" style="font-size:12.5px">${out.length}건${out.length > 60 ? " (최근 60건만)" : ""}</div>` + out.slice(0, 60).map(r => `<button type="button" class="gres" data-gd="${r[0]}" data-gv="${r[1]}" ${r[4] ? `data-gc="${r[4]}"` : ""}><span>${r[2]}</span><span class="mono muted">${short(r[0] || TODAY)}</span><span class="gsnip">${r[3]}</span></button>`).join("")
+    : `<div class="empty">'${esc(q)}' 검색 결과가 없어. (잠긴 일기는 검색되지 않아)</div>`;
+}
+$("#gSearch").addEventListener("input", runSearch);
+$("#gResults").addEventListener("click", e => {
+  const b = e.target.closest("[data-gd]"); if (!b) return;
+  setDate(b.dataset.gd > TODAY ? TODAY : b.dataset.gd); location.hash = "#" + (b.dataset.gv === "cal" ? "news" : b.dataset.gv);
+  if (b.dataset.gc) setTimeout(() => openCase(b.dataset.gc, false), 50);
+  window.scrollTo(0, 0);
+});
+
+/* ---------------- 백업 ---------------- */
+function backupAgeDays() { return settings.lastBackup ? Math.floor((Date.parse(TODAY) - Date.parse(settings.lastBackup)) / 864e5) : null; }
+function renderBackupNag() {
+  if (DEMO) { $("#backupNag").hidden = true; return; }
+  const has = Object.keys(days).length > 0 || Object.keys(cases).length > 0;
+  const age = backupAgeDays();
+  const show = has && (age === null || age >= 7);
+  $("#backupNag").hidden = !show;
+  if (show) $("#backupNagText").textContent = age === null ? "아직 백업한 적이 없어. 기록은 서버 한 곳에만 있으니 가끔 파일로 받아두자." : `마지막 백업이 ${age}일 전이야.`;
+}
+function openBackup() {
+  const age = backupAgeDays();
+  $("#backupLast").textContent = age === null ? "아직 백업한 적 없어." : `마지막 백업: ${settings.lastBackup} (${age === 0 ? "오늘" : age + "일 전"})`;
+  $("#backupMsg").textContent = ""; $("#restoreConfirm").innerHTML = "";
+  $("#backupModal").hidden = false;
+}
+$("#backupBtn").addEventListener("click", openBackup);
+$("#backupNow").addEventListener("click", openBackup);
+$("#backupClose").addEventListener("click", () => { $("#backupModal").hidden = true; });
+$("#backupModal").addEventListener("click", e => { if (e.target.id === "backupModal") $("#backupModal").hidden = true; });
+$("#backupDownload").addEventListener("click", () => {
+  Object.keys(pending).forEach(d => { clearTimeout(timers[d]); flushDay(d); });
+  const data = { app: "알았구나", version: 1, exportedAt: new Date().toISOString(), account: user && user.email || "", days, settings, vocab, cases: Object.values(cases) };
+  const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `allatguna-backup-${TODAY}.json`;
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  if (!DEMO) { settings.lastBackup = TODAY; saveSettings(); }
+  $("#backupLast").textContent = `마지막 백업: ${TODAY} (오늘)`;
+  $("#backupMsg").textContent = `✅ 파일을 내려받았어 (기록한 날 ${Object.keys(days).length}일, 케이스 ${Object.keys(cases).length}개). 다운로드 폴더나 파일 앱에서 확인해줘.`;
+  renderBackupNag();
+});
+let restoreData = null;
+$("#restoreFile").addEventListener("change", async e => {
+  const f = e.target.files[0]; e.target.value = ""; if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (d.app !== "알았구나" || !d.days) throw new Error("알았구나 백업 파일이 아니야");
+    restoreData = d;
+    $("#restoreConfirm").innerHTML = `<div class="confirm notice">${esc(d.exportedAt.slice(0, 10))} 백업 · 날짜 ${Object.keys(d.days).length}일 · 케이스 ${(d.cases || []).length}개를 덮어쓸까? <button class="btn danger" id="restoreYes" type="button">되살리기</button></div>`;
+  } catch (err) { $("#restoreConfirm").innerHTML = `<div class="notice">파일을 읽지 못했어: ${esc(err.message)}</div>`; }
+});
+$("#restoreConfirm").addEventListener("click", async e => {
+  if (e.target.id !== "restoreYes" || !restoreData) return;
+  const d = restoreData, now = new Date().toISOString();
+  const rows = Object.entries(d.days).map(([date, data]) => ({ user_id: user.id, date, data, updated_at: now }));
+  if (d.settings) rows.push({ user_id: user.id, date: SETTINGS_DATE, data: d.settings, updated_at: now });
+  if (d.vocab) rows.push({ user_id: user.id, date: VOCAB_DATE, data: d.vocab, updated_at: now });
+  $("#backupMsg").textContent = "되살리는 중…";
+  const r1 = await sb.from("days").upsert(rows);
+  if (r1.error) { $("#backupMsg").textContent = "실패: " + r1.error.message; return; }
+  const cs = (d.cases || []).map(c => Object.assign({}, c, { user_id: user.id }));
+  if (cs.length) { const r2 = await sb.from("cases").upsert(cs); if (r2.error) { $("#backupMsg").textContent = "케이스 되살리기 실패: " + r2.error.message; return; } }
+  Object.assign(days, d.days); if (d.settings) settings = d.settings; if (d.vocab) vocab = d.vocab;
+  cs.forEach(c => cases[c.id] = c);
+  restoreData = null; $("#restoreConfirm").innerHTML = "";
+  $("#backupMsg").textContent = "✅ 되살렸어."; day = getDay(cur); fillAll(); renderAll();
+});
 
 /* ---------------- 앱 설치 (PWA) ---------------- */
 if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("/sw.js").catch(() => {});
@@ -1078,6 +1401,7 @@ $("#magicBtn").addEventListener("click", async () => {
   $("#magicBtn").disabled = false;
   loginMsg(error ? "링크를 보내지 못했어: " + AUTH_ERR(error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`);
 });
+if (DEMO) $("#backupBtn").hidden = true;
 $("#setPwBtn").addEventListener("click", () => { if (DEMO) { status("구경 모드에서는 비밀번호를 만들 수 없어 👀"); return; } $("#pwMsg").textContent = ""; $("#pwModal").hidden = false; $("#newPw1").focus(); });
 $("#pwClose").addEventListener("click", () => { $("#pwModal").hidden = true; });
 $("#pwModal").addEventListener("click", e => { if (e.target.id === "pwModal") $("#pwModal").hidden = true; });

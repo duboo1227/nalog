@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261110092854">
+<link rel="stylesheet" href="style.css?v=20261110093829">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -47,7 +47,7 @@
           <div class="quotewrap"><div class="quote" id="quoteLine" hidden></div><button class="qrefresh" id="quoteRefresh" type="button" aria-label="다른 명언 보기" title="다른 명언 보기" hidden>🤔</button></div>
         </div>
       </div>
-      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="installBtn" type="button" hidden>📲 앱 설치</button><button class="linkbtn" id="setPwBtn" type="button">🔑 비밀번호</button><button class="linkbtn" id="logout">로그아웃</button></div>
+      <div class="toplinks"><span class="muted" id="whoami"></span><button class="linkbtn" id="installBtn" type="button" hidden>📲 앱 설치</button><button class="linkbtn" id="backupBtn" type="button">💾 백업</button><button class="linkbtn" id="setPwBtn" type="button">🔑 비밀번호</button><button class="linkbtn" id="logout">로그아웃</button></div>
     </div>
   </header>
 
@@ -61,8 +61,11 @@
     </form>
   </section>
 
+  <div class="backupnag" id="backupNag" hidden>💾 <span id="backupNagText">백업한 지 오래됐어.</span> <button class="btn" id="backupNow" type="button">지금 백업하기</button></div>
+
   <!-- 월 달력 (첫 화면) -->
   <section class="view" id="v-cal" hidden>
+    <div class="gsearch"><input type="search" id="gSearch" placeholder="🔍 전체 검색 (일기·기사·케이스·영어·공부…)" autocomplete="off"><div class="gresults" id="gResults" hidden></div></div>
     <div class="panel calpanel">
       <div class="calhead">
         <button class="btn ghost navbtn" id="calPrev" aria-label="이전 달">‹</button>
@@ -73,6 +76,16 @@
       <div class="calweek"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="sat">토</span></div>
       <div class="calgrid" id="calGrid"></div>
       <div class="calfoot"><span class="legend"><i></i>기록한 날 🌟</span><span id="calStats"></span></div>
+      <div><button class="btn" id="weekBtn" type="button">📊 이번 주 돌아보기</button></div>
+    </div>
+  </section>
+
+  <!-- 주간 회고 -->
+  <section class="view" id="v-week" hidden>
+    <div class="panel">
+      <div class="calhead"><button class="btn ghost" id="weekBack" type="button">‹ 달력</button></div>
+      <div class="calhead"><button class="btn ghost navbtn" id="weekPrev" aria-label="지난주">‹</button><h2 id="weekTitle" style="font-size:17px;flex:1;text-align:center"></h2><button class="btn ghost navbtn" id="weekNext" aria-label="다음 주">›</button></div>
+      <div id="weekBody" class="weekbody"></div>
     </div>
   </section>
 
@@ -101,12 +114,13 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0928-54</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0938-29</div>
 
   <!-- ① NEWS -->
   <section class="view" id="v-news">
     <div class="panel">
       <div class="phead"><h2>📈 경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
+      <div class="kwrow" id="kwRow"></div>
       <div class="paperchips" id="paperChips"></div>
       <ul class="heads" id="heads"><li class="empty" style="border:0">불러오는 중…</li></ul>
       <div class="pager" id="pager" hidden>
@@ -141,6 +155,10 @@
   <section class="view" id="v-diary" hidden>
     <div class="panel">
       <div class="phead"><h2 id="diaryTitle">🌙 오늘 일기</h2><span class="muted mono" id="diaryCount">0자</span></div>
+      <div class="lockmeta" id="lockMeta">
+        <label class="chkline"><input type="checkbox" id="diaryDefaultChk" checked> 🔐 새 일기 자동 잠금</label>
+        <button class="linkbtn" id="pwChangeBtn" type="button" hidden>🔑 일기 비밀번호 변경</button>
+      </div>
       <div class="lockrow" id="diaryLockRow">
         <label class="chkline" id="lockChkWrap"><input type="checkbox" id="diaryLockChk"> 🔒 이 날 일기 잠그기</label>
         <span class="lockstate" id="lockState" hidden>🔓 잠긴 일기를 열어둔 상태</span>
@@ -175,9 +193,22 @@
         <div class="muted" id="diaryLockMsg" style="font-size:13px;min-height:18px"></div>
         <button class="linkbtn" id="diaryLockCancel" type="button">취소</button>
       </div>
+      <div class="lockbox" id="diaryChange" hidden>
+        <div class="lockicon">🔑</div>
+        <b>일기 비밀번호 변경</b>
+        <form id="diaryChangeForm" style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px">
+          <input type="password" id="pwOld" placeholder="지금 비밀번호" autocomplete="current-password">
+          <input type="password" id="pwNew1" placeholder="새 비밀번호 (4자 이상)" autocomplete="new-password">
+          <input type="password" id="pwNew2" placeholder="새 비밀번호 한 번 더" autocomplete="new-password">
+          <button class="btn primary" type="submit">변경하기</button>
+        </form>
+        <div class="muted" style="font-size:12.5px">잠긴 일기 전부를 새 비밀번호로 다시 잠가. 중간에 실패하면 아무것도 바뀌지 않아.</div>
+        <div class="muted" id="changeMsg" style="font-size:13px;min-height:18px"></div>
+        <button class="linkbtn" id="diaryChangeCancel" type="button">취소</button>
+      </div>
       <div class="lockbox" id="diarySetup" hidden>
         <div class="lockicon">🗝️</div>
-        <b>일기 비밀번호 만들기</b>
+        <b id="setupTitle">일기 비밀번호 만들기</b>
         <form id="diarySetupForm" style="display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px">
           <input type="password" id="pw1" placeholder="비밀번호 (4자 이상)" autocomplete="new-password">
           <input type="password" id="pw2" placeholder="한 번 더" autocomplete="new-password">
@@ -205,6 +236,10 @@
       <label class="field"><span>인상 깊은 문장</span><textarea id="bookQuote" rows="2"></textarea></label>
       <label class="field"><span>내 생각</span><textarea id="bookNote" rows="3"></textarea></label>
       <div class="muted" style="font-size:13px" id="bookHint"></div>
+    </div>
+    <div class="panel">
+      <h2>📚 책장</h2>
+      <ul class="tasks shelf" id="shelf"></ul>
     </div>
     <div class="panel">
       <h2>🐛 독서 기록</h2>
@@ -239,6 +274,8 @@
   <section class="view" id="v-english" hidden>
     <div class="panel">
       <div class="phead"><h2>🦉 듀오링고 영어</h2><span class="muted" id="engStat" style="font-size:13px"></span></div>
+      <div class="reviewbar" id="reviewBar"></div>
+      <div class="reviewcard" id="reviewCard" hidden></div>
       <div class="chips" id="engTabs"></div>
       <form id="engForm" class="engform">
         <b id="engFormTitle" style="font-family:var(--display);font-weight:400">📝 문장 추가</b>
@@ -258,11 +295,12 @@
   <!-- ⑤ CASES -->
   <section class="view" id="v-cases" hidden>
     <div class="panel">
-      <div class="phead"><h2>🩺 케이스 모음</h2><button class="btn primary" id="newCase" type="button">+ 새 케이스</button></div>
+      <div class="phead"><h2>🩺 케이스 모음</h2><span style="display:flex;gap:8px"><button class="btn" id="quizBtn" type="button">🧠 퀴즈</button><button class="btn primary" id="newCase" type="button">+ 새 케이스</button></span></div>
       <div class="notice">🙈 이미지 올리기 전에 환자 이름·등록번호·생년월일이 화면에 남아 있지 않은지 꼭 확인해줘. 이미지는 본인만 열 수 있는 비공개 저장소에 들어가.</div>
       <input type="text" id="caseSearch" placeholder="제목, 소견, 메모, 태그로 검색">
       <div class="chips" id="caseFilter"></div>
       <div class="cases" id="caseGrid"></div>
+      <div class="casequiz" id="caseQuiz" hidden></div>
     </div>
   </section>
 </div>
@@ -277,6 +315,23 @@
       <li>오른쪽 위 <b>추가</b> 누르면 끝 ✨</li>
     </ol>
     <div class="muted" style="font-size:12.5px">홈 화면 앱에서는 처음 한 번 <b>이메일 + 비밀번호</b>로 로그인해줘.</div>
+  </div>
+</div>
+
+<div class="modal" id="backupModal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="backupTitle" style="max-width:460px">
+    <div class="phead"><h2 id="backupTitle">💾 기록 백업</h2><button class="x" id="backupClose" aria-label="닫기">×</button></div>
+    <div class="muted" style="font-size:13px;line-height:1.6">일기·할 일·독서·공부·목표·읽은 기사·영어·케이스 기록을 파일 하나로 내려받아. 잠긴 일기는 잠긴 채로 저장돼서 파일을 열어도 내용은 안 보여. 사진 파일은 포함되지 않고 위치만 기록돼.</div>
+    <div class="muted" id="backupLast" style="font-size:13px"></div>
+    <div><button class="btn primary" id="backupDownload" type="button">⬇️ 백업 파일 내려받기</button></div>
+    <details class="addart"><summary>백업 파일로 되살리기</summary>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="muted" style="font-size:12.5px">백업 파일에 있는 날짜·케이스를 지금 기록 위에 덮어써. 백업에 없는 기록은 그대로 남아.</div>
+        <label class="btn" style="width:max-content;cursor:pointer">백업 파일 고르기<input type="file" id="restoreFile" accept="application/json,.json" hidden></label>
+        <div id="restoreConfirm"></div>
+      </div>
+    </details>
+    <div class="muted" id="backupMsg" style="font-size:13px;min-height:18px"></div>
   </div>
 </div>
 
@@ -298,7 +353,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261110092854"></script>
-<script src="app.js?v=20261110092854"></script>
+<script src="config.js?v=20261110093829"></script>
+<script src="app.js?v=20261110093829"></script>
 </body>
 </html>

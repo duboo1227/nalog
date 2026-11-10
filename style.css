@@ -476,3 +476,47 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .artlist li.art summary{align-items:flex-start}
 .artlist li.art summary::after{margin-left:6px;padding-top:3px}
 .artdot{padding-top:2px}
+.lockmeta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.backupnag{margin-top:12px;background:var(--butter);border:2px dashed var(--warn);border-radius:14px;padding:8px 12px;font-size:13.5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.backupnag .btn{margin-left:auto;padding:5px 12px}
+
+.reviewbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:var(--accent-soft);border-radius:14px;padding:8px 12px;font-size:14px}
+.reviewcard{border:2px solid var(--accent);border-radius:18px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;background:var(--surface)}
+.rc-kind{font-size:12px;color:var(--muted)}
+.rc-en{font-family:var(--body);font-weight:700;font-size:20px;line-height:1.4;overflow-wrap:anywhere}
+.rc-ko{font-size:16px}
+.rc-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.rc-done{font-family:var(--display);font-size:18px}
+
+.tag.cls{background:var(--butter);color:var(--ink)}
+.casequiz{display:flex;flex-direction:column;gap:10px;border:2px solid var(--accent);border-radius:18px;padding:14px;background:var(--surface)}
+.quizimgs{display:flex;flex-direction:column;gap:8px}
+.quizimgs img{width:100%;border-radius:12px;background:var(--sunk)}
+.quizans{display:flex;flex-direction:column;gap:8px;border-top:2px dashed var(--line);padding-top:10px}
+
+.kwrow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:13px}
+.kw-tag{display:inline-flex;align-items:center;gap:2px;background:var(--butter);border-radius:999px;padding:2px 4px 2px 10px;font-size:13px}
+.kw-tag button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:14px;padding:0 4px}
+#kwInput{border:1.5px dashed var(--line);background:transparent;border-radius:999px;padding:3px 10px;font-size:13px;width:150px}
+.heads li.kw{background:linear-gradient(90deg,var(--butter),transparent 85%);border-radius:10px}
+.heads mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
+.chip.kwchip{border-color:var(--warn)}
+
+/* 주간 회고 */
+.weekbody{display:flex;flex-direction:column;gap:14px}
+.weekstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.weekstats div{background:var(--accent-soft);border-radius:14px;padding:10px;display:flex;flex-direction:column;align-items:center}
+.weekstats b{font-family:var(--display);font-weight:400;font-size:22px}
+.weekstats span{font-size:12px;color:var(--muted)}
+.weeksec h3{font-family:var(--display);font-weight:400;font-size:16px;margin:0 0 6px}
+/* 통합 검색 */
+.gsearch{display:flex;flex-direction:column;gap:6px}
+.gsearch input{width:100%;border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 16px;font-size:14.5px}
+.gresults{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:8px;display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+.gres{all:unset;display:grid;grid-template-columns:22px 42px 1fr;gap:6px;align-items:start;padding:8px;border-radius:10px;cursor:pointer;font-size:13.5px}
+.gres:hover,.gres:focus-visible{background:var(--accent-soft)}
+.gsnip{overflow-wrap:anywhere;min-width:0}
+.gsnip mark{background:var(--hl);color:inherit}
+/* 책장 */
+.shelf{list-style:none;padding-left:0}
+.book.done .tname{color:var(--ok)}
