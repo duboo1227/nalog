@@ -166,19 +166,38 @@ export function isPaid(html, link) {
   if (/chosun\.com/.test(link) && /조선멤버십/.test(html)) return true;                    // 조선일보(조선멤버십)
   return false;
 }
+// 기사 페이지에서 발행 시각 찾기 (메타 태그 → JSON-LD 순서). 시간대가 없으면 한국 시간으로 봄
+export function extractPub(html) {
+  const pats = [
+    /<meta[^>]+(?:property|name)=["'](?:article:published_time|og:article:published_time|article:published|pubdate|publish-date|dd:published_time|og:regDate)["'][^>]*content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:article:published_time|pubdate|og:regDate)["']/i,
+    /"datePublished"\s*:\s*"([^"]+)"/i,
+    /"dateCreated"\s*:\s*"([^"]+)"/i
+  ];
+  for (const re of pats) {
+    const m = html.match(re); if (!m) continue;
+    let v = m[1].trim();
+    if (/^\d{14}$/.test(v)) v = `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}T${v.slice(8, 10)}:${v.slice(10, 12)}:${v.slice(12, 14)}`;
+    v = v.replace(" ", "T");
+    if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?$/.test(v)) v += "+09:00";
+    const t = Date.parse(v);
+    if (!Number.isNaN(t) && t > Date.parse("2020-01-01")) return new Date(t).toISOString();
+  }
+  return null;
+}
 async function filterPaid(sources) {
   const CACHE = "data/news/paywall-cache.json";
   let cache = {}; try { cache = JSON.parse(await readFile(CACHE, "utf8")); } catch {}
   const now = Date.now();
   for (const k of Object.keys(cache)) if (now - cache[k].t > 7 * 864e5) delete cache[k];
   const all = [];
-  sources.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (!i.link.includes("news.google.com") && !(i.link in cache)) all.push(i.link); }));
+  sources.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (!i.link.includes("news.google.com") && (!(i.link in cache) || !("pub" in cache[i.link]))) all.push(i.link); }));
   const todo = [...new Set(all)];
   let idx = 0;
   async function worker() {
     while (idx < todo.length) {
       const link = todo[idx++];
-      try { cache[link] = { paid: isPaid(await fetchText(link), link), t: now }; } catch { /* 열리지 않으면 판단 보류 */ }
+      try { const html = await fetchText(link); cache[link] = { paid: isPaid(html, link), pub: extractPub(html), t: now }; } catch { /* 열리지 않으면 판단 보류 */ }
     }
   }
   await Promise.all(Array.from({ length: 6 }, worker));
@@ -187,6 +206,7 @@ async function filterPaid(sources) {
     const keep = i => !(cache[i.link] && cache[i.link].paid);
     const b = s.items.length + (s.tops || []).length;
     s.items = s.items.filter(keep); s.tops = (s.tops || []).filter(keep);
+    [...s.items, ...s.tops].forEach(i => { if (!i.pubDate && cache[i.link] && cache[i.link].pub) i.pubDate = cache[i.link].pub; });
     const r = b - s.items.length - s.tops.length; removed += r;
     if (r) console.log(`유료 제외 ${s.name}: ${r}건`);
   });

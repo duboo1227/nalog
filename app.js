@@ -10,6 +10,8 @@ const lab = s => { const [, m, d] = s.split("-").map(Number); return `${m}월 ${
 const short = s => { const [, m, d] = s.split("-").map(Number); return `${m}/${d}`; };
 const hhmm = iso => { if (!iso) return ""; return new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(iso)); };
 const TODAY = kst(new Date());
+// 발행 시각: "11/11 08:12" (한국 시간)
+const pubTxt = iso => { if (!iso) return ""; const d = new Date(iso); if (isNaN(d)) return ""; return `${short(kst(d))} ${hhmm(iso)}`; };
 const REGIONS = ["갑상선", "유방", "경동맥", "상복부", "하복부", "장·충수", "심장", "기타"];
 const PAPERS = [
   ["중앙일보", "https://www.joongang.co.kr/money"], ["매일경제", "https://www.mk.co.kr/news/economy/"],
@@ -246,7 +248,7 @@ function renderNews() {
     const saved = new Set((day.news || []).map(a => a.url));
     const mark = t => { let h = esc(t); kws.forEach(k => { if (!k) return; const re = new RegExp(esc(k).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"); h = h.replace(re, m => `<mark>${m}</mark>`); }); return h; };
     if (!pageList.length && newsPaper === "관심") $("#heads").innerHTML = `<li class="empty" style="border:0">오늘은 관심 키워드가 들어간 기사가 없어.</li>`;
-    else $("#heads").innerHTML = pageList.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? " · " + hhmm(it.pubDate) : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    else $("#heads").innerHTML = pageList.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)} 발행</span>` : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
     $("#heads")._list = pageList;
     $("#pager").hidden = pagesN < 2;
     $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
