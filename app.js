@@ -243,7 +243,7 @@ function renderNews() {
   const arts = day.news || [];
   $("#artCount").textContent = arts.length + "건";
   $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li class="art"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
-      <summary><span class="artn">${i + 1}.</span><span class="artt">${esc(a.title)}</span>${(a.summary || a.thought || a.memo) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
+      <summary><span class="artn">${i + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-thp="${i}" ${(a.thought ?? a.memo) ? "" : "hidden"}>${esc(a.thought ?? a.memo ?? "")}</span></span>${(a.summary || a.thought || a.memo) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
       <div class="artbody">
         <div class="arthead">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">🔗 기사 열기</a>` : `<span class="muted">링크 없음</span>`}${a.src ? `<span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}<button class="x" data-del-art="${i}" aria-label="삭제" style="margin-left:auto">×</button></div>
         <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
@@ -274,7 +274,10 @@ $("#artList").addEventListener("toggle", e => { const d = e.target.closest("[dat
 $("#artList").addEventListener("input", e => {
   const sm = e.target.closest("[data-sum]"), th = e.target.closest("[data-th]");
   if (sm) { day.news[Number(sm.dataset.sum)].summary = sm.value; saveDay(); }
-  else if (th) { const a = day.news[Number(th.dataset.th)]; a.thought = th.value; delete a.memo; saveDay(); }
+  else if (th) {
+    const a = day.news[Number(th.dataset.th)]; a.thought = th.value; delete a.memo; saveDay();
+    const pv = document.querySelector(`[data-thp="${th.dataset.th}"]`); if (pv) { pv.textContent = th.value; pv.hidden = !th.value.trim(); }
+  }
 });
 
 /* ---------------- ② 일기 (+ 비밀번호 잠금) ---------------- */
