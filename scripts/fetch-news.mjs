@@ -168,17 +168,22 @@ export function isPaid(html, link) {
 }
 // 기사 페이지에서 발행 시각 찾기 (메타 태그 → JSON-LD 순서). 시간대가 없으면 한국 시간으로 봄
 export function extractPub(html) {
-  const pats = [
-    /<meta[^>]+(?:property|name)=["'](?:article:published_time|og:article:published_time|article:published|pubdate|publish-date|dd:published_time|og:regDate)["'][^>]*content=["']([^"']+)["']/i,
-    /<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:article:published_time|pubdate|og:regDate)["']/i,
-    /"datePublished"\s*:\s*"([^"]+)"/i,
-    /"dateCreated"\s*:\s*"([^"]+)"/i
-  ];
-  for (const re of pats) {
-    const m = html.match(re); if (!m) continue;
-    let v = m[1].trim();
+  // 정확한 것부터 차례로: 시간까지 있는 값만 인정 (날짜만 있으면 다음 후보로)
+  const names = ["article:published_time", "og:article:published_time", "dd:published_time", "article:published", "og:regDate", "pubdate", "publish-date"];
+  const cands = [];
+  names.forEach(n => {
+    const esc = n.replace(/[:.]/g, m => "\\" + m);
+    const m1 = html.match(new RegExp(`<meta[^>]+(?:property|name)=["']${esc}["'][^>]*content=["']([^"']+)["']`, "i"));
+    const m2 = html.match(new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["']${esc}["']`, "i"));
+    if (m1) cands.push(m1[1]); if (m2) cands.push(m2[1]);
+    if (n === "article:published_time") { const j = html.match(/"datePublished"\s*:\s*"([^"]+)"/i); if (j) cands.push(j[1]); }
+  });
+  const j2 = html.match(/"dateCreated"\s*:\s*"([^"]+)"/i); if (j2) cands.push(j2[1]);
+  for (let v of cands) {
+    v = v.trim();
     if (/^\d{14}$/.test(v)) v = `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}T${v.slice(8, 10)}:${v.slice(10, 12)}:${v.slice(12, 14)}`;
-    v = v.replace(" ", "T");
+    v = v.replace(/^(\d{4})\.(\d{2})\.(\d{2})/, "$1-$2-$3").replace(" ", "T");
+    if (!/T\d{2}:\d{2}/.test(v)) continue;                         // 날짜만 있는 값은 건너뜀
     if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?$/.test(v)) v += "+09:00";
     const t = Date.parse(v);
     if (!Number.isNaN(t) && t > Date.parse("2020-01-01")) return new Date(t).toISOString();
@@ -189,7 +194,10 @@ async function filterPaid(sources) {
   const CACHE = "data/news/paywall-cache.json";
   let cache = {}; try { cache = JSON.parse(await readFile(CACHE, "utf8")); } catch {}
   const now = Date.now();
-  for (const k of Object.keys(cache)) if (now - cache[k].t > 7 * 864e5) delete cache[k];
+  for (const k of Object.keys(cache)) {
+    if (now - cache[k].t > 7 * 864e5) delete cache[k];
+    else if (cache[k].pub && /T00:00:00\.000Z$/.test(cache[k].pub)) delete cache[k].pub;   // 예전 '날짜만' 값은 다시 확인
+  }
   const all = [];
   sources.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (!i.link.includes("news.google.com") && (!(i.link in cache) || !("pub" in cache[i.link]))) all.push(i.link); }));
   const todo = [...new Set(all)];
