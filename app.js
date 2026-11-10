@@ -59,7 +59,13 @@ const signed = {};      // storage path -> signed url
 
 /* ---------------- 저장: 문서별 한 번에 하나씩 ---------------- */
 const pending = {}, timers = {}, writing = {};
-function status(t) { $("#status").textContent = t; }
+// 상태 알림: '저장 중…'·'불러오는 중…'만 남기고, 나머지(저장됨·잠갔어 등)는 3초 뒤 사라짐
+let statusTimer = null;
+function status(t) {
+  $("#status").textContent = t;
+  clearTimeout(statusTimer);
+  if (t && !/(중…|중\.\.\.)$/.test(t) && !/실패|못했어|문제/.test(t)) statusTimer = setTimeout(() => { $("#status").textContent = ""; }, 3000);
+}
 function stamp() { const t = new Date(); return `${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`; }
 function queueDay(date, data, delay = 700) {
   pending[date] = JSON.parse(JSON.stringify(data));
