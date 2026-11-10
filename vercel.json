@@ -40,5 +40,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true
 }

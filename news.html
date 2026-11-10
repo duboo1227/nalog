@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F1F9F4">
+<title>오늘의 경제뉴스</title>
+<meta name="description" content="중앙·매경·조선·동아·한경·서경·연합 경제면 메인 기사를 4시간마다 모아 보여주는 페이지">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css?v=20261111083539">
+<style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nhead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
+.nhead h1{font-family:var(--title);font-weight:400;font-size:30px;margin:0}
+.nhead p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+.ndate{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ndate select{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px}
+.nfoot{text-align:center;font-size:12px;color:var(--muted);padding:20px 0 8px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nhead">
+    <div class="label">중앙 · 매경 · 조선 · 동아 · 한경 · 서경 · 연합</div>
+    <h1>📰 오늘의 경제뉴스</h1>
+    <p>각 신문 경제면 메인 기사(⭐)와 최신 기사를 4시간마다 모아와. 유료 기사·광고·경제와 상관없는 기사는 빼고 보여줘.</p>
+    <div class="ndate"><span class="muted" style="font-size:13px">날짜</span><select id="dateSel" aria-label="날짜 고르기"></select></div>
+  </header>
+
+  <section class="view" style="padding-top:14px">
+    <div class="panel">
+      <div class="phead"><h2>📈 경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
+      <div class="kwrow" id="kwRow"></div>
+      <div class="paperchips" id="paperChips"></div>
+      <ul class="heads" id="heads"><li class="empty" style="border:0">불러오는 중…</li></ul>
+      <div class="pager" id="pager" hidden>
+        <button class="btn" id="pagePrev" type="button">‹ 이전</button>
+        <span class="mono muted" id="pageInfo">1 / 1</span>
+        <button class="btn" id="pageNext" type="button">다음 ›</button>
+      </div>
+      <div class="muted" style="font-size:12.5px">'+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨. 기록은 이 브라우저에만 저장돼.</div>
+    </div>
+
+    <div class="panel">
+      <div class="phead"><h2>🔖 내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
+      <ul class="artlist" id="artList"></ul>
+    </div>
+
+    <div class="panel">
+      <div class="phead"><h2>🗞️ 신문 경제면 바로가기</h2></div>
+      <div class="papers" id="papers"></div>
+    </div>
+  </section>
+  <div class="nfoot">기사 제목과 링크는 각 언론사 것이고, 누르면 원문 기사로 이동해.<br>읽은 기사·메모·관심 키워드는 서버가 아니라 지금 쓰는 브라우저에만 저장돼.</div>
+</div>
+<script src="/news.js?v=20261111083539"></script>
+</body>
+</html>

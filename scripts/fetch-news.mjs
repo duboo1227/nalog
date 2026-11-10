@@ -139,7 +139,11 @@ export function extractTops(html, base, pattern, n = 3) {
     if (!pattern.test(href)) continue;
     try { href = new URL(href, base).href; } catch { continue; }
     const key = href.split("?")[0];
-    const title = clean(m[2]).replace(/^단독\s*/, "[단독] ");
+    // 링크 안에 제목+요약문이 같이 들어 있으면 제목 부분만 사용
+    const inner = m[2];
+    const tm = inner.match(/<(h\d|strong|p|span|div|em|b)\b[^>]*class=["'][^"']*(?:tit|headline|ttl|title|subject)[^"']*["'][^>]*>([\s\S]*?)<\/\1>/i) || inner.match(/<(h\d|strong|b)\b[^>]*>([\s\S]*?)<\/\1>/i);
+    let title = clean(tm ? tm[2] : inner).replace(/^단독\s*/, "[단독] ");
+    if (title.length > 90) title = title.slice(0, 80).replace(/\s+\S*$/, "") + "…";
     if (title.length < 12 || /^(사진|영상|포토|\[?사진\]?)$/.test(title)) { continue; }
     const tkey = title.replace(/\[[^\]]*\]?$/, "").replace(/[\s"“”'‘’…·]/g, "").slice(0, 16);
     if (seen.has(key) || seen.has(tkey)) continue;
