@@ -1,6 +1,6 @@
 {
  "date": "2026-11-11",
- "generatedAt": "2026-11-10T23:33:51.239Z",
+ "generatedAt": "2026-11-10T23:36:05.516Z",
  "sources": [
   {
    "id": "joongang",
@@ -282,11 +282,6 @@
    ],
    "tops": [
     {
-     "title": "[단독] “법만 만들면 뭐하나” … 민간이윤 10% 상한, 실제 검사는 ‘0건’ ‘민관 공동 도시개발사업’에서 민간이 과도한 이익을 가져가지 못하도록 법까지 고쳤지만, 정부가 검증을 맡긴 한국부동산원은 민간이윤 상한이 실제로 지켜지는지를 한 번도 검사하지 않은 것으로 드러났다.",
-     "link": "https://www.mk.co.kr/news/economy/12204062",
-     "pubDate": "2026-11-10T07:39:55.000Z"
-    },
-    {
      "title": "수출 역대 최대라는데…상위 10대 기업 60% 싹쓸이",
      "link": "https://www.mk.co.kr/news/economy/12204135",
      "pubDate": "2026-11-10T08:21:20.000Z"
@@ -295,6 +290,11 @@
      "title": "씨티 \"반도체에 달린 기준금리…호황땐 3.5%까지 인상\"",
      "link": "https://www.mk.co.kr/news/economy/12202743",
      "pubDate": "2026-11-09T08:38:36.000Z"
+    },
+    {
+     "title": "물가불안에 빅스텝까지...연준 월러 “12월 0.5%p 인상”",
+     "link": "https://www.mk.co.kr/news/economy/12204627",
+     "pubDate": "2026-11-10T16:19:56.000Z"
     }
    ],
    "topsFrom": "page"
@@ -306,14 +306,24 @@
    "via": "rss",
    "items": [
     {
+     "title": "[속보]10월 취업자 13.9만명↑...청년 취업자는 48개월째 감소. 글로벌 금융위기 이후 ‘최장’",
+     "link": "https://www.chosun.com/economy/economy_general/2026/11/11/VKFPVL3FTRBLBCFXDMYXCY3CUE/",
+     "pubDate": "2026-11-10T23:21:07.000Z"
+    },
+    {
+     "title": "‘외도 젠슨 황’ 세계 부호 톱10 밖으로...엔비디아 장중 시총 3위로 밀려나",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/11/7SZAPIBYNFBI3EX5OM3B6JRQQ4/",
+     "pubDate": "2026-11-10T22:22:33.000Z"
+    },
+    {
+     "title": "예상 웃돈 美 물가에 뉴욕 증시 일제히 하락…나스닥 0.74%↓",
+     "link": "https://www.chosun.com/economy/int_economy/2026/11/11/F4ZQ75R53BERRGHZ7TCJBCHAFI/",
+     "pubDate": "2026-11-10T21:45:25.000Z"
+    },
+    {
      "title": "엔비디아 ‘젠슨 황 의혹’ 독립 조사, 한국계 전 연방검사가 맡는다",
      "link": "https://www.chosun.com/economy/int_economy/2026/11/11/QZOWJGX46NBOZDS7GJIRN2HDUA/",
      "pubDate": "2026-11-10T22:23:47.000Z"
-    },
-    {
-     "title": "[속보]10월 취업자 13.9만명↑...청년 취업자는 48개월째 감소",
-     "link": "https://www.chosun.com/economy/economy_general/2026/11/11/VKFPVL3FTRBLBCFXDMYXCY3CUE/",
-     "pubDate": "2026-11-10T23:21:07.000Z"
     },
     {
      "title": "풀무원, 스타트업 11곳과 AI·푸드테크 협업…신사업 발굴 나선다",
@@ -356,11 +366,6 @@
      "pubDate": "2026-11-10T22:48:07.000Z"
     },
     {
-     "title": "‘외도 젠슨 황’ 세계 부호 톱10 밖으로...엔비디아 장중 시총 3위로 밀려나",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/11/7SZAPIBYNFBI3EX5OM3B6JRQQ4/",
-     "pubDate": "2026-11-10T22:22:33.000Z"
-    },
-    {
      "title": "美 연준, 12월 ‘빅스텝’까지?…예상 웃돈 물가에 월러 “0.5%p 인상도 고려”",
      "link": "https://www.chosun.com/economy/int_economy/2026/11/11/XQ23HOGCMNDY3BLQ6RTI5UNURQ/",
      "pubDate": "2026-11-10T22:03:31.000Z"
@@ -369,11 +374,6 @@
      "title": "美 약값 인하 칼날, 피하주사 약까지 겨눴다",
      "link": "https://www.chosun.com/economy/science/2026/11/11/FAHVCRT5IBG57GD5GT3HH7QFYU/",
      "pubDate": "2026-11-10T22:00:00.000Z"
-    },
-    {
-     "title": "예상 웃돈 美 물가에 뉴욕 증시 일제히 하락…나스닥 0.74%↓",
-     "link": "https://www.chosun.com/economy/int_economy/2026/11/11/F4ZQ75R53BERRGHZ7TCJBCHAFI/",
-     "pubDate": "2026-11-10T21:45:25.000Z"
     },
     {
      "title": "주요 그룹 조직·인사 핵심 키워드 된 ‘에너지’",
@@ -389,6 +389,31 @@
      "title": "LNG 저장량 43% 늘려… “전국민 40일 난방 규모”",
      "link": "https://www.chosun.com/economy/industry-company/2026/11/11/OCQJZ4R5WJFZ3EG3DN7H75IWX4/",
      "pubDate": "2026-11-10T15:33:00.000Z"
+    },
+    {
+     "title": "오스코텍 경영권 갈등 격화…이사회 진입하려는 창업주 장남, 기존 이사진은 반발",
+     "link": "https://www.chosun.com/economy/science/2026/11/11/GAZDKMRUGEZDSMRXGRRDAMDCGM/",
+     "pubDate": "2026-11-10T21:00:01.000Z"
+    },
+    {
+     "title": "해킹 범인 절반은 못 찾는다… IP 주소 남아도 추적 어려운 이유는",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/11/G4ZTCOLDGI4DCYJSMU3DCOLCGQ/",
+     "pubDate": "2026-11-10T21:00:01.000Z"
+    },
+    {
+     "title": "[바이오e종목] “조카 창업 후원한 삼촌”...씨젠 오너가 380억 지분 매각 예고에 급락",
+     "link": "https://www.chosun.com/economy/science/2026/11/11/MQZWIZTBMI4DSMJVMVSWEMLGGM/",
+     "pubDate": "2026-11-10T21:00:01.000Z"
+    },
+    {
+     "title": "[단독] 큰길에 덜 붙은 땅도 고밀개발… 서울시, 강북에 ‘제2 테헤란로’ 키운다",
+     "link": "https://www.chosun.com/economy/real_estate/2026/11/11/GU4DSNBWMU2TQOJWHFRWENRYMQ/",
+     "pubDate": "2026-11-10T21:00:01.000Z"
+    },
+    {
+     "title": "팔 집은 쌓이고 세 들 집은 줄고… 서울 매매·전월세 ‘엇박자’",
+     "link": "https://www.chosun.com/economy/real_estate/2026/11/11/MQ4TON3GGNRGGM3FMJTGCN3GGI/",
+     "pubDate": "2026-11-10T21:00:01.000Z"
     },
     {
      "title": "불 붙은 美·中 달 레이스... 13조원 ‘달 택배’ 시대 여는 美, 파키스탄 우주인 태우는 中",
@@ -416,38 +441,13 @@
      "pubDate": "2026-11-10T21:00:01.000Z"
     },
     {
-     "title": "팔 집은 쌓이고 세 들 집은 줄고… 서울 매매·전월세 ‘엇박자’",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/11/MQ4TON3GGNRGGM3FMJTGCN3GGI/",
-     "pubDate": "2026-11-10T21:00:01.000Z"
-    },
-    {
      "title": "[기자수첩] ‘팀코리아’라는 공허한 메아리",
      "link": "https://www.chosun.com/economy/economy_general/2026/11/11/GFTDKNLCGAYGENBZMJSTMOBRGA/",
      "pubDate": "2026-11-10T21:00:01.000Z"
     },
     {
-     "title": "오스코텍 경영권 갈등 격화…이사회 진입하려는 창업주 장남, 기존 이사진은 반발",
-     "link": "https://www.chosun.com/economy/science/2026/11/11/GAZDKMRUGEZDSMRXGRRDAMDCGM/",
-     "pubDate": "2026-11-10T21:00:01.000Z"
-    },
-    {
-     "title": "해킹 범인 절반은 못 찾는다… IP 주소 남아도 추적 어려운 이유는",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/11/G4ZTCOLDGI4DCYJSMU3DCOLCGQ/",
-     "pubDate": "2026-11-10T21:00:01.000Z"
-    },
-    {
-     "title": "[바이오e종목] “조카 창업 후원한 삼촌”...씨젠 오너가 380억 지분 매각 예고에 급락",
-     "link": "https://www.chosun.com/economy/science/2026/11/11/MQZWIZTBMI4DSMJVMVSWEMLGGM/",
-     "pubDate": "2026-11-10T21:00:01.000Z"
-    },
-    {
-     "title": "[단독] 큰길에 덜 붙은 땅도 고밀개발… 서울시, 강북에 ‘제2 테헤란로’ 키운다",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/11/GU4DSNBWMU2TQOJWHFRWENRYMQ/",
-     "pubDate": "2026-11-10T21:00:01.000Z"
-    },
-    {
-     "title": "온라인 판로 뚫자 매출 5000만원 증가…한유원 ‘로컬상품관’ 소상공인 지원",
-     "link": "https://www.chosun.com/economy/smb-venture/2026/11/11/MQ4WKOBQMY3TONRYGU3WGNBZGE/",
+     "title": "[스타트UP] 쓰던 로봇도 AI 로봇으로…올에이아이의 제어 기술",
+     "link": "https://www.chosun.com/economy/smb-venture/2026/11/11/MMZWKOBTMQYTINZSG5QTEZBUMU/",
      "pubDate": "2026-11-10T21:00:00.000Z"
     }
    ],
@@ -834,11 +834,6 @@
      "pubDate": "2026-11-10T21:07:00.000Z"
     },
     {
-     "title": "[단독] 전세 대란인데…청년보증 22% 줄었다",
-     "link": "https://www.sedaily.com/article/20112600",
-     "pubDate": "2026-11-10T08:42:33.000Z"
-    },
-    {
      "title": "커지는 ‘황 스캔들’…공화도 “AI칩 中 수출 중단”",
      "link": "https://www.sedaily.com/article/20112622",
      "pubDate": "2026-11-10T08:48:26.000Z"
@@ -952,6 +947,11 @@
      "title": "“딸한테 전세금 2억 빌려줬어요”…이자 안 받으면 증여세 걸릴까",
      "link": "https://www.sedaily.com/article/20111386",
      "pubDate": "2026-11-07T01:30:00.000Z"
+    },
+    {
+     "title": "“소방 재정에 미래기금 지원 검토”…정부 쌈짓돈인가요",
+     "link": "https://www.sedaily.com/article/20112136",
+     "pubDate": "2026-11-09T09:10:30.000Z"
     }
    ],
    "tops": [
@@ -979,6 +979,26 @@
    "home": "https://www.yna.co.kr/economy/all",
    "via": "rss",
    "items": [
+    {
+     "title": "중진공, 구직자 위해 '직무 찾기' 서비스…채용정보 등 제공",
+     "link": "https://www.yna.co.kr/view/AKR20261110156800030",
+     "pubDate": "2026-11-10T23:33:00.000Z"
+    },
+    {
+     "title": "신한증권 \"KT, 내년 통신3사 중 가장 높은 주주환원수익률 전망\"",
+     "link": "https://www.yna.co.kr/view/AKR20261111026900008",
+     "pubDate": "2026-11-10T23:31:50.000Z"
+    },
+    {
+     "title": "iM증권, 지역난방공사 목표가↓…\"수익성 감소 전망\"",
+     "link": "https://www.yna.co.kr/view/AKR20261111026400008",
+     "pubDate": "2026-11-10T23:30:21.000Z"
+    },
+    {
+     "title": "LG화학, 청년 실무역량 강화 'K-뉴딜 아카데미' 1기 수료식",
+     "link": "https://www.yna.co.kr/view/AKR20261111026000003",
+     "pubDate": "2026-11-10T23:30:14.000Z"
+    },
     {
      "title": "IBK증권, 크래프톤 목표가↓…\"내년도 주당순익 하향조정 반영\"",
      "link": "https://www.yna.co.kr/view/AKR20261111025800008",
@@ -1108,43 +1128,23 @@
      "title": "강원 그린바이오 기업·연구기관 강릉에 집결…투자·판로 모색",
      "link": "https://www.yna.co.kr/view/AKR20261110165500062",
      "pubDate": "2026-11-10T08:57:21.000Z"
-    },
-    {
-     "title": "[인사] 공정거래위원회",
-     "link": "https://www.yna.co.kr/view/AKR20261110163600002",
-     "pubDate": "2026-11-10T08:44:44.000Z"
-    },
-    {
-     "title": "\"코스피 변동성, 韓 고유 요인이 작용한 것…반도체 집중 구조\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261110122251008",
-     "pubDate": "2026-11-10T08:28:42.000Z"
-    },
-    {
-     "title": "\"스테이블코인, 형평성·안정성 위해 전금법 적용해야\"",
-     "link": "https://www.yna.co.kr/view/AKR20261110153700002",
-     "pubDate": "2026-11-10T08:22:41.000Z"
-    },
-    {
-     "title": "염동열 강원관광재단 대표 취임…첫 결재는 양양공항 활성화",
-     "link": "https://www.yna.co.kr/view/AKR20261110157400062",
-     "pubDate": "2026-11-10T08:19:04.000Z"
     }
    ],
    "tops": [
     {
-     "title": "iM증권, 지역난방공사 목표가↓…\"수익성 감소 전망\"",
-     "link": "https://www.yna.co.kr/view/AKR20261111026400008?section=economy/all",
-     "pubDate": "2026-11-10T23:30:21.000Z"
+     "title": "양천구, '2027년 상반기 동행일자리' 192명 모집",
+     "link": "https://www.yna.co.kr/view/AKR20261111027600004?section=economy/all",
+     "pubDate": "2026-11-10T23:33:25.000Z"
     },
     {
-     "title": "LG화학, 청년 실무역량 강화 'K-뉴딜 아카데미' 1기 수료식",
-     "link": "https://www.yna.co.kr/view/AKR20261111026000003?section=economy/all",
-     "pubDate": "2026-11-10T23:30:14.000Z"
+     "title": "중진공, 구직자 위해 '직무 찾기' 서비스…채용정보 등 제공",
+     "link": "https://www.yna.co.kr/view/AKR20261110156800030?section=economy/all",
+     "pubDate": "2026-11-10T23:33:00.000Z"
     },
     {
-     "title": "IBK증권, 크래프톤 목표가↓…\"내년도 주당순익 하향조정 반영\"",
-     "link": "https://www.yna.co.kr/view/AKR20261111025800008?section=economy/all",
-     "pubDate": "2026-11-10T23:24:02.000Z"
+     "title": "신한증권 \"KT, 내년 통신3사 중 가장 높은 주주환원수익률 전망\"",
+     "link": "https://www.yna.co.kr/view/AKR20261111026900008?section=economy/all",
+     "pubDate": "2026-11-10T23:31:50.000Z"
     }
    ],
    "topsFrom": "page"
