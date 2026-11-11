@@ -1,6 +1,6 @@
 {
  "date": "2026-11-12",
- "generatedAt": "2026-11-11T23:16:01.108Z",
+ "generatedAt": "2026-11-11T23:17:05.921Z",
  "sources": [
   {
    "id": "joongang",
@@ -228,6 +228,21 @@
      "title": "교보리얼코, 전기차 화재진압 기술 특허 등록",
      "link": "https://www.mk.co.kr/news/economy/12205037",
      "pubDate": "2026-11-11T00:26:18.000Z"
+    },
+    {
+     "title": "[속보] 유류세 인하 내년 1월까지 2개월 연장…“유류비 부담 경감”",
+     "link": "https://www.mk.co.kr/news/economy/12204996",
+     "pubDate": "2026-11-11T00:04:20.000Z"
+    },
+    {
+     "title": "[속보] 10월 취업자 13만9000명 늘어…넉달째 10만명대",
+     "link": "https://www.mk.co.kr/news/economy/12204941",
+     "pubDate": "2026-11-10T23:03:49.000Z"
+    },
+    {
+     "title": "사고현장 출동한 변호사 든든했는데…변협 “불법알선 보험 멈춰라”",
+     "link": "https://www.mk.co.kr/news/society/12204901",
+     "pubDate": "2026-11-10T22:21:06.000Z"
     }
    ],
    "tops": [
@@ -393,6 +408,16 @@
     {
      "title": "\"자문단은 적법, 구청은 다시 받아라\" 창신 재개발 발목 잡은 종로구",
      "link": "https://www.chosun.com/economy/realty/redevelop/2026/11/12/HA4GIZLBGM3DIZTGMUYDIMDCME/",
+     "pubDate": "2026-11-11T21:00:00.000Z"
+    },
+    {
+     "title": "지방 산단 전기료 낮추려다 열 요금 오를 판… LMP에 입주기업도 반발",
+     "link": "https://www.chosun.com/economy/industry-company/2026/11/12/GM4TINLEMQ2TEZRTG43DAZBQGY/",
+     "pubDate": "2026-11-11T21:00:00.000Z"
+    },
+    {
+     "title": "5년 전 우리금융 투자한 유진투자證, 918억원어치 주식 확보…추가 매각 여부 주목",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/12/MY2DOY3DGVRDSYJWG5TDONJRHE/",
      "pubDate": "2026-11-11T21:00:00.000Z"
     }
    ],
@@ -565,6 +590,11 @@
      "title": "하나금융 임직원, 김장 1만1111포기 복지시설 전달",
      "link": "https://www.donga.com/news/Economy/article/all/20261111/135009468/2",
      "pubDate": "2026-11-11T15:30:00.000Z"
+    },
+    {
+     "title": "GS그룹-포스코, AI데이터센터 시장공략 손잡았다",
+     "link": "https://www.donga.com/news/Economy/article/all/20261111/135009461/2",
+     "pubDate": "2026-11-11T15:30:00.000Z"
     }
    ],
    "tops": [
@@ -621,11 +651,6 @@
      "title": "농협, 연세대서 '농심천심의 날' 개최…강호동 회장 특강",
      "link": "https://www.hankyung.com/article/202611119474i",
      "pubDate": "2026-11-11T09:44:01.000Z"
-    },
-    {
-     "title": "하나금융 '사랑의 김장' 1만1111포기 나눔",
-     "link": "https://www.hankyung.com/article/2026111109341",
-     "pubDate": "2026-11-11T09:38:25.000Z"
     },
     {
      "title": "농협중앙회장 ‘조합원 직선제’ 상임위 문턱 넘어…내부통제도 강화",
@@ -731,6 +756,11 @@
      "title": "연금개혁특위도 '빈손'으로 끝나나",
      "link": "https://www.hankyung.com/article/2026111083901",
      "pubDate": "2026-11-10T09:08:01.000Z"
+    },
+    {
+     "title": "올해 금융계를 빛낸 '최고 스타'",
+     "link": "https://www.hankyung.com/article/2026111084451",
+     "pubDate": "2026-11-10T08:55:17.000Z"
     }
    ],
    "tops": [
@@ -911,6 +941,11 @@
    ],
    "tops": [
     {
+     "title": "“엔비디아 이사회, 젠슨 황 해임 준비”",
+     "link": "https://www.sedaily.com/article/20113244",
+     "pubDate": "2026-11-11T22:43:17.000Z"
+    },
+    {
      "title": "美 보란듯 속도내는 中…알리바바 칩 자회사, 홍콩 상장 신청",
      "link": "https://www.sedaily.com/article/20113098",
      "pubDate": "2026-11-11T21:00:00.000Z"
@@ -919,11 +954,6 @@
      "title": "증시 출렁이자 ‘예금+α’로 ELD에 한 달 1.5조",
      "link": "https://www.sedaily.com/article/20113171",
      "pubDate": "2026-11-11T20:30:00.000Z"
-    },
-    {
-     "title": "‘수출금지’ 블랙웰이 중국 땅에 美 엔비디아 통제 구멍",
-     "link": "https://www.sedaily.com/article/20113095",
-     "pubDate": "2026-11-11T21:55:00.000Z"
     }
    ],
    "topsFrom": "page"
@@ -1078,9 +1108,19 @@
      "title": "금융위, 13일 자본시장 간담회…코스닥 활성화 등 논의할듯",
      "link": "https://www.yna.co.kr/view/AKR20261111168700008",
      "pubDate": "2026-11-11T09:25:27.000Z"
+    },
+    {
+     "title": "금투협 \"국고채 PD사 제재 과도, 심각한 부작용 우려…대외신인도 타격\"",
+     "link": "https://www.yna.co.kr/view/AKR20261111165500008",
+     "pubDate": "2026-11-11T09:10:21.000Z"
     }
    ],
    "tops": [
+    {
+     "title": "당정 \"은행지주CEO 연임요건 강화…임원추천위 전원 독립이사로\"",
+     "link": "https://www.yna.co.kr/view/AKR20261112022651001?section=economy/all",
+     "pubDate": "2026-11-11T23:14:50.000Z"
+    },
     {
      "title": "'뇌물수수 실형 전력자' 전남광주시 대외협력본부장 공모 지원",
      "link": "https://www.yna.co.kr/view/AKR20261111110000054?section=economy/all",
@@ -1090,11 +1130,6 @@
      "title": "[속보] 당정 \"은행지주CEO 연임요건 강화…임원추천위 전원 독립이사로\"",
      "link": "https://www.yna.co.kr/view/AKR20261112022600001?section=economy/all",
      "pubDate": "2026-11-11T22:52:52.000Z"
-    },
-    {
-     "title": "MSCI 韓스몰캡지수에 케이뱅크·성호전자 등 5개 종목 신규편입",
-     "link": "https://www.yna.co.kr/view/AKR20261111180200008?section=economy/all",
-     "pubDate": "2026-11-11T22:41:10.000Z"
     }
    ],
    "topsFrom": "page"
