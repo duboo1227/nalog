@@ -532,3 +532,4 @@ nav.tabs a[aria-current="page"]{font-weight:400}
   .newsgrid > :not(.np-heads):not(.np-reads):not(.np-papers){grid-column:1 / -1}
   body.newsview .np-papers .papers{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
 }
+.quote .qen{font-size:12.5px;color:var(--muted);font-style:italic;line-height:1.4}

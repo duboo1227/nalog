@@ -1192,6 +1192,7 @@ const QUOTES = [
   { t: "우리가 반복적으로 하는 행동이 곧 우리다. 탁월함은 행위가 아니라 습관이다.", a: "윌 듀랜트 (아리스토텔레스 해설)" },
   { t: "위대한 일을 하는 유일한 방법은 자신이 하는 일을 사랑하는 것이다.", a: "스티브 잡스, 2005 스탠퍼드 연설" },
   { t: "성공은 매일 반복한 작은 노력들의 합이다.", a: "로버트 콜리어" },
+  { t: "포기하지 않으면, 모든 건 과정일 뿐.", en: "If you don't quit, it's all just part of the process.", a: "" },
 ];
 // 명언 n개를 섞은 순서대로 하루 하나씩 → n일 동안 겹치지 않고, 한 바퀴 돌면 새로 섞음
 function dailyQuoteIndex(dateStr, n) {
@@ -1210,7 +1211,7 @@ function renderQuote() {
   if (!QUOTES.length) { el.hidden = true; btn.hidden = true; return; }
   if (quoteIdx === null) quoteIdx = dailyQuoteIndex(TODAY, QUOTES.length);
   const q = QUOTES[quoteIdx];
-  el.innerHTML = `<span class="qt">“${esc(q.t)}”</span><span class="qa">— ${esc(q.a)}</span>`;
+  el.innerHTML = `<span class="qt">“${esc(q.t)}”</span>${q.en ? `<span class="qen">${esc(q.en)}</span>` : ""}${q.a ? `<span class="qa">— ${esc(q.a)}</span>` : ""}`;
   el.hidden = false; btn.hidden = QUOTES.length < 2;
   el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade");
 }
