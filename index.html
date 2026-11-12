@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261111083539">
+<link rel="stylesheet" href="style.css?v=20261113082112">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -114,11 +114,11 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0835-39</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0821-12</div>
 
   <!-- ① NEWS -->
-  <section class="view" id="v-news">
-    <div class="panel">
+  <section class="view newsgrid" id="v-news">
+    <div class="panel np-heads">
       <div class="phead"><h2>📈 경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
       <div class="kwrow" id="kwRow"></div>
       <div class="paperchips" id="paperChips"></div>
@@ -128,9 +128,9 @@
         <span class="mono muted" id="pageInfo">1 / 1</span>
         <button class="btn" id="pageNext" type="button">다음 ›</button>
       </div>
-      <div class="muted" style="font-size:12.5px">4시간마다(02·06·10·14·18·22시) 자동으로 모아와. '전체'는 각 신문 경제면 맨 위 기사(⭐ 메인)부터 보여줘. '+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨.</div>
+      <div class="muted" style="font-size:12.5px">4시간마다(02·06·10·14·18·22시) 자동으로 모아와. '전체'는 각 신문 경제면 맨 위 기사(⭐ 메인)부터 보여줘. '+ 읽음'을 누르면 '내가 읽은 기사'에 담겨.</div>
     </div>
-    <div class="panel">
+    <div class="panel np-reads">
       <div class="phead"><h2>🔖 내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
       <ul class="artlist" id="artList"></ul>
       <details class="addart"><summary>+ 목록에 없는 기사 직접 추가</summary>
@@ -145,7 +145,7 @@
       </form>
       </details>
     </div>
-    <div class="panel">
+    <div class="panel np-papers">
       <div class="phead"><h2>🗞️ 신문 경제면 바로가기</h2></div>
       <div class="papers" id="papers"></div>
     </div>
@@ -353,7 +353,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261111083539"></script>
-<script src="app.js?v=20261111083539"></script>
+<script src="config.js?v=20261113082112"></script>
+<script src="app.js?v=20261113082112"></script>
 </body>
 </html>

@@ -1239,6 +1239,7 @@ const VIEWS = ["cal", "week", "news", "diary", "books", "study", "english", "cas
 function route() {
   const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "cal";
   $("#dayHead").hidden = v === "cal" || v === "week";
+  document.body.classList.toggle("newsview", v === "news");
   if (v === "week") renderWeek();
   $("#todayLabel").textContent = v === "cal" ? "오늘 · " + lab(TODAY) : (cur === TODAY ? "오늘 · " + lab(cur) : lab(cur));
   if (v === "cal") renderCal();

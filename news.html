@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/style.css?v=20261111083539">
+<link rel="stylesheet" href="/style.css?v=20261113082112">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .nhead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
 .nhead h1{font-family:var(--title);font-weight:400;font-size:30px;margin:0}
@@ -20,7 +20,7 @@
 .nfoot{text-align:center;font-size:12px;color:var(--muted);padding:20px 0 8px;line-height:1.7}
 </style>
 </head>
-<body>
+<body class="newsview">
 <div class="wrap">
   <header class="nhead">
     <div class="label">중앙 · 매경 · 조선 · 동아 · 한경 · 서경 · 연합</div>
@@ -29,8 +29,8 @@
     <div class="ndate"><span class="muted" style="font-size:13px">날짜</span><select id="dateSel" aria-label="날짜 고르기"></select></div>
   </header>
 
-  <section class="view" style="padding-top:14px">
-    <div class="panel">
+  <section class="view newsgrid" style="padding-top:14px">
+    <div class="panel np-heads">
       <div class="phead"><h2>📈 경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
       <div class="kwrow" id="kwRow"></div>
       <div class="paperchips" id="paperChips"></div>
@@ -40,21 +40,21 @@
         <span class="mono muted" id="pageInfo">1 / 1</span>
         <button class="btn" id="pageNext" type="button">다음 ›</button>
       </div>
-      <div class="muted" style="font-size:12.5px">'+ 읽음'을 누르면 아래 '내가 읽은 기사'에 담겨. 기록은 이 브라우저에만 저장돼.</div>
+      <div class="muted" style="font-size:12.5px">'+ 읽음'을 누르면 '내가 읽은 기사'에 담겨. 기록은 이 브라우저에만 저장돼.</div>
     </div>
 
-    <div class="panel">
+    <div class="panel np-reads">
       <div class="phead"><h2>🔖 내가 읽은 기사</h2><span class="muted mono" id="artCount"></span></div>
       <ul class="artlist" id="artList"></ul>
     </div>
 
-    <div class="panel">
+    <div class="panel np-papers">
       <div class="phead"><h2>🗞️ 신문 경제면 바로가기</h2></div>
       <div class="papers" id="papers"></div>
     </div>
   </section>
   <div class="nfoot">기사 제목과 링크는 각 언론사 것이고, 누르면 원문 기사로 이동해.<br>읽은 기사·메모·관심 키워드는 서버가 아니라 지금 쓰는 브라우저에만 저장돼.</div>
 </div>
-<script src="/news.js?v=20261111083539"></script>
+<script src="/news.js?v=20261113082112"></script>
 </body>
 </html>

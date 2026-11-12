@@ -521,3 +521,14 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .shelf{list-style:none;padding-left:0}
 .book.done .tname{color:var(--ok)}
 .heads .pubt{font-family:var(--mono);font-size:11.5px}
+
+/* PC(넓은 화면) 경제뉴스: 왼쪽 헤드라인, 오른쪽 내가 읽은 기사 */
+@media (min-width: 1000px){
+  body.newsview .wrap{max-width:1240px}
+  section.view.newsgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-areas:"heads reads" "papers reads";gap:18px;align-items:start}
+  .newsgrid > .np-heads{grid-area:heads}
+  .newsgrid > .np-reads{grid-area:reads;position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);max-height:calc(100vh - 90px);overflow-y:auto}
+  .newsgrid > .np-papers{grid-area:papers}
+  .newsgrid > :not(.np-heads):not(.np-reads):not(.np-papers){grid-column:1 / -1}
+  body.newsview .np-papers .papers{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+}
