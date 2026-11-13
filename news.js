@@ -27,7 +27,7 @@ let kws = store.get("econ.kw.v1", []);
 const saveReads = () => store.set("econ.read.v1", reads);
 const saveKws = () => store.set("econ.kw.v1", kws);
 
-let cur = TODAY, news = null, paper = "전체", page = 0;
+let cur = TODAY, news = null, paper = "핵심", page = 0;
 const openArts = new Set();
 const mq = window.matchMedia("(max-width: 640px)");
 const perPage = () => mq.matches ? 5 : 10;
@@ -42,7 +42,7 @@ async function loadDates() {
   $("#dateSel").innerHTML = dates.slice(0, 30).map(d => `<option value="${d}">${short(d)} (${wdName(d)})${d === TODAY ? " · 오늘" : ""}</option>`).join("");
   $("#dateSel").value = cur;
 }
-$("#dateSel").addEventListener("change", e => { cur = e.target.value; page = 0; paper = "전체"; openArts.clear(); loadNews(); });
+$("#dateSel").addEventListener("change", e => { cur = e.target.value; page = 0; paper = "핵심"; openArts.clear(); loadNews(); });
 
 async function loadNews() {
   news = null; render();
@@ -79,11 +79,18 @@ function renderHeads() {
   const kwHit = t => kws.some(k => k && (t || "").toLowerCase().includes(k.toLowerCase()));
   const kwAll = []; { const seen = new Set(); srcs.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (kwHit(i.title) && !seen.has(i.link)) { seen.add(i.link); kwAll.push(Object.assign({ src: s.name, main: (s.tops || []).includes(i) }, i)); } })); }
   if (paper === "관심" && !kws.length) paper = "전체";
-  if (paper !== "전체" && paper !== "관심" && !srcs.some(s => s.name === paper)) paper = "전체";
+  const hasCore = !!(news.core && news.core.length);
+    if (paper === "핵심" && !hasCore) paper = "전체";
+    if (paper !== "핵심" && paper !== "전체" && paper !== "관심" && !srcs.some(s => s.name === paper)) paper = "전체";
   $("#paperChips").innerHTML = (kws.length ? `<button class="chip kwchip" data-paper="관심" aria-pressed="${paper === "관심"}">💡 관심 ${kwAll.length}</button>` : "") +
-    ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === paper}">${esc(n)}</button>`).join("");
+    (hasCore ? [["핵심", "🔥 오늘의 핵심"]] : []).map(([n, l]) => `<button class="chip corechip" data-paper="${n}" aria-pressed="${n === paper}">${l}</button>`).join("") + ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === paper}">${esc(n)}</button>`).join("");
   let list;
-  if (paper === "관심") list = kwAll;
+  if (paper === "핵심") {
+      // 여러 신문이 함께 다룬 이슈·메인 배치·단독·주제 점수순. 관심 키워드가 들어가면 +2점
+      list = news.core.map(c => Object.assign({ main: c.top, core: true }, c, { score: c.score + (kwHit(c.title) || (c.more || []).some(m => kwHit(m.title)) ? 2 : 0) }))
+        .sort((a, b) => b.score - a.score).slice(0, 10);
+    }
+    else if (paper === "관심") list = kwAll;
   else if (paper === "전체") {
     list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items), seen = new Set();
     for (let r = 0; r < 3 && list.length < perPage(); r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < perPage()) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: !!(s.tops && s.tops.length) }, it)); } });
@@ -100,7 +107,7 @@ function renderHeads() {
   const start = page * pp, pl = list.slice(start, start + pp);
   const saved = new Set(todayReads().map(a => a.url));
   const mark = t => { let h = esc(t); kws.forEach(k => { if (!k) return; const re = new RegExp(esc(k).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"); h = h.replace(re, m => `<mark>${m}</mark>`); }); return h; };
-  $("#heads").innerHTML = pl.length ? pl.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)} 발행</span>` : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("")
+  $("#heads").innerHTML = pl.length ? pl.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${(it.n || 0) > 1 ? `<span class="cov" title="${esc((it.papers || []).join(", ") || "여러 신문")}에서 다룸">📰×${it.n}</span> ` : ""}${it.excl ? `<span class="cov excl">단독</span> ` : ""}${it.main ? "메인 · " : ""}${esc(it.core && it.papers && it.n > 1 ? it.papers.map(x => x.replace(/일보|뉴스/, "").replace("매일경제", "매경").replace("한국경제", "한경").replace("서울경제", "서경")).join("·") : it.src)}${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)} 발행</span>` : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("")
     : `<li class="empty" style="border:0">${paper === "관심" ? "관심 키워드가 들어간 기사가 없어." : "기사가 없어."}</li>`;
   $("#heads")._list = pl;
   $("#pager").hidden = pages < 2;

@@ -1,6 +1,7 @@
 // 경제신문 경제면 헤드라인 수집 → data/news/YYYY-MM-DD.json
 // Node 20+, 외부 패키지 없음. GitHub Actions에서 매일 실행.
 import { writeFile, readFile, mkdir } from "node:fs/promises";
+import { rank } from "./rank-news.mjs";
 
 const gn = (site) =>
   `https://news.google.com/rss/search?q=${encodeURIComponent(`site:${site} (경제 OR 증시 OR 금리 OR 환율 OR 부동산 OR 기업 OR 투자 OR 반도체) when:1d`)}&hl=ko&gl=KR&ceid=KR:ko`;
@@ -236,8 +237,10 @@ async function main() {
   sources.forEach((s, i) => { s.tops = tops[i]; s.topsFrom = tops[i].length ? "page" : "rss"; });
   await filterPaid(sources);
   sources.forEach(s => console.log(`${s.name}: ${s.items.length}건 ${s.via || ""} · 메인 ${s.tops.length}건 ${s.error || ""}`));
+  const ranked = rank(sources);
+  console.log(`핵심 이슈 ${ranked.core.length}개 (전체 ${ranked.clusters}묶음), 같은 신문 중복 ${ranked.removed}건 정리`);
   await mkdir("data/news", { recursive: true });
-  const out = { date, generatedAt: new Date().toISOString(), sources };
+  const out = { date, generatedAt: new Date().toISOString(), core: ranked.core, sources };
   await writeFile(`data/news/${date}.json`, JSON.stringify(out, null, 1));
   let index = [];
   try { index = JSON.parse(await readFile("data/news/index.json", "utf8")).dates || []; } catch {}

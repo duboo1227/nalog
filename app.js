@@ -47,7 +47,7 @@ let user = null;
 let days = {};          // date -> data
 let cases = {};         // id -> row
 let news = null;        // current news json
-let newsPaper = "전체";
+let newsPaper = "핵심";
 let newsPage = 0;
 const openArts = new Set();   // 펼쳐둔 읽은 기사 번호
 // 한 화면에 보이는 헤드라인 수: 폰(좁은 화면) 5개, PC·태블릿 10개
@@ -223,10 +223,17 @@ function renderNews() {
     const kwHit = t => kws.some(k => k && (t || "").toLowerCase().includes(k.toLowerCase()));
     const kwAll = []; { const seen = new Set(); srcs.forEach(s => [...(s.tops || []), ...s.items].forEach(i => { if (kwHit(i.title) && !seen.has(i.link)) { seen.add(i.link); kwAll.push(Object.assign({ src: s.name, main: (s.tops || []).includes(i) }, i)); } })); }
     if (newsPaper === "관심" && !kws.length) newsPaper = "전체";
-    if (newsPaper !== "전체" && newsPaper !== "관심" && !srcs.some(s => s.name === newsPaper)) newsPaper = "전체";
-    $("#paperChips").innerHTML = (kws.length ? `<button class="chip kwchip" data-paper="관심" aria-pressed="${newsPaper === "관심"}">💡 관심 ${kwAll.length}</button>` : "") + ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
+    const hasCore = !!(news.core && news.core.length);
+    if (newsPaper === "핵심" && !hasCore) newsPaper = "전체";
+    if (newsPaper !== "핵심" && newsPaper !== "전체" && newsPaper !== "관심" && !srcs.some(s => s.name === newsPaper)) newsPaper = "전체";
+    $("#paperChips").innerHTML = (kws.length ? `<button class="chip kwchip" data-paper="관심" aria-pressed="${newsPaper === "관심"}">💡 관심 ${kwAll.length}</button>` : "") + (hasCore ? [["핵심", "🔥 오늘의 핵심"]] : []).map(([n, l]) => `<button class="chip corechip" data-paper="${n}" aria-pressed="${n === newsPaper}">${l}</button>`).join("") + ["전체", ...srcs.map(s => s.name)].map(n => `<button class="chip" data-paper="${esc(n)}" aria-pressed="${n === newsPaper}">${esc(n)}</button>`).join("");
     let list;
-    if (newsPaper === "관심") list = kwAll;
+    if (newsPaper === "핵심") {
+      // 여러 신문이 함께 다룬 이슈·메인 배치·단독·주제 점수순. 관심 키워드가 들어가면 +2점
+      list = news.core.map(c => Object.assign({ main: c.top, core: true }, c, { score: c.score + (kwHit(c.title) || (c.more || []).some(m => kwHit(m.title)) ? 2 : 0) }))
+        .sort((a, b) => b.score - a.score).slice(0, 10);
+    }
+    else if (newsPaper === "관심") list = kwAll;
     else if (newsPaper === "전체") {
       // 각 신문 경제면 맨 위(메인) 기사부터 번갈아 10개. 메인 수집이 안 된 신문은 최신 기사로 대신
       list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items);
@@ -248,7 +255,7 @@ function renderNews() {
     const saved = new Set((day.news || []).map(a => a.url));
     const mark = t => { let h = esc(t); kws.forEach(k => { if (!k) return; const re = new RegExp(esc(k).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"); h = h.replace(re, m => `<mark>${m}</mark>`); }); return h; };
     if (!pageList.length && newsPaper === "관심") $("#heads").innerHTML = `<li class="empty" style="border:0">오늘은 관심 키워드가 들어간 기사가 없어.</li>`;
-    else $("#heads").innerHTML = pageList.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${it.main ? "메인 · " : ""}${esc(it.src)}${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)} 발행</span>` : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
+    else $("#heads").innerHTML = pageList.map((it, i) => `<li class="${kwHit(it.title) ? "kw" : ""}"><span class="n">${String(start + i + 1).padStart(2, "0")}</span><div><a href="${esc(it.link)}" target="_blank" rel="noopener">${it.main ? `<span class="star" title="신문 메인 기사">⭐</span> ` : ""}${mark(it.title)}</a><div class="time">${(it.n || 0) > 1 ? `<span class="cov" title="${esc((it.papers || []).join(", ") || "여러 신문")}에서 다룸">📰×${it.n}</span> ` : ""}${it.excl ? `<span class="cov excl">단독</span> ` : ""}${it.main ? "메인 · " : ""}${esc(it.core && it.papers && it.n > 1 ? it.papers.map(x => x.replace(/일보|뉴스/, "").replace("매일경제", "매경").replace("한국경제", "한경").replace("서울경제", "서경")).join("·") : it.src)}${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)} 발행</span>` : ""}</div></div><button class="add${saved.has(it.link) ? " on" : ""}" data-add="${i}">${saved.has(it.link) ? "✓ 읽음" : "+ 읽음"}</button></li>`).join("");
     $("#heads")._list = pageList;
     $("#pager").hidden = pagesN < 2;
     $("#pageInfo").textContent = `${newsPage + 1} / ${pagesN}`;
