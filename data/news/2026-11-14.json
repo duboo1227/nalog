@@ -1,6 +1,6 @@
 {
  "date": "2026-11-14",
- "generatedAt": "2026-11-13T23:27:34.875Z",
+ "generatedAt": "2026-11-14T02:09:48.081Z",
  "core": [
   {
    "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
@@ -10,15 +10,16 @@
    "papers": [
     "매일경제",
     "조선일보",
+    "동아일보",
     "한국경제",
     "서울경제"
    ],
-   "n": 4,
+   "n": 5,
    "top": true,
    "excl": false,
-   "score": 11,
+   "score": 14,
    "why": [
-    "4개 신문",
+    "5개 신문",
     "메인 1"
    ],
    "more": [
@@ -43,15 +44,137 @@
      "link": "https://www.chosun.com/economy/market_trend/2026/11/14/XXUEIWD3MJEURGYFFIDU65EWBM/"
     },
     {
+     "src": "동아일보",
+     "title": "잠자는 카드 포인트, 내년 5월부터 지역화폐로 전환 가능",
+     "link": "https://www.donga.com/news/Society/article/all/20261113/135023116/2"
+    },
+    {
      "src": "서울경제",
      "title": "안 쓴 카드 포인트 내년 지역화폐로 바꿔 쓴다",
      "link": "https://www.sedaily.com/article/20113861"
     }
    ],
+   "_size": 7
+  },
+  {
+   "title": "정진완 우리은행장 연임 성공…경영성과 인정받아 임기 ‘1년 더’",
+   "link": "https://www.mk.co.kr/news/economy/12208034",
+   "src": "매일경제",
+   "pubDate": "2026-11-13T05:59:42.000Z",
+   "papers": [
+    "매일경제",
+    "동아일보",
+    "한국경제"
+   ],
+   "n": 3,
+   "top": false,
+   "excl": false,
+   "score": 6,
+   "why": [
+    "3개 신문"
+   ],
+   "more": [
+    {
+     "src": "매일경제",
+     "title": "정진완 우리은행장 연임 성공 '1년 더'",
+     "link": "https://www.mk.co.kr/news/economy/12208291"
+    },
+    {
+     "src": "매일경제",
+     "title": "[속보] 정진완 우리은행장 연임 결정…임기 1년",
+     "link": "https://www.mk.co.kr/news/economy/12207980"
+    },
+    {
+     "src": "동아일보",
+     "title": "정진완 우리은행장 1년 연임",
+     "link": "https://www.donga.com/news/People/article/all/20261113/135023078/2"
+    },
+    {
+     "src": "한국경제",
+     "title": "정진완 우리은행장 1년 연임",
+     "link": "https://www.hankyung.com/article/2026111358121"
+    },
+    {
+     "src": "한국경제",
+     "title": "정진완 우리은행장 연임 결정…임기 1년",
+     "link": "https://www.hankyung.com/article/2026111351797"
+    }
+   ],
    "_size": 6
   },
   {
-   "title": "“철도 다녀야 경제 살고 집값 오른다” 지자체 유치 경쟁 치열",
+   "title": "“난 쓰레기 같은 X” 젠슨황 자책…엔비디아 성공 공식이 부메랑 됐다",
+   "link": "https://www.joongang.co.kr/article/25478417",
+   "src": "중앙일보",
+   "pubDate": "2026-11-13T07:17:46.000Z",
+   "papers": [
+    "중앙일보",
+    "서울경제"
+   ],
+   "n": 2,
+   "top": true,
+   "excl": false,
+   "score": 5,
+   "why": [
+    "2개 신문",
+    "메인 1"
+   ],
+   "more": [
+    {
+     "src": "서울경제",
+     "title": "“난 쓰레기” 자책한 젠슨 황 엔비디아, 위로 꽃다발도 치워",
+     "link": "https://www.sedaily.com/article/20114056"
+    }
+   ],
+   "_size": 2
+  },
+  {
+   "title": "삼성메디슨, 500억 투자 초음파 진단기 공장 증설",
+   "link": "https://www.donga.com/news/Economy/article/all/20261113/135023110/2",
+   "src": "동아일보",
+   "pubDate": "2026-11-13T16:40:00.000Z",
+   "papers": [
+    "중앙일보",
+    "동아일보"
+   ],
+   "n": 2,
+   "top": true,
+   "excl": false,
+   "score": 5,
+   "why": [
+    "2개 신문",
+    "메인 1"
+   ],
+   "more": [
+    {
+     "src": "중앙일보",
+     "title": "삼성메디슨, 홍천공장 500억 증설…2030년 생산능력 2배로",
+     "link": "https://www.joongang.co.kr/article/25478454"
+    }
+   ],
+   "_size": 2
+  },
+  {
+   "title": "‘젠슨 황’ 불확실성에… 코스피 1% 하락 마감",
+   "link": "https://www.donga.com/news/Economy/article/all/20261113/135023326/2",
+   "src": "동아일보",
+   "pubDate": "2026-11-13T16:40:00.000Z",
+   "papers": [
+    "동아일보"
+   ],
+   "n": 1,
+   "top": true,
+   "excl": false,
+   "score": 3.5,
+   "why": [
+    "메인 1",
+    "시장·정책"
+   ],
+   "more": [],
+   "_size": 1
+  },
+  {
+   "title": "“철도 다녀야 집값 올라” 지자체 유치 경쟁 치열",
    "link": "https://www.sedaily.com/article/20114227",
    "src": "서울경제",
    "pubDate": "2026-11-13T22:04:00.000Z",
@@ -70,29 +193,23 @@
    "_size": 1
   },
   {
-   "title": "“난 쓰레기” 자책한 젠슨 황 엔비디아, 위로 꽃다발도 치워",
-   "link": "https://www.sedaily.com/article/20114056",
-   "src": "서울경제",
-   "pubDate": "2026-11-13T06:17:12.000Z",
+   "title": "\"전세사기 예방이 최선\"…전북도, 전월세 안심계약 상담서비스",
+   "link": "https://www.yna.co.kr/view/AKR20261114022100055?section=economy/all",
+   "src": "연합뉴스",
+   "pubDate": "2026-11-14T00:20:45.000Z",
    "papers": [
-    "중앙일보",
-    "서울경제"
+    "연합뉴스"
    ],
-   "n": 2,
-   "top": false,
+   "n": 1,
+   "top": true,
    "excl": false,
-   "score": 3,
+   "score": 3.5,
    "why": [
-    "2개 신문"
+    "메인 1",
+    "시장·정책"
    ],
-   "more": [
-    {
-     "src": "중앙일보",
-     "title": "“난 쓰레기 같은 X” 젠슨황 자책…엔비디아 성공 공식이 부메랑 됐다",
-     "link": "https://www.joongang.co.kr/article/25478417"
-    }
-   ],
-   "_size": 2
+   "more": [],
+   "_size": 1
   },
   {
    "title": "해킹 당한 금융보안원, 공격 IP 246개 차단완료…국적은 한국",
@@ -120,13 +237,13 @@
    "_size": 2
   },
   {
-   "title": "정진완 우리은행장 연임 성공…경영성과 인정받아 임기 ‘1년 더’",
-   "link": "https://www.mk.co.kr/news/economy/12208034",
-   "src": "매일경제",
-   "pubDate": "2026-11-13T05:59:42.000Z",
+   "title": "유한양행, 먹는 만성신장병 신약 개발 속도…임상 1상 승인",
+   "link": "https://www.donga.com/news/Economy/article/all/20261113/135022305/1",
+   "src": "동아일보",
+   "pubDate": "2026-11-13T08:51:51.000Z",
    "papers": [
-    "매일경제",
-    "한국경제"
+    "동아일보",
+    "연합뉴스"
    ],
    "n": 2,
    "top": false,
@@ -137,35 +254,20 @@
    ],
    "more": [
     {
-     "src": "매일경제",
-     "title": "정진완 우리은행장 연임 성공 '1년 더'",
-     "link": "https://www.mk.co.kr/news/economy/12208291"
-    },
-    {
-     "src": "매일경제",
-     "title": "[속보] 정진완 우리은행장 연임 결정…임기 1년",
-     "link": "https://www.mk.co.kr/news/economy/12207980"
-    },
-    {
-     "src": "한국경제",
-     "title": "정진완 우리은행장 1년 연임",
-     "link": "https://www.hankyung.com/article/2026111358121"
-    },
-    {
-     "src": "한국경제",
-     "title": "정진완 우리은행장 연임 결정…임기 1년",
-     "link": "https://www.hankyung.com/article/2026111351797"
+     "src": "연합뉴스",
+     "title": "유한양행 \"만성신장병 신약 임상1상 계획 식약처 승인받아\"",
+     "link": "https://www.yna.co.kr/view/AKR20261113157700017"
     }
    ],
-   "_size": 5
+   "_size": 2
   },
   {
-   "title": "“메모리주, 이게 삼전닉스보다 낫다” 48000% 번 그의 원픽",
-   "link": "https://www.joongang.co.kr/article/25478367",
-   "src": "중앙일보",
-   "pubDate": "2026-11-13T03:54:32.000Z",
+   "title": "“앨리스 황 가족기업, 딥시크-화웨이와 얽혀… 中 ‘AI 굴기’ 지원”",
+   "link": "https://www.donga.com/news/Economy/article/all/20261113/135023332/2",
+   "src": "동아일보",
+   "pubDate": "2026-11-13T16:40:00.000Z",
    "papers": [
-    "중앙일보"
+    "동아일보"
    ],
    "n": 1,
    "top": true,
@@ -174,79 +276,6 @@
    "why": [
     "메인 1",
     "산업"
-   ],
-   "more": [],
-   "_size": 1
-  },
-  {
-   "title": "아이오닉5 이후 3년 만 두 번째 ‘10만 대 전기차’는?",
-   "link": "https://www.sedaily.com/article/20114267",
-   "src": "서울경제",
-   "pubDate": "2026-11-13T21:31:00.000Z",
-   "papers": [
-    "서울경제"
-   ],
-   "n": 1,
-   "top": true,
-   "excl": false,
-   "score": 2.8,
-   "why": [
-    "메인 1",
-    "산업"
-   ],
-   "more": [],
-   "_size": 1
-  },
-  {
-   "title": "정부, 韓 경기 판단 이제 ‘회복’ 아닌 ‘성장’",
-   "link": "https://www.mk.co.kr/news/economy/12208048",
-   "src": "매일경제",
-   "pubDate": "2026-11-13T06:09:44.000Z",
-   "papers": [
-    "매일경제"
-   ],
-   "n": 1,
-   "top": false,
-   "excl": false,
-   "score": 2.5,
-   "why": [
-    "거시"
-   ],
-   "more": [],
-   "_size": 1
-  },
-  {
-   "title": "둑 터진 대중 반도체 규제… 美, 수출 우회로 틀어막는다",
-   "link": "https://www.chosun.com/economy/tech_it/2026/11/14/OZNXECDW4BCVBK7ZCOFGUWZ42I/",
-   "src": "조선일보",
-   "pubDate": "2026-11-13T15:38:00.000Z",
-   "papers": [
-    "조선일보"
-   ],
-   "n": 1,
-   "top": false,
-   "excl": false,
-   "score": 2.5,
-   "why": [
-    "거시"
-   ],
-   "more": [],
-   "_size": 1
-  },
-  {
-   "title": "[경제 포커스] 월급 6% 오를 때 세금 10% 높인 韓 vs 물가 오르면 세금 조정하는 美·獨",
-   "link": "https://www.chosun.com/economy/economy_general/2026/11/14/HAYWCNRVGE3WMYRZMRTGIMRVGE/",
-   "src": "조선일보",
-   "pubDate": "2026-11-13T21:00:00.000Z",
-   "papers": [
-    "조선일보"
-   ],
-   "n": 1,
-   "top": false,
-   "excl": false,
-   "score": 2.5,
-   "why": [
-    "거시"
    ],
    "more": [],
    "_size": 1
@@ -274,18 +303,11 @@
      "score": 0.5
     },
     {
-     "title": "“메모리주, 이게 삼전닉스보다 낫다” 48000% 번 그의 원픽",
-     "link": "https://www.joongang.co.kr/article/25478367",
-     "pubDate": "2026-11-13T03:54:32.000Z",
-     "n": 1,
-     "score": 2.8
-    },
-    {
      "title": "“난 쓰레기 같은 X” 젠슨황 자책…엔비디아 성공 공식이 부메랑 됐다",
      "link": "https://www.joongang.co.kr/article/25478417",
      "pubDate": "2026-11-13T07:17:46.000Z",
      "n": 2,
-     "score": 3
+     "score": 5
     },
     {
      "title": "“광교 아파트 반의 반값” 대박 난 청약…‘로또’ 아닌 ‘20년 할부’ [안장원의 부동산 노트]",
@@ -293,6 +315,13 @@
      "pubDate": "2026-11-13T21:00:01.000Z",
      "n": 1,
      "score": 1.5
+    },
+    {
+     "title": "“메모리주, 이게 삼전닉스보다 낫다” 48000% 번 그의 원픽",
+     "link": "https://www.joongang.co.kr/article/25478367",
+     "pubDate": "2026-11-13T03:54:32.000Z",
+     "n": 1,
+     "score": 0.8
     },
     {
      "title": "5000원짜리가 당근서 3만원대…“3시간 줄섰다” 한정판 라면 정체",
@@ -326,8 +355,8 @@
      "title": "삼성메디슨, 홍천공장 500억 증설…2030년 생산능력 2배로",
      "link": "https://www.joongang.co.kr/article/25478454",
      "pubDate": "2026-11-13T09:11:02.000Z",
-     "n": 1,
-     "score": 0
+     "n": 2,
+     "score": 5
     },
     {
      "title": "정부, 석유 최고가격 또 동결…정유사 손실보전 놓고 갈등 예고",
@@ -374,11 +403,11 @@
      "score": 0.5
     },
     {
-     "title": "“메모리주, 이게 삼전닉스보다 낫다” 48000% 번 그의 원픽",
-     "link": "https://www.joongang.co.kr/article/25478367",
-     "pubDate": "2026-11-13T03:54:32.000Z",
-     "n": 1,
-     "score": 2.8
+     "title": "“난 쓰레기 같은 X” 젠슨황 자책…엔비디아 성공 공식이 부메랑 됐다",
+     "link": "https://www.joongang.co.kr/article/25478417",
+     "pubDate": "2026-11-13T07:17:46.000Z",
+     "n": 2,
+     "score": 5
     }
    ],
    "topsFrom": "page"
@@ -389,6 +418,13 @@
    "home": "https://www.mk.co.kr/news/economy/",
    "via": "rss",
    "items": [
+    {
+     "title": "“차에서 내리다 손목 부러졌어요”…보험 전문가도 보험금 거절당했다, 왜? [어쩌다 세상이]",
+     "link": "https://www.mk.co.kr/news/economy/12208824",
+     "pubDate": "2026-11-14T01:42:09.000Z",
+     "n": 1,
+     "score": 0
+    },
     {
      "title": "해킹 당한 금융보안원 “공격 IP 246개 차단완료…국적은 한국”",
      "link": "https://www.mk.co.kr/news/economy/12208349",
@@ -470,8 +506,8 @@
      "title": "정진완 우리은행장 연임 성공…경영성과 인정받아 임기 ‘1년 더’",
      "link": "https://www.mk.co.kr/news/economy/12208034",
      "pubDate": "2026-11-13T05:59:42.000Z",
-     "n": 2,
-     "score": 3
+     "n": 3,
+     "score": 6
     },
     {
      "title": "이소영 “반도체 대기업-中企 영업이익 격차 10배…해결해야”",
@@ -491,8 +527,8 @@
      "title": "“내년 지갑에 2조1000억 꽂힌다”…사용 안 한 카드포인트, 지역화폐 전환 가능",
      "link": "https://www.mk.co.kr/news/economy/12207886",
      "pubDate": "2026-11-13T02:27:32.000Z",
-     "n": 4,
-     "score": 11
+     "n": 5,
+     "score": 14
     },
     {
      "title": "결국 밀려난 젠슨황...시장의 판단은 빨랐다",
@@ -513,21 +549,21 @@
      "link": "https://www.mk.co.kr/news/economy/12207797",
      "pubDate": "2026-11-13T01:33:45.000Z",
      "n": 1,
-     "score": 0.8
+     "score": -0.7
     },
     {
      "title": "[속보] 李대통령 “금융시장 불공정행위 엄정단속, 중수청에 별도 지시”",
      "link": "https://www.mk.co.kr/news/economy/12207754",
      "pubDate": "2026-11-13T00:48:21.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "[속보] 李대통령 “정부의 자본시장 개혁 의지, 다시 한번 시험대”",
      "link": "https://www.mk.co.kr/news/economy/12207747",
      "pubDate": "2026-11-13T00:42:33.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "유가 하락에 수입물가 1.8%↓…수출물량 증가율은 역대 최고",
@@ -561,13 +597,6 @@
      "title": "“이러다 노후 자금 다 날리겠어” … 5060 폐업 급증에 찾아낸 생존법",
      "link": "https://www.mk.co.kr/news/economy/12206515",
      "pubDate": "2026-11-12T20:00:00.000Z",
-     "n": 1,
-     "score": -1.5
-    },
-    {
-     "title": "“통역 없어도” 안경 쓰니 일본인과 한국어로 대화 술술",
-     "link": "https://www.mk.co.kr/news/economy/12207244",
-     "pubDate": "2026-11-12T15:11:18.000Z",
      "n": 1,
      "score": -1.5
     }
@@ -604,6 +633,48 @@
    "via": "rss",
    "items": [
     {
+     "title": "엔비디아 임원진 ‘젠슨 황 복귀 요구 서한’은 가짜… 3년 전 오픈AI 사태 문건과 비슷",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/IBWZF5IFYFFZPLUN7BPSLXI45I/",
+     "pubDate": "2026-11-14T01:32:55.000Z",
+     "n": 1,
+     "score": -2.2
+    },
+    {
+     "title": "“영아 입원 75% 줄었다” 효과 입증된 RSV 백신…국내 국가 지원은 언제?",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/W6RGB5CRYZCCPPZ2VF5ONMB7QQ/",
+     "pubDate": "2026-11-14T00:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "엔비디아 주가 일주일 새 13% 급락...시총 4조달러 붕괴",
+     "link": "https://www.chosun.com/economy/int_economy/2026/11/14/DFGKTXF52VF7XCEKX6VHX3JJOQ/",
+     "pubDate": "2026-11-13T23:57:46.000Z",
+     "n": 1,
+     "score": 2.5
+    },
+    {
+     "title": "화학비료 대신 세균 뿌렸더니 수확량 그대로…‘살아 있는 비료’ 시대 오나",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/ZFO3O26PT5E5ZDCZXJ5AHCEVFI/",
+     "pubDate": "2026-11-13T23:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "깐부 젠슨 황 잃었다, 위태로운 AI 동맹",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/RRGOXOHB3ZFPFLZBWS5WDSZ75Q/",
+     "pubDate": "2026-11-13T15:39:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "'전 객실에 프라이빗 풀' 반얀트리 부산 해운대, 2차 회원 모집",
+     "link": "https://www.chosun.com/economy/realty/realestate_news/2026/11/14/GYYDOYTEMNSTSMZUMRQTSZRYMQ/",
+     "pubDate": "2026-11-14T00:00:00.000Z",
+     "n": 1,
+     "score": -3
+    },
+    {
      "title": "대만 매체 “앨리스 황은 中 국가안전부 공작 조직 요원”",
      "link": "https://www.chosun.com/economy/tech_it/2026/11/13/6KCZY5K2ORBVRIQBH523V4YLD4/",
      "pubDate": "2026-11-13T11:45:30.000Z",
@@ -625,25 +696,11 @@
      "score": 0.8
     },
     {
-     "title": "화학비료 대신 세균 뿌렸더니 수확량 그대로…‘살아 있는 비료’ 시대 오나",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/ZFO3O26PT5E5ZDCZXJ5AHCEVFI/",
-     "pubDate": "2026-11-13T23:00:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
      "title": "엔비디아 “차기 CEO 후보, 누구와도 공식 접촉 안 해”… ‘Arm 하스 접촉설’ 진화",
      "link": "https://www.chosun.com/economy/tech_it/2026/11/14/2PFK4TKTUFFH7PVKHCE6MDA23Y/",
      "pubDate": "2026-11-13T22:41:05.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "깐부 젠슨 황 잃었다, 위태로운 AI 동맹",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/RRGOXOHB3ZFPFLZBWS5WDSZ75Q/",
-     "pubDate": "2026-11-13T15:39:00.000Z",
-     "n": 1,
-     "score": 0.8
     },
     {
      "title": "둑 터진 대중 반도체 규제… 美, 수출 우회로 틀어막는다",
@@ -677,29 +734,8 @@
      "title": "잠자는 카드 포인트, 지역화폐로 쓴다",
      "link": "https://www.chosun.com/economy/market_trend/2026/11/14/XXUEIWD3MJEURGYFFIDU65EWBM/",
      "pubDate": "2026-11-13T15:34:00.000Z",
-     "n": 4,
-     "score": 11
-    },
-    {
-     "title": "‘공시위반 퇴출’ 기준 높이자…넉 달 새 5곳 ‘심판대’",
-     "link": "https://www.chosun.com/economy/stock-finance/2026/11/14/G5RTMNJVMQYTKMTBGM2WMNBYGU/",
-     "pubDate": "2026-11-13T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "[비즈톡톡] 스피커 구멍 없앤 아이패드 미니… 스마트폰서 자취 감춘 ‘화면 진동’ 다시 꺼내",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/GZTDSZRUMMYGCMZSMNTGGMTCGE/",
-     "pubDate": "2026-11-13T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "이마트 가양점 부지, 지식산업센터 대신 27층·645가구 주상복합 추진",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/14/MY3DKMZVHEYDEZRSMFQWMMLGMI/",
-     "pubDate": "2026-11-13T21:00:01.000Z",
-     "n": 1,
-     "score": 0
+     "n": 5,
+     "score": 14
     },
     {
      "title": "[인터뷰] 정창림 국립전파연구원장 “국제표준, 채택 건수보다 수출·특허 수익이 중요”",
@@ -716,60 +752,25 @@
      "score": 0
     },
     {
-     "title": "46억 쓴 감나무집 텅텅, 40년 빌라는 15억…서울역 뒷골목의 엇갈린 운명 [르포]",
-     "link": "https://www.chosun.com/economy/realty/redevelop/2026/11/14/MU2GKN3FGFQWGNDCGE3DONBSMM/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
+     "title": "‘공시위반 퇴출’ 기준 높이자…넉 달 새 5곳 ‘심판대’",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/14/G5RTMNJVMQYTKMTBGM2WMNBYGU/",
+     "pubDate": "2026-11-13T21:00:01.000Z",
      "n": 1,
      "score": 0
     },
     {
-     "title": "서울 최대 집창촌의 변신, 미아리 텍사스 자리에 47층 랜드마크로",
-     "link": "https://www.chosun.com/economy/realty/apartment_sales/2026/11/14/GE3DOMTCMZSWKZBXMQ4GCMRUGQ/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
+     "title": "이마트 가양점 부지, 지식산업센터 대신 27층·645가구 주상복합 추진",
+     "link": "https://www.chosun.com/economy/real_estate/2026/11/14/MY3DKMZVHEYDEZRSMFQWMMLGMI/",
+     "pubDate": "2026-11-13T21:00:01.000Z",
      "n": 1,
      "score": 0
     },
     {
-     "title": "[경제 포커스] 월급 6% 오를 때 세금 10% 높인 韓 vs 물가 오르면 세금 조정하는 美·獨",
-     "link": "https://www.chosun.com/economy/economy_general/2026/11/14/HAYWCNRVGE3WMYRZMRTGIMRVGE/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
-     "n": 1,
-     "score": 2.5
-    },
-    {
-     "title": "[산업X파일] ‘데이터센터 전기료’ 올리자니 기업 반발, 내리자니 국민 부담… 한국도 ‘줄타기’",
-     "link": "https://www.chosun.com/economy/economy_general/2026/11/14/U35FNNU6X5HAHGMAM2JRZUR44Q/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
-     "n": 1,
-     "score": 0.8
-    },
-    {
-     "title": "[오늘의 와인] 중세 수도원의 흔적을 따라서…파고 아일레스 센다 데 레나도레스",
-     "link": "https://www.chosun.com/economy/market_trend/2026/11/14/GE2DEM3BMVRGKZJQMMYWIYRSGY/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
+     "title": "[비즈톡톡] 스피커 구멍 없앤 아이패드 미니… 스마트폰서 자취 감춘 ‘화면 진동’ 다시 꺼내",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/GZTDSZRUMMYGCMZSMNTGGMTCGE/",
+     "pubDate": "2026-11-13T21:00:01.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "‘세계 최초’ 한화 vs ‘점유율 64%’ 삼성… FLNG 경쟁 다시 붙나",
-     "link": "https://www.chosun.com/economy/industry-company/2026/11/14/GMZGGZDGGU2WKZTEGJSDKNBUHE/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "19억 지키려다 파산 위기 옥주현…400억 풀 레버리지의 덫",
-     "link": "https://www.chosun.com/economy/realty/investment_trends/2026/11/14/MNRGIY3CMMZWMODBGIZGMOBXHA/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "상폐 기준 강화 법원이 막으니… 소형 상장사 경영권 매각 ‘신중 모드’",
-     "link": "https://www.chosun.com/economy/stock-finance/2026/11/14/MRRGIYLEGZRTMMBRHA2DCMJRHE/",
-     "pubDate": "2026-11-13T21:00:00.000Z",
-     "n": 1,
-     "score": 0.8
     },
     {
      "title": "해외 코인 거래소에 14억원 묶인 韓 투자자… “미신고 업체 조심해야”",
@@ -798,11 +799,53 @@
      "pubDate": "2026-11-13T21:00:00.000Z",
      "n": 1,
      "score": 0.8
+    },
+    {
+     "title": "46억 쓴 감나무집 텅텅, 40년 빌라는 15억…서울역 뒷골목의 엇갈린 운명 [르포]",
+     "link": "https://www.chosun.com/economy/realty/redevelop/2026/11/14/MU2GKN3FGFQWGNDCGE3DONBSMM/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "‘세계 최초’ 한화 vs ‘점유율 64%’ 삼성… FLNG 경쟁 다시 붙나",
+     "link": "https://www.chosun.com/economy/industry-company/2026/11/14/GMZGGZDGGU2WKZTEGJSDKNBUHE/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "[오늘의 와인] 중세 수도원의 흔적을 따라서…파고 아일레스 센다 데 레나도레스",
+     "link": "https://www.chosun.com/economy/market_trend/2026/11/14/GE2DEM3BMVRGKZJQMMYWIYRSGY/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "상폐 기준 강화 법원이 막으니… 소형 상장사 경영권 매각 ‘신중 모드’",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/14/MRRGIYLEGZRTMMBRHA2DCMJRHE/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "19억 지키려다 파산 위기 옥주현…400억 풀 레버리지의 덫",
+     "link": "https://www.chosun.com/economy/realty/investment_trends/2026/11/14/MNRGIY3CMMZWMODBGIZGMOBXHA/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "[경제 포커스] 월급 6% 오를 때 세금 10% 높인 韓 vs 물가 오르면 세금 조정하는 美·獨",
+     "link": "https://www.chosun.com/economy/economy_general/2026/11/14/HAYWCNRVGE3WMYRZMRTGIMRVGE/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 2.5
     }
    ],
    "tops": [
     {
-     "title": "\"동유럽 5배 인건비 못 버텨\"… 벤츠도 獨공장 폐쇄 검토",
+     "title": "\"동유럽 5배 인건비 못 버텨\" 벤츠도 獨공장 폐쇄 검토",
      "link": "https://www.chosun.com/economy/auto/2026/11/14/NZMLNXIRAJFUZIWMPWG6VU4WEQ/",
      "pubDate": "2026-11-13T06:50:31.423Z",
      "n": 1,
@@ -829,10 +872,243 @@
    "id": "donga",
    "name": "동아일보",
    "home": "https://www.donga.com/news/Economy",
-   "items": [],
-   "error": "https://rss.donga.com/economy.xml… fetch failed | https://news.google.com/rss/search?q=site%3Adonga.com%20(%EA… fetch failed",
-   "tops": [],
-   "topsFrom": "rss"
+   "via": "rss",
+   "items": [
+    {
+     "title": "“10년 뒤 누구나 로봇 하나씩”…지드래곤 소속사 대표가 꿈꾸는 미래",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135018748/2",
+     "pubDate": "2026-11-14T02:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "가난한 나라가 부자 나라보다 애를 덜 낳는 시대가 왔다[딥다이브]",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135021369/1",
+     "pubDate": "2026-11-14T01:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "美 모든 공항 ‘그라운드 스톱’…시카고發 관제시스템 마비 확산",
+     "link": "https://www.donga.com/news/Inter/article/all/20261114/135023877/1",
+     "pubDate": "2026-11-13T23:29:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "“일반 안경과 구분 애매하네”…수능 앞둔 수험생들도 ‘AI 안경’ 노이로제",
+     "link": "https://www.donga.com/news/Economy/article/all/20261114/135023862/1",
+     "pubDate": "2026-11-13T23:15:10.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "밑바닥부터 다시 도전한 前 세계1위… 시드전 59위 그쳐 국내 복귀 물거품",
+     "link": "https://www.donga.com/news/Sports/article/all/20261114/135023019/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "“건강할 때 미리 준비하자”… 사후 가족분쟁 막는 안전판 ‘유언’[은퇴 레시피]",
+     "link": "https://www.donga.com/news/Economy/article/all/20261114/135022556/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "‘쌈짓돈’ 논란 미래기금… 국회 “25조 늘려 달라”",
+     "link": "https://www.donga.com/news/Politics/article/all/20261113/135023338/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "李 “골 깊으면 산 높을것” 증시 정상화 개혁기구 지시",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023334/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "“앨리스 황 가족기업, 딥시크-화웨이와 얽혀… 中 ‘AI 굴기’ 지원”",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023332/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 2.8
+    },
+    {
+     "title": "美의회 ‘對中 칩 규제 3법’ 가속… 국내기업 中공장 불똥 우려",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023330/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "‘젠슨 황’ 불확실성에… 코스피 1% 하락 마감",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023326/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 3.5
+    },
+    {
+     "title": "젠슨 황 후임, ‘재무통’ 크레스 vs ‘기술통’ 벅 거론",
+     "link": "https://www.donga.com/news/Inter/article/all/20261113/135023173/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "정진완 우리은행장 1년 연임",
+     "link": "https://www.donga.com/news/People/article/all/20261113/135023078/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 3,
+     "score": 6
+    },
+    {
+     "title": "삼성메디슨, 500억 투자 초음파 진단기 공장 증설",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023110/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 2,
+     "score": 5
+    },
+    {
+     "title": "잠자는 카드 포인트, 내년 5월부터 지역화폐로 전환 가능",
+     "link": "https://www.donga.com/news/Society/article/all/20261113/135023116/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 5,
+     "score": 14
+    },
+    {
+     "title": "MS 글로벌 서비스 ‘먹통’… 국내 기업-대학도 업무 차질",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023042/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "스타링크 1만기 통신위성의 힘… 비행기 안에서 OTT까지 본다",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022395/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "위성 기술 자립화는 성공… ‘비용 낮추기’가 관건",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022390/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "[지표로 보는 경제]11월 14일",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022570/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "“빚 포함 5억 잃었다” “내 인생 더 망했다”…직장인들 ‘주식 손실’ 배틀",
+     "link": "https://www.donga.com/news/Economy/article/all/20261114/135023582/1",
+     "pubDate": "2026-11-13T15:26:44.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "“로또 사고 남은 돈으로 구매했는데”…연금복권 1·2등 동시 당첨, ‘21억 행운’",
+     "link": "https://www.donga.com/news/Society/article/all/20261114/135023528/1",
+     "pubDate": "2026-11-13T15:19:57.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "젠슨 황 사임에도 GPU 26만장 공급 예정대로…정부 “협력 차질 없다”",
+     "link": "https://www.donga.com/news/It/article/all/20261113/135022631/1",
+     "pubDate": "2026-11-13T09:58:23.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "세계랭킹 1위 박성현의 ‘남달랐던 도전’ 실패…시드전 59위, KLPGA 복귀 무산",
+     "link": "https://www.donga.com/news/Sports/article/all/20261113/135021309/1",
+     "pubDate": "2026-11-13T09:16:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "삼양식품, 불닭 캐릭터 ‘페포’ 띄운다…명동사옥 대형 조형물 설치",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022376/1",
+     "pubDate": "2026-11-13T09:09:09.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "농협, ESG·사회공헌위원회 개최",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022368/1",
+     "pubDate": "2026-11-13T09:06:35.000Z",
+     "n": 1,
+     "score": -3
+    },
+    {
+     "title": "“세종에 드디어 맥도날드 생겼다!”…車-사람 오픈런에 인산인해",
+     "link": "https://www.donga.com/news/Society/article/all/20261113/135022278/2",
+     "pubDate": "2026-11-13T08:56:00.000Z",
+     "n": 1,
+     "score": -3
+    },
+    {
+     "title": "유한양행, 먹는 만성신장병 신약 개발 속도…임상 1상 승인",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135022305/1",
+     "pubDate": "2026-11-13T08:51:51.000Z",
+     "n": 2,
+     "score": 3
+    },
+    {
+     "title": "고려아연, 현대차그룹 신주발행 무효 소송 2심 승소…영풍 “판결 유감”",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135021999/1",
+     "pubDate": "2026-11-13T08:20:16.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "李 “M&A 활성화로 시장 정상화…욕 먹더라도 파이 키워야”",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135021197/1",
+     "pubDate": "2026-11-13T08:13:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "용인 반도체클러스터 연말 1225가구 공급",
+     "link": "https://www.donga.com/news/list/article/all/20261113/135021916/2",
+     "pubDate": "2026-11-13T08:06:02.000Z",
+     "n": 1,
+     "score": 0.8
+    }
+   ],
+   "tops": [
+    {
+     "title": "“앨리스 황 가족기업, 딥시크-화웨이와 얽혀… 中 ‘AI 굴기’ 지원”",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023332/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 2.8
+    },
+    {
+     "title": "‘젠슨 황’ 불확실성에… 코스피 1% 하락 마감",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023326/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 1,
+     "score": 3.5
+    },
+    {
+     "title": "삼성메디슨, 500억 투자 초음파 진단기 공장 증설",
+     "link": "https://www.donga.com/news/Economy/article/all/20261113/135023110/2",
+     "pubDate": "2026-11-13T16:40:00.000Z",
+     "n": 2,
+     "score": 5
+    }
+   ],
+   "topsFrom": "page"
   },
   {
    "id": "hankyung",
@@ -844,8 +1120,8 @@
      "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
      "link": "https://www.hankyung.com/article/2026111357931",
      "pubDate": "2026-11-13T08:33:21.000Z",
-     "n": 4,
-     "score": 11
+     "n": 5,
+     "score": 14
     },
     {
      "title": "정부, 4주간 석유 최고가 다시 동결",
@@ -865,8 +1141,8 @@
      "title": "정진완 우리은행장 연임 결정…임기 1년",
      "link": "https://www.hankyung.com/article/2026111351797",
      "pubDate": "2026-11-13T05:15:59.000Z",
-     "n": 2,
-     "score": 3
+     "n": 3,
+     "score": 6
     },
     {
      "title": "'엔비디아 쇼크' 이후 비트코인 1억원 붕괴…자금 대거 빠져나가",
@@ -880,7 +1156,7 @@
      "link": "https://www.hankyung.com/article/2026111344836",
      "pubDate": "2026-11-13T00:33:41.000Z",
      "n": 1,
-     "score": -1.5
+     "score": -3
     },
     {
      "title": "본업 선방한 '삼성 보험형제'…\"4분기 실적 개선세 이어갈 것\"",
@@ -1007,8 +1283,8 @@
      "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
      "link": "https://www.hankyung.com/article/2026111357931",
      "pubDate": "2026-11-13T08:33:21.000Z",
-     "n": 4,
-     "score": 11
+     "n": 5,
+     "score": 14
     },
     {
      "title": "정부, 4주간 석유 최고가 다시 동결",
@@ -1027,7 +1303,14 @@
    "via": "page",
    "items": [
     {
-     "title": "“철도 다녀야 경제 살고 집값 오른다” 지자체 유치 경쟁 치열",
+     "title": "美전역 항공기 운항 ‘올스톱’...“사이버 공격 아닌 통신 장애”",
+     "link": "https://www.sedaily.com/article/20114288",
+     "pubDate": "2026-11-13T23:25:01.000Z",
+     "n": 1,
+     "score": 2
+    },
+    {
+     "title": "“철도 다녀야 집값 올라” 지자체 유치 경쟁 치열",
      "link": "https://www.sedaily.com/article/20114227",
      "pubDate": "2026-11-13T22:04:00.000Z",
      "n": 1,
@@ -1045,14 +1328,14 @@
      "link": "https://www.sedaily.com/article/20114204",
      "pubDate": "2026-11-13T08:58:08.000Z",
      "n": 1,
-     "score": 2
+     "score": 0
     },
     {
      "title": "“난 쓰레기” 자책한 젠슨 황 엔비디아, 위로 꽃다발도 치워",
      "link": "https://www.sedaily.com/article/20114056",
      "pubDate": "2026-11-13T06:17:12.000Z",
      "n": 2,
-     "score": 3
+     "score": 5
     },
     {
      "title": "정부, ‘젠슨황 스캔들’에 GPU 공급망 점검",
@@ -1081,20 +1364,6 @@
      "pubDate": "2026-11-13T02:59:21.000Z",
      "n": 1,
      "score": 2.5
-    },
-    {
-     "title": "안 쓴 카드 포인트 내년 지역화폐로 바꿔 쓴다",
-     "link": "https://www.sedaily.com/article/20113861",
-     "pubDate": "2026-11-13T03:00:00.000Z",
-     "n": 4,
-     "score": 11
-    },
-    {
-     "title": "李 “코스닥 부실기업 퇴출 안정적 투자기반 확충”",
-     "link": "https://www.sedaily.com/article/20113905",
-     "pubDate": "2026-11-13T01:36:19.000Z",
-     "n": 1,
-     "score": 1.5
     },
     {
      "title": "재고 20% 늘고 원가 15% 상승…이익률 뒷걸음질",
@@ -1160,16 +1429,23 @@
      "score": 0
     },
     {
-     "title": "與메가특위 “10년간 프로젝트 전력 분야에 국고지원 50조 필요”",
-     "link": "https://www.sedaily.com/article/20113938",
-     "pubDate": "2026-11-13T02:16:39.000Z",
+     "title": "안 쓴 카드 포인트 내년 지역화폐로 바꿔 쓴다",
+     "link": "https://www.sedaily.com/article/20113861",
+     "pubDate": "2026-11-13T03:00:00.000Z",
+     "n": 5,
+     "score": 14
+    },
+    {
+     "title": "李 “코스닥 부실기업 퇴출 안정적 투자기반 확충”",
+     "link": "https://www.sedaily.com/article/20113905",
+     "pubDate": "2026-11-13T01:36:19.000Z",
      "n": 1,
      "score": 0
     },
     {
-     "title": "“딸한테 전세금 2억 빌려줬어요”…이자 안 받으면 증여세 걸릴까",
-     "link": "https://www.sedaily.com/article/20111386",
-     "pubDate": "2026-11-07T01:30:00.000Z",
+     "title": "與메가특위 “10년간 프로젝트 전력 분야에 국고지원 50조 필요”",
+     "link": "https://www.sedaily.com/article/20113938",
+     "pubDate": "2026-11-13T02:16:39.000Z",
      "n": 1,
      "score": 0
     },
@@ -1202,32 +1478,11 @@
      "score": 0
     },
     {
-     "title": "구다이글로벌, 코스피 IPO 예비심사 청구…내년 상반기 상장 목표",
-     "link": "https://www.sedaily.com/article/20114216",
-     "pubDate": "2026-11-13T09:17:54.000Z",
-     "n": 1,
-     "score": 1.5
-    },
-    {
-     "title": "변동장에 ‘자금 피난처’ 주목…순자산 12.5조 돌파",
-     "link": "https://www.sedaily.com/article/20114210",
-     "pubDate": "2026-11-13T09:00:22.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "“은퇴 후 삶 지탱할 연금…현금흐름 설계자문 중요”",
-     "link": "https://www.sedaily.com/article/20114208",
-     "pubDate": "2026-11-13T08:59:16.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
      "title": "강남3구·용산 토허 신청 20% 늘었지만…신청가격은 낙폭 확대",
      "link": "https://www.sedaily.com/article/20113934",
      "pubDate": "2026-11-13T02:06:50.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "신월·중화동 모아주택 2741가구 공급…2028년 착공 목표",
@@ -1235,11 +1490,39 @@
      "pubDate": "2026-11-13T20:56:01.000Z",
      "n": 1,
      "score": 1.5
+    },
+    {
+     "title": "롯데건설, PF 대출 8900억대로 축소…상환 기한도 18개월 연장",
+     "link": "https://www.sedaily.com/article/20114129",
+     "pubDate": "2026-11-13T07:58:58.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "IPARK현대산업개발, 이촌 강변강서 재건축 수주 추진…용산 사업 확대",
+     "link": "https://www.sedaily.com/article/20114114",
+     "pubDate": "2026-11-13T07:40:25.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "금융사 15곳에 ‘역대 최대’ 과징금 1.6조 폭탄…이유는?",
+     "link": "https://www.sedaily.com/article/20113208",
+     "pubDate": "2026-11-11T20:30:00.000Z",
+     "n": 1,
+     "score": -1.5
     }
    ],
    "tops": [
     {
-     "title": "“철도 다녀야 경제 살고 집값 오른다” 지자체 유치 경쟁 치열",
+     "title": "美전역 항공기 운항 ‘올스톱’...“사이버 공격 아닌 통신 장애”",
+     "link": "https://www.sedaily.com/article/20114288",
+     "pubDate": "2026-11-13T23:25:01.000Z",
+     "n": 1,
+     "score": 2
+    },
+    {
+     "title": "“철도 다녀야 집값 올라” 지자체 유치 경쟁 치열",
      "link": "https://www.sedaily.com/article/20114227",
      "pubDate": "2026-11-13T22:04:00.000Z",
      "n": 1,
@@ -1251,13 +1534,6 @@
      "pubDate": "2026-11-13T21:31:00.000Z",
      "n": 1,
      "score": 2.8
-    },
-    {
-     "title": "예금 깨 NISA로 돈 굴리는 日 ‘국민 재테크’ 된 英 주식형 ISA",
-     "link": "https://www.sedaily.com/article/20114204",
-     "pubDate": "2026-11-13T08:58:08.000Z",
-     "n": 1,
-     "score": 2
     }
    ],
    "topsFrom": "page"
@@ -1269,9 +1545,51 @@
    "via": "rss",
    "items": [
     {
+     "title": "[연합뉴스 이 시각 헤드라인] - 10:30",
+     "link": "https://www.yna.co.kr/view/AKR20261114025200011",
+     "pubDate": "2026-11-14T01:30:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "[테크톡노트] KTX 예매에 전화까지…내 일 대신하는 AI 비서 '피클'",
+     "link": "https://www.yna.co.kr/view/AKR20261113158900017",
+     "pubDate": "2026-11-14T00:30:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "'기금 만들고 보조금 주고'…경기 지자체, 기업 투자유치에 사활",
+     "link": "https://www.yna.co.kr/view/AKR20261113123700061",
+     "pubDate": "2026-11-14T00:09:00.000Z",
+     "n": 1,
+     "score": 2.5
+    },
+    {
+     "title": "[IPO챗] 내주 영광와이케이엠씨 등 3개사 코스닥 입성",
+     "link": "https://www.yna.co.kr/view/AKR20261113076800008",
+     "pubDate": "2026-11-14T00:00:03.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "[다음주 경제] 2천조원 넘긴 가계부채, 얼마나 더 늘었을까",
+     "link": "https://www.yna.co.kr/view/AKR20261114014500002",
+     "pubDate": "2026-11-13T23:58:18.000Z",
+     "n": 1,
+     "score": 2.5
+    },
+    {
      "title": "[해수분해] 통영 굴의 미국행…바다 위 공중화장실이 점검 대상",
      "link": "https://www.yna.co.kr/view/AKR20261113067700051",
      "pubDate": "2026-11-13T23:00:08.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "한국, 중국 수입시장 6개월째 1위…미국선 9→6위",
+     "link": "https://www.yna.co.kr/view/AKR20261113170500003",
+     "pubDate": "2026-11-13T22:01:00.000Z",
      "n": 1,
      "score": 0
     },
@@ -1295,6 +1613,20 @@
      "pubDate": "2026-11-13T22:00:03.000Z",
      "n": 1,
      "score": -3
+    },
+    {
+     "title": "[반려동물] 며느리 SNS로 대박 난 강아지 옷…20년 봉제공장 '역주행'",
+     "link": "https://www.yna.co.kr/view/AKR20261113149000030",
+     "pubDate": "2026-11-13T21:55:01.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "국제유가, 공급 과잉 전망 속 혼조 마감…WTI 0.2%↓",
+     "link": "https://www.yna.co.kr/view/AKR20261114008200072",
+     "pubDate": "2026-11-13T21:00:16.000Z",
+     "n": 1,
+     "score": 0
     },
     {
      "title": "주유소 기름값 26주째 내렸지만…두 달간 사실상 제자리",
@@ -1367,18 +1699,11 @@
      "score": 0
     },
     {
-     "title": "[연합뉴스 이 시각 헤드라인] - 18:00",
-     "link": "https://www.yna.co.kr/view/AKR20261113155100011",
-     "pubDate": "2026-11-13T09:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
      "title": "유한양행 \"만성신장병 신약 임상1상 계획 식약처 승인받아\"",
      "link": "https://www.yna.co.kr/view/AKR20261113157700017",
      "pubDate": "2026-11-13T08:29:42.000Z",
-     "n": 1,
-     "score": 0
+     "n": 2,
+     "score": 3
     },
     {
      "title": "토스증권, 3분기 영업익 1천287억원…전분기 대비 38%↓",
@@ -1393,85 +1718,29 @@
      "pubDate": "2026-11-13T08:18:06.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "UNIST, 동남권 딥테크 기업 투자유치 지원…일대일 상담 주선",
-     "link": "https://www.yna.co.kr/view/AKR20261113148400057",
-     "pubDate": "2026-11-13T07:59:52.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "SC제일은행 3분기 누적 순익 5천62억원…작년보다 67%↑",
-     "link": "https://www.yna.co.kr/view/AKR20261113145000002",
-     "pubDate": "2026-11-13T07:59:11.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "국고채 금리 상승…10년물, 열흘만에 다시 4%대로(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261113146751008",
-     "pubDate": "2026-11-13T07:53:47.000Z",
-     "n": 1,
-     "score": 2.5
-    },
-    {
-     "title": "롯데건설, 3분기 영업이익 349억원…누적은 2천억원 넘어(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261113046051003",
-     "pubDate": "2026-11-13T07:50:06.000Z",
-     "n": 1,
-     "score": 0.8
-    },
-    {
-     "title": "강원랜드 등 4개 기관, 양양국제공항 활성화 '맞손'",
-     "link": "https://www.yna.co.kr/view/AKR20261113148000062",
-     "pubDate": "2026-11-13T07:45:41.000Z",
-     "n": 1,
-     "score": -1.5
-    },
-    {
-     "title": "국고채 금리 일제히 상승…3년물 연 3.759%",
-     "link": "https://www.yna.co.kr/view/AKR20261113146700008",
-     "pubDate": "2026-11-13T07:40:21.000Z",
-     "n": 1,
-     "score": 2.5
-    },
-    {
-     "title": "성북구 길음5구역 사업시행계획 인가…최고 33층 754세대",
-     "link": "https://www.yna.co.kr/view/AKR20261113145600004",
-     "pubDate": "2026-11-13T07:36:41.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "백령도 소형공항 건설·호미반도 생태공원 조성사업 예타 통과",
-     "link": "https://www.yna.co.kr/view/AKR20261113144600002",
-     "pubDate": "2026-11-13T07:36:16.000Z",
-     "n": 1,
-     "score": 0
     }
    ],
    "tops": [
     {
-     "title": "한국, 중국 수입시장 6개월째 1위…미국선 9→6위",
-     "link": "https://www.yna.co.kr/view/AKR20261113170500003?section=economy/all",
-     "pubDate": "2026-11-13T22:01:00.000Z",
+     "title": "성남시, 내달 10일 채용박람회…참여기업 20개사 모집",
+     "link": "https://www.yna.co.kr/view/AKR20261113134700061?section=economy/all",
+     "pubDate": "2026-11-14T02:00:00.000Z",
      "n": 1,
-     "score": 2
+     "score": -1
     },
     {
-     "title": "[반려동물] 며느리 SNS로 대박 난 강아지 옷…20년 봉제공장 '역주행'",
-     "link": "https://www.yna.co.kr/view/AKR20261113149000030?section=economy/all",
-     "pubDate": "2026-11-13T21:55:01.000Z",
+     "title": "\"전세사기 예방이 최선\"…전북도, 전월세 안심계약 상담서비스",
+     "link": "https://www.yna.co.kr/view/AKR20261114022100055?section=economy/all",
+     "pubDate": "2026-11-14T00:20:45.000Z",
      "n": 1,
-     "score": 2
+     "score": 3.5
     },
     {
-     "title": "국제유가, 공급 과잉 전망 속 혼조 마감…WTI 0.2%↓",
-     "link": "https://www.yna.co.kr/view/AKR20261114008200072?section=economy/all",
-     "pubDate": "2026-11-13T21:00:16.000Z",
+     "title": "오픈AI, AI 에이전트용 '챗GPT 월렛' 공개…카드 3사와 맞손",
+     "link": "https://www.yna.co.kr/view/AKR20261114022000091?section=economy/all",
+     "pubDate": "2026-11-14T00:19:23.000Z",
      "n": 1,
-     "score": 2
+     "score": -0.2
     }
    ],
    "topsFrom": "page"
