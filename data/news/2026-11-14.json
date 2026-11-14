@@ -1,6 +1,6 @@
 {
  "date": "2026-11-14",
- "generatedAt": "2026-11-14T09:53:23.364Z",
+ "generatedAt": "2026-11-14T13:57:19.678Z",
  "core": [
   {
    "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
@@ -9,16 +9,15 @@
    "pubDate": "2026-11-13T08:33:21.000Z",
    "papers": [
     "매일경제",
-    "조선일보",
     "동아일보",
     "한국경제"
    ],
-   "n": 4,
+   "n": 3,
    "top": true,
    "excl": false,
-   "score": 11,
+   "score": 8,
    "why": [
-    "4개 신문",
+    "3개 신문",
     "메인 1"
    ],
    "more": [
@@ -38,70 +37,12 @@
      "link": "https://www.mk.co.kr/news/economy/12207886"
     },
     {
-     "src": "조선일보",
-     "title": "잠자는 카드 포인트, 지역화폐로 쓴다",
-     "link": "https://www.chosun.com/economy/market_trend/2026/11/14/XXUEIWD3MJEURGYFFIDU65EWBM/"
-    },
-    {
      "src": "동아일보",
      "title": "잠자는 카드 포인트, 내년 5월부터 지역화폐로 전환 가능",
      "link": "https://www.donga.com/news/Society/article/all/20261113/135023116/2"
     }
    ],
-   "_size": 6
-  },
-  {
-   "title": "‘소상공인 공제’ 노란우산, 가입자 개인정보 유출 정황",
-   "link": "https://www.sedaily.com/article/20114339",
-   "src": "서울경제",
-   "pubDate": "2026-11-14T07:27:52.000Z",
-   "papers": [
-    "조선일보",
-    "동아일보",
-    "서울경제",
-    "연합뉴스"
-   ],
-   "n": 4,
-   "top": true,
-   "excl": false,
-   "score": 11,
-   "why": [
-    "4개 신문",
-    "메인 1"
-   ],
-   "more": [
-    {
-     "src": "조선일보",
-     "title": "가입자 192만 ‘노란우산’, 이름·주민번호 등 개인정보 유출 가능성",
-     "link": "https://www.chosun.com/economy/smb-venture/2026/11/14/L4F4CY5FKBBTFISDLW3UMUNVAA/"
-    },
-    {
-     "src": "조선일보",
-     "title": "중기중앙회 “노란우산, 개인정보 유출 가능성… 홈페이지 비정상 접근 정황 포착”",
-     "link": "https://www.chosun.com/economy/smb-venture/2026/11/14/GNSGCMTDMYZWIOBWHA2DMMLDHA/"
-    },
-    {
-     "src": "동아일보",
-     "title": "중기중앙회 “노란우산 개인정보 조회 의심 정황 확인…KISA 신고”",
-     "link": "https://www.donga.com/news/Society/article/all/20261114/135024380/1"
-    },
-    {
-     "src": "동아일보",
-     "title": "가입자 191만명 ‘노란우산’ 개인정보 유출정황… “제3자 비정상 접근”",
-     "link": "https://www.donga.com/news/Society/article/all/20261114/135024335/1"
-    },
-    {
-     "src": "연합뉴스",
-     "title": "중기중앙회 \"노란우산 정보 유출 가능성…주소·연락처 등 포함\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261114037551030"
-    },
-    {
-     "src": "연합뉴스",
-     "title": "중기중앙회 \"노란우산 정보 유출 가능성…주소·연락처 등 포함\"",
-     "link": "https://www.yna.co.kr/view/AKR20261114037500030"
-    }
-   ],
-   "_size": 7
+   "_size": 5
   },
   {
    "title": "정진완 우리은행장 연임 성공…경영성과 인정받아 임기 ‘1년 더’",
@@ -150,6 +91,52 @@
    "_size": 6
   },
   {
+   "title": "중기중앙회 \"노란우산 정보 유출 가능성…주소·연락처 등 포함\"",
+   "link": "https://www.yna.co.kr/view/AKR20261114037500030",
+   "src": "연합뉴스",
+   "pubDate": "2026-11-14T06:57:04.000Z",
+   "papers": [
+    "조선일보",
+    "동아일보",
+    "연합뉴스"
+   ],
+   "n": 3,
+   "top": false,
+   "excl": false,
+   "score": 6,
+   "why": [
+    "3개 신문"
+   ],
+   "more": [
+    {
+     "src": "조선일보",
+     "title": "가입자 192만 ‘노란우산’, 이름·주민번호 등 개인정보 유출 가능성",
+     "link": "https://www.chosun.com/economy/smb-venture/2026/11/14/L4F4CY5FKBBTFISDLW3UMUNVAA/"
+    },
+    {
+     "src": "조선일보",
+     "title": "중기중앙회 “노란우산, 개인정보 유출 가능성… 홈페이지 비정상 접근 정황 포착”",
+     "link": "https://www.chosun.com/economy/smb-venture/2026/11/14/GNSGCMTDMYZWIOBWHA2DMMLDHA/"
+    },
+    {
+     "src": "동아일보",
+     "title": "중기중앙회 “노란우산 개인정보 조회 의심 정황 확인…KISA 신고”",
+     "link": "https://www.donga.com/news/Society/article/all/20261114/135024380/1"
+    },
+    {
+     "src": "동아일보",
+     "title": "가입자 191만명 ‘노란우산’ 개인정보 유출정황… “제3자 비정상 접근”",
+     "link": "https://www.donga.com/news/Society/article/all/20261114/135024335/1"
+    },
+    {
+     "src": "연합뉴스",
+     "title": "중기중앙회 \"노란우산 정보 유출 가능성…주소·연락처 등 포함\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114037551030"
+    }
+   ],
+   "_size": 6
+  },
+  {
    "title": "‘젠슨 황’ 불확실성에… 코스피 1% 하락 마감",
    "link": "https://www.donga.com/news/Economy/article/all/20261113/135023326/2",
    "src": "동아일보",
@@ -169,7 +156,7 @@
    "_size": 1
   },
   {
-   "title": "젠슨 황 퇴진 여파에 “美 반도체 규제 강화 땐 희토류로 대응”",
+   "title": "“美 반도체 규제 강화 땐 中, 희토류로 대응할 것”",
    "link": "https://www.sedaily.com/article/20114328",
    "src": "서울경제",
    "pubDate": "2026-11-14T05:44:55.000Z",
@@ -238,31 +225,6 @@
    "_size": 2
   },
   {
-   "title": "해킹 당한 금융보안원, 공격 IP 246개 차단완료…국적은 한국",
-   "link": "https://www.yna.co.kr/view/AKR20261113169000002",
-   "src": "연합뉴스",
-   "pubDate": "2026-11-13T10:17:50.000Z",
-   "papers": [
-    "매일경제",
-    "연합뉴스"
-   ],
-   "n": 2,
-   "top": false,
-   "excl": false,
-   "score": 3,
-   "why": [
-    "2개 신문"
-   ],
-   "more": [
-    {
-     "src": "매일경제",
-     "title": "해킹 당한 금융보안원 “공격 IP 246개 차단완료…국적은 한국”",
-     "link": "https://www.mk.co.kr/news/economy/12208349"
-    }
-   ],
-   "_size": 2
-  },
-  {
    "title": "“앨리스 황 가족기업, 딥시크-화웨이와 얽혀… 中 ‘AI 굴기’ 지원”",
    "link": "https://www.donga.com/news/Economy/article/all/20261113/135023332/2",
    "src": "동아일보",
@@ -299,6 +261,24 @@
    ],
    "more": [],
    "_size": 1
+  },
+  {
+   "title": "“젠슨 황 안 돌아오면 집단 이직”... 엔비디아 임원 서한은 ‘가짜’였다",
+   "link": "https://www.chosun.com/economy/tech_it/2026/11/14/IBWZF5IFYFFZPLUN7BPSLXI45I/",
+   "src": "조선일보",
+   "pubDate": "2026-11-14T01:32:55.000Z",
+   "papers": [
+    "조선일보"
+   ],
+   "n": 1,
+   "top": false,
+   "excl": false,
+   "score": 2.5,
+   "why": [
+    "거시"
+   ],
+   "more": [],
+   "_size": 1
   }
  ],
  "sources": [
@@ -323,16 +303,23 @@
      "score": 0.5
     },
     {
-     "title": "무연금 59세, 아직 안 늦었다…1392만→5410만원 뛰는 법",
-     "link": "https://www.joongang.co.kr/article/25478574",
-     "pubDate": "2026-11-13T21:00:01.000Z",
+     "title": "5000원짜리가 당근서 3만원대…“3시간 줄섰다” 한정판 라면 정체",
+     "link": "https://www.joongang.co.kr/article/25478592",
+     "pubDate": "2026-11-13T23:00:00.000Z",
      "n": 1,
      "score": 2
     },
     {
-     "title": "5000원짜리가 당근서 3만원대…“3시간 줄섰다” 한정판 라면 정체",
-     "link": "https://www.joongang.co.kr/article/25478592",
-     "pubDate": "2026-11-13T23:00:00.000Z",
+     "title": "무연금 59세, 아직 안 늦었다…1392만→5410만원 뛰는 법",
+     "link": "https://www.joongang.co.kr/article/25478574",
+     "pubDate": "2026-11-13T21:00:01.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "헌금함 앞 폰 꺼내자 688억…은행 2073만명 포섭 나선 이유",
+     "link": "https://www.joongang.co.kr/article/25478582",
+     "pubDate": "2026-11-13T22:00:00.000Z",
      "n": 1,
      "score": 0
     },
@@ -349,13 +336,6 @@
      "pubDate": "2026-11-13T23:00:00.000Z",
      "n": 1,
      "score": 0.8
-    },
-    {
-     "title": "헌금함 앞 폰 꺼내자 688억…은행 2073만명 포섭 나선 이유",
-     "link": "https://www.joongang.co.kr/article/25478582",
-     "pubDate": "2026-11-13T22:00:00.000Z",
-     "n": 1,
-     "score": 0
     },
     {
      "title": "“광교 아파트 반의 반값” 대박 난 청약…‘로또’ 아닌 ‘20년 할부’ [안장원의 부동산 노트]",
@@ -416,9 +396,9 @@
      "score": 0.5
     },
     {
-     "title": "무연금 59세, 아직 안 늦었다…1392만→5410만원 뛰는 법",
-     "link": "https://www.joongang.co.kr/article/25478574",
-     "pubDate": "2026-11-13T21:00:01.000Z",
+     "title": "5000원짜리가 당근서 3만원대…“3시간 줄섰다” 한정판 라면 정체",
+     "link": "https://www.joongang.co.kr/article/25478592",
+     "pubDate": "2026-11-13T23:00:00.000Z",
      "n": 1,
      "score": 2
     }
@@ -457,14 +437,14 @@
      "link": "https://www.mk.co.kr/news/economy/12208349",
      "pubDate": "2026-11-13T10:50:45.000Z",
      "n": 2,
-     "score": 3
+     "score": 1.5
     },
     {
      "title": "백령도공항 3년뒤 착공…사업 타당성재조사 통과",
      "link": "https://www.mk.co.kr/news/economy/12208346",
      "pubDate": "2026-11-13T10:47:27.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "휘발유ℓ당 1784원, 석유제품 최고가격 5차례 연속 동결",
@@ -554,8 +534,8 @@
      "title": "“내년 지갑에 2조1000억 꽂힌다”…사용 안 한 카드포인트, 지역화폐 전환 가능",
      "link": "https://www.mk.co.kr/news/economy/12207886",
      "pubDate": "2026-11-13T02:27:32.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 8
     },
     {
      "title": "결국 밀려난 젠슨황...시장의 판단은 빨랐다",
@@ -646,6 +626,34 @@
    "via": "rss",
    "items": [
     {
+     "title": "화학비료 대신 세균 뿌렸더니 수확량 그대로…‘살아 있는 비료’ 시대 오나",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/ZFO3O26PT5E5ZDCZXJ5AHCEVFI/",
+     "pubDate": "2026-11-13T23:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "‘데이터센터 전기료 청구서’... 美·유럽 거쳐 한국 날아든다",
+     "link": "https://www.chosun.com/economy/economy_general/2026/11/14/U35FNNU6X5HAHGMAM2JRZUR44Q/",
+     "pubDate": "2026-11-13T21:00:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "‘대규모 접속 장애’ MS 아웃룩·팀스, 약 36시간 만에야 정상화",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/PYAYTQSCINFN3JRCEB2L3QOPKY/",
+     "pubDate": "2026-11-14T11:40:06.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "李대통령, 與 천준호 격려… “가장 힘든 건 등 뒤서 날아오는 화살”",
+     "link": "https://www.chosun.com/economy/economy_general/2026/11/14/GYZTSYZYGM3TIY3FGVRWIZLFGQ/",
+     "pubDate": "2026-11-14T12:02:23.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
      "title": "“젠슨 황 안 돌아오면 집단 이직”... 엔비디아 임원 서한은 ‘가짜’였다",
      "link": "https://www.chosun.com/economy/tech_it/2026/11/14/IBWZF5IFYFFZPLUN7BPSLXI45I/",
      "pubDate": "2026-11-14T01:32:55.000Z",
@@ -656,8 +664,8 @@
      "title": "중기중앙회 “노란우산, 개인정보 유출 가능성… 홈페이지 비정상 접근 정황 포착”",
      "link": "https://www.chosun.com/economy/smb-venture/2026/11/14/GNSGCMTDMYZWIOBWHA2DMMLDHA/",
      "pubDate": "2026-11-14T07:54:06.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 6
     },
     {
      "title": "민주당, 국힘 부산 ‘특검법 규탄’ 집회에 “예산국회 팽개치고 대통령 조롱”",
@@ -744,13 +752,6 @@
      "score": 2.5
     },
     {
-     "title": "화학비료 대신 세균 뿌렸더니 수확량 그대로…‘살아 있는 비료’ 시대 오나",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/ZFO3O26PT5E5ZDCZXJ5AHCEVFI/",
-     "pubDate": "2026-11-13T23:00:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
      "title": "'전 객실에 프라이빗 풀' 반얀트리 부산 해운대, 2차 회원 모집",
      "link": "https://www.chosun.com/economy/realty/realestate_news/2026/11/14/GYYDOYTEMNSTSMZUMRQTSZRYMQ/",
      "pubDate": "2026-11-14T00:00:00.000Z",
@@ -762,7 +763,7 @@
      "link": "https://www.chosun.com/economy/tech_it/2026/11/13/6KCZY5K2ORBVRIQBH523V4YLD4/",
      "pubDate": "2026-11-13T11:45:30.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "수원·분당·하남 수도권 복층 단기임대 10곳…1주 17만~65만원",
@@ -812,27 +813,6 @@
      "pubDate": "2026-11-13T22:00:00.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "잠자는 카드 포인트, 지역화폐로 쓴다",
-     "link": "https://www.chosun.com/economy/market_trend/2026/11/14/XXUEIWD3MJEURGYFFIDU65EWBM/",
-     "pubDate": "2026-11-13T15:34:00.000Z",
-     "n": 4,
-     "score": 11
-    },
-    {
-     "title": "[비즈톡톡] 스피커 구멍 없앤 아이패드 미니… 스마트폰서 자취 감춘 ‘화면 진동’ 다시 꺼내",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/14/GZTDSZRUMMYGCMZSMNTGGMTCGE/",
-     "pubDate": "2026-11-13T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "이마트 가양점 부지, 지식산업센터 대신 27층·645가구 주상복합 추진",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/14/MY3DKMZVHEYDEZRSMFQWMMLGMI/",
-     "pubDate": "2026-11-13T21:00:01.000Z",
-     "n": 1,
-     "score": 0
     }
    ],
    "tops": [
@@ -870,8 +850,8 @@
      "title": "가입자 191만명 ‘노란우산’ 개인정보 유출정황… “제3자 비정상 접근”",
      "link": "https://www.donga.com/news/Society/article/all/20261114/135024335/1",
      "pubDate": "2026-11-14T07:33:00.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 6
     },
     {
      "title": "‘100호점’ 목표로 달리는 움버거앤윙스, 광화문 ‘룩스’ 활용한 게임 이벤트로 눈길",
@@ -1003,8 +983,8 @@
      "title": "잠자는 카드 포인트, 내년 5월부터 지역화폐로 전환 가능",
      "link": "https://www.donga.com/news/Society/article/all/20261113/135023116/2",
      "pubDate": "2026-11-13T16:40:00.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 8
     },
     {
      "title": "MS 글로벌 서비스 ‘먹통’… 국내 기업-대학도 업무 차질",
@@ -1053,7 +1033,7 @@
      "link": "https://www.donga.com/news/It/article/all/20261113/135022631/1",
      "pubDate": "2026-11-13T09:58:23.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "세계랭킹 1위 박성현의 ‘남달랐던 도전’ 실패…시드전 59위, KLPGA 복귀 무산",
@@ -1105,8 +1085,8 @@
      "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
      "link": "https://www.hankyung.com/article/2026111357931",
      "pubDate": "2026-11-13T08:33:21.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 8
     },
     {
      "title": "정부, 4주간 석유 최고가 다시 동결",
@@ -1268,8 +1248,8 @@
      "title": "잠자는 카드포인트 2.1조, 지역화폐로 바꿔 쓴다",
      "link": "https://www.hankyung.com/article/2026111357931",
      "pubDate": "2026-11-13T08:33:21.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 8
     },
     {
      "title": "정부, 4주간 석유 최고가 다시 동결",
@@ -1288,32 +1268,25 @@
    "via": "page",
    "items": [
     {
-     "title": "‘소상공인 공제’ 노란우산, 가입자 개인정보 유출 정황",
-     "link": "https://www.sedaily.com/article/20114339",
-     "pubDate": "2026-11-14T07:27:52.000Z",
-     "n": 4,
-     "score": 11
-    },
-    {
-     "title": "철도노조, 내달 총파업 예고 도심 집회…쟁점은 ‘안전인력’",
-     "link": "https://www.sedaily.com/article/20114336",
-     "pubDate": "2026-11-14T07:04:35.000Z",
-     "n": 1,
-     "score": 2
-    },
-    {
-     "title": "젠슨 황 퇴진 여파에 “美 반도체 규제 강화 땐 희토류로 대응”",
+     "title": "“美 반도체 규제 강화 땐 中, 희토류로 대응할 것”",
      "link": "https://www.sedaily.com/article/20114328",
      "pubDate": "2026-11-14T05:44:55.000Z",
      "n": 1,
      "score": 3.5
     },
     {
+     "title": "철도노조, 내달 총파업 예고 쟁점은 ‘안전인력’",
+     "link": "https://www.sedaily.com/article/20114336",
+     "pubDate": "2026-11-14T07:04:35.000Z",
+     "n": 1,
+     "score": 2
+    },
+    {
      "title": "안경 벗은 이재용 부친 이건희 회장 ‘데자뷔’ 화제",
      "link": "https://www.sedaily.com/article/20114118",
      "pubDate": "2026-11-14T01:44:00.000Z",
      "n": 1,
-     "score": 0
+     "score": 2
     },
     {
      "title": "美전역 항공편 운항 4시간 22분만에 재개",
@@ -1342,20 +1315,6 @@
      "pubDate": "2026-11-13T22:04:00.000Z",
      "n": 1,
      "score": 1.5
-    },
-    {
-     "title": "아이오닉5 이후 3년 만 두 번째 ‘10만 대 전기차’는?",
-     "link": "https://www.sedaily.com/article/20114267",
-     "pubDate": "2026-11-13T21:31:00.000Z",
-     "n": 1,
-     "score": 0.8
-    },
-    {
-     "title": "예금 깨 NISA로 돈 굴리는 日 ‘국민 재테크’ 된 英 주식형 ISA",
-     "link": "https://www.sedaily.com/article/20114204",
-     "pubDate": "2026-11-13T08:58:08.000Z",
-     "n": 1,
-     "score": -1.5
     },
     {
      "title": "재고 20% 늘고 원가 15% 상승…이익률 뒷걸음질",
@@ -1414,6 +1373,20 @@
      "score": -1.5
     },
     {
+     "title": "아이오닉5 이후 3년 만 두 번째 ‘10만 대 전기차’는?",
+     "link": "https://www.sedaily.com/article/20114267",
+     "pubDate": "2026-11-13T21:31:00.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "예금 깨 NISA로 돈 굴리는 日 ‘국민 재테크’ 된 英 주식형 ISA",
+     "link": "https://www.sedaily.com/article/20114204",
+     "pubDate": "2026-11-13T08:58:08.000Z",
+     "n": 1,
+     "score": -1.5
+    },
+    {
      "title": "“난 쓰레기” 자책한 젠슨 황 엔비디아, 위로 꽃다발도 치워",
      "link": "https://www.sedaily.com/article/20114056",
      "pubDate": "2026-11-13T06:17:12.000Z",
@@ -1426,27 +1399,6 @@
      "pubDate": "2026-11-13T06:16:08.000Z",
      "n": 1,
      "score": -1.5
-    },
-    {
-     "title": "한국, OECD ‘계약·단기직’ 1위 고용부, 25년 노동시장 분석",
-     "link": "https://www.sedaily.com/article/20113999",
-     "pubDate": "2026-11-13T05:11:41.000Z",
-     "n": 1,
-     "score": 1
-    },
-    {
-     "title": "삼전, 美기업 모딘 인수 추진 시총 약 7조 4849억 원 규모",
-     "link": "https://www.sedaily.com/article/20113939",
-     "pubDate": "2026-11-13T02:19:37.000Z",
-     "n": 1,
-     "score": -0.7
-    },
-    {
-     "title": "美 ‘반도체 3법’ 급물살 하원 의장 “수출제한 찬성”",
-     "link": "https://www.sedaily.com/article/20113953",
-     "pubDate": "2026-11-13T02:59:21.000Z",
-     "n": 1,
-     "score": 1
     },
     {
      "title": "821조 슈퍼 예산안도 모자라 추경 ‘군불’ 때는 與",
@@ -1496,29 +1448,57 @@
      "pubDate": "2026-11-13T07:58:58.000Z",
      "n": 1,
      "score": -1.5
+    },
+    {
+     "title": "IPARK현대산업개발, 이촌 강변강서 재건축 수주 추진…용산 사업 확대",
+     "link": "https://www.sedaily.com/article/20114114",
+     "pubDate": "2026-11-13T07:40:25.000Z",
+     "n": 1,
+     "score": -1.5
+    },
+    {
+     "title": "금융사 15곳에 ‘역대 최대’ 과징금 1.6조 폭탄…이유는?",
+     "link": "https://www.sedaily.com/article/20113208",
+     "pubDate": "2026-11-11T20:30:00.000Z",
+     "n": 1,
+     "score": -1.5
+    },
+    {
+     "title": "국민연금, 금융지주 독립이사 추천 길 열렸다",
+     "link": "https://www.sedaily.com/article/20113652",
+     "pubDate": "2026-11-12T08:40:06.000Z",
+     "n": 1,
+     "score": -1.5
+    },
+    {
+     "title": "점점 쪼개지는 삼성전자 노조…‘제7노조’까지 등장",
+     "link": "https://www.sedaily.com/article/20114047",
+     "pubDate": "2026-11-13T06:06:28.000Z",
+     "n": 1,
+     "score": -1.5
     }
    ],
    "tops": [
     {
-     "title": "‘소상공인 공제’ 노란우산, 가입자 개인정보 유출 정황",
-     "link": "https://www.sedaily.com/article/20114339",
-     "pubDate": "2026-11-14T07:27:52.000Z",
-     "n": 4,
-     "score": 11
+     "title": "“美 반도체 규제 강화 땐 中, 희토류로 대응할 것”",
+     "link": "https://www.sedaily.com/article/20114328",
+     "pubDate": "2026-11-14T05:44:55.000Z",
+     "n": 1,
+     "score": 3.5
     },
     {
-     "title": "철도노조, 내달 총파업 예고 도심 집회…쟁점은 ‘안전인력’",
+     "title": "철도노조, 내달 총파업 예고 쟁점은 ‘안전인력’",
      "link": "https://www.sedaily.com/article/20114336",
      "pubDate": "2026-11-14T07:04:35.000Z",
      "n": 1,
      "score": 2
     },
     {
-     "title": "젠슨 황 퇴진 여파에 “美 반도체 규제 강화 땐 희토류로 대응”",
-     "link": "https://www.sedaily.com/article/20114328",
-     "pubDate": "2026-11-14T05:44:55.000Z",
+     "title": "안경 벗은 이재용 부친 이건희 회장 ‘데자뷔’ 화제",
+     "link": "https://www.sedaily.com/article/20114118",
+     "pubDate": "2026-11-14T01:44:00.000Z",
      "n": 1,
-     "score": 3.5
+     "score": 2
     }
    ],
    "topsFrom": "page"
@@ -1533,8 +1513,8 @@
      "title": "중기중앙회 \"노란우산 정보 유출 가능성…주소·연락처 등 포함\"(종합)",
      "link": "https://www.yna.co.kr/view/AKR20261114037551030",
      "pubDate": "2026-11-14T07:37:21.000Z",
-     "n": 4,
-     "score": 11
+     "n": 3,
+     "score": 6
     },
     {
      "title": "\"파격가에 의료통역 지원까지\"…비만약 원정처방 마케팅 확산",
@@ -1660,49 +1640,49 @@
      "link": "https://www.yna.co.kr/view/AKR20261113177600530",
      "pubDate": "2026-11-13T12:39:06.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "2차 모두의창업 정보 유출, 1차 사고 판박이…'취약한 API' 타깃(종합)",
      "link": "https://www.yna.co.kr/view/AKR20261113174151030",
      "pubDate": "2026-11-13T12:25:19.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "경기도, 지방채 2천462억원 내년 또 발행…3년 누적 2조원 육박",
      "link": "https://www.yna.co.kr/view/AKR20261113174700061",
      "pubDate": "2026-11-13T11:14:43.000Z",
      "n": 1,
-     "score": 2.5
+     "score": 1
     },
     {
      "title": "검역본부, 고병원성 AI 위험주의보 발령…가금농장 방역 강화",
      "link": "https://www.yna.co.kr/view/AKR20261113173200030",
      "pubDate": "2026-11-13T10:42:04.000Z",
      "n": 1,
-     "score": 0.8
+     "score": -0.7
     },
     {
      "title": "[동포의 창] 미주한상총연, 뉴욕 BDNY 첫 한국관…중소기업 美진출 지원",
      "link": "https://www.yna.co.kr/view/AKR20261113171500371",
      "pubDate": "2026-11-13T10:27:01.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "해킹 당한 금융보안원, 공격 IP 246개 차단완료…국적은 한국",
      "link": "https://www.yna.co.kr/view/AKR20261113169000002",
      "pubDate": "2026-11-13T10:17:50.000Z",
      "n": 2,
-     "score": 3
+     "score": 1.5
     },
     {
      "title": "빌리프랩, '아일릿이 뉴진스 표절' 주장 민희진 상대 손배소 패소",
      "link": "https://www.yna.co.kr/view/AKR20261113166600004",
      "pubDate": "2026-11-13T09:30:01.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     }
    ],
    "tops": [
