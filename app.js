@@ -264,8 +264,10 @@ function renderNews() {
   }
   const arts = day.news || [];
   $("#artCount").textContent = arts.length + "건";
-  $("#artList").innerHTML = arts.length ? arts.map((a, i) => `<li class="art"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
-      <summary><span class="artn">${i + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-thp="${i}" ${(a.thought ?? a.memo) ? "" : "hidden"}>${esc(a.thought ?? a.memo ?? "")}</span></span>${(a.summary || a.thought || a.memo) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
+  // 체크한 기사(✔)는 맨 위로, 나머지는 담은 순서대로
+  const order = arts.map((a, i) => i).sort((x, y) => (!!arts[y].pin - !!arts[x].pin) || x - y);
+  $("#artList").innerHTML = arts.length ? order.map((i, pos) => [arts[i], i, pos]).map(([a, i, pos]) => `<li class="art${a.pin ? " pinned" : ""}"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
+      <summary><input type="checkbox" class="artchk" data-pin="${i}" ${a.pin ? "checked" : ""} aria-label="중요 체크 (맨 위로)" title="체크하면 맨 위로"><span class="artn">${pos + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-thp="${i}" ${(a.thought ?? a.memo) ? "" : "hidden"}>${esc(a.thought ?? a.memo ?? "")}</span></span>${(a.summary || a.thought || a.memo) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
       <div class="artbody">
         <div class="arthead">${a.url ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">🔗 기사 열기</a>` : `<span class="muted">링크 없음</span>`}${a.src ? `<span class="muted" style="font-size:12px">${esc(a.src)}</span>` : ""}<button class="x" data-del-art="${i}" aria-label="삭제" style="margin-left:auto">×</button></div>
         <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
@@ -302,6 +304,12 @@ $("#artForm").addEventListener("submit", e => {
   saveDay(); renderNews();
 });
 $("#artList").addEventListener("click", e => { const b = e.target.closest("[data-del-art]"); if (!b) return; day.news.splice(Number(b.dataset.delArt), 1); openArts.clear(); saveDay(); renderNews(); });
+$("#artList").addEventListener("change", e => {
+  const c = e.target.closest("[data-pin]"); if (!c) return;
+  const L = day.news; const a = L[Number(c.dataset.pin)]; if (!a) return;
+  if (c.checked) a.pin = true; else delete a.pin;
+  saveDay(); renderNews();
+});
 $("#artList").addEventListener("toggle", e => { const d = e.target.closest("[data-art]"); if (!d) return; const i = Number(d.dataset.art); d.open ? openArts.add(i) : openArts.delete(i); }, true);
 $("#artList").addEventListener("input", e => {
   const sm = e.target.closest("[data-sum]"), th = e.target.closest("[data-th]");

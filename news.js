@@ -128,8 +128,10 @@ $("#heads").addEventListener("click", e => {
 function renderReads() {
   const list = todayReads();
   $("#artCount").textContent = list.length + "건";
-  $("#artList").innerHTML = list.length ? list.map((a, i) => `<li class="art"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
-      <summary><span class="artn">${i + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-thp="${i}" ${a.thought ? "" : "hidden"}>${esc(a.thought || "")}</span></span>${(a.summary || a.thought) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
+  // 체크한 기사(✔)는 맨 위로, 나머지는 담은 순서대로
+  const order = list.map((a, i) => i).sort((x, y) => (!!list[y].pin - !!list[x].pin) || x - y);
+  $("#artList").innerHTML = list.length ? order.map((i, pos) => [list[i], i, pos]).map(([a, i, pos]) => `<li class="art${a.pin ? " pinned" : ""}"><details data-art="${i}" ${openArts.has(i) ? "open" : ""}>
+      <summary><input type="checkbox" class="artchk" data-pin="${i}" ${a.pin ? "checked" : ""} aria-label="중요 체크 (맨 위로)" title="체크하면 맨 위로"><span class="artn">${pos + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-thp="${i}" ${a.thought ? "" : "hidden"}>${esc(a.thought || "")}</span></span>${(a.summary || a.thought) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
       <div class="artbody">
         <div class="arthead"><a href="${esc(a.url)}" target="_blank" rel="noopener">🔗 기사 열기</a><span class="muted" style="font-size:12px">${esc(a.src || "")}${a.pub ? " · " + pubTxt(a.pub) : ""}</span><button class="x" data-del="${i}" aria-label="삭제" style="margin-left:auto">×</button></div>
         <label class="field"><span>📄 본문요약 (중요한 문장 복사해서 붙여넣기)</span><textarea class="artsum" data-sum="${i}" rows="5" placeholder="기사에서 중요한 문장을 복사해서 붙여넣어줘">${esc(a.summary || "")}</textarea></label>
@@ -137,6 +139,12 @@ function renderReads() {
       </div></details></li>`).join("")
     : `<li class="empty" style="border:0;padding:0">위 헤드라인에서 '+ 읽음'을 눌러 담아봐.</li>`;
 }
+$("#artList").addEventListener("change", e => {
+  const c = e.target.closest("[data-pin]"); if (!c) return;
+  const L = todayReads(); const a = L[Number(c.dataset.pin)]; if (!a) return;
+  if (c.checked) a.pin = true; else delete a.pin;
+  saveReads(); renderReads();
+});
 $("#artList").addEventListener("toggle", e => { const d = e.target.closest("[data-art]"); if (!d) return; const i = Number(d.dataset.art); d.open ? openArts.add(i) : openArts.delete(i); }, true);
 let saveT = null;
 $("#artList").addEventListener("input", e => {

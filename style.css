@@ -539,3 +539,7 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .chip.corechip[aria-pressed="true"]{color:#fff}
 .cov{display:inline-block;font-family:var(--body);font-size:11px;font-weight:600;line-height:1.5;padding:0 6px;border-radius:999px;background:var(--hl-green, #DDF3E6);color:var(--accent);vertical-align:1px}
 .cov.excl{background:var(--hl, #FFF3A8);color:#8A6A00}
+
+/* 읽은 기사: 체크하면 맨 위로 */
+.art summary .artchk{width:17px;height:17px;margin:2px 2px 0 0;flex:none;accent-color:var(--accent);cursor:pointer}
+.art.pinned{background:var(--hl-green, #E6F5EC);border-radius:12px}
