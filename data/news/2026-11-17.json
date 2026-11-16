@@ -1,6 +1,6 @@
 {
  "date": "2026-11-17",
- "generatedAt": "2026-11-16T23:49:04.457Z",
+ "generatedAt": "2026-11-16T23:50:04.011Z",
  "core": [
   {
    "title": "“주담대 금리 다시 들썩인다”…신규 코픽스 2년 8개월 만에 최고",
@@ -613,11 +613,39 @@
    "via": "rss",
    "items": [
     {
+     "title": "디지털 결제 확산에 전자금융업 매출 6.3조원…1년 새 14.5% 늘어 상반기 기준 역대 최대",
+     "link": "https://www.chosun.com/economy/economy_general/2026/11/17/RGEQ6IMDDNDHXMCXL4KNIW5KKM/",
+     "pubDate": "2026-11-16T23:46:43.000Z",
+     "n": 2,
+     "score": 3.8
+    },
+    {
+     "title": "상승 없는 가상자산 시장...비트코인 6만5000달러대 횡보",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/17/MY3DSYJWMFQTGM3GGM3DCMTGMI/",
+     "pubDate": "2026-11-16T23:44:16.000Z",
+     "n": 1,
+     "score": 2.5
+    },
+    {
+     "title": "한투證 “셀트리온, 신제품 5종 판매 호조… 목표가 8% 상향”",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/17/GY3TMNTGGFRDGYZQMM2GKZRUGE/",
+     "pubDate": "2026-11-16T23:42:03.000Z",
+     "n": 1,
+     "score": -3
+    },
+    {
      "title": "주사 한 방으로 유전병 고친다 … 세계 첫 ‘몸속 유전자 가위 치료제’ 승인 눈앞",
      "link": "https://www.chosun.com/economy/science/2026/11/17/5TDVDJ3MRVGD5AX4WXLXRXBNUU/",
      "pubDate": "2026-11-16T21:00:01.000Z",
      "n": 1,
      "score": 0
+    },
+    {
+     "title": "월급쟁이부자들, 부동산 중개 ‘구해줘내집’ 종료… 희망퇴직 시행",
+     "link": "https://www.chosun.com/economy/real_estate/2026/11/17/HA3TQZBQGQ4DEZBUMMZGKMBRMQ/",
+     "pubDate": "2026-11-16T23:40:39.000Z",
+     "n": 1,
+     "score": 1.5
     },
     {
      "title": "LH, 3기 신도시 건설 현장에 레미콘 품질 관리시스템 도입",
@@ -753,6 +781,27 @@
      "score": 0.8
     },
     {
+     "title": "[단독] KT 유통점, AI로 중고폰 사진 조작해 보상금 부풀려… “형사 고소 검토”",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/17/G5SGGMDGGMYTSMDBG5STCY3DMY/",
+     "pubDate": "2026-11-16T21:00:01.000Z",
+     "n": 1,
+     "score": 3.3
+    },
+    {
+     "title": "엔비디아 독주 흔들리면 구글·AMD로 HBM 공급 분산… “삼성전자가 최대 수혜자”",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/17/HAYTSMZWG43TKZDDGFSGCYZTGQ/",
+     "pubDate": "2026-11-16T21:00:01.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "분담금 4억에 재초환 4억… 대치 은마, 신축 빼면 서울 거래 최다",
+     "link": "https://www.chosun.com/economy/real_estate/2026/11/17/GFTDIOJTGAZTMZJQMY4DSMTFGA/",
+     "pubDate": "2026-11-16T21:00:01.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
      "title": "‘매출 1위 키트루다’ 넘보던 中 항암 신약, 美FDA 문턱 못 넘었다…글로벌 시장 판도 흔들",
      "link": "https://www.chosun.com/economy/science/2026/11/17/GAYTQNJYMQYDQNLEGRSTQYZUMQ/",
      "pubDate": "2026-11-16T21:00:01.000Z",
@@ -765,55 +814,6 @@
      "pubDate": "2026-11-16T21:00:01.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "[단독] KT 유통점, AI로 중고폰 사진 조작해 보상금 부풀려… “형사 고소 검토”",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/17/G5SGGMDGGMYTSMDBG5STCY3DMY/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 3.3
-    },
-    {
-     "title": "서울 대형 오피스텔 신규 월세 평균 240만원… 1년 새 20% 뛰었다",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/17/HA2TKNDFHFSDAYJQGQ2DGYZTGM/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 1.5
-    },
-    {
-     "title": "[가봤어요] “소금 1g까지 철저히”…의료·재활·맞춤 식단 다 갖춘 ‘용인 벨포레스트’",
-     "link": "https://www.chosun.com/economy/science/2026/11/17/GA2DOZRSMU3DEZRVGE4DMMTDGM/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "“전력 부족해 프로젝트 무산”… 증권사가 물 부족·침수 위험 따지는 이유",
-     "link": "https://www.chosun.com/economy/stock-finance/2026/11/17/MVRTSYTEMRSWCMRSHE4GENDCMY/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "[스타트UP] “인플루언서 커머스도 시스템으로”…‘SNS 홈쇼핑’ 시대 여는 와이드컴퍼니",
-     "link": "https://www.chosun.com/economy/smb-venture/2026/11/17/GI2GCYTFGA3WIOBTG4ZGINJTME/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "분담금 4억에 재초환 4억… 대치 은마, 신축 빼면 서울 거래 최다",
-     "link": "https://www.chosun.com/economy/real_estate/2026/11/17/GFTDIOJTGAZTMZJQMY4DSMTFGA/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "엔비디아 독주 흔들리면 구글·AMD로 HBM 공급 분산… “삼성전자가 최대 수혜자”",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/17/HAYTSMZWG43TKZDDGFSGCYZTGQ/",
-     "pubDate": "2026-11-16T21:00:01.000Z",
-     "n": 1,
-     "score": 0.8
     }
    ],
    "tops": [
@@ -1598,8 +1598,8 @@
      "title": "디지털결제 확산에 전자금융업 매출 6.3조원…상반기 기준 최대",
      "link": "https://www.yna.co.kr/view/AKR20261116169300002",
      "pubDate": "2026-11-16T21:00:00.000Z",
-     "n": 1,
-     "score": 0.8
+     "n": 2,
+     "score": 3.8
     },
     {
      "title": "상반기 車사고 줄었는데…물적 담보 건당 지급보험금 4.4%↑",

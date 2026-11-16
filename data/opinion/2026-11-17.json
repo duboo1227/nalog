@@ -1,6 +1,6 @@
 {
  "date": "2026-11-17",
- "generatedAt": "2026-11-16T23:49:07.099Z",
+ "generatedAt": "2026-11-16T23:50:06.265Z",
  "debates": [
   {
    "topic": [
@@ -81,10 +81,10 @@
    "topic": [
     "정상회담",
     "미중러",
-    "경계"
+    "제2"
    ],
    "both": true,
-   "papers": 5,
+   "papers": 4,
    "sides": [
     {
      "title": "사상 첫 미-중-러 3자 정상회담… ‘新얄타 쇼’를 경계한다",
@@ -117,25 +117,17 @@
      "kind": "사설",
      "src": "경향신문",
      "lean": "진보"
-    },
-    {
-     "title": "종교와 정치의 경계는 어디인가 [세상읽기]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1287627.html",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한겨레",
-     "lean": "진보"
     }
    ]
   },
   {
    "topic": [
     "한덕수",
-    "사건",
-    "대법원"
+    "대법원",
+    "선고"
    ],
    "both": true,
-   "papers": 5,
+   "papers": 4,
    "sides": [
     {
      "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
@@ -143,14 +135,6 @@
      "pubDate": "2026-11-16T14:27:00.000Z",
      "kind": "사설",
      "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "역할 애매한 중수청…이대로는 사건 피해자 부담만 증가한다",
-     "link": "https://www.joongang.co.kr/article/25387011",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "중앙일보",
      "lean": "보수"
     },
     {
@@ -181,11 +165,11 @@
   },
   {
    "topic": [
-    "민주당",
-    "내전"
+    "내전",
+    "민주당"
    ],
    "both": true,
-   "papers": 4,
+   "papers": 3,
    "sides": [
     {
      "title": "신천지·반명·분열주의에 갇힌 민주당의 부끄러운 자화상",
@@ -202,14 +186,6 @@
      "kind": "사설",
      "src": "조선일보",
      "lean": "보수"
-    },
-    {
-     "title": "민주당, 분열상 조속 해결하고 민심에 제대로 부응하길",
-     "link": "https://www.hankookilbo.com/news/article/A2026111612240005021",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
     },
     {
      "title": "민생 뒷전인 채 내전 치닫는 민주당",
