@@ -97,7 +97,7 @@ async function collect(o) {
 // 같은 이슈를 다른 성향 신문이 함께 다뤘는지 묶기
 // 사설은 같은 이슈라도 표현이 제각각이라, 글자 비교 대신 '핵심 단어'를 뽑아 드문 단어가 겹치는지로 판단
 const PARTICLE = /(으로서|으로써|에게서|이라는|라는|에서는|에서도|에서|에게|으로|부터|까지|마저|조차|처럼|보다|이란|이라|에는|에도|하는|하라|해야|한다|된다|했다|된|은|는|이|가|을|를|의|에|도|로|와|과|만|란)$/;
-const WSTOP = new Set(["우리", "정부", "국민", "한국", "대한민국", "문제", "시대", "이유", "위해", "대한", "관련", "필요", "대책", "우려", "과제", "역할", "때문", "이제", "다시", "결국", "모두", "그리고", "하지만", "어디", "무엇", "누구", "어떻게", "있나", "없나", "있는", "없는", "말아야", "안된다", "칼럼", "기고", "시론", "사설", "오늘", "내일", "올해", "지금", "이번", "질문", "생각", "세상", "사회", "정치", "경제", "논란", "장관", "대통령", "총리", "국회", "정권", "여당", "야당", "당국", "與野", "여야", "정부의", "책임", "대응", "시급", "점검", "사상", "초유", "최초", "처음"]);
+const WSTOP = new Set(["우리", "정부", "국민", "한국", "대한민국", "문제", "시대", "이유", "위해", "대한", "관련", "필요", "대책", "우려", "과제", "역할", "때문", "이제", "다시", "결국", "모두", "그리고", "하지만", "어디", "무엇", "누구", "어떻게", "있나", "없나", "있는", "없는", "말아야", "안된다", "칼럼", "기고", "시론", "사설", "오늘", "내일", "올해", "지금", "이번", "질문", "생각", "세상", "사회", "정치", "경제", "논란", "장관", "대통령", "총리", "국회", "정권", "여당", "야당", "당국", "與野", "여야", "정부의", "책임", "대응", "시급", "점검", "사상", "초유", "사건", "경계", "질문", "시선", "최초", "처음"]);
 export function terms(title) {
   const t = title.replace(/\[[^\]]*\]|〈[^〉]*〉|<[^>]*>/g, " ")
     .replace(/(\S)[·\-ㆍ](?=\S)/g, "$1")             // 미·중·러 → 미중러
@@ -119,11 +119,12 @@ export function debates(outlets) {
   const df = new Map();
   arts.forEach(a => a.t.forEach(w => df.set(w, (df.get(w) || 0) + 1)));
   const N = arts.length, idf = w => Math.log(N / (df.get(w) || 1));
+  const strong = (a, b) => { const sh = [...a.t].filter(w => b.t.has(w)); return sh.length >= 2 && sh.some(w => df.get(w) <= 8); };
   const link = (a, b) => {
     const shared = [...a.t].filter(w => b.t.has(w));
     const rare = shared.filter(w => df.get(w) <= 8);   // 한덕수·미중러 같은 고유한 단어
     const wsum = shared.reduce((s, w) => s + idf(w), 0);
-    return rare.length >= 1 && (shared.length >= 2 || df.get(rare[0]) <= 5) || (shared.length >= 2 && wsum >= 4.5);
+    return rare.length >= 1 && (shared.length >= 2 || (df.get(rare[0]) <= 3 || (rare[0].length >= 3 && df.get(rare[0]) <= 5))) || (shared.length >= 2 && wsum >= 4.5);
   };
   // 사설끼리 먼저 묶고(신문사의 공식 입장), 칼럼은 묶인 이슈에 붙이기만 함
   const eds = arts.filter(a => a.kind === "사설"), cols = arts.filter(a => a.kind !== "사설");
@@ -132,7 +133,7 @@ export function debates(outlets) {
     if (eds[i].src !== eds[j].src && link(eds[i], eds[j])) par[find(i)] = find(j);
   const gm = new Map(); eds.forEach((a, i) => { const r = find(i); if (!gm.has(r)) gm.set(r, []); gm.get(r).push(a); });
   const groups = [...gm.values()];
-  cols.forEach(a => { const g = groups.find(g => !g.some(b => b.src === a.src) && g.filter(b => link(a, b)).length >= Math.min(2, g.length)); if (g) g.push(a); });
+  cols.forEach(a => { const g = groups.find(g => !g.some(b => b.src === a.src) && g.filter(b => strong(a, b)).length >= Math.min(2, g.length)); if (g) g.push(a); });
   const ORDER = ["보수", "중도", "진보"];
   return groups
     .filter(g => new Set(g.map(a => a.lean)).size >= 2)
