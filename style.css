@@ -543,3 +543,23 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 /* 읽은 기사: 체크하면 맨 위로 */
 .art summary .artchk{width:17px;height:17px;margin:2px 2px 0 0;flex:none;accent-color:var(--accent);cursor:pointer}
 .art.pinned{background:var(--hl-green, #E6F5EC);border-radius:12px}
+
+/* 🧠 생각거리 */
+:root{--lean-r:#C0504D;--lean-r-bg:#FBE9E8;--lean-c:#7A6F2E;--lean-c-bg:#F4F0D6;--lean-l:#2F6DB5;--lean-l-bg:#E4EEFA}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lean-r:#F0A09C;--lean-r-bg:#4A2B2A;--lean-c:#E3D79A;--lean-c-bg:#3F3A22;--lean-l:#9CC2F0;--lean-l-bg:#22344A}}
+:root[data-theme="dark"]{--lean-r:#F0A09C;--lean-r-bg:#4A2B2A;--lean-c:#E3D79A;--lean-c-bg:#3F3A22;--lean-l:#9CC2F0;--lean-l-bg:#22344A}
+.lean{display:inline-block;font-family:var(--body);font-size:11px;font-weight:600;line-height:1.5;padding:0 6px;border-radius:999px;vertical-align:1px;white-space:nowrap}
+.lean.l-보수{color:var(--lean-r);background:var(--lean-r-bg)}
+.lean.l-중도{color:var(--lean-c);background:var(--lean-c-bg)}
+.lean.l-진보{color:var(--lean-l);background:var(--lean-l-bg)}
+.thinkintro{margin:0;font-size:13px;line-height:1.7}
+.thinkh{font-family:var(--display);font-weight:400;font-size:17px;margin:6px 0 0}
+#debates{display:flex;flex-direction:column;gap:10px}
+.debate{border:2px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.debate > summary{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:10px 14px;cursor:pointer;list-style:none}
+.debate > summary::-webkit-details-marker{display:none}
+.debate .dtopic{font-family:var(--display);font-size:15.5px;color:var(--accent)}
+.debate .dheads{padding:0 14px}
+.debate .dq{font-size:12.5px;line-height:1.6;color:var(--muted);padding:8px 14px 12px;border-top:1px dashed var(--line)}
+.kindt{font-weight:600}
+.kindt.k-사설{color:var(--accent)}

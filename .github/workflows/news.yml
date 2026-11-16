@@ -24,11 +24,14 @@ jobs:
         run: node scripts/fetch-news.mjs
         env:
           DEBUG_TOPS: "1"
+      - name: 사설·칼럼 수집 (생각거리)
+        run: node scripts/fetch-opinion.mjs
+        continue-on-error: true
       - name: 커밋
         run: |
           git config user.name "news-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news
+          git add data/news; [ -d data/opinion ] && git add data/opinion || true
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -m "news: $(TZ=Asia/Seoul date +%F\ %H:%M)"
           git pull --rebase

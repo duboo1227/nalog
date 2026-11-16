@@ -48,6 +48,11 @@ let days = {};          // date -> data
 let cases = {};         // id -> row
 let news = null;        // current news json
 let newsPaper = "핵심";
+let op = null, opPaper = "사설", openThink = new Set();
+const OP_BASE = (CFG.NEWS_BASE || "").replace(/\/news\/?$/, "/opinion/");
+const OP_PAPERS = [["조선일보", "https://www.chosun.com/opinion/", "보수"], ["중앙일보", "https://www.joongang.co.kr/opinion", "보수"], ["동아일보", "https://www.donga.com/news/Opinion", "보수"], ["한국일보", "https://www.hankookilbo.com/News/Opinion", "중도"], ["한겨레", "https://www.hani.co.kr/arti/opinion", "진보"], ["경향신문", "https://www.khan.co.kr/opinion", "진보"]];
+const leanTag = l => `<span class="lean l-${esc(l)}">${esc(l)}</span>`;
+const mark0 = t => esc(t);
 let newsPage = 0;
 const openArts = new Set();   // 펼쳐둔 읽은 기사 번호
 // 한 화면에 보이는 헤드라인 수: 폰(좁은 화면) 5개, PC·태블릿 10개
@@ -96,6 +101,7 @@ function sumMin(x) { return (x.study || []).reduce((a, s) => a + (Number(s.minut
 function flags(x) {
   return {
     news: (x.news || []).length > 0,
+    think: (x.think || []).length > 0,
     diary: !!x.diaryLocked || (x.diaryImages || []).length > 0 || ((x.diary || "").trim().length + (x.diaryOne || "").trim().length) > 0,
     book: pages(x.book) >= GOAL_SHEETS * 2,
     study: (x.study || []).some(s => s.taskId || (s.subject || "").trim() || (s.content || "").trim())
@@ -190,7 +196,7 @@ function renderOverview() {
   $("#todayLabel").textContent = cur === TODAY ? "오늘 · " + lab(cur) : lab(cur);
   $("#datePick").value = cur; $("#datePick").max = TODAY;
   const f = flags(day); f.english = engCount(cur) > 0;
-  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["diary", "📔 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"], ["english", "🦉 영어", engCount(cur) + "개"]];
+  const items = [["news", "📰 경제뉴스", (day.news || []).length + "건"], ["think", "🧠 생각거리", (day.think || []).length + "편"], ["diary", "📔 일기", f.diary ? "작성" : "미작성"], ["book", "📚 독서 5장", sheetTxt(pages(day.book))], ["study", "✏️ 공부", (day.study || []).filter(s => s.taskId || s.subject).length + "건"], ["english", "🦉 영어", engCount(cur) + "개"]];
   $("#checks").innerHTML = items.map(([k, t, v]) => `<div class="chk${f[k] ? " done" : ""}"><i class="dot">${f[k] ? "💗" : "🤍"}</i><span class="t">${t}</span><span class="mono muted" style="margin-left:auto">${v}</span></div>`).join("");
   const ym = cur.slice(0, 7); let dd = 0, pg = 0, mins = 0, cs = 0;
   allDays().forEach(x => { if (x.date.slice(0, 7) !== ym) return; if (flags(x).diary) dd++; pg += pages(x.book); mins += sumMin(x); });
@@ -1242,20 +1248,21 @@ function setDate(d) {
   if (d > TODAY) d = TODAY;
   if (pending[cur]) { clearTimeout(timers[cur]); flushDay(cur); }
   cur = d; day = getDay(d);
-  fillAll(); renderAll(); loadNews(d);
+  fillAll(); renderAll(); loadNews(d); loadThink(d);
 }
 function fillAll() { fillDiary(); fillBook(); fillStudy(); }
-function renderAll() { renderTodos(); renderBackupNag(); renderKw(); renderCal(); renderOverview(); renderNews(); renderPastDiary(); renderBooks(); renderStudy(); renderEnglish(); renderCases(); }
+function renderAll() { renderTodos(); renderBackupNag(); renderKw(); renderCal(); renderOverview(); renderNews(); renderThink(); renderPastDiary(); renderBooks(); renderStudy(); renderEnglish(); renderCases(); }
 $("#prevDay").onclick = () => setDate(addDays(cur, -1));
 $("#nextDay").onclick = () => setDate(addDays(cur, 1));
 $("#goToday").onclick = () => setDate(TODAY);
 $("#datePick").addEventListener("change", e => { if (e.target.value) setDate(e.target.value); });
 
-const VIEWS = ["cal", "week", "news", "diary", "books", "study", "english", "cases"];
+const VIEWS = ["cal", "week", "news", "think", "diary", "books", "study", "english", "cases"];
 function route() {
   const h = (location.hash || "").slice(1), v = VIEWS.includes(h) ? h : "cal";
   $("#dayHead").hidden = v === "cal" || v === "week";
-  document.body.classList.toggle("newsview", v === "news");
+  document.body.classList.toggle("newsview", v === "news" || v === "think");
+  if (v === "think") renderThink();
   if (v === "week") renderWeek();
   $("#todayLabel").textContent = v === "cal" ? "오늘 · " + lab(TODAY) : (cur === TODAY ? "오늘 · " + lab(cur) : lab(cur));
   if (v === "cal") renderCal();
@@ -1265,6 +1272,90 @@ function route() {
   const act = document.querySelector('#tabs a[aria-current="page"]'); if (act) act.scrollIntoView({ inline: "nearest", block: "nearest" });
 }
 window.addEventListener("hashchange", route);
+
+
+/* ---------------- 🧠 생각거리 (사설·칼럼) ---------------- */
+async function loadThink(date) {
+  op = null; openThink.clear(); renderThink();
+  const tries = [date]; if (date === TODAY) tries.push(addDays(date, -1));
+  for (const d of tries) {
+    for (const u of [OP_BASE + d + ".json", "data/opinion/" + d + ".json"]) {
+      try { const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) { op = await r.json(); break; } } catch (_) {}
+    }
+    if (op) break;
+  }
+  if (!op) op = { missing: true, outlets: [], debates: [] };
+  renderThink();
+}
+function thinkRow(it, key, n) {
+  const saved = (day.think || []).some(a => a.url === it.link);
+  return `<li><span class="n">${String(n).padStart(2, "0")}</span><div style="min-width:0"><a href="${esc(it.link)}" target="_blank" rel="noopener">${mark0(it.title)}</a><div class="time">${leanTag(it.lean)} ${esc(it.src)} · <span class="kindt k-${esc(it.kind)}">${esc(it.kind)}</span>${it.pubDate ? ` · <span class="pubt">${pubTxt(it.pubDate)}</span>` : ""}</div></div><button class="add${saved ? " on" : ""}" data-tadd="${esc(key)}">${saved ? "✓ 읽음" : "+ 읽음"}</button></li>`;
+}
+function renderThink() {
+  if (!$("#v-think")) return;
+  $("#opPapers").innerHTML = OP_PAPERS.map(([n, u, l]) => `<a href="${u}" target="_blank" rel="noopener">${n}<small>${l}</small></a>`).join("");
+  const pool = new Map();
+  if (!op) { $("#debates").innerHTML = ""; $("#opChips").innerHTML = ""; $("#opList").innerHTML = `<li class="empty" style="border:0">불러오는 중…</li>`; $("#thinkStamp").textContent = ""; }
+  else if (op.missing || !op.outlets.length) {
+    $("#debates").innerHTML = ""; $("#opChips").innerHTML = ""; $("#thinkStamp").textContent = lab(cur);
+    $("#opList").innerHTML = `<li class="empty" style="border:0">${cur === TODAY ? "아직 수집 전이야. 다음 수집(4시간마다) 뒤에 채워져." : "이 날짜는 생각거리 기록이 없어 (11/17부터 모으기 시작)."} 아래 바로가기로 읽어도 돼.</li>`;
+  } else {
+    $("#thinkStamp").textContent = `${short(op.date)} ${hhmm(op.generatedAt)} 수집`;
+    // ⚖️ 같은 이슈, 다른 시각
+    const ds = op.debates || [];
+    $("#debates").innerHTML = ds.length ? `<h3 class="thinkh">⚖️ 같은 이슈, 다른 시각</h3>` + ds.map((d, di) => {
+      const rows = d.sides.map((it, si) => { const k = `d${di}-${si}`; pool.set(k, it); return thinkRow(it, k, si + 1); }).join("");
+      return `<details class="debate"${di < 2 ? " open" : ""}><summary><span class="dtopic">${(d.topic || []).map(w => "#" + esc(w)).join(" ") || "같은 이슈"}</span><span class="muted" style="font-size:12px">${d.papers}개 신문${d.both ? " · 보수↔진보" : ""}</span></summary><ul class="heads dheads">${rows}</ul><div class="dq">💭 읽고 나서: 양쪽이 <b>똑같이 인정하는 사실</b>은 뭐고, <b>어디서 판단이 갈리는지</b> 한 줄로 적어봐.</div></details>`;
+    }).join("") : `<div class="muted" style="font-size:13px;padding:4px 0 8px">오늘은 성향이 다른 신문이 같이 다룬 사설을 못 찾았어. 아래 신문사별 목록에서 골라 읽어봐.</div>`;
+    // 📝 신문사별
+    const outs = op.outlets.filter(o => o.items.length);
+    if (opPaper !== "사설" && !outs.some(o => o.name === opPaper)) opPaper = "사설";
+    $("#opChips").innerHTML = ["사설", ...outs.map(o => o.name)].map(n => `<button class="chip" data-op="${esc(n)}" aria-pressed="${n === opPaper}">${n === "사설" ? "📌 오늘 사설" : esc(n)}</button>`).join("");
+    let list;
+    if (opPaper === "사설") list = outs.flatMap(o => o.items.filter(i => i.kind === "사설").slice(0, 3).map(i => ({ ...i, src: o.name, lean: o.lean })));
+    else { const o = outs.find(o => o.name === opPaper); list = o.items.map(i => ({ ...i, src: o.name, lean: o.lean })); }
+    $("#opList").innerHTML = list.length ? list.map((it, i) => { const k = `o${i}`; pool.set(k, it); return thinkRow(it, k, i + 1); }).join("") : `<li class="empty" style="border:0">글이 없어.</li>`;
+  }
+  $("#v-think")._pool = pool;
+  // 🔖 내가 읽은 글
+  const arts = day.think || [];
+  $("#thinkCount").textContent = arts.length + "편";
+  const order = arts.map((a, i) => i).sort((x, y) => (!!arts[y].pin - !!arts[x].pin) || x - y);
+  $("#thinkList").innerHTML = arts.length ? order.map((i, pos) => { const a = arts[i]; return `<li class="art${a.pin ? " pinned" : ""}"><details data-tart="${i}" ${openThink.has(i) ? "open" : ""}>
+      <summary><input type="checkbox" class="artchk" data-tpin="${i}" ${a.pin ? "checked" : ""} aria-label="중요 체크 (맨 위로)" title="체크하면 맨 위로"><span class="artn">${pos + 1}.</span><span class="artmain"><span class="artt" title="${esc(a.title)}">${esc(a.title)}</span><span class="artthp" data-tthp="${i}" ${a.thought ? "" : "hidden"}>${esc(a.thought || "")}</span></span>${(a.claim || a.thought || a.counter) ? `<span class="artdot" title="메모 있음">✏️</span>` : ""}</summary>
+      <div class="artbody">
+        <div class="arthead"><a href="${esc(a.url)}" target="_blank" rel="noopener">🔗 글 열기</a><span class="muted" style="font-size:12px">${a.lean ? leanTag(a.lean) + " " : ""}${esc(a.src || "")}${a.kind ? " · " + esc(a.kind) : ""}</span><button class="x" data-tdel="${i}" aria-label="삭제" style="margin-left:auto">×</button></div>
+        <label class="field"><span>📄 이 글의 핵심 주장 (근거 포함, 중요한 문장 붙여넣기)</span><textarea data-tf="claim" data-ti="${i}" rows="4" placeholder="글쓴이가 하려는 말과 그 근거">${esc(a.claim || "")}</textarea></label>
+        <label class="field"><span>💭 내생각 (동의? 반대? 왜?)</span><textarea data-tf="thought" data-ti="${i}" rows="3" placeholder="동의하는 부분, 동의 못 하는 부분과 이유">${esc(a.thought || "")}</textarea></label>
+        <label class="field"><span>🔄 반대 입장이라면 뭐라고 반박할까?</span><textarea data-tf="counter" data-ti="${i}" rows="2" placeholder="반대쪽 신문이라면 어떤 근거로 반박할지">${esc(a.counter || "")}</textarea></label>
+      </div></details></li>`; }).join("") : `<li class="empty" style="border:0;padding:0">왼쪽에서 '+ 읽음'을 눌러 담고, 핵심 주장·내생각을 적어봐.</li>`;
+}
+$("#v-think").addEventListener("click", e => {
+  const ch = e.target.closest("[data-op]"); if (ch) { opPaper = ch.dataset.op; renderThink(); return; }
+  const b = e.target.closest("[data-tadd]");
+  if (b) {
+    const it = $("#v-think")._pool.get(b.dataset.tadd); if (!it) return;
+    day.think = day.think || [];
+    const idx = day.think.findIndex(a => a.url === it.link);
+    if (idx >= 0) { day.think.splice(idx, 1); openThink.clear(); } else day.think.push({ title: it.title, url: it.link, src: it.src, lean: it.lean, kind: it.kind, claim: "", thought: "", counter: "" });
+    saveDay(); renderThink(); return;
+  }
+  const d = e.target.closest("[data-tdel]");
+  if (d) { day.think.splice(Number(d.dataset.tdel), 1); openThink.clear(); saveDay(); renderThink(); }
+});
+$("#thinkList").addEventListener("change", e => {
+  const c = e.target.closest("[data-tpin]"); if (!c) return;
+  const a = (day.think || [])[Number(c.dataset.tpin)]; if (!a) return;
+  if (c.checked) a.pin = true; else delete a.pin;
+  saveDay(); renderThink();
+});
+$("#thinkList").addEventListener("toggle", e => { const d = e.target.closest("[data-tart]"); if (!d) return; const i = Number(d.dataset.tart); d.open ? openThink.add(i) : openThink.delete(i); }, true);
+$("#thinkList").addEventListener("input", e => {
+  const t = e.target.closest("[data-tf]"); if (!t) return;
+  const a = day.think[Number(t.dataset.ti)]; if (!a) return;
+  a[t.dataset.tf] = t.value; saveDay();
+  if (t.dataset.tf === "thought") { const pv = document.querySelector(`[data-tthp="${t.dataset.ti}"]`); if (pv) { pv.textContent = t.value; pv.hidden = !t.value.trim(); } }
+});
 
 /* ---------------- 주간 회고 ---------------- */
 let weekStart = null;   // 월요일

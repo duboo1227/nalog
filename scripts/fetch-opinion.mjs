@@ -3,7 +3,6 @@
 // 같은 이슈를 서로 다른 성향 신문이 다룬 경우 '같은 이슈, 다른 시각'으로 묶는다.
 import { writeFile, readFile, mkdir } from "node:fs/promises";
 import { parseRss } from "./fetch-news.mjs";
-import { grams, sim } from "./rank-news.mjs";
 
 export const OUTLETS = [
   { id: "chosun", name: "조선일보", lean: "보수", home: "https://www.chosun.com/opinion/",
@@ -21,7 +20,9 @@ export const OUTLETS = [
   { id: "khan", name: "경향신문", lean: "진보", home: "https://www.khan.co.kr/opinion",
     feeds: [{ url: "https://www.khan.co.kr/rss/rssdata/opinion_news.xml" }] },
 ];
-const PER_OUTLET = 20;
+const PER_OUTLET = 20, MAX_ED = 6;
+// 제목 자리에 필자 이름·직함만 있는 줄 (한국일보 페이지 등)
+const BYLINE = /^[가-힣]{2,4}\s[^\s]*(\s[^\s]+){0,3}\s?(교수|위원|논설위원|기자|부장|국장|대표|원장|작가|변호사|소장|연구원|연구위원|이사장|회장|박사|의원)$/;
 
 // 생각거리가 아닌 것: 만평·그림·짧은 촌평·사진·독자 투고 안내·운세 등
 const SKIP = /(팔면봉|만평|생각그림|그림판|카툰|\[사진|포토|운세|퀴즈|바둑|오늘의 시|시가 있는|詩|인사\]|부고|알림|독자권익|정정|바로잡습니다|사고\]|社告|오늘의 영어|한자|역사 속 오늘|오늘의 날씨)/;
@@ -42,7 +43,7 @@ async function fetchText(url) {
   const enc = (head.match(/encoding=["']([\w-]+)["']/i) || (r.headers.get("content-type") || "").match(/charset=([\w-]+)/i) || [, "utf-8"])[1].toLowerCase();
   return new TextDecoder(enc).decode(buf);
 }
-const strip = s => s.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/\s+/g, " ").trim();
+const strip = s => s.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/\s+/g, " ").trim();
 
 // 오피니언 페이지에서 기사 링크+제목 뽑기 (같은 링크가 여러 번 나오면 가장 그럴듯한 제목)
 export function extractLinks(html, base, pattern) {
@@ -80,38 +81,68 @@ async function collect(o) {
         : parseRss(await fetchText(f.url));
       items.forEach(i => {
         const link = i.link.replace(/\?utm_[^#]*$/, "").replace(/\?dtypecode=.*$/, "");
-        const key = link.replace(/\/\d+$/, "");
-        if (seen.has(key) || SKIP.test(i.title) || tooOld({ ...i, link }, now)) return;
+        const key = link.replace(/\/\d$/, "");
+        if (seen.has(key) || SKIP.test(i.title) || BYLINE.test(i.title) || tooOld({ ...i, link }, now)) return;
         seen.add(key);
         all.push({ title: tidy(i.title), link, pubDate: i.pubDate, kind: kindOf(i.title, link, f.kind) });
       });
     } catch (e) { errs.push(`${f.url.slice(0, 50)}… ${e.message}`); }
   }
   // 사설 먼저(최신순), 이어서 칼럼
-  const ord = a => (a.kind === "사설" ? 0 : 1);
-  const items = all.map((a, i) => [a, i]).sort((x, y) => ord(x[0]) - ord(y[0]) || x[1] - y[1]).map(x => x[0]).slice(0, PER_OUTLET);
+    const eds = all.filter(a => a.kind === "사설").slice(0, MAX_ED);
+  const items = eds.concat(all.filter(a => a.kind !== "사설")).slice(0, PER_OUTLET);
   return { id: o.id, name: o.name, lean: o.lean, home: o.home, items, ...(errs.length && !items.length ? { error: errs.join(" | ") } : {}) };
 }
 
 // 같은 이슈를 다른 성향 신문이 함께 다뤘는지 묶기
+// 사설은 같은 이슈라도 표현이 제각각이라, 글자 비교 대신 '핵심 단어'를 뽑아 드문 단어가 겹치는지로 판단
+const PARTICLE = /(으로서|으로써|에게서|이라는|라는|에서는|에서도|에서|에게|으로|부터|까지|마저|조차|처럼|보다|이란|이라|에는|에도|하는|하라|해야|한다|된다|했다|된|은|는|이|가|을|를|의|에|도|로|와|과|만|란)$/;
+const WSTOP = new Set(["우리", "정부", "국민", "한국", "대한민국", "문제", "시대", "이유", "위해", "대한", "관련", "필요", "대책", "우려", "과제", "역할", "때문", "이제", "다시", "결국", "모두", "그리고", "하지만", "어디", "무엇", "누구", "어떻게", "있나", "없나", "있는", "없는", "말아야", "안된다", "칼럼", "기고", "시론", "사설", "오늘", "내일", "올해", "지금", "이번", "질문", "생각", "세상", "사회", "정치", "경제", "논란", "장관", "대통령", "총리", "국회", "정권", "여당", "야당", "당국", "與野", "여야", "정부의", "책임", "대응", "시급", "점검", "사상", "초유", "최초", "처음"]);
+export function terms(title) {
+  const t = title.replace(/\[[^\]]*\]|〈[^〉]*〉|<[^>]*>/g, " ")
+    .replace(/(\S)[·\-ㆍ](?=\S)/g, "$1")             // 미·중·러 → 미중러
+    .replace(/[“”"‘’'…,.!?~:;()|/]/g, " ");
+  const out = new Set();
+  for (let w of t.split(/\s+/)) {
+    w = w.replace(PARTICLE, "").replace(PARTICLE, "");
+    if (/^[A-Za-z]+$/.test(w)) w = w.toUpperCase();
+    if (w.length < 2 || WSTOP.has(w) || /^\d+$/.test(w)) continue;
+    if (w.length <= 3 && /[린된진친던운른할될쓴든]$/.test(w)) continue;   // 뚫린·잡은 같은 꾸미는 말
+    if (/(하게|하고|하며|하면|해야|하길|했나|하나|일까|인가|이다|있다|없다|않다|된다|한다)$/.test(w)) continue;
+    out.add(w);
+  }
+  return out;
+}
 export function debates(outlets) {
   const arts = [];
-  outlets.forEach(o => o.items.forEach(i => arts.push({ ...i, src: o.name, lean: o.lean, g: grams(i.title.replace(/\[[^\]]*\]/g, " ")) })));
-  const par = arts.map((_, i) => i), find = i => (par[i] === i ? i : (par[i] = find(par[i])));
-  for (let i = 0; i < arts.length; i++) for (let j = i + 1; j < arts.length; j++) {
-    if (arts[i].src === arts[j].src) continue;
-    const s = sim(arts[i].g, arts[j].g);
-    if (s.n >= 3 && (s.jac >= 0.25 || s.overlap >= 0.5)) par[find(i)] = find(j);
-  }
-  const groups = new Map();
-  arts.forEach((a, i) => { const r = find(i); if (!groups.has(r)) groups.set(r, []); groups.get(r).push(a); });
-  return [...groups.values()]
+  outlets.forEach(o => o.items.forEach(i => arts.push({ ...i, src: o.name, lean: o.lean, t: terms(i.title) })));
+  const df = new Map();
+  arts.forEach(a => a.t.forEach(w => df.set(w, (df.get(w) || 0) + 1)));
+  const N = arts.length, idf = w => Math.log(N / (df.get(w) || 1));
+  const link = (a, b) => {
+    const shared = [...a.t].filter(w => b.t.has(w));
+    const rare = shared.filter(w => df.get(w) <= 8);   // 한덕수·미중러 같은 고유한 단어
+    const wsum = shared.reduce((s, w) => s + idf(w), 0);
+    return rare.length >= 1 && (shared.length >= 2 || df.get(rare[0]) <= 5) || (shared.length >= 2 && wsum >= 4.5);
+  };
+  // 사설끼리 먼저 묶고(신문사의 공식 입장), 칼럼은 묶인 이슈에 붙이기만 함
+  const eds = arts.filter(a => a.kind === "사설"), cols = arts.filter(a => a.kind !== "사설");
+  const par = eds.map((_, i) => i), find = i => (par[i] === i ? i : (par[i] = find(par[i])));
+  for (let i = 0; i < eds.length; i++) for (let j = i + 1; j < eds.length; j++)
+    if (eds[i].src !== eds[j].src && link(eds[i], eds[j])) par[find(i)] = find(j);
+  const gm = new Map(); eds.forEach((a, i) => { const r = find(i); if (!gm.has(r)) gm.set(r, []); gm.get(r).push(a); });
+  const groups = [...gm.values()];
+  cols.forEach(a => { const g = groups.find(g => !g.some(b => b.src === a.src) && g.filter(b => link(a, b)).length >= Math.min(2, g.length)); if (g) g.push(a); });
+  const ORDER = ["보수", "중도", "진보"];
+  return groups
     .filter(g => new Set(g.map(a => a.lean)).size >= 2)
     .map(g => {
       const leans = new Set(g.map(a => a.lean));
-      const sides = g.sort((a, b) => ["보수", "중도", "진보"].indexOf(a.lean) - ["보수", "중도", "진보"].indexOf(b.lean))
-        .map(({ g: _, ...a }) => a).slice(0, 6);
-      return { both: leans.has("보수") && leans.has("진보"), papers: new Set(g.map(a => a.src)).size, sides };
+      // 이슈 이름: 묶음 안에서 가장 많이 겹친 단어 2~3개
+      const cnt = new Map(); g.forEach(a => a.t.forEach(w => cnt.set(w, (cnt.get(w) || 0) + 1)));
+      const topic = [...cnt].filter(([, c]) => c >= 2).sort((x, y) => y[1] - x[1] || idf(y[0]) - idf(x[0])).slice(0, 3).map(([w]) => w);
+      const sides = g.sort((a, b) => ORDER.indexOf(a.lean) - ORDER.indexOf(b.lean) || (a.kind === "사설" ? -1 : 1)).map(({ t, ...a }) => a).slice(0, 8);
+      return { topic, both: leans.has("보수") && leans.has("진보"), papers: new Set(g.map(a => a.src)).size, sides };
     })
     .sort((a, b) => (b.both - a.both) || (b.papers - a.papers))
     .slice(0, 8);
@@ -124,7 +155,7 @@ async function main() {
   const outlets = await Promise.all(OUTLETS.map(collect));
   outlets.forEach(o => console.log(`${o.lean} ${o.name}: 사설 ${o.items.filter(i => i.kind === "사설").length} · 칼럼 ${o.items.filter(i => i.kind !== "사설").length} ${o.error || ""}`));
   const d = debates(outlets);
-  d.forEach(x => console.log(`⚖️ ${x.sides.map(s => `${s.src}: ${s.title.slice(0, 30)}`).join(" | ")}`));
+  d.forEach(x => console.log(`⚖️ [${x.topic.join(" ")}] ${x.sides.map(s => `${s.src}: ${s.title.slice(0, 30)}`).join(" | ")}`));
   await mkdir("data/opinion", { recursive: true });
   await writeFile(`data/opinion/${date}.json`, JSON.stringify({ date, generatedAt: new Date().toISOString(), debates: d, outlets }, null, 1));
   let index = [];

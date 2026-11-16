@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20261116081830">
+<link rel="stylesheet" href="style.css?v=20261117084753">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
 <body>
@@ -106,6 +106,7 @@
     </div>
     <nav class="tabs" id="tabs">
       <a href="#news">📰 경제뉴스</a>
+      <a href="#think">🧠 생각거리</a>
       <a href="#diary">📔 일기</a>
       <a href="#books">📚 독서</a>
       <a href="#study">✏️ 공부</a>
@@ -114,9 +115,29 @@
     </nav>
   </div>
   <div class="status" id="status" aria-live="polite"></div>
-  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0818-30</div>
+  <div class="muted" id="buildVer" style="font-size:11px;text-align:center;opacity:.6;order:99">버전 0847-53</div>
 
   <!-- ① NEWS -->
+  <section class="view newsgrid" id="v-think" hidden>
+    <div class="panel np-heads">
+      <div class="phead"><h2>🧠 오늘의 생각거리</h2><span class="muted mono" id="thinkStamp"></span></div>
+      <p class="muted thinkintro">사설은 신문사의 공식 입장이야. 같은 이슈를 <span class="lean l-보수">보수 성향</span> <span class="lean l-중도">중도</span> <span class="lean l-진보">진보 성향</span> 신문이 각각 어떻게 봤는지 비교하면서 읽어봐.</p>
+      <div id="debates"></div>
+      <h3 class="thinkh">📝 신문사별 사설·칼럼</h3>
+      <div class="paperchips" id="opChips"></div>
+      <ul class="heads" id="opList"><li class="empty" style="border:0">불러오는 중…</li></ul>
+      <div class="muted" style="font-size:12.5px">하루 6번(02·06·10·14·18·22시) 경제뉴스와 같이 모아와. 조선·중앙·동아·한국일보·한겨레·경향신문 오피니언면에서 만평·짧은 촌평은 빼고 가져와.</div>
+    </div>
+    <div class="panel np-reads">
+      <div class="phead"><h2>🔖 내가 읽은 글</h2><span class="muted mono" id="thinkCount"></span></div>
+      <ul class="artlist" id="thinkList"></ul>
+    </div>
+    <div class="panel np-papers">
+      <div class="phead"><h2>🗞️ 오피니언면 바로가기</h2></div>
+      <div class="papers" id="opPapers"></div>
+    </div>
+  </section>
+
   <section class="view newsgrid" id="v-news">
     <div class="panel np-heads">
       <div class="phead"><h2>📈 경제면 헤드라인</h2><span class="muted mono" id="newsStamp"></span></div>
@@ -353,7 +374,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="config.js?v=20261116081830"></script>
-<script src="app.js?v=20261116081830"></script>
+<script src="config.js?v=20261117084753"></script>
+<script src="app.js?v=20261117084753"></script>
 </body>
 </html>
