@@ -23,14 +23,32 @@ function show(which) { ["loginBox", "joinBox", "mainBox"].forEach(id => { $("#" 
 const nickOf = uid => (members[uid] && members[uid].nickname) || "(나간 회원)";
 
 /* ---------- 로그인 · 가입 ---------- */
+const loginMsg = t => { const m = $("#loginMsg"); m.hidden = !t; m.textContent = t || ""; };
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault();
-  const email = $("#email").value.trim(); if (!email) return;
+  const email = $("#email").value.trim(), password = $("#pw").value; if (!email) return;
+  if (!password) { loginMsg("비밀번호를 넣어줘. 비밀번호는 초대한 사람에게 받으면 돼."); return; }
   $("#sendBtn").disabled = true;
-  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + "/share", shouldCreateUser: true } });
+  const { error } = await sb.auth.signInWithPassword({ email, password });
   $("#sendBtn").disabled = false;
-  const m = $("#loginMsg"); m.hidden = false;
-  m.textContent = error ? (/signups? not allowed|signup_disabled/i.test(error.message) ? "아직 초대 등록이 안 된 이메일이야. 초대한 사람에게 이 이메일 주소를 알려주고, 초대 메일이 오면 그 링크로 들어와줘." : /rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시(최대 1시간) 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`;
+  if (error) { loginMsg(/invalid/i.test(error.message) ? "이메일이나 비밀번호가 맞지 않아." : "로그인하지 못했어: " + error.message); return; }
+  loginMsg(""); start();
+});
+$("#magicBtn").addEventListener("click", async () => {
+  const email = $("#email").value.trim(); if (!email) { loginMsg("이메일을 먼저 넣어줘."); return; }
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + "/share", shouldCreateUser: false } });
+  loginMsg(error ? (/not authorized|signups? not allowed|signup_disabled|not found/i.test(error.message) ? "이 이메일로는 링크를 보낼 수 없어. 초대한 사람에게 비밀번호를 받아서 로그인해줘." : /rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`);
+});
+$("#pwBtn").addEventListener("click", () => {
+  openSheet(`<div class="phead"><h2 id="mTitle">🔑 비밀번호 바꾸기</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
+    <form id="pwForm" style="display:flex;flex-direction:column;gap:10px"><input type="password" id="pw1" minlength="6" placeholder="새 비밀번호 (6자 이상)" autocomplete="new-password" required><input type="password" id="pw2" placeholder="한 번 더" autocomplete="new-password" required><div><button class="btn primary" type="submit">바꾸기</button></div><div class="muted" id="pwMsg" style="font-size:13px"></div></form>`);
+  $("#pwForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const a = $("#pw1").value, b = $("#pw2").value;
+    if (a !== b) { $("#pwMsg").textContent = "두 번 입력한 비밀번호가 달라."; return; }
+    const { error } = await sb.auth.updateUser({ password: a });
+    $("#pwMsg").textContent = error ? "바꾸지 못했어: " + error.message : "바꿨어! 다음부터 새 비밀번호로 로그인하면 돼.";
+  });
 });
 $("#joinForm").addEventListener("submit", async e => {
   e.preventDefault();

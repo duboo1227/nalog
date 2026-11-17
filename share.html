@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/style.css?v=20261117121150">
+<link rel="stylesheet" href="/style.css?v=20261117122137">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .shead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
 .shead .row1{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
@@ -36,17 +36,19 @@
     <div class="label">초음파 케이스 스터디</div>
     <div class="row1">
       <h1>🩺 케이스 같이 보기</h1>
-      <div class="who" id="who" hidden><span id="whoName"></span><button class="linkbtn" id="nickBtn" type="button">닉네임 바꾸기</button><button class="linkbtn" id="logoutBtn" type="button">로그아웃</button></div>
+      <div class="who" id="who" hidden><span id="whoName"></span><button class="linkbtn" id="nickBtn" type="button">닉네임 바꾸기</button><button class="linkbtn" id="pwBtn" type="button">🔑 비밀번호 바꾸기</button><button class="linkbtn" id="logoutBtn" type="button">로그아웃</button></div>
     </div>
   </header>
 
   <!-- 1) 로그인 -->
   <section class="panel gate" id="loginBox" hidden>
     <div class="phead"><h2>🔐 로그인</h2></div>
-    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">초대받은 사람만 볼 수 있는 공간이야. 이메일을 넣으면 로그인 링크를 보내줄게. 메일의 링크를 누르면 바로 들어와져.</p>
+    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">초대받은 사람만 볼 수 있는 공간이야. 초대한 사람에게 받은 이메일·비밀번호로 로그인해줘. 알았구나에 로그인돼 있는 브라우저면 자동으로 들어와져.</p>
     <form id="loginForm" style="display:flex;flex-direction:column;gap:10px">
       <input type="email" id="email" required placeholder="이메일 주소" autocomplete="email">
-      <button class="btn primary" type="submit" id="sendBtn">로그인 링크 받기</button>
+      <input type="password" id="pw" placeholder="비밀번호" autocomplete="current-password">
+      <button class="btn primary" type="submit" id="sendBtn">로그인</button>
+      <button class="linkbtn" type="button" id="magicBtn">비밀번호가 없으면: 메일로 로그인 링크 받기</button>
     </form>
     <div class="notice" id="loginMsg" hidden></div>
   </section>
@@ -81,7 +83,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="/config.js?v=20261117121150"></script>
-<script src="/share.js?v=20261117121324"></script>
+<script src="/config.js?v=20261117122137"></script>
+<script src="/share.js?v=20261117122137"></script>
 </body>
 </html>
