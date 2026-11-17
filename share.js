@@ -151,9 +151,9 @@ async function openView(id) {
   const mine = c.user_id === user.id;
   openSheet(`<div class="phead"><h2 id="mTitle">${esc(c.title || "(제목 없음)")}</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
     <div><span class="tag">${esc(c.region || "기타")}</span>${c.cls ? ` <span class="tag cls">${esc(c.cls)}</span>` : ""} <span class="mono muted">${esc(c.date || "")}</span> · <span class="muted">👤 ${esc(nickOf(c.user_id))}</span> ${(c.tags || []).map(t => `<span class="muted">#${esc(t)}</span>`).join(" ")}</div>
-    <div class="imgs">${(c.images || []).map(p => media(p, "view")).join("")}</div>
     ${fi(c) ? `<div><div class="label">🔍 소견 · 판독</div><div class="pre">${esc(fi(c))}</div></div>` : ""}
     ${c.memo ? `<div class="studybox"><div class="label">📝 메모 / 공부할 것</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
+    <div class="imgs">${(c.images || []).map(p => media(p, "view")).join("")}</div>
     ${mine ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="edit">수정</button><button class="btn ghost" data-act="unshare">공유 그만하기</button></div>` : ""}
     <div id="cConfirm"></div>
     <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 판독 토론</h2><span class="muted mono" id="cCount"></span></div>
