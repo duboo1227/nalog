@@ -15,7 +15,7 @@ const MAX_IMG = 20 * 1024 * 1024, MAX_VID = 50 * 1024 * 1024;
 const uuid = () => crypto.randomUUID();
 
 const sb = window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY);
-let user = null, me = null, members = {}, cases = [], counts = {}, filter = "전체", signed = {}, edit = null, viewId = null;
+let user = null, me = null, members = {}, cases = [], counts = {}, filter = "전체", who = "", signed = {}, edit = null, viewId = null;
 
 let stT;
 function status(t) { $("#status").textContent = t || ""; clearTimeout(stT); if (t && !/중…/.test(t) && !/실패|못했/.test(t)) stT = setTimeout(() => { $("#status").textContent = ""; }, 3000); }
@@ -110,17 +110,25 @@ function media(p, kind) {
 }
 async function render() {
   await sign(cases.map(c => (c.images || [])[0]));
-  const by = {}; cases.forEach(c => { by[c.region] = (by[c.region] || 0) + 1; });
-  if (filter !== "전체" && filter !== "내 케이스" && !by[filter]) filter = "전체";
-  const mineN = cases.filter(c => c.user_id === user.id).length;
-  $("#filter").innerHTML = ["전체", ...REGIONS.filter(r => by[r]), ...(mineN ? ["내 케이스"] : [])].map(r => `<button class="chip" data-f="${esc(r)}" aria-pressed="${r === filter}">${esc(r)} <span class="mono">${r === "전체" ? cases.length : r === "내 케이스" ? mineN : by[r]}</span></button>`).join("");
+  // 👤 올린 사람별 (나를 맨 앞에, 나머지는 닉네임 순)
+  const byWho = {}; cases.forEach(c => { byWho[c.user_id] = (byWho[c.user_id] || 0) + 1; });
+  if (who && !members[who]) who = "";
+  const ppl = Object.values(members).sort((a, b) => (b.user_id === user.id) - (a.user_id === user.id) || a.nickname.localeCompare(b.nickname, "ko"));
+  $("#whoFilter").innerHTML = `<span class="frow-l">👤 올린 사람</span>` + [["", "모두", cases.length], ...ppl.map(m => [m.user_id, m.nickname + (m.user_id === user.id ? " (나)" : ""), byWho[m.user_id] || 0])]
+    .map(([id, n, k]) => `<button class="chip" data-who="${esc(id)}" aria-pressed="${id === who}">${esc(n)} <span class="mono">${k}</span></button>`).join("");
+  // 🩻 부위별 (고른 사람 기준으로 개수 표시)
+  const base = cases.filter(c => !who || c.user_id === who);
+  const by = {}; base.forEach(c => { by[c.region] = (by[c.region] || 0) + 1; });
+  if (filter !== "전체" && !by[filter]) filter = "전체";
+  $("#filter").innerHTML = `<span class="frow-l">🩻 부위</span>` + ["전체", ...REGIONS.filter(r => by[r])].map(r => `<button class="chip" data-f="${esc(r)}" aria-pressed="${r === filter}">${esc(r)} <span class="mono">${r === "전체" ? base.length : by[r]}</span></button>`).join("");
   const q = $("#search").value.trim().toLowerCase();
-  const list = cases.filter(c => (filter === "전체" || (filter === "내 케이스" ? c.user_id === user.id : c.region === filter)) &&
+  const list = base.filter(c => (filter === "전체" || c.region === filter) &&
     (!q || [c.title, c.findings, c.impression, c.memo, c.cls, nickOf(c.user_id), ...(c.tags || [])].join(" ").toLowerCase().includes(q)));
   $("#grid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? media(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${c.cls ? ` <span class="tag cls">${esc(c.cls)}</span>` : ""}</span><b>${esc(c.title || "(제목 없음)")}</b><span class="by"><span>👤 ${esc(nickOf(c.user_id))}${c.user_id === user.id ? ` <span class="mine">나</span>` : ""}</span><span class="mono">${esc(c.date || "")}</span>${counts[c.id] ? `<span>💬 ${counts[c.id]}</span>` : ""}</span></div></button>`).join("")
     : `<div class="empty">${cases.length ? "조건에 맞는 케이스가 없어." : "아직 공유된 케이스가 없어. '+ 케이스 올리기'로 첫 케이스를 올려봐. 알았구나에서 케이스를 '👥 친구들과 공유'로 체크해도 여기 떠."}</div>`;
 }
 $("#filter").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) { filter = b.dataset.f; render(); } });
+$("#whoFilter").addEventListener("click", e => { const b = e.target.closest("[data-who]"); if (b) { who = b.dataset.who; render(); } });
 $("#search").addEventListener("input", render);
 $("#grid").addEventListener("click", e => { const b = e.target.closest("[data-case]"); if (b) openView(b.dataset.case); });
 
