@@ -563,3 +563,13 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .debate .dq{font-size:12.5px;line-height:1.6;color:var(--muted);padding:8px 14px 12px;border-top:1px dashed var(--line)}
 .kindt{font-weight:600}
 .kindt.k-사설{color:var(--accent)}
+
+/* 케이스 동영상 */
+.vthumb{position:relative;display:block;width:100%;height:100%}
+.vthumb video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vthumb i{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:22px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);pointer-events:none}
+.case .thumb{position:relative}
+.case .thumb .vbadge{position:absolute;right:6px;bottom:6px;font-style:normal;font-size:14px;background:var(--surface);border-radius:999px;padding:0 5px}
+.vidbox{display:flex;flex-direction:column;gap:4px;min-width:0}
+.vidbox video{width:100%;max-width:100%;max-height:70vh;object-fit:contain;border-radius:10px;background:#000}
+.vidlink{font-size:12px}

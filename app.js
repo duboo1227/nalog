@@ -1001,6 +1001,17 @@ async function signPaths(paths) {
   (data || []).forEach(d => { if (d.signedUrl) signed[d.path] = d.signedUrl; });
 }
 const imgUrl = p => signed[p] || "";
+// 케이스 첨부: 사진과 동영상(초음파 cine 클립 등)
+const VID_RE = /\.(mp4|mov|m4v|webm|3gp)$/i;
+const isVid = p => VID_RE.test(p || "");
+const MAX_IMG = 20 * 1024 * 1024, MAX_VID = 50 * 1024 * 1024;   // Supabase 무료 요금제 파일당 한도 50MB
+// kind: "thumb"(목록 썸네일) · "view"(크게 보기) · "edit"(편집 작은칸)
+function mediaHtml(p, kind) {
+  const u = esc(imgUrl(p));
+  if (!isVid(p)) return kind === "view" ? `<a href="${u}" target="_blank" rel="noopener"><img src="${u}" alt="케이스 이미지" loading="lazy"></a>` : `<img src="${u}" alt="" loading="lazy">`;
+  if (kind === "view") return `<div class="vidbox"><video src="${u}" controls playsinline loop preload="metadata"></video><a class="muted vidlink" href="${u}" target="_blank" rel="noopener">재생이 안 되면 여기서 열기·다운로드</a></div>`;
+  return `<span class="vthumb"><video src="${u}#t=0.1" muted playsinline preload="metadata"></video><i aria-hidden="true">▶</i></span>`;
+}
 function caseList() { return Object.values(cases).sort((a, b) => (b.date || "").localeCompare(a.date || "") || (b.created_at || "").localeCompare(a.created_at || "")); }
 async function renderCases() {
   const all = caseList();
@@ -1009,7 +1020,7 @@ async function renderCases() {
   $("#caseFilter").innerHTML = ["전체", ...REGIONS].filter(r => r === "전체" || counts[r]).map(r => `<button class="chip" aria-pressed="${r === caseFilter}" data-r="${r}">${r} <span class="mono">${r === "전체" ? all.length : counts[r]}</span></button>`).join("");
   const q = $("#caseSearch").value.trim().toLowerCase();
   const list = all.filter(c => (caseFilter === "전체" || c.region === caseFilter) && (!q || [c.title, c.findings, c.impression, c.memo, (c.tags || []).join(" ")].join(" ").toLowerCase().includes(q)));
-  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? `<img src="${esc(imgUrl(c.images[0]))}" alt="" loading="lazy">` : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
+  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? mediaHtml(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
 }
 $("#caseFilter").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; caseFilter = b.dataset.r; renderCases(); });
 $("#caseSearch").addEventListener("input", renderCases);
@@ -1036,7 +1047,7 @@ async function renderQuiz() {
   await signPaths(c.images || []);
   const m = (settings.caseMeta || {})[c.id] || {};
   box.innerHTML = `<div class="quizhead"><span class="tag">${esc(c.region)}</span> <span class="muted" style="font-size:12.5px">맞힘 ${m.right || 0} · 틀림 ${m.wrong || 0}</span></div>
-    ${(c.images || []).length ? `<div class="quizimgs">${c.images.map(p => `<img src="${esc(imgUrl(p))}" alt="퀴즈 이미지">`).join("")}</div>` : `<div class="notice">사진이 없는 케이스야. 소견을 보고 진단·분류를 맞혀봐.<div class="pre" style="margin-top:6px">${esc(c.findings)}</div></div>`}
+    ${(c.images || []).length ? `<div class="quizimgs">${c.images.map(p => isVid(p) ? mediaHtml(p, "view") : `<img src="${esc(imgUrl(p))}" alt="퀴즈 이미지">`).join("")}</div>` : `<div class="notice">사진이 없는 케이스야. 소견을 보고 진단·분류를 맞혀봐.<div class="pre" style="margin-top:6px">${esc(c.findings)}</div></div>`}
     <div class="muted" style="font-size:13.5px">💭 소견, 진단명, 분류를 먼저 떠올려봐.</div>
     ${quiz.shown ? `<div class="quizans">
         <div><b>${esc(c.title || "(제목 없음)")}</b> ${clsOf(c.id) ? `<span class="tag cls">${esc(clsOf(c.id))}</span>` : ""}</div>
@@ -1068,7 +1079,7 @@ function openCase(id, editing) {
   renderCaseSheet(editing);
   $("#caseModal").hidden = false; document.body.style.overflow = "hidden";
 }
-function closeCase() { $("#caseModal").hidden = true; document.body.style.overflow = ""; editCase = null; }
+function closeCase() { document.querySelectorAll("#caseModal video").forEach(v => v.pause()); $("#caseModal").hidden = true; document.body.style.overflow = ""; editCase = null; }
 async function renderCaseSheet(editing) {
   const c = editCase.data, sh = $("#caseSheet");
   await signPaths(c.images || []);
@@ -1078,7 +1089,7 @@ async function renderCaseSheet(editing) {
       ${c.findings ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
       ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
       ${c.memo ? `<div><div class="label">메모 / 배운 점</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
-      <div class="imgs">${(c.images || []).map(p => `<a href="${esc(imgUrl(p))}" target="_blank" rel="noopener"><img src="${esc(imgUrl(p))}" alt="케이스 이미지" loading="lazy"></a>`).join("")}</div>
+      <div class="imgs">${(c.images || []).map(p => mediaHtml(p, "view")).join("")}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" data-act="edit">수정</button><button class="btn ghost" data-act="close">닫기</button></div>`;
     return;
   }
@@ -1093,15 +1104,15 @@ async function renderCaseSheet(editing) {
     <label class="field"><span>Impression</span><textarea id="cImp" rows="2">${esc(c.impression)}</textarea></label>
     <label class="field"><span>메모 / 배운 점</span><textarea id="cMemo" rows="3" placeholder="놓치기 쉬운 포인트, 원장님 피드백, 추적 결과">${esc(c.memo)}</textarea></label>
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="cTags" value="${esc((c.tags || []).join(", "))}" placeholder="예: 석회화, f/u, 조직검사"></label>
-    <div class="field"><span>이미지 (메모 사진, 캡처)</span>
-      <div class="uploads">${(c.images || []).map((p, k) => `<div class="u"><img src="${esc(imgUrl(p))}" alt=""><button data-rm-img="${k}" aria-label="이미지 빼기">×</button></div>`).join("")}</div>
+    <div class="field"><span>이미지·동영상 (메모 사진, 캡처, cine 클립)</span>
+      <div class="uploads">${(c.images || []).map((p, k) => `<div class="u">${mediaHtml(p, "edit")}<button data-rm-img="${k}" aria-label="빼기">×</button></div>`).join("")}</div>
       <div class="pastebox" id="cPaste" contenteditable="true" role="textbox" aria-label="이미지 붙여넣기 칸" inputmode="none">
         <b>여기에 이미지 붙여넣기</b>
-        <span>PC: 복사 후 Ctrl+V (⌘V) · 폰: 이 칸을 길게 눌러 '붙여넣기' · 끌어다 놓기도 돼</span>
+        <span>PC: 복사 후 Ctrl+V (⌘V) · 폰: 이 칸을 길게 눌러 '붙여넣기' · 끌어다 놓기도 돼 · 동영상은 끌어다 놓기나 '파일에서 선택'으로</span>
       </div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px">
-        <label class="linkbtn" style="cursor:pointer">파일에서 선택<input type="file" id="cFile" accept="image/*" multiple hidden></label>
-        <span class="muted" style="font-size:12.5px" id="cUpMsg">한 장당 20MB까지</span>
+        <label class="linkbtn" style="cursor:pointer">파일에서 선택<input type="file" id="cFile" accept="image/*,video/*" multiple hidden></label>
+        <span class="muted" style="font-size:12.5px" id="cUpMsg">사진 20MB · 동영상 50MB까지 (720p, 10초 안팎 추천)</span>
       </div>
     </div>
     <div id="cConfirm"></div>
@@ -1120,8 +1131,9 @@ async function renderCaseSheet(editing) {
 }
 function imagesFrom(dt) {
   if (!dt) return [];
-  let files = [...(dt.files || [])].filter(f => f.type.startsWith("image/"));
-  if (!files.length && dt.items) files = [...dt.items].filter(i => i.kind === "file" && i.type.startsWith("image/")).map(i => i.getAsFile()).filter(Boolean);
+  const ok = f => /^(image|video)\//.test(f.type) || VID_RE.test(f.name || "");
+  let files = [...(dt.files || [])].filter(ok);
+  if (!files.length && dt.items) files = [...dt.items].filter(i => i.kind === "file" && /^(image|video)\//.test(i.type)).map(i => i.getAsFile()).filter(Boolean);
   return files;
 }
 // 케이스 편집 화면이 열려 있으면 어디서든 Ctrl+V로 이미지 추가
@@ -1146,16 +1158,19 @@ async function uploadFiles(files) {
   readForm(); const msg = $("#cUpMsg"); let err = "";
   for (const [i, f] of files.entries()) {
     msg.textContent = `올리는 중 ${i + 1}/${files.length}…`;
-    if (f.size > 20 * 1024 * 1024) { err = `${f.name}: 20MB 초과`; continue; }
-    const fromType = (f.type.split("/")[1] || "").replace("jpeg", "jpg").replace(/[^a-z0-9]/g, "");
-    const ext = fromType || (f.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const vid = f.type.startsWith("video/") || VID_RE.test(f.name || "");
+    if (f.size > (vid ? MAX_VID : MAX_IMG)) { err = `${f.name}: ${vid ? "동영상 50MB" : "사진 20MB"} 초과 (${(f.size / 1048576).toFixed(0)}MB)${vid ? " · 더 짧게 자르거나 720p로 찍어줘" : ""}`; continue; }
+    if (vid) msg.textContent = `동영상 올리는 중 ${i + 1}/${files.length} (${(f.size / 1048576).toFixed(0)}MB)… 창 닫지 마`;
+    const nameExt = (f.name.split(".").pop() || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const fromType = (f.type.split("/")[1] || "").replace("jpeg", "jpg").replace("quicktime", "mov").replace(/^x-/, "").replace(/[^a-z0-9]/g, "");
+    const ext = vid ? (VID_RE.test("." + nameExt) ? nameExt : (VID_RE.test("." + fromType) ? fromType : "mp4")) : (fromType || nameExt || "jpg");
     const path = `${user.id}/${editCase.data.id}/${Date.now()}-${i}.${ext}`;
-    const { error } = await sb.storage.from("cases").upload(path, f, { contentType: f.type || "image/jpeg" });
+    const { error } = await sb.storage.from("cases").upload(path, f, { contentType: f.type || (vid ? (ext === "mov" ? "video/quicktime" : "video/mp4") : "image/jpeg") });
     if (error) err = `${f.name}: ${error.message}`; else editCase.data.images.push(path);
   }
   uploading = false;
   await renderCaseSheet(true);
-  $("#cUpMsg").textContent = err || `이미지 ${editCase.data.images.length}장 · 저장을 눌러야 케이스에 반영돼`;
+  { const L = editCase.data.images, nv = L.filter(isVid).length; $("#cUpMsg").textContent = err || `사진 ${L.length - nv}장${nv ? ` · 동영상 ${nv}개` : ""} · 저장을 눌러야 케이스에 반영돼`; }
 }
 async function saveCase() {
   readForm();
