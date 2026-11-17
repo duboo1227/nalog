@@ -1,6 +1,6 @@
 {
  "date": "2026-11-18",
- "generatedAt": "2026-11-17T18:08:30.683Z",
+ "generatedAt": "2026-11-17T21:59:35.578Z",
  "debates": [
   {
    "topic": [
@@ -630,6 +630,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "미국인 3분의 1, 온라인 커뮤니티 '이탈 경험자'",
+     "link": "https://www.hankookilbo.com/news/article/A2026111710290004931",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "하태우 작가·사진가 '휠체어에서 듣는 음악' 저자",
      "link": "https://www.hankookilbo.com/news/article/A2026111709350001534",
      "pubDate": null,
@@ -656,6 +662,24 @@
     {
      "title": "민주당, 분열상 조속 해결하고 민심에 제대로 부응하길",
      "link": "https://www.hankookilbo.com/news/article/A2026111612240005021",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "\"엄마가 한국인이라서 미안해\"",
+     "link": "https://www.hankookilbo.com/news/article/A2026111714090003841",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "교실 속 돌발·위기행동, 전문적 '행동중재'가 답이다",
+     "link": "https://www.hankookilbo.com/news/article/A2026111710070001641",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "게으른 인간을 위한, 친절한 인공지능",
+     "link": "https://www.hankookilbo.com/news/article/A2026111709400004046",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -708,6 +732,18 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1287588.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "미-중-러 천하 중심에 선 ‘황제’와 복지부동 관리들",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287850.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘악플’을 견뎌야 하는 용기? [한겨레 프리즘]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287845.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "‘설계된 무질서’…네트워크 과학이 빚어낸 단단함 [오철우의 과학풍경]",
@@ -778,18 +814,6 @@
     {
      "title": "연구기관 지방 이전, 과학기술 경쟁력 훼손 우려 커 [왜냐면]",
      "link": "https://www.hani.co.kr/arti/opinion/because/1287625.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "낡은 계급제·뇌물 승진…소방 조직 전면 개편을 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1287624.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "AI가 낮춘 범죄의 문턱 [유레카]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1287622.html",
      "pubDate": null,
      "kind": "칼럼"
     }
