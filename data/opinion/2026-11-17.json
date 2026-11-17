@@ -1,24 +1,16 @@
 {
  "date": "2026-11-17",
- "generatedAt": "2026-11-16T23:50:06.265Z",
+ "generatedAt": "2026-11-17T02:21:33.733Z",
  "debates": [
   {
    "topic": [
     "수능",
     "AI",
-    "부정"
+    "커닝"
    ],
    "both": true,
-   "papers": 6,
+   "papers": 5,
    "sides": [
-    {
-     "title": "세무사 시험 ‘수석’ AI 부정 실토… 빙산의 일각일 수도",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028836/2",
-     "pubDate": "2026-11-15T14:24:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
     {
      "title": "세무사 시험 ‘AI 부정’ 쇼크…코앞 수능 대책 있나",
      "link": "https://www.joongang.co.kr/article/25478855",
@@ -79,27 +71,43 @@
   },
   {
    "topic": [
-    "정상회담",
     "미중러",
-    "제2"
+    "정상회담",
+    "걱정"
    ],
    "both": true,
    "papers": 4,
    "sides": [
-    {
-     "title": "사상 첫 미-중-러 3자 정상회담… ‘新얄타 쇼’를 경계한다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028832/2",
-     "pubDate": "2026-11-15T14:27:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
     {
      "title": "사상 첫 미·중·러 정상회담, ‘제2의 얄타’ 경계해야",
      "link": "https://www.joongang.co.kr/article/25478854",
      "pubDate": null,
      "kind": "사설",
      "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "루비오의 김정은 두둔 발언, 미·중·러 회담 걱정 안 할 수 있나",
+     "link": "https://www.joongang.co.kr/article/25479188",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "첫 미·중·러 회담, 北 동맹 강화하는데 韓은 소통도 어렵다",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/16/YUQSAG4JDJCDPEXDNX3AA5PH2M/",
+     "pubDate": "2026-11-15T15:00:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "안보 걱정보다 정권 심기 챙기는 국방 장관, “매우 실망스럽다”",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/OFARIBJ7IZF6ZBUHQNDTZOYIXM/",
+     "pubDate": "2026-11-16T15:00:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
      "lean": "보수"
     },
     {
@@ -116,49 +124,6 @@
      "pubDate": "2026-11-15T10:44:00.000Z",
      "kind": "사설",
      "src": "경향신문",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "한덕수",
-    "대법원",
-    "선고"
-   ],
-   "both": true,
-   "papers": 4,
-   "sides": [
-    {
-     "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035655/2",
-     "pubDate": "2026-11-16T14:27:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "한덕수 석방 논란 자초한 대법원의 고무줄 잣대",
-     "link": "https://www.hankookilbo.com/news/article/A2026111514590000074",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
-     "title": "한덕수 선고기일 뒤늦게 잡은 대법, 국민 무서운 줄 이제 알았나",
-     "link": "https://www.khan.co.kr/article/202611161810001/",
-     "pubDate": "2026-11-16T09:10:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    },
-    {
-     "title": "대법원, 한덕수 사건 구속 만기 전 선고해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287430.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
      "lean": "진보"
     }
    ]
@@ -190,33 +155,6 @@
     {
      "title": "민생 뒷전인 채 내전 치닫는 민주당",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1287443.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "수출",
-    "1조",
-    "달러"
-   ],
-   "both": true,
-   "papers": 2,
-   "sides": [
-    {
-     "title": "[천광암 칼럼]돔구장의 역설, 기적의 수출 1조 달러",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028812/2",
-     "pubDate": "2026-11-15T14:18:00.000Z",
-     "kind": "칼럼",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "‘수출 1조 달러’ 위업 맞지만, 과제도 점검해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287588.html",
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
@@ -269,9 +207,21 @@
      "kind": "사설"
     },
     {
+     "title": "[조한범의 무극화 시대] 선전 APEC의 ‘소문난 잔치’와 우리의 우려",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/CPMAPC2HJBHNLK7E4FIHN7J4P4/",
+     "pubDate": "2026-11-16T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "2년 8개월 만의 KBS 대하사극… ‘고려거란전쟁’의 전철 밟지 않길",
      "link": "https://www.chosun.com/opinion/column/2026/11/16/GWRZ725MSZBTDLNE3HUXWGIXAU/",
      "pubDate": "2026-11-16T14:46:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[우정아의 아트 스토리] [658] 먼지마저 멈춘 듯한 고요함",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/4UW2PJIKPRBU3APS6KRBUVHQKA/",
+     "pubDate": "2026-11-16T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -293,12 +243,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "[조한범의 무극화 시대] 선전 APEC의 ‘소문난 잔치’와 우리의 우려",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/CPMAPC2HJBHNLK7E4FIHN7J4P4/",
-     "pubDate": "2026-11-16T14:44:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[이지혜의 심심할 틈이 없다] AI 음악이 전국 1등을 먹어버린 날",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/5NL5HJQZHVDD3HUUSNYB74JVQE/",
      "pubDate": "2026-11-16T14:42:00.000Z",
@@ -308,12 +252,6 @@
      "title": "[윤희영의 News English] 부와 권력은 왜 불륜을 부를까",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/5T3DL5OQJBDANGS3QBM3P4NO7I/",
      "pubDate": "2026-11-16T14:40:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[우정아의 아트 스토리] [658] 먼지마저 멈춘 듯한 고요함",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/4UW2PJIKPRBU3APS6KRBUVHQKA/",
-     "pubDate": "2026-11-16T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -487,128 +425,8 @@
    "name": "동아일보",
    "lean": "보수",
    "home": "https://www.donga.com/news/Opinion",
-   "items": [
-    {
-     "title": "AI로 ‘실력 위조’하는 시대… 現 시험-선발 제도론 백약이 무효",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035651/2",
-     "pubDate": "2026-11-16T14:30:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035655/2",
-     "pubDate": "2026-11-16T14:27:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "애타게 집집마다 문 두드리다 숨진 74세 아파트 경비원",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035653/2",
-     "pubDate": "2026-11-16T14:24:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "사상 첫 미-중-러 3자 정상회담… ‘新얄타 쇼’를 경계한다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028832/2",
-     "pubDate": "2026-11-15T14:27:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "세무사 시험 ‘수석’ AI 부정 실토… 빙산의 일각일 수도",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028836/2",
-     "pubDate": "2026-11-15T14:24:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "석유 전기 가스 쌓이는 청구서… 단계적 요금 현실화 불가피",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028834/2",
-     "pubDate": "2026-11-15T14:21:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "벤츠마저 ‘탈독일’ [횡설수설/박희창]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035642/2",
-     "pubDate": "2026-11-16T14:18:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[오늘과 내일/김창덕]울고 싶은데 뺨 맞은 ‘AI 신중론’",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035658/2",
-     "pubDate": "2026-11-16T14:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[동아광장/전재성]미-중-러의 새판 짜기, 한국은 구경꾼일 수 없다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035644/2",
-     "pubDate": "2026-11-16T14:12:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[광화문에서/이유종]美대학 안착한 토종 박사들… 지방대 경쟁력 강화 모델로",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035646/2",
-     "pubDate": "2026-11-16T14:09:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[고양이 눈]특석",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035639/2",
-     "pubDate": "2026-11-16T14:06:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "전작권이 주권이란 맹신, 北 위협은 안보이나[윤상호의 국방이야기]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035445/2",
-     "pubDate": "2026-11-16T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "한국 안보를 크게 위협하는 벨라루스[주성하의 서울과 평양 사이]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035437/2",
-     "pubDate": "2026-11-16T13:58:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "나당전쟁의 교훈[임용한의 전쟁사]〈442〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035648/2",
-     "pubDate": "2026-11-16T13:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "인조-영조 괴롭힌 ‘귓속 소리’… 소리 달라도 결국 스트레스 탓[이상곤의 실록한의학]〈181〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035448/2",
-     "pubDate": "2026-11-16T13:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘안세영 시대’를 지켜보는 즐거움[유상건의 라커룸 안과 밖]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035435/2",
-     "pubDate": "2026-11-16T13:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[신문과 놀자!/디지털 세상과 정보]똑똑한 AI보다 중요한 건… 누구나 쓸 수 있는 AI",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035129/2",
-     "pubDate": "2026-11-16T13:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[신문과 놀자!/피플 in 뉴스]“능력 부족” 소리 듣던 해리 케인, 발롱도르 수상의 비밀",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035121/2",
-     "pubDate": "2026-11-16T13:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[신문과 놀자!/미션 나의 문해력]저변(底邊)",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035117/2",
-     "pubDate": "2026-11-16T13:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[천광암 칼럼]돔구장의 역설, 기적의 수출 1조 달러",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261115/135028812/2",
-     "pubDate": "2026-11-15T14:18:00.000Z",
-     "kind": "칼럼"
-    }
-   ]
+   "items": [],
+   "error": "https://rss.donga.com/editorials.xml… fetch failed"
   },
   {
    "id": "hankook",
@@ -659,14 +477,14 @@
      "kind": "칼럼"
     },
     {
-     "title": "정크푸드? 하루쯤 뭐 어때!",
-     "link": "https://www.hankookilbo.com/news/article/A2026111517270001762",
+     "title": "과거의 훈장과 현재의 오욕을 함께 기억하기",
+     "link": "https://www.hankookilbo.com/news/article/A2026111517340002007",
      "pubDate": null,
      "kind": "칼럼"
     },
     {
-     "title": "과거의 훈장과 현재의 오욕을 함께 기억하기",
-     "link": "https://www.hankookilbo.com/news/article/A2026111517340002007",
+     "title": "정크푸드? 하루쯤 뭐 어때!",
+     "link": "https://www.hankookilbo.com/news/article/A2026111517270001762",
      "pubDate": null,
      "kind": "칼럼"
     },
