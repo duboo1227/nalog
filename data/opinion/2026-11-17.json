@@ -1,12 +1,12 @@
 {
  "date": "2026-11-17",
- "generatedAt": "2026-11-17T06:08:46.648Z",
+ "generatedAt": "2026-11-17T10:15:51.485Z",
  "debates": [
   {
    "topic": [
-    "수능",
     "AI",
-    "부정"
+    "수능",
+    "커닝"
    ],
    "both": true,
    "papers": 6,
@@ -60,16 +60,16 @@
      "lean": "진보"
     },
     {
-     "title": "‘AI 시대’ 진화한 시험부정, 수능 영향 없게 잘 대처를",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287442.html",
+     "title": "수능 수험생 불안 최소화할 ‘AI 부정’ 대책 마련을",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287608.html",
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
      "lean": "진보"
     },
     {
-     "title": "수능 수험생 불안 최소화할 ‘AI 부정’ 대책 마련을",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287608.html",
+     "title": "강화된 ‘AI 커닝’ 대책 내놓은 정부, 철저히 시행하길",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287799.html",
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
@@ -122,12 +122,10 @@
   },
   {
    "topic": [
-    "한덕수",
-    "대법원",
-    "선고"
+    "한덕수"
    ],
    "both": true,
-   "papers": 4,
+   "papers": 2,
    "sides": [
     {
      "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
@@ -138,61 +136,11 @@
      "lean": "보수"
     },
     {
-     "title": "한덕수 석방 논란 자초한 대법원의 고무줄 잣대",
-     "link": "https://www.hankookilbo.com/news/article/A2026111514590000074",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
      "title": "한덕수 선고기일 뒤늦게 잡은 대법, 국민 무서운 줄 이제 알았나",
      "link": "https://www.khan.co.kr/article/202611161810001/",
      "pubDate": "2026-11-16T09:10:00.000Z",
      "kind": "사설",
      "src": "경향신문",
-     "lean": "진보"
-    },
-    {
-     "title": "대법원, 한덕수 사건 구속 만기 전 선고해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287430.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "내전",
-    "민주당"
-   ],
-   "both": true,
-   "papers": 3,
-   "sides": [
-    {
-     "title": "신천지·반명·분열주의에 갇힌 민주당의 부끄러운 자화상",
-     "link": "https://www.joongang.co.kr/article/25478853",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "정치하면 안 되는 與野 소인배들의 ‘징계 내전’",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/GXN7CMZQGJBDVJXTPV67CY7EZI/",
-     "pubDate": "2026-11-16T15:10:00.000Z",
-     "kind": "사설",
-     "src": "조선일보",
-     "lean": "보수"
-    },
-    {
-     "title": "민생 뒷전인 채 내전 치닫는 민주당",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287443.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
      "lean": "진보"
     }
    ]
@@ -269,7 +217,7 @@
      "kind": "사설"
     },
     {
-     "title": "2년 8개월 만의 KBS 대하사극… ‘고려거란전쟁’의 전철 밟지 않길",
+     "title": "[전문기자의 시선] 2년 8개월 만의 KBS 대하사극… ‘고려거란전쟁’의 전철 밟지 않길",
      "link": "https://www.chosun.com/opinion/column/2026/11/16/GWRZ725MSZBTDLNE3HUXWGIXAU/",
      "pubDate": "2026-11-16T14:46:00.000Z",
      "kind": "칼럼"
@@ -647,8 +595,8 @@
      "kind": "칼럼"
     },
     {
-     "title": "남산과 케이블카",
-     "link": "https://www.hankookilbo.com/news/article/A2026111614400000998",
+     "title": "프랑스 국민배우의 염치?",
+     "link": "https://www.hankookilbo.com/news/article/A2026111701100003119",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -661,6 +609,12 @@
     {
      "title": "과거의 훈장과 현재의 오욕을 함께 기억하기",
      "link": "https://www.hankookilbo.com/news/article/A2026111517340002007",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "남산과 케이블카",
+     "link": "https://www.hankookilbo.com/news/article/A2026111614400000998",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -691,6 +645,24 @@
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
     {
+     "title": "법관대표회의, 사법부 반성과 성찰 먼저 하라",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287800.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "강화된 ‘AI 커닝’ 대책 내놓은 정부, 철저히 시행하길",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287799.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "다시 북-미회담 띄운 트럼프, ‘한국 패싱’ 없게 해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287796.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
      "title": "수능 수험생 불안 최소화할 ‘AI 부정’ 대책 마련을",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1287608.html",
      "pubDate": null,
@@ -709,22 +681,16 @@
      "kind": "사설"
     },
     {
-     "title": "민생 뒷전인 채 내전 치닫는 민주당",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287443.html",
+     "title": "AI 기업의 ‘부정행위 차단’ 기술 [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287786.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
     },
     {
-     "title": "‘AI 시대’ 진화한 시험부정, 수능 영향 없게 잘 대처를",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287442.html",
+     "title": "‘회장님’이 좋으면 일반 주주도 좋게 [아침햇발]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287728.html",
      "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대법원, 한덕수 사건 구속 만기 전 선고해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287430.html",
-     "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
     },
     {
      "title": "20년을 미룬 ‘진짜 싸움’ [뉴스룸에서]",
@@ -797,18 +763,6 @@
      "link": "https://www.hani.co.kr/arti/opinion/column/1287440.html",
      "pubDate": null,
      "kind": "칼럼"
-    },
-    {
-     "title": "사관학교 통합, 시민의 실종 [한겨레 프리즘]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1287439.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "대한민국이 사할린 동포에게 ‘모국’이 되려면 [6411의 목소리]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1287438.html",
-     "pubDate": null,
-     "kind": "칼럼"
     }
    ]
   },
@@ -818,6 +772,18 @@
    "lean": "진보",
    "home": "https://www.khan.co.kr/opinion",
    "items": [
+    {
+     "title": "벤처기업에 극심한‘돈맥경화’, 이래서 혁신성장 가능하겠나",
+     "link": "https://www.khan.co.kr/article/202611171810011/",
+     "pubDate": "2026-11-17T09:10:01.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "수능 이틀 전 급조한 부정행위 대책, 혼란 없도록 철저 준비해야",
+     "link": "https://www.khan.co.kr/article/202611171810001/",
+     "pubDate": "2026-11-17T09:10:00.000Z",
+     "kind": "사설"
+    },
     {
      "title": "노동자 절반 실질임금 하락, ‘K양극화’ 극복 최우선 하길",
      "link": "https://www.khan.co.kr/article/202611161857001/",
@@ -843,16 +809,10 @@
      "kind": "사설"
     },
     {
-     "title": "위기의 ‘가정·학교 밖 청소년’, 구멍 뚫린 공적 보호망 점검 시급",
-     "link": "https://www.khan.co.kr/article/202611151829001/",
-     "pubDate": "2026-11-15T09:29:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "젠슨 황 없는 AI 생태계, 우리 경제에 미칠 파장 대비해야",
-     "link": "https://www.khan.co.kr/article/202611151810001/",
-     "pubDate": "2026-11-15T09:10:00.000Z",
-     "kind": "사설"
+     "title": "[여적]얄타회담 2.0",
+     "link": "https://www.khan.co.kr/article/202611171832001/",
+     "pubDate": "2026-11-17T09:32:00.000Z",
+     "kind": "칼럼"
     },
     {
      "title": "[홍기빈의 두 번째 의견]‘테크브로’들의 패착",
@@ -930,12 +890,6 @@
      "title": "[조현철의 나락 한 알]후쿠시마에서 ‘부흥’을 생각한다",
      "link": "https://www.khan.co.kr/article/202611152007005/",
      "pubDate": "2026-11-15T11:07:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고]첫 출근이 없는 청년들을 위한 일하는 사람 기본법",
-     "link": "https://www.khan.co.kr/article/202611152004025/",
-     "pubDate": "2026-11-15T11:04:02.000Z",
      "kind": "칼럼"
     }
    ]
