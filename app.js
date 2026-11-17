@@ -1000,6 +1000,7 @@ async function signPaths(paths) {
   const { data } = await sb.storage.from("cases").createSignedUrls(need, 60 * 60 * 6);
   (data || []).forEach(d => { if (d.signedUrl) signed[d.path] = d.signedUrl; });
 }
+let shareReady = false;
 const imgUrl = p => signed[p] || "";
 // 케이스 첨부: 사진과 동영상(초음파 cine 클립 등)
 const VID_RE = /\.(mp4|mov|m4v|webm|3gp)$/i;
@@ -1020,7 +1021,7 @@ async function renderCases() {
   $("#caseFilter").innerHTML = ["전체", ...REGIONS].filter(r => r === "전체" || counts[r]).map(r => `<button class="chip" aria-pressed="${r === caseFilter}" data-r="${r}">${r} <span class="mono">${r === "전체" ? all.length : counts[r]}</span></button>`).join("");
   const q = $("#caseSearch").value.trim().toLowerCase();
   const list = all.filter(c => (caseFilter === "전체" || c.region === caseFilter) && (!q || [c.title, c.findings, c.impression, c.memo, (c.tags || []).join(" ")].join(" ").toLowerCase().includes(q)));
-  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? mediaHtml(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
+  $("#caseGrid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? mediaHtml(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted" style="font-size:12px">${esc(c.date || "")}</span></span><b>${c.shared ? `<span title="친구들과 공유 중">👥</span> ` : ""}${esc(c.title || "(제목 없음)")}</b><span class="muted" style="font-size:13px">${esc((c.impression || c.findings || "").slice(0, 60))}</span></div></button>`).join("") : `<div class="empty">${all.length ? "조건에 맞는 케이스가 없어." : "첫 케이스를 '+ 새 케이스'로 남겨봐. 메모 사진이나 캡처 이미지를 같이 올릴 수 있어."}</div>`;
 }
 $("#caseFilter").addEventListener("click", e => { const b = e.target.closest("[data-r]"); if (!b) return; caseFilter = b.dataset.r; renderCases(); });
 $("#caseSearch").addEventListener("input", renderCases);
@@ -1090,7 +1091,7 @@ async function renderCaseSheet(editing) {
       ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
       ${c.memo ? `<div><div class="label">메모 / 배운 점</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
       <div class="imgs">${(c.images || []).map(p => mediaHtml(p, "view")).join("")}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" data-act="edit">수정</button><button class="btn ghost" data-act="close">닫기</button></div>`;
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="btn primary" data-act="edit">수정</button><button class="btn ghost" data-act="close">닫기</button>${c.shared ? `<a class="linkbtn" href="/share" target="_blank" rel="noopener">👥 공유 중 · 친구들 댓글 보기</a>` : ""}</div>`;
     return;
   }
   sh.innerHTML = `<div class="phead"><h2 id="caseModalTitle">${editCase.isNew ? "새 케이스" : "케이스 수정"}</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
@@ -1104,6 +1105,7 @@ async function renderCaseSheet(editing) {
     <label class="field"><span>Impression</span><textarea id="cImp" rows="2">${esc(c.impression)}</textarea></label>
     <label class="field"><span>메모 / 배운 점</span><textarea id="cMemo" rows="3" placeholder="놓치기 쉬운 포인트, 원장님 피드백, 추적 결과">${esc(c.memo)}</textarea></label>
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="cTags" value="${esc((c.tags || []).join(", "))}" placeholder="예: 석회화, f/u, 조직검사"></label>
+    ${shareReady ? `<label class="sharechk"><input type="checkbox" id="cShared" ${c.shared ? "checked" : ""}> 👥 친구들과 공유 <span class="muted">('케이스 같이 보기'에 올라가고 친구들이 댓글을 달 수 있어)</span></label>` : ""}
     <div class="field"><span>이미지·동영상 (메모 사진, 캡처, cine 클립)</span>
       <div class="uploads">${(c.images || []).map((p, k) => `<div class="u">${mediaHtml(p, "edit")}<button data-rm-img="${k}" aria-label="빼기">×</button></div>`).join("")}</div>
       <div class="pastebox" id="cPaste" contenteditable="true" role="textbox" aria-label="이미지 붙여넣기 칸" inputmode="none">
@@ -1150,6 +1152,7 @@ function readForm() {
   c.findings = $("#cFind").value; c.impression = $("#cImp").value; c.memo = $("#cMemo").value;
   c.tags = $("#cTags").value.split(",").map(s => s.trim()).filter(Boolean);
   editCase.cls = ($("#cClass") ? $("#cClass").value.trim() : "");
+  if ($("#cShared")) c.shared = $("#cShared").checked;
 }
 let uploading = false;
 async function uploadFiles(files) {
@@ -1176,6 +1179,7 @@ async function saveCase() {
   readForm();
   const c = editCase.data;
   const row = { id: c.id, user_id: user.id, date: c.date, region: c.region, title: c.title, findings: c.findings, impression: c.impression, memo: c.memo, tags: c.tags, images: c.images, updated_at: new Date().toISOString() };
+  if (shareReady) { row.shared = !!c.shared; row.cls = editCase.cls || null; }
   status("저장 중…");
   const { data, error } = await sb.from("cases").upsert(row).select().single();
   if (error) { status("케이스 저장 실패: " + error.message); return false; }
@@ -1558,11 +1562,13 @@ async function startApp(session) {
   status("불러오는 중…");
   const [d, c] = await Promise.all([
     sb.from("days").select("date,data").order("date", { ascending: false }).limit(2000),
-    sb.from("cases").select("*").order("date", { ascending: false }).limit(2000)
+    sb.from("cases").select("*").eq("user_id", user.id).order("date", { ascending: false }).limit(2000)
   ]);
   if (d.error || c.error) { status("기록을 불러오지 못했어: " + (d.error || c.error).message); return; }
   days = {}; d.data.forEach(r => { if (r.date === SETTINGS_DATE) settings = Object.assign({ goals: [] }, r.data || {}); else if (r.date === VOCAB_DATE) vocab = Object.assign({ words: [], sentences: [] }, r.data || {}); else days[r.date] = r.data || {}; });
   cases = {}; c.data.forEach(r => cases[r.id] = r);
+  // 케이스 공유(supabase/share.sql) 설정이 돼 있는지: shared 칸이 있으면 공유 체크 표시
+  sb.from("cases").select("shared").limit(1).then(r => { shareReady = !r.error; if (shareReady) renderCases(); });
   status("");
   setDate(cur);
   carryTodos(); renderTodos(); renderQuote();

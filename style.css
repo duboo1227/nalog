@@ -573,3 +573,6 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .vidbox{display:flex;flex-direction:column;gap:4px;min-width:0}
 .vidbox video{width:100%;max-width:100%;max-height:70vh;object-fit:contain;border-radius:10px;background:#000}
 .vidlink{font-size:12px}
+.sharechk{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:14px;border:2px dashed var(--line);border-radius:12px;padding:10px 12px}
+.sharechk input{accent-color:var(--accent);width:17px;height:17px}
+.sharechk .muted{font-size:12.5px}

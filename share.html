@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F1F9F4">
+<meta name="robots" content="noindex">
+<title>케이스 같이 보기</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css?v=20261117120139">
+<style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.shead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
+.shead .row1{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.shead h1{font-family:var(--title);font-weight:400;font-size:30px;margin:0}
+.shead .who{font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.gate{max-width:420px;margin:28px auto 0;display:flex;flex-direction:column;gap:12px}
+.gate input{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:11px 12px}
+.case .meta .by{font-size:12.5px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.comments{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.comments li{border:1px solid var(--line);border-radius:12px;padding:9px 12px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.comments .ch{display:flex;gap:8px;align-items:baseline;font-size:12.5px;color:var(--muted)}
+.comments .ch b{color:var(--ink);font-size:13px}
+.comments .cb{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14.5px;line-height:1.6}
+.comments .x{margin-left:auto}
+.cform{display:flex;flex-direction:column;gap:8px}
+.cform textarea{width:100%}
+.mine{font-size:11px;padding:0 6px;border-radius:999px;background:var(--hl-green, #DDF3E6);color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="shead">
+    <div class="label">초음파 케이스 스터디</div>
+    <div class="row1">
+      <h1>🩺 케이스 같이 보기</h1>
+      <div class="who" id="who" hidden><span id="whoName"></span><button class="linkbtn" id="nickBtn" type="button">닉네임 바꾸기</button><button class="linkbtn" id="logoutBtn" type="button">로그아웃</button></div>
+    </div>
+  </header>
+
+  <!-- 1) 로그인 -->
+  <section class="panel gate" id="loginBox" hidden>
+    <div class="phead"><h2>🔐 로그인</h2></div>
+    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">초대받은 사람만 볼 수 있는 공간이야. 이메일을 넣으면 로그인 링크를 보내줄게. 메일의 링크를 누르면 바로 들어와져.</p>
+    <form id="loginForm" style="display:flex;flex-direction:column;gap:10px">
+      <input type="email" id="email" required placeholder="이메일 주소" autocomplete="email">
+      <button class="btn primary" type="submit" id="sendBtn">로그인 링크 받기</button>
+    </form>
+    <div class="notice" id="loginMsg" hidden></div>
+  </section>
+
+  <!-- 2) 초대코드 -->
+  <section class="panel gate" id="joinBox" hidden>
+    <div class="phead"><h2>🎟️ 초대코드 입력</h2></div>
+    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">처음 한 번만 하면 돼. 초대코드는 초대한 사람에게 받아줘. 닉네임은 케이스와 댓글에 표시돼.</p>
+    <form id="joinForm" style="display:flex;flex-direction:column;gap:10px">
+      <input type="text" id="code" required placeholder="초대코드" autocomplete="off">
+      <input type="text" id="nick" required maxlength="20" placeholder="닉네임 (예: 수지초음파)">
+      <button class="btn primary" type="submit">들어가기</button>
+    </form>
+    <div class="notice" id="joinMsg" hidden></div>
+  </section>
+
+  <!-- 3) 케이스 -->
+  <section class="view" id="mainBox" hidden style="padding-top:14px">
+    <div class="panel">
+      <div class="phead"><h2>📂 공유된 케이스</h2><button class="btn primary" id="newCase" type="button">+ 케이스 올리기</button></div>
+      <div class="notice">🙈 올리기 전에 환자 이름·등록번호·생년월일·병원명이 화면에 남아 있지 않은지 꼭 확인해줘. 사진·동영상은 이 모임 회원만 열 수 있어.</div>
+      <input type="text" id="search" placeholder="제목, 소견, 판독, 분류, 올린 사람으로 검색">
+      <div class="chips" id="filter"></div>
+      <div class="cases" id="grid"><div class="empty">불러오는 중…</div></div>
+    </div>
+  </section>
+  <div class="status" id="status" aria-live="polite" style="text-align:center"></div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle" id="sheet"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script src="/config.js?v=20261117120139"></script>
+<script src="/share.js?v=20261117120139"></script>
+</body>
+</html>
