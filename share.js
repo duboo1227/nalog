@@ -194,7 +194,6 @@ function renderEdit(msg) {
         <span class="muted" style="font-size:12.5px" id="upMsg">${esc(msg || "사진 20MB · 동영상 50MB까지 (720p, 10초 안팎 추천)")}</span>
       </div>
     </div>
-    <div class="notice">🙈 환자 이름·등록번호·생년월일·병원명이 안 보이는지 다시 한 번 확인!</div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between">
       <div style="display:flex;gap:8px"><button class="btn primary" data-act="save">${edit.isNew ? "올리기" : "저장"}</button><button class="btn ghost" data-act="close">취소</button></div>
       ${edit.isNew ? "" : `<button class="btn danger" data-act="del">삭제</button>`}
