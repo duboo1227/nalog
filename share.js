@@ -13,6 +13,17 @@ const VID_RE = /\.(mp4|mov|m4v|webm|3gp)$/i;
 const isVid = p => VID_RE.test(p || "");
 const MAX_IMG = 20 * 1024 * 1024, MAX_VID = 50 * 1024 * 1024;
 const uuid = () => crypto.randomUUID();
+// 🎉 스티커 댓글 (누르면 바로 큼직하게 달림)
+const STICKERS = [
+  ["fire", "🔥", "미친 실력의 초음파사"], ["crown", "👑", "판독 장인 등장"], ["100", "💯", "스캔 완벽 그 자체"],
+  ["mind", "🤯", "이걸 찾았다고?!"], ["hmm", "🧐", "나도 처음 봐…"], ["study", "📚", "오늘 공부 각"],
+  ["thanks", "🫶", "공유 고마워 쌤"], ["help", "😵‍💫", "어렵다 쌤 설명 좀"], ["clap", "👏", "기립박수"]
+];
+const STICKER = Object.fromEntries(STICKERS.map(([k, e, t]) => [k, { e, t }]));
+const stickerOf = body => { const m = /^::sticker:([\w]+)::$/.exec(body || ""); return m && STICKER[m[1]] ? STICKER[m[1]] : null; };
+// ❤️ 반응 (케이스·댓글에 누르기)
+const REACTS = ["❤️", "👍", "🔥", "🤯", "😂", "🙏"];
+let reactReady = true, caseHearts = {};
 // 소견과 판독을 한 칸으로: 예전에 따로 적은 케이스는 이어 붙여서 보여줌
 const fi = c => [c.findings, c.impression].map(x => (x || "").trim()).filter(Boolean).join("\n\n");
 
@@ -92,6 +103,8 @@ async function loadCases() {
   cases = r.data.filter(c => members[c.user_id]);
   const cm = await sb.from("case_comments").select("case_id");
   counts = {}; (cm.data || []).forEach(x => { counts[x.case_id] = (counts[x.case_id] || 0) + 1; });
+  const rx = await sb.from("share_reactions").select("target_id").eq("kind", "case");
+  reactReady = !rx.error; caseHearts = {}; (rx.data || []).forEach(x => { caseHearts[x.target_id] = (caseHearts[x.target_id] || 0) + 1; });
   status("");
   render();
 }
@@ -126,7 +139,7 @@ async function render() {
   const q = $("#search").value.trim().toLowerCase();
   const list = base.filter(c => (filter === "전체" || c.region === filter) &&
     (!q || [c.title, c.findings, c.impression, c.memo, c.cls, nickOf(c.user_id), ...(c.tags || [])].join(" ").toLowerCase().includes(q)));
-  $("#grid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? media(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${c.cls ? ` <span class="tag cls">${esc(c.cls)}</span>` : ""}</span><b>${esc(c.title || "(제목 없음)")}</b><span class="by"><span>👤 ${esc(nickOf(c.user_id))}${c.user_id === user.id ? ` <span class="mine">나</span>` : ""}</span><span class="mono">${esc(c.date || "")}</span>${counts[c.id] ? `<span>💬 ${counts[c.id]}</span>` : ""}</span></div></button>`).join("")
+  $("#grid").innerHTML = list.length ? list.map(c => `<button class="case" data-case="${c.id}"><div class="thumb">${(c.images || []).length ? media(c.images[0], "thumb") + ((c.images || []).some(isVid) && !isVid(c.images[0]) ? `<i class="vbadge">🎞️</i>` : "") : "이미지 없음"}</div><div class="meta"><span><span class="tag">${esc(c.region || "기타")}</span>${c.cls ? ` <span class="tag cls">${esc(c.cls)}</span>` : ""}</span><b>${esc(c.title || "(제목 없음)")}</b><span class="by"><span>👤 ${esc(nickOf(c.user_id))}${c.user_id === user.id ? ` <span class="mine">나</span>` : ""}</span><span class="mono">${esc(c.date || "")}</span>${caseHearts[c.id] ? `<span>❤️ ${caseHearts[c.id]}</span>` : ""}${counts[c.id] ? `<span>💬 ${counts[c.id]}</span>` : ""}</span></div></button>`).join("")
     : `<div class="empty">${cases.length ? "조건에 맞는 케이스가 없어." : "아직 공유된 케이스가 없어. '+ 케이스 올리기'로 첫 케이스를 올려봐. 알았구나에서 케이스를 '👥 친구들과 공유'로 체크해도 여기 떠."}</div>`;
 }
 $("#filter").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) { filter = b.dataset.f; render(); } });
@@ -154,12 +167,22 @@ async function openView(id) {
     ${fi(c) ? `<div><div class="label">🔍 소견 · 판독</div><div class="pre">${esc(fi(c))}</div></div>` : ""}
     ${c.memo ? `<div class="studybox"><div class="label">📝 메모 / 공부할 것</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
     <div class="imgs">${(c.images || []).map(p => media(p, "view")).join("")}</div>
+    <div class="reacts" id="caseReacts" data-rt="case" data-rid="${c.id}"></div>
     ${mine ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="edit">수정</button><button class="btn ghost" data-act="unshare">공유 그만하기</button></div>` : ""}
     <div id="cConfirm"></div>
     <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 판독 토론</h2><span class="muted mono" id="cCount"></span></div>
     <ul class="comments" id="comments"><li class="muted" style="border:0">불러오는 중…</li></ul>
+    ${`<div class="stickers" id="stickers"><span class="muted" style="font-size:12.5px">🎉 스티커로 한마디</span><div class="stkrow">${STICKERS.map(([k, e, t]) => `<button type="button" class="stk" data-stk="${k}" title="${esc(t)}"><span class="se">${e}</span><span class="st">${esc(t)}</span></button>`).join("")}</div></div>`}
     <form class="cform" id="cForm"><textarea id="cBody" rows="3" maxlength="2000" placeholder="내 판독 의견, 감별진단, 궁금한 점을 적어줘"></textarea><div><button class="btn primary" type="submit">댓글 달기</button></div></form>`);
   loadComments(id);
+  $("#stickers").addEventListener("click", async e => {
+    const b = e.target.closest("[data-stk]"); if (!b) return;
+    b.disabled = true;
+    const { error } = await sb.from("case_comments").insert({ case_id: id, body: `::sticker:${b.dataset.stk}::` });
+    b.disabled = false;
+    if (error) { status("스티커를 달지 못했어: " + error.message); return; }
+    counts[id] = (counts[id] || 0) + 1; loadComments(id); render();
+  });
   $("#cForm").addEventListener("submit", async e => {
     e.preventDefault();
     const body = $("#cBody").value.trim(); if (!body) return;
@@ -176,9 +199,42 @@ async function loadComments(id) {
   const c = cases.find(x => x.id === id);
   if (error) { $("#comments").innerHTML = `<li class="muted">댓글을 불러오지 못했어: ${esc(error.message)}</li>`; return; }
   counts[id] = data.length; $("#cCount").textContent = data.length + "개";
-  $("#comments").innerHTML = data.length ? data.map(x => `<li><div class="ch"><b>${esc(nickOf(x.user_id))}</b>${x.user_id === c.user_id ? `<span class="mine">올린 사람</span>` : ""}<span class="mono">${when(x.created_at)}</span>${(x.user_id === user.id || c.user_id === user.id) ? `<button class="x" data-delc="${x.id}" aria-label="댓글 삭제">×</button>` : ""}</div><div class="cb">${esc(x.body)}</div></li>`).join("")
-    : `<li class="muted" style="border:0;padding:0">아직 댓글이 없어. 첫 의견을 남겨봐.</li>`;
+  $("#comments").innerHTML = data.length ? data.map(x => `<li><div class="ch"><b>${esc(nickOf(x.user_id))}</b>${x.user_id === c.user_id ? `<span class="mine">올린 사람</span>` : ""}<span class="mono">${when(x.created_at)}</span>${(x.user_id === user.id || c.user_id === user.id) ? `<button class="x" data-delc="${x.id}" aria-label="댓글 삭제">×</button>` : ""}</div>${stickerOf(x.body) ? `<div class="cstk"><span class="se">${stickerOf(x.body).e}</span><span class="st">${esc(stickerOf(x.body).t)}</span></div>` : `<div class="cb">${esc(x.body)}</div>`}<div class="reacts" data-rt="comment" data-rid="${x.id}"></div></li>`).join("")
+    : `<li class="muted" style="border:0;padding:0">아직 댓글이 없어. 첫 의견이나 스티커를 남겨봐.</li>`;
+  loadReacts([id, ...data.map(x => x.id)]);
 }
+/* ---------- ❤️ 반응 ---------- */
+let reacts = {};   // target_id -> [{user_id, emoji}]
+async function loadReacts(ids) {
+  if (!reactReady) { document.querySelectorAll(".reacts").forEach(el => { el.hidden = true; }); return; }
+  const { data, error } = await sb.from("share_reactions").select("target_id,user_id,emoji").in("target_id", ids);
+  if (error) { reactReady = false; document.querySelectorAll(".reacts").forEach(el => { el.hidden = true; }); return; }
+  ids.forEach(t => { reacts[t] = []; }); data.forEach(r => reacts[r.target_id].push(r));
+  document.querySelectorAll(".reacts[data-rid]").forEach(drawReacts);
+}
+function drawReacts(el) {
+  const list = reacts[el.dataset.rid] || [], big = el.dataset.rt === "case";
+  const by = {}; list.forEach(r => { (by[r.emoji] = by[r.emoji] || []).push(r.user_id); });
+  const shown = REACTS.filter(e => by[e] || big);
+  el.innerHTML = shown.map(e => { const who = by[e] || [], on = who.includes(user.id); return `<button type="button" class="rx${on ? " on" : ""}" data-rx="${e}" title="${esc(who.map(nickOf).join(", ") || "눌러서 반응하기")}">${e}${who.length ? `<b>${who.length}</b>` : ""}</button>`; }).join("")
+    + (big ? "" : `<button type="button" class="rx add" data-rxmore aria-label="반응 추가">＋😊</button><span class="rxpick" hidden>${REACTS.map(e => `<button type="button" class="rx" data-rx="${e}">${e}</button>`).join("")}</span>`);
+}
+document.addEventListener("click", async e => {
+  const more = e.target.closest("[data-rxmore]");
+  if (more) { const p = more.nextElementSibling; p.hidden = !p.hidden; return; }
+  const b = e.target.closest("[data-rx]"); if (!b) return;
+  const el = b.closest(".reacts"), tid = el.dataset.rid, kind = el.dataset.rt, emoji = b.dataset.rx;
+  const list = reacts[tid] || (reacts[tid] = []);
+  const i = list.findIndex(r => r.user_id === user.id && r.emoji === emoji);
+  // 먼저 화면에 반영하고 서버에 저장 (실패하면 되돌림)
+  if (i >= 0) list.splice(i, 1); else list.push({ user_id: user.id, emoji });
+  if (kind === "case" && emoji) { caseHearts[tid] = Math.max(0, (caseHearts[tid] || 0) + (i >= 0 ? -1 : 1)); }
+  drawReacts(el); if (kind === "case") render();
+  const { error } = i >= 0
+    ? await sb.from("share_reactions").delete().match({ target_id: tid, user_id: user.id, emoji })
+    : await sb.from("share_reactions").insert({ target_id: tid, kind, emoji });
+  if (error) { status("반응을 저장하지 못했어: " + error.message); loadReacts([tid]); }
+});
 
 /* ---------- 올리기 · 수정 ---------- */
 $("#newCase").addEventListener("click", () => { edit = { isNew: true, data: { id: uuid(), date: TODAY, region: "갑상선", title: "", findings: "", impression: "", memo: "", tags: [], images: [], cls: "" } }; renderEdit(); });

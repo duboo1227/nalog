@@ -79,6 +79,23 @@ drop policy if exists "delete comments" on public.case_comments;
 create policy "delete comments" on public.case_comments for delete
   using (user_id = auth.uid() or exists (select 1 from public.cases c where c.id = case_id and c.user_id = auth.uid()));
 
+-- 7) ❤️ 반응 (케이스·댓글에 이모지 누르기)
+create table if not exists public.share_reactions (
+  target_id  uuid not null,
+  kind       text not null check (kind in ('case', 'comment')),
+  user_id    uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  emoji      text not null check (char_length(emoji) <= 16),
+  created_at timestamptz not null default now(),
+  primary key (target_id, user_id, emoji)
+);
+alter table public.share_reactions enable row level security;
+drop policy if exists "read reactions" on public.share_reactions;
+create policy "read reactions" on public.share_reactions for select using (public.is_share_member());
+drop policy if exists "add reactions" on public.share_reactions;
+create policy "add reactions" on public.share_reactions for insert with check (user_id = auth.uid() and public.is_share_member());
+drop policy if exists "remove reactions" on public.share_reactions;
+create policy "remove reactions" on public.share_reactions for delete using (user_id = auth.uid());
+
 -- 6) 초대코드 (나중에 바꿀 때도 이 줄만 다시 실행)
 insert into public.share_config (id, invite_code) values (1, '여기에-초대코드')
 on conflict (id) do update set invite_code = excluded.invite_code;
