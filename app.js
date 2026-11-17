@@ -466,6 +466,31 @@ function onDiaryInput() {
 }
 $("#diaryOne").addEventListener("input", onDiaryInput);
 $("#diaryText").addEventListener("input", onDiaryInput);
+// 😤 삐짐 정리: 생각 정리 질문 5개를 일기 끝에 붙임 (일기와 같이 잠김)
+const SULK_TPL = `😤 삐짐 정리 — (누구에게, 무슨 일로) 
+① 내가 상대에게 바라는 구체적인 행동은?
+→ 
+② 상대도 정말 그렇게 하고 싶어 할까? (그럴 만한 사정은?)
+→ 
+③ 혹시 내 뜻대로 상대를 통제하려고 한 건 아닌가?
+→ 
+④ 삐지는 것 대신, 내 기대를 말로 어떻게 표현할 수 있을까?
+→ 
+⑤ 그 말을 제대로 꺼내지도 못하면서 삐지는 게 정말 맞는가?
+→ `;
+$("#sulkBtn").addEventListener("click", () => {
+  const ta = $("#diaryText");
+  if (ta.disabled || ta.readOnly || ta.offsetParent === null) { status("일기 잠금을 먼저 풀어줘"); return; }
+  const cur0 = ta.value.replace(/\s+$/, "");
+  const start = cur0 ? cur0.length + 2 : 0;
+  ta.value = (cur0 ? cur0 + "\n\n" : "") + SULK_TPL;
+  onDiaryInput();
+  ta.focus();
+  const pos = start + SULK_TPL.indexOf("(누구에게");   // '(누구에게, 무슨 일로)' 칸을 바로 고쳐 쓰게 선택
+  ta.setSelectionRange(pos, pos + "(누구에게, 무슨 일로)".length);
+  const lh = parseFloat(getComputedStyle(ta).lineHeight) || 24;   // 틀 시작 줄이 보이게 스크롤
+  ta.scrollTop = Math.max(0, ta.value.slice(0, start).split("\n").length - 1) * lh;
+});
 
 async function doLock() {
   const plain = { one: $("#diaryOne").value, text: $("#diaryText").value, images: day.diaryImages || [] };
