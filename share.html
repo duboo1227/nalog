@@ -9,8 +9,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/style.css?v=20261117124628">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Dongle:wght@400;700&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css?v=20261117125123">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .shead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
 .shead .row1{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
@@ -61,6 +61,11 @@
 .stk:hover .se,.stk:focus-visible .se{display:inline-block;animation:stkbeat 1.2s ease-in-out infinite}
 .rx.pop{animation:rxpop .35s ease-out}
 @media (prefers-reduced-motion: reduce){.cstk,.cstk .se,.stk .se,.rx.pop{animation:none!important}}
+/* 조잘조잘 제목·스티커 문구: 동글 (같은 크기에서 작아 보여서 키움) */
+:root{--dongle:"Dongle","Jua",var(--body, system-ui),sans-serif}
+.jjal{font-family:var(--dongle);font-weight:700;font-size:30px;line-height:1;margin:0}
+.stk .st{font-family:var(--dongle)!important;font-size:17px!important;line-height:1!important}
+.cstk .st{font-family:var(--dongle)!important;font-size:28px!important;line-height:1!important}
 .mine{font-size:11px;padding:0 6px;border-radius:999px;background:var(--hl-green, #DDF3E6);color:var(--accent)}
 </style>
 </head>
@@ -120,7 +125,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="/config.js?v=20261117124628"></script>
-<script src="/share.js?v=20261117124628"></script>
+<script src="/config.js?v=20261117125123"></script>
+<script src="/share.js?v=20261117125123"></script>
 </body>
 </html>

@@ -170,7 +170,7 @@ async function openView(id) {
     <div class="reacts" id="caseReacts" data-rt="case" data-rid="${c.id}"></div>
     ${mine ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="edit">수정</button><button class="btn ghost" data-act="unshare">공유 그만하기</button></div>` : ""}
     <div id="cConfirm"></div>
-    <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 조잘조잘 생각을 말해봐요</h2><span class="muted mono" id="cCount"></span></div>
+    <div class="phead" style="margin-top:6px"><h2 class="jjal">💬 조잘조잘 생각을 말해봐요</h2><span class="muted mono" id="cCount"></span></div>
     <ul class="comments" id="comments"><li class="muted" style="border:0">불러오는 중…</li></ul>
     ${`<div class="stickers" id="stickers"><span class="muted" style="font-size:12.5px">🎉 스티커로 한마디</span><div class="stkrow">${STICKERS.map(([k, e, t]) => `<button type="button" class="stk" data-stk="${k}" title="${esc(t)}"><span class="se">${e}</span><span class="st">${esc(t)}</span></button>`).join("")}</div></div>`}
     <form class="cform" id="cForm"><textarea id="cBody" rows="3" maxlength="2000" placeholder="이 케이스 보고 든 생각, 내 판독, 궁금한 거 아무거나 조잘조잘 🐣"></textarea><div><button class="btn primary" type="submit">댓글 달기</button></div></form>`);
