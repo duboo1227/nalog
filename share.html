@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/style.css?v=20261117124336">
+<link rel="stylesheet" href="/style.css?v=20261117124458">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .shead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
 .shead .row1{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
@@ -52,6 +52,15 @@
 .cstk{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:linear-gradient(135deg,var(--hl, #FFF3A8),var(--hl-green, #DDF3E6));border-radius:16px;padding:8px 16px 8px 10px}
 .cstk .se{font-size:38px;line-height:1}
 .cstk .st{font-family:var(--display);font-size:19px;color:var(--ink);word-break:keep-all}
+/* 스티커 이모지: 커졌다 작아졌다 (움직임 줄이기 설정이면 멈춤) */
+@keyframes stkbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.35) rotate(-8deg)}24%{transform:scale(.92) rotate(4deg)}36%{transform:scale(1.12)}48%{transform:scale(1)}}
+@keyframes stkin{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+@keyframes rxpop{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+.cstk{animation:stkin .45s ease-out both}
+.cstk .se{display:inline-block;transform-origin:50% 70%;animation:stkbeat 2.4s ease-in-out infinite}
+.stk:hover .se,.stk:focus-visible .se{display:inline-block;animation:stkbeat 1.2s ease-in-out infinite}
+.rx.pop{animation:rxpop .35s ease-out}
+@media (prefers-reduced-motion: reduce){.cstk,.cstk .se,.stk .se,.rx.pop{animation:none!important}}
 .mine{font-size:11px;padding:0 6px;border-radius:999px;background:var(--hl-green, #DDF3E6);color:var(--accent)}
 </style>
 </head>
@@ -111,7 +120,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="/config.js?v=20261117124336"></script>
-<script src="/share.js?v=20261117124336"></script>
+<script src="/config.js?v=20261117124458"></script>
+<script src="/share.js?v=20261117124458"></script>
 </body>
 </html>

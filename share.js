@@ -170,10 +170,10 @@ async function openView(id) {
     <div class="reacts" id="caseReacts" data-rt="case" data-rid="${c.id}"></div>
     ${mine ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="edit">수정</button><button class="btn ghost" data-act="unshare">공유 그만하기</button></div>` : ""}
     <div id="cConfirm"></div>
-    <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 판독 토론</h2><span class="muted mono" id="cCount"></span></div>
+    <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 조잘조잘 생각을 말해봐요</h2><span class="muted mono" id="cCount"></span></div>
     <ul class="comments" id="comments"><li class="muted" style="border:0">불러오는 중…</li></ul>
     ${`<div class="stickers" id="stickers"><span class="muted" style="font-size:12.5px">🎉 스티커로 한마디</span><div class="stkrow">${STICKERS.map(([k, e, t]) => `<button type="button" class="stk" data-stk="${k}" title="${esc(t)}"><span class="se">${e}</span><span class="st">${esc(t)}</span></button>`).join("")}</div></div>`}
-    <form class="cform" id="cForm"><textarea id="cBody" rows="3" maxlength="2000" placeholder="내 판독 의견, 감별진단, 궁금한 점을 적어줘"></textarea><div><button class="btn primary" type="submit">댓글 달기</button></div></form>`);
+    <form class="cform" id="cForm"><textarea id="cBody" rows="3" maxlength="2000" placeholder="이 케이스 보고 든 생각, 내 판독, 궁금한 거 아무거나 조잘조잘 🐣"></textarea><div><button class="btn primary" type="submit">댓글 달기</button></div></form>`);
   loadComments(id);
   $("#stickers").addEventListener("click", async e => {
     const b = e.target.closest("[data-stk]"); if (!b) return;
@@ -200,7 +200,7 @@ async function loadComments(id) {
   if (error) { $("#comments").innerHTML = `<li class="muted">댓글을 불러오지 못했어: ${esc(error.message)}</li>`; return; }
   counts[id] = data.length; $("#cCount").textContent = data.length + "개";
   $("#comments").innerHTML = data.length ? data.map(x => `<li><div class="ch"><b>${esc(nickOf(x.user_id))}</b>${x.user_id === c.user_id ? `<span class="mine">올린 사람</span>` : ""}<span class="mono">${when(x.created_at)}</span>${(x.user_id === user.id || c.user_id === user.id) ? `<button class="x" data-delc="${x.id}" aria-label="댓글 삭제">×</button>` : ""}</div>${stickerOf(x.body) ? `<div class="cstk"><span class="se">${stickerOf(x.body).e}</span><span class="st">${esc(stickerOf(x.body).t)}</span></div>` : `<div class="cb">${esc(x.body)}</div>`}<div class="reacts" data-rt="comment" data-rid="${x.id}"></div></li>`).join("")
-    : `<li class="muted" style="border:0;padding:0">아직 댓글이 없어. 첫 의견이나 스티커를 남겨봐.</li>`;
+    : `<li class="muted" style="border:0;padding:0">아직 조용해… 첫 마디나 스티커를 남겨봐 🐣</li>`;
   loadReacts([id, ...data.map(x => x.id)]);
 }
 /* ---------- ❤️ 반응 ---------- */
@@ -229,7 +229,7 @@ document.addEventListener("click", async e => {
   // 먼저 화면에 반영하고 서버에 저장 (실패하면 되돌림)
   if (i >= 0) list.splice(i, 1); else list.push({ user_id: user.id, emoji });
   if (kind === "case" && emoji) { caseHearts[tid] = Math.max(0, (caseHearts[tid] || 0) + (i >= 0 ? -1 : 1)); }
-  drawReacts(el); if (kind === "case") render();
+  drawReacts(el); if (i < 0) { const nb = el.querySelector(`[data-rx="${emoji}"]`); if (nb) nb.classList.add("pop"); } if (kind === "case") render();
   const { error } = i >= 0
     ? await sb.from("share_reactions").delete().match({ target_id: tid, user_id: user.id, emoji })
     : await sb.from("share_reactions").insert({ target_id: tid, kind, emoji });
