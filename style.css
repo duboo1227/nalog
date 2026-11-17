@@ -576,3 +576,13 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .sharechk{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:14px;border:2px dashed var(--line);border-radius:12px;padding:10px 12px}
 .sharechk input{accent-color:var(--accent);width:17px;height:17px}
 .sharechk .muted{font-size:12.5px}
+
+/* 👥 공유 고르기 모드 */
+.cases.picking .case{position:relative;outline:2px dashed transparent;outline-offset:-2px}
+.cases.picking .case.picked{outline-color:var(--accent);background:var(--hl-green, #E6F5EC)}
+.case .pickmark{position:absolute;top:8px;left:8px;z-index:2;width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.28);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.case.picked .pickmark{background:var(--accent)}
+.pickbar{position:sticky;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);z-index:5;display:flex;flex-direction:column;gap:8px;background:var(--surface);border:2px solid var(--accent);border-radius:16px;padding:12px 14px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.pickbar .pickbtns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pickbar .pickinfo,.pickbar .pickask{font-size:14px;line-height:1.6}
+.pickbar .btn[disabled]{opacity:.45;cursor:default}
