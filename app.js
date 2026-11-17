@@ -1001,6 +1001,8 @@ async function signPaths(paths) {
   (data || []).forEach(d => { if (d.signedUrl) signed[d.path] = d.signedUrl; });
 }
 let shareReady = false;
+// 소견과 판독을 한 칸으로: 예전에 따로 적은 케이스는 이어 붙여서 보여줌
+const fi = c => [c.findings, c.impression].map(x => (x || "").trim()).filter(Boolean).join("\n\n");
 let pick = null, pickAsk = false;   // 👥 공유 고르기 모드: 고른 케이스 id 모음
 const imgUrl = p => signed[p] || "";
 // 케이스 첨부: 사진과 동영상(초음파 cine 클립 등)
@@ -1094,9 +1096,8 @@ async function renderQuiz() {
     <div class="muted" style="font-size:13.5px">💭 소견, 진단명, 분류를 먼저 떠올려봐.</div>
     ${quiz.shown ? `<div class="quizans">
         <div><b>${esc(c.title || "(제목 없음)")}</b> ${clsOf(c.id) ? `<span class="tag cls">${esc(clsOf(c.id))}</span>` : ""}</div>
-        ${c.findings && (c.images || []).length ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
-        ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
-        ${c.memo ? `<div><div class="label">메모</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
+        ${fi(c) && (c.images || []).length ? `<div><div class="label">🔍 소견 · 판독</div><div class="pre">${esc(fi(c))}</div></div>` : ""}
+        ${c.memo ? `<div class="studybox"><div class="label">📝 메모 / 공부할 것</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
       </div>
       <div class="rc-btns"><button class="btn" data-quiz="wrong" type="button">😵 틀렸어</button><button class="btn primary" data-quiz="right" type="button">😊 맞혔어</button></div>`
     : `<div><button class="btn primary" data-quiz="show" type="button">정답 보기</button> <button class="linkbtn" data-quiz="skip" type="button">다른 케이스</button></div>`}`;
@@ -1129,9 +1130,8 @@ async function renderCaseSheet(editing) {
   if (!editing) {
     sh.innerHTML = `<div class="phead"><h2 id="caseModalTitle">${esc(c.title || "(제목 없음)")}</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
       <div><span class="tag">${esc(c.region)}</span>${clsOf(c.id) ? ` <span class="tag cls">${esc(clsOf(c.id))}</span>` : ""} <span class="mono muted">${esc(c.date)}</span> ${(c.tags || []).map(t => `<span class="muted">#${esc(t)}</span>`).join(" ")}</div>
-      ${c.findings ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
-      ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
-      ${c.memo ? `<div><div class="label">메모 / 배운 점</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
+      ${fi(c) ? `<div><div class="label">🔍 소견 · 판독</div><div class="pre">${esc(fi(c))}</div></div>` : ""}
+      ${c.memo ? `<div class="studybox"><div class="label">📝 메모 / 공부할 것</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
       <div class="imgs">${(c.images || []).map(p => mediaHtml(p, "view")).join("")}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="btn primary" data-act="edit">수정</button><button class="btn ghost" data-act="close">닫기</button>${c.shared ? `<a class="linkbtn" href="/share" target="_blank" rel="noopener">👥 공유 중 · 친구들 댓글 보기</a>` : ""}</div>`;
     return;
@@ -1143,9 +1143,8 @@ async function renderCaseSheet(editing) {
     </div>
     <label class="field"><span>분류 (BI-RADS · K-TIRADS 등)</span><input type="text" id="cClass" list="cClassList" value="${esc(clsOf(c.id))}" placeholder="예: BI-RADS 4A"><datalist id="cClassList">${(CLASS_OPTS[c.region] || [...CLASS_OPTS["유방"], ...CLASS_OPTS["갑상선"]]).map(o => `<option value="${o}">`).join("")}</datalist></label>
     <label class="field"><span>제목 (진단명·소견명)</span><input type="text" id="cTitle" value="${esc(c.title)}" placeholder="예: Thyroid nodule, K-TIRADS 4"></label>
-    <label class="field"><span>Findings</span><textarea id="cFind" rows="3">${esc(c.findings)}</textarea></label>
-    <label class="field"><span>Impression</span><textarea id="cImp" rows="2">${esc(c.impression)}</textarea></label>
-    <label class="field"><span>메모 / 배운 점</span><textarea id="cMemo" rows="3" placeholder="놓치기 쉬운 포인트, 원장님 피드백, 추적 결과">${esc(c.memo)}</textarea></label>
+    <label class="field"><span>🔍 소견 · 판독 (Findings · Impression)</span><textarea id="cFind" rows="5" placeholder="보이는 특징(크기·모양·에코·경계·석회화·혈류)과 판독 결론(진단·분류·권고)">${esc(fi(c))}</textarea></label>
+    <label class="field"><span>📝 메모 / 공부할 것</span><textarea id="cMemo" class="studyta" rows="12" placeholder="이 케이스 보고 공부한 것, 찾아본 가이드라인·논문, 감별진단, 원장님 피드백, 추적 결과, 다음에 체크할 것">${esc(c.memo)}</textarea></label>
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="cTags" value="${esc((c.tags || []).join(", "))}" placeholder="예: 석회화, f/u, 조직검사"></label>
     ${shareReady ? `<label class="sharechk"><input type="checkbox" id="cShared" ${c.shared ? "checked" : ""}> 👥 친구들과 공유 <span class="muted">('케이스 같이 보기'에 올라가고 친구들이 댓글을 달 수 있어)</span></label>` : ""}
     <div class="field"><span>이미지·동영상 (메모 사진, 캡처, cine 클립)</span>
@@ -1191,7 +1190,7 @@ document.addEventListener("paste", e => {
 function readForm() {
   const c = editCase.data;
   c.date = $("#cDate").value || TODAY; c.region = $("#cRegion").value; c.title = $("#cTitle").value.trim();
-  c.findings = $("#cFind").value; c.impression = $("#cImp").value; c.memo = $("#cMemo").value;
+  c.findings = $("#cFind").value; c.impression = ""; c.memo = $("#cMemo").value;
   c.tags = $("#cTags").value.split(",").map(s => s.trim()).filter(Boolean);
   editCase.cls = ($("#cClass") ? $("#cClass").value.trim() : "");
   if ($("#cShared")) c.shared = $("#cShared").checked;

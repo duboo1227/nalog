@@ -586,3 +586,5 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .pickbar .pickbtns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .pickbar .pickinfo,.pickbar .pickask{font-size:14px;line-height:1.6}
 .pickbar .btn[disabled]{opacity:.45;cursor:default}
+.studyta{min-height:260px;line-height:1.7}
+.studybox{background:var(--hl-green, #E6F5EC);border-radius:12px;padding:10px 12px}
