@@ -13,6 +13,8 @@ const VID_RE = /\.(mp4|mov|m4v|webm|3gp)$/i;
 const isVid = p => VID_RE.test(p || "");
 const MAX_IMG = 20 * 1024 * 1024, MAX_VID = 50 * 1024 * 1024;
 const uuid = () => crypto.randomUUID();
+// 소견과 판독을 한 칸으로: 예전에 따로 적은 케이스는 이어 붙여서 보여줌
+const fi = c => [c.findings, c.impression].map(x => (x || "").trim()).filter(Boolean).join("\n\n");
 
 const sb = window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY);
 let user = null, me = null, members = {}, cases = [], counts = {}, filter = "전체", who = "", signed = {}, edit = null, viewId = null;
@@ -150,9 +152,8 @@ async function openView(id) {
   openSheet(`<div class="phead"><h2 id="mTitle">${esc(c.title || "(제목 없음)")}</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
     <div><span class="tag">${esc(c.region || "기타")}</span>${c.cls ? ` <span class="tag cls">${esc(c.cls)}</span>` : ""} <span class="mono muted">${esc(c.date || "")}</span> · <span class="muted">👤 ${esc(nickOf(c.user_id))}</span> ${(c.tags || []).map(t => `<span class="muted">#${esc(t)}</span>`).join(" ")}</div>
     <div class="imgs">${(c.images || []).map(p => media(p, "view")).join("")}</div>
-    ${c.findings ? `<div><div class="label">Findings</div><div class="pre">${esc(c.findings)}</div></div>` : ""}
-    ${c.impression ? `<div><div class="label">Impression</div><div class="pre">${esc(c.impression)}</div></div>` : ""}
-    ${c.memo ? `<div><div class="label">메모 / 배운 점</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
+    ${fi(c) ? `<div><div class="label">🔍 소견 · 판독</div><div class="pre">${esc(fi(c))}</div></div>` : ""}
+    ${c.memo ? `<div class="studybox"><div class="label">📝 메모 / 공부할 것</div><div class="pre">${esc(c.memo)}</div></div>` : ""}
     ${mine ? `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="edit">수정</button><button class="btn ghost" data-act="unshare">공유 그만하기</button></div>` : ""}
     <div id="cConfirm"></div>
     <div class="phead" style="margin-top:6px"><h2 style="font-size:18px">💬 판독 토론</h2><span class="muted mono" id="cCount"></span></div>
@@ -190,9 +191,8 @@ function renderEdit(msg) {
     </div>
     <label class="field"><span>제목</span><input type="text" id="fTitle" value="${esc(c.title)}" placeholder="예: 갑상선 우엽 결절, 미세석회화"></label>
     <label class="field"><span>분류 (선택)</span><input type="text" id="fCls" list="fClsList" value="${esc(c.cls || "")}" placeholder="예: K-TIRADS 4, BI-RADS 3"><datalist id="fClsList">${(CLASS_OPTS[c.region] || [...CLASS_OPTS["유방"], ...CLASS_OPTS["갑상선"]]).map(o => `<option value="${o}">`).join("")}</datalist></label>
-    <label class="field"><span>Findings</span><textarea id="fFind" rows="4">${esc(c.findings)}</textarea></label>
-    <label class="field"><span>Impression</span><textarea id="fImp" rows="2">${esc(c.impression)}</textarea></label>
-    <label class="field"><span>메모 / 배운 점</span><textarea id="fMemo" rows="3">${esc(c.memo)}</textarea></label>
+    <label class="field"><span>🔍 소견 · 판독 (Findings · Impression)</span><textarea id="fFind" rows="5" placeholder="보이는 특징(크기·모양·에코·경계·석회화·혈류)과 판독 결론(진단·분류·권고)">${esc(fi(c))}</textarea></label>
+    <label class="field"><span>📝 메모 / 공부할 것</span><textarea id="fMemo" class="studyta" rows="12" placeholder="이 케이스 보고 공부한 것, 찾아본 가이드라인·논문, 감별진단, 헷갈렸던 점, 다음에 볼 때 체크할 것">${esc(c.memo)}</textarea></label>
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="fTags" value="${esc((c.tags || []).join(", "))}"></label>
     <div class="field"><span>사진·동영상</span>
       <div class="uploads">${c.images.map((p, k) => `<div class="u">${media(p, "edit")}<button type="button" data-rm="${k}" aria-label="빼기">×</button></div>`).join("")}</div>
@@ -230,7 +230,7 @@ document.addEventListener("paste", e => {
 function readForm() {
   const c = edit.data;
   c.date = $("#fDate").value || TODAY; c.region = $("#fRegion").value; c.title = $("#fTitle").value.trim(); c.cls = $("#fCls").value.trim();
-  c.findings = $("#fFind").value; c.impression = $("#fImp").value; c.memo = $("#fMemo").value;
+  c.findings = $("#fFind").value; c.impression = ""; c.memo = $("#fMemo").value;
   c.tags = $("#fTags").value.split(",").map(s => s.trim()).filter(Boolean);
 }
 let uploading = false;
