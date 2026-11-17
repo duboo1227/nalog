@@ -1062,7 +1062,7 @@ $("#pickBtn").addEventListener("click", () => {
 $("#pickBar").addEventListener("click", e => {
   const b = e.target.closest("[data-pk]"); if (!b || !pick) return;
   const k = b.dataset.pk, sel = [...pick].filter(id => cases[id]);
-  if (k === "share") { pickAsk = true; renderPickBar(); }
+  if (k === "share") setShared(sel.filter(id => !cases[id].shared), true);
   else if (k === "back") { pickAsk = false; renderPickBar(); }
   else if (k === "shareyes") setShared(sel.filter(id => !cases[id].shared), true);
   else if (k === "unshare") setShared(sel.filter(id => cases[id].shared), false);

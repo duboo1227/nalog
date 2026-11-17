@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/style.css?v=20261117122617">
+<link rel="stylesheet" href="/style.css?v=20261117122735">
 <style>:root{color-scheme:light} body{margin:0} [hidden]{display:none!important} img{max-width:100%} :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .shead{padding-top:26px;display:flex;flex-direction:column;gap:6px}
 .shead .row1{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
@@ -27,6 +27,10 @@
 .comments .x{margin-left:auto}
 .cform{display:flex;flex-direction:column;gap:8px}
 .cform textarea{width:100%}
+.lstep{font-size:13px;line-height:1.65;color:var(--muted)}
+.lstep b{color:var(--ink)}
+.ldiv{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12.5px;margin-top:6px}
+.ldiv::before,.ldiv::after{content:"";flex:1;border-top:1px dashed var(--line)}
 .mine{font-size:11px;padding:0 6px;border-radius:999px;background:var(--hl-green, #DDF3E6);color:var(--accent)}
 </style>
 </head>
@@ -43,12 +47,15 @@
   <!-- 1) 로그인 -->
   <section class="panel gate" id="loginBox" hidden>
     <div class="phead"><h2>🔐 로그인</h2></div>
-    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">초대받은 사람만 볼 수 있는 공간이야. 초대한 사람에게 받은 이메일·비밀번호로 로그인해줘. 알았구나에 로그인돼 있는 브라우저면 자동으로 들어와져.</p>
+    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.7">초대받은 사람만 볼 수 있는 공간이야. 알았구나에 로그인돼 있는 브라우저면 자동으로 들어와져.</p>
     <form id="loginForm" style="display:flex;flex-direction:column;gap:10px">
       <input type="email" id="email" required placeholder="이메일 주소" autocomplete="email">
+      <div class="lstep"><b>🐣 처음 왔어?</b> 이메일만 넣고 아래 버튼을 눌러. 메일로 온 링크를 누르면 가입과 로그인이 한 번에 돼.</div>
+      <button class="btn primary" type="button" id="magicBtn">📩 처음이에요 · 로그인 링크 받기</button>
+      <div class="ldiv"><span>이미 계정이 있으면</span></div>
+      <div class="lstep">한 번 들어와서 <b>🔑 비밀번호 바꾸기</b>로 비밀번호를 만든 사람(또는 알았구나 계정이 있는 사람)은 비밀번호로 바로 로그인하면 돼. 메일 안 기다려도 돼.</div>
       <input type="password" id="pw" placeholder="비밀번호" autocomplete="current-password">
-      <button class="btn primary" type="submit" id="sendBtn">로그인</button>
-      <button class="linkbtn" type="button" id="magicBtn">비밀번호가 없으면: 메일로 로그인 링크 받기</button>
+      <button class="btn" type="submit" id="sendBtn">비밀번호로 로그인</button>
     </form>
     <div class="notice" id="loginMsg" hidden></div>
   </section>
@@ -82,7 +89,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
-<script src="/config.js?v=20261117122617"></script>
-<script src="/share.js?v=20261117122617"></script>
+<script src="/config.js?v=20261117122735"></script>
+<script src="/share.js?v=20261117122735"></script>
 </body>
 </html>

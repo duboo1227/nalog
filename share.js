@@ -27,7 +27,7 @@ const loginMsg = t => { const m = $("#loginMsg"); m.hidden = !t; m.textContent =
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault();
   const email = $("#email").value.trim(), password = $("#pw").value; if (!email) return;
-  if (!password) { loginMsg("비밀번호를 넣어줘. 비밀번호는 초대한 사람에게 받으면 돼."); return; }
+  if (!password) { loginMsg("비밀번호를 넣어줘. 처음 왔으면 위의 '로그인 링크 받기'를 눌러."); return; }
   $("#sendBtn").disabled = true;
   const { error } = await sb.auth.signInWithPassword({ email, password });
   $("#sendBtn").disabled = false;
@@ -36,8 +36,8 @@ $("#loginForm").addEventListener("submit", async e => {
 });
 $("#magicBtn").addEventListener("click", async () => {
   const email = $("#email").value.trim(); if (!email) { loginMsg("이메일을 먼저 넣어줘."); return; }
-  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + "/share", shouldCreateUser: false } });
-  loginMsg(error ? (/not authorized|signups? not allowed|signup_disabled|not found/i.test(error.message) ? "이 이메일로는 링크를 보낼 수 없어. 초대한 사람에게 비밀번호를 받아서 로그인해줘." : /rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`);
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + "/share", shouldCreateUser: true } });
+  loginMsg(error ? (/not authorized|signups? not allowed|signup_disabled|not found/i.test(error.message) ? "지금은 새 가입이 막혀 있어. 초대한 사람에게 가입을 열어달라고 말해줘." : /rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`);
 });
 $("#pwBtn").addEventListener("click", () => {
   openSheet(`<div class="phead"><h2 id="mTitle">🔑 비밀번호 바꾸기</h2><button class="x" data-act="close" aria-label="닫기">×</button></div>
