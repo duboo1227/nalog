@@ -1,0 +1,927 @@
+{
+ "date": "2026-11-18",
+ "generatedAt": "2026-11-17T18:08:30.683Z",
+ "debates": [
+  {
+   "topic": [
+    "수능",
+    "커닝",
+    "AI"
+   ],
+   "both": true,
+   "papers": 4,
+   "sides": [
+    {
+     "title": "예고된 AI 커닝 확산, 수능 코앞에 자신 없다는 교육부 장관",
+     "link": "https://www.joongang.co.kr/article/25479191",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "수능 ‘AI 커닝’, 감독관이 적극 개입할 수 있게 재량권 줘야",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/RZBRBLFSYVGSPD4KJUG2ATDDYI/",
+     "pubDate": "2026-11-16T15:20:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "“단추 구멍 막아라”, 결국 요행에 맡기는 수능 커닝 대책",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/UYV57UIMVJGHTAXWEJNCZXCSDU/",
+     "pubDate": "2026-11-17T15:10:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "수능 D-2, 불안 조장 멈추고 시험 부정방지에 총력 다해야",
+     "link": "https://www.khan.co.kr/article/202611161815001/",
+     "pubDate": "2026-11-16T09:15:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "수능 수험생 불안 최소화할 ‘AI 부정’ 대책 마련을",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287608.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    },
+    {
+     "title": "강화된 ‘AI 커닝’ 대책 내놓은 정부, 철저히 시행하길",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287799.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "1조",
+    "달러",
+    "수출"
+   ],
+   "both": true,
+   "papers": 3,
+   "sides": [
+    {
+     "title": "세계 4번째 수출 1조 달러… 한국 한국인 한국기업이 해냈다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042590/2",
+     "pubDate": "2026-11-17T14:30:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "세금 1조 든 시민구단 관중 3000명, 내 돈이면 이러겠나",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/7KE7TJEXVBC3LE27G5NMK5KXRI/",
+     "pubDate": "2026-11-17T15:00:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "‘수출 1조 달러’ 위업 맞지만, 과제도 점검해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287588.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "트럼프"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "트럼프 “김정은 만날 수도”… 치솟은 ‘출연료’는 누가 대나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042594/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "다시 북-미회담 띄운 트럼프, ‘한국 패싱’ 없게 해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287796.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "한덕수"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035655/2",
+     "pubDate": "2026-11-16T14:27:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "한덕수 선고기일 뒤늦게 잡은 대법, 국민 무서운 줄 이제 알았나",
+     "link": "https://www.khan.co.kr/article/202611161810001/",
+     "pubDate": "2026-11-16T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "특검법",
+    "소지",
+    "조작기소"
+   ],
+   "both": false,
+   "papers": 3,
+   "sides": [
+    {
+     "title": "총리의 조작기소 특검법 대리 의결, 책임은 대통령 몫이다",
+     "link": "https://www.joongang.co.kr/article/25479616",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "위헌 소지 특검법에 국무위원 침묵, 계엄 때와 뭐가 다른가",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/GRLHPMWJGZH2VIWNWYN2Q4YGI4/",
+     "pubDate": "2026-11-17T15:20:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "위헌 소지 조작기소 특검법의 국무회의 의결, 총리가 총대 메서야",
+     "link": "https://www.hankookilbo.com/news/article/A2026111616050001400",
+     "pubDate": null,
+     "kind": "칼럼",
+     "src": "한국일보",
+     "lean": "중도"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "부정행위",
+    "수능"
+   ],
+   "both": false,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "수능 첨단 부정행위, 완벽 차단 않으면 후폭풍 감당 못한다",
+     "link": "https://www.hankookilbo.com/news/article/A2026111715430003761",
+     "pubDate": null,
+     "kind": "칼럼",
+     "src": "한국일보",
+     "lean": "중도"
+    },
+    {
+     "title": "수능 이틀 전 급조한 부정행위 대책, 혼란 없도록 철저 준비해야",
+     "link": "https://www.khan.co.kr/article/202611171810001/",
+     "pubDate": "2026-11-17T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    }
+   ]
+  }
+ ],
+ "outlets": [
+  {
+   "id": "chosun",
+   "name": "조선일보",
+   "lean": "보수",
+   "home": "https://www.chosun.com/opinion/",
+   "items": [
+    {
+     "title": "위헌 소지 특검법에 국무위원 침묵, 계엄 때와 뭐가 다른가",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/GRLHPMWJGZH2VIWNWYN2Q4YGI4/",
+     "pubDate": "2026-11-17T15:20:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "“단추 구멍 막아라”, 결국 요행에 맡기는 수능 커닝 대책",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/UYV57UIMVJGHTAXWEJNCZXCSDU/",
+     "pubDate": "2026-11-17T15:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "세금 1조 든 시민구단 관중 3000명, 내 돈이면 이러겠나",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/18/7KE7TJEXVBC3LE27G5NMK5KXRI/",
+     "pubDate": "2026-11-17T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "수능 ‘AI 커닝’, 감독관이 적극 개입할 수 있게 재량권 줘야",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/RZBRBLFSYVGSPD4KJUG2ATDDYI/",
+     "pubDate": "2026-11-16T15:20:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "정치하면 안 되는 與野 소인배들의 ‘징계 내전’",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/GXN7CMZQGJBDVJXTPV67CY7EZI/",
+     "pubDate": "2026-11-16T15:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "안보 걱정보다 정권 심기 챙기는 국방 장관, “매우 실망스럽다”",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/17/OFARIBJ7IZF6ZBUHQNDTZOYIXM/",
+     "pubDate": "2026-11-16T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[朝鮮칼럼] 태양광 없는 ‘겨울밤 電力’은 누가 책임지나",
+     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/18/T3DRXVMYQVGWZEQNJZ6XEM7WFA/",
+     "pubDate": "2026-11-17T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[태평로] 어쩌다 안보도 평화도 김정은 말이 더 맞게 됐나",
+     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/17/6CA6TDEEORABXLIUZJLIL6CXFI/",
+     "pubDate": "2026-11-17T14:50:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기자의 시각] 장관 앞에서도 꺾이지 않은 원칙",
+     "link": "https://www.chosun.com/opinion/journalist_view/2026/11/17/VUD4JD56MJAFVKCCN5KCCIFEJ4/",
+     "pubDate": "2026-11-17T14:48:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김정호의 AI시대 전략] 젠슨 황 사퇴 후 ‘AI 버블’ 공포, AI 에이전트 전자상거래로 잠재운다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/UFK67ZLNA5FPHKCTMXW2QPYSK4/",
+     "pubDate": "2026-11-17T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[채승우의 카메라 타임머신] 생애 첫 입학시험",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/35VTB72OENEKBC6YTLOK2Y33EE/",
+     "pubDate": "2026-11-17T14:42:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[유재덕의 공유주방] [45] 가슴에 넣고 사는 질문",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/4DATLMBFSJFTPO3H3LU2LE4FZA/",
+     "pubDate": "2026-11-17T14:40:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김도훈의 엑스레이] [147] ‘스마트 어쩌고’가 사람 잡네",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/CYTAQA4FBZA4FCELRNXBA2TN5Q/",
+     "pubDate": "2026-11-17T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] 원화 국제화하려면 환율 방어에 국민연금 동원부터 멈춰야",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/17/NVVUMQQPWFFRLAJIXWSJTT3HIA/",
+     "pubDate": "2026-11-17T14:36:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[만물상] 커닝과의 전쟁",
+     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/17/NPBR6S2P5BGVFD72YEVOELOI24/",
+     "pubDate": "2026-11-17T13:57:27.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[전문기자의 시선] 2년 8개월 만의 KBS 대하사극… ‘고려거란전쟁’의 전철 밟지 않길",
+     "link": "https://www.chosun.com/opinion/column/2026/11/16/GWRZ725MSZBTDLNE3HUXWGIXAU/",
+     "pubDate": "2026-11-16T14:46:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[태평로] 대장동 수사 검사가 겪은 不義의 1년",
+     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/17/M3NACIX7V5CYNPMGCG3IC75KUQ/",
+     "pubDate": "2026-11-16T14:50:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[윤희영의 News English] 부와 권력은 왜 불륜을 부를까",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/5T3DL5OQJBDANGS3QBM3P4NO7I/",
+     "pubDate": "2026-11-16T14:40:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] ‘AI 한정’ 대기업 병역특례, 방위산업 인재에도 문 열어야",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/16/CEROHCNFJNFTTIPTOQSTIXSA5Y/",
+     "pubDate": "2026-11-16T14:30:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[조한범의 무극화 시대] 선전 APEC의 ‘소문난 잔치’와 우리의 우려",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/16/CPMAPC2HJBHNLK7E4FIHN7J4P4/",
+     "pubDate": "2026-11-16T14:44:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "joongang",
+   "name": "중앙일보",
+   "lean": "보수",
+   "home": "https://www.joongang.co.kr/opinion",
+   "items": [
+    {
+     "title": "총리의 조작기소 특검법 대리 의결, 책임은 대통령 몫이다",
+     "link": "https://www.joongang.co.kr/article/25479616",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "대책 없으니 수험생끼리 감시하라는 게 교육인가",
+     "link": "https://www.joongang.co.kr/article/25479614",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "성실하게 빚 갚은 사람만 소외됐다",
+     "link": "https://www.joongang.co.kr/article/25479612",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "예고된 AI 커닝 확산, 수능 코앞에 자신 없다는 교육부 장관",
+     "link": "https://www.joongang.co.kr/article/25479191",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "여당 증액 요구, 야당 의원도 눈독…쌈짓돈 미래대응기금",
+     "link": "https://www.joongang.co.kr/article/25479189",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "루비오의 김정은 두둔 발언, 미·중·러 회담 걱정 안 할 수 있나",
+     "link": "https://www.joongang.co.kr/article/25479188",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "[한 컷] 세상이 뒤집혀도",
+     "link": "https://www.joongang.co.kr/article/25479567",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "유럽은 어떤 미래에 먼저 도착했는가",
+     "link": "https://www.joongang.co.kr/article/25479609",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "“위헌” 커질수록 확연한 헌재 실종",
+     "link": "https://www.joongang.co.kr/article/25479606",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "법복 입은 ‘벤자민’",
+     "link": "https://www.joongang.co.kr/article/25479604",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "“문제는 중국, 한·미 ‘난기류’ 벗어나기 쉽지 않다”",
+     "link": "https://www.joongang.co.kr/article/25479602",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "데이터센터 논란이 상기시킨 브로델의 지중해",
+     "link": "https://www.joongang.co.kr/article/25479600",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "“충성, 사랑합니다!”",
+     "link": "https://www.joongang.co.kr/article/25479597",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "아주가꽃 화단과 걸개시",
+     "link": "https://www.joongang.co.kr/article/25479595",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "“위기 때 비관론 빠지지 않아야 좋은 투자자”",
+     "link": "https://www.joongang.co.kr/article/25479592",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "젠슨 황과 ‘M.나비’",
+     "link": "https://www.joongang.co.kr/article/25479588",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "유행의 변덕과 남대문 스카프리오",
+     "link": "https://www.joongang.co.kr/article/25479586",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "의료사고, 처벌보다 시스템 개선으로 예방해야",
+     "link": "https://www.joongang.co.kr/article/25400758",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "쿠팡 청문회가 드러낸 기술과 권력의 오만...이젠 소비자가 바꿔야 한다",
+     "link": "https://www.joongang.co.kr/article/25394046",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "역할 애매한 중수청…이대로는 사건 피해자 부담만 증가한다",
+     "link": "https://www.joongang.co.kr/article/25387011",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "donga",
+   "name": "동아일보",
+   "lean": "보수",
+   "home": "https://www.donga.com/news/Opinion",
+   "items": [
+    {
+     "title": "세계 4번째 수출 1조 달러… 한국 한국인 한국기업이 해냈다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042590/2",
+     "pubDate": "2026-11-17T14:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "트럼프 “김정은 만날 수도”… 치솟은 ‘출연료’는 누가 대나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042594/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "금융위기 맞먹는 ‘기업 부실 징후’… 호황 때 구조조정해야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042592/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "AI로 ‘실력 위조’하는 시대… 現 시험-선발 제도론 백약이 무효",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035651/2",
+     "pubDate": "2026-11-16T14:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "한덕수 사건 대법원 전합 선고에 쏠린 시선과 질문들",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035655/2",
+     "pubDate": "2026-11-16T14:27:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "애타게 집집마다 문 두드리다 숨진 74세 아파트 경비원",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035653/2",
+     "pubDate": "2026-11-16T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[횡설수설/우경임]美 ‘먹통 대란’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042603/2",
+     "pubDate": "2026-11-17T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[동아광장/유재동]천재 창업가의 숙명 ‘지니어스 트랩’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042605/2",
+     "pubDate": "2026-11-17T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/문병기]‘K뉴딜’의 그림자 드리운 미래대응기금",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042597/2",
+     "pubDate": "2026-11-17T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/정윤철]길어진 축구 수장 공백… 침묵 깨고 해법 찾아야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042607/2",
+     "pubDate": "2026-11-17T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]단잠",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042600/2",
+     "pubDate": "2026-11-17T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[글로벌 현장을 가다/황인찬]‘K라면’ 일본 수출 4년 새 38% 증가… 日편의점에 ‘한강 라면’도 판매",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042545/2",
+     "pubDate": "2026-11-17T14:03:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[이원주의 하늘속談]김해공항 U턴 착륙, 이제 자동으로도 됩니다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042338/2",
+     "pubDate": "2026-11-17T14:03:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "마무리는 야생마로[정덕현의 그 영화 이 대사]〈133〉",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042587/2",
+     "pubDate": "2026-11-17T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "명의도용 피해 예방은 안심차단 서비스로[기고/박해영]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042407/2",
+     "pubDate": "2026-11-17T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "기억력 감퇴에 말문까지 막힌다면… 노년의 우울증은 치매를 닮았다[이진형의 뇌, 우리 속의 우주]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042403/2",
+     "pubDate": "2026-11-17T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘집 안’ 넘어 담장 밖으로… 걷고 싶은 동네 만드는 법[이즈미 지하루 한국 블로그]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135041356/2",
+     "pubDate": "2026-11-17T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[횡설수설/박희창]벤츠마저 ‘탈독일’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035642/2",
+     "pubDate": "2026-11-16T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/김창덕]울고 싶은데 뺨 맞은 ‘AI 신중론’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035658/2",
+     "pubDate": "2026-11-16T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[동아광장/전재성]미-중-러의 새판 짜기, 한국은 구경꾼일 수 없다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261116/135035644/2",
+     "pubDate": "2026-11-16T14:12:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "hankook",
+   "name": "한국일보",
+   "lean": "중도",
+   "home": "https://www.hankookilbo.com/News/Opinion",
+   "items": [
+    {
+     "title": "‘조작 징계’ 개입 의혹 장동혁, 무시로 어물쩍 넘겨선 안 돼",
+     "link": "https://www.hankookilbo.com/news/article/A2026111715470005486",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "수능 첨단 부정행위, 완벽 차단 않으면 후폭풍 감당 못한다",
+     "link": "https://www.hankookilbo.com/news/article/A2026111715430003761",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "김정은에 잇단 유화 제스처, 시작부터 불안한 미중러 회담",
+     "link": "https://www.hankookilbo.com/news/article/A2026111712580001647",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "미래라는 이름의 데우스 엑스 마키나",
+     "link": "https://www.hankookilbo.com/news/article/A2026111610400004044",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "공소취소는 (이 대통령에게) 해피엔딩일까",
+     "link": "https://www.hankookilbo.com/news/article/A2026111608180004004",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "하태우 작가·사진가 '휠체어에서 듣는 음악' 저자",
+     "link": "https://www.hankookilbo.com/news/article/A2026111709350001534",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "프랑스 국민배우의 염치?",
+     "link": "https://www.hankookilbo.com/news/article/A2026111701100003119",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "위헌 소지 조작기소 특검법의 국무회의 의결, 총리가 총대 메서야",
+     "link": "https://www.hankookilbo.com/news/article/A2026111616050001400",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "'산업인력공단 독점' 국가자격시험, 근본 재검토 필요하다",
+     "link": "https://www.hankookilbo.com/news/article/A2026111614400004883",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "민주당, 분열상 조속 해결하고 민심에 제대로 부응하길",
+     "link": "https://www.hankookilbo.com/news/article/A2026111612240005021",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "남산과 케이블카",
+     "link": "https://www.hankookilbo.com/news/article/A2026111614400000998",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "hani",
+   "name": "한겨레",
+   "lean": "진보",
+   "home": "https://www.hani.co.kr/arti/opinion",
+   "items": [
+    {
+     "title": "법관대표회의, 사법부 반성과 성찰 먼저 하라",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287800.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "강화된 ‘AI 커닝’ 대책 내놓은 정부, 철저히 시행하길",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287799.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "다시 북-미회담 띄운 트럼프, ‘한국 패싱’ 없게 해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287796.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "수능 수험생 불안 최소화할 ‘AI 부정’ 대책 마련을",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287608.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "세수기반 흔들 ‘소득세 물가연동제’ 시기상조다",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287601.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "‘수출 1조 달러’ 위업 맞지만, 과제도 점검해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287588.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "‘설계된 무질서’…네트워크 과학이 빚어낸 단단함 [오철우의 과학풍경]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287822.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘남자, 쓰는 사람’의 등장이 몹시 반가운 이유 [김현아의 우연한 연결]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287820.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "파견 대상 업무 확대의 숨은 뜻 [하종강 칼럼]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287819.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "가정폭력처벌법을 전면개정하자 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287818.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI 기업의 ‘부정행위 차단’ 기술 [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287786.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘회장님’이 좋으면 일반 주주도 좋게 [아침햇발]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287728.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "20년을 미룬 ‘진짜 싸움’ [뉴스룸에서]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287643.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘최초접촉’ 빠진 일차의료 혁신, 무엇을 바꾸겠다는 것인가 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1287629.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "부모의 책임은 어디까지인가 [똑똑! 한국사회]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287628.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "종교와 정치의 경계는 어디인가 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287627.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘AI 학습’ 저작물 무단 이용…창작자 보호책 시급하다 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1287626.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "연구기관 지방 이전, 과학기술 경쟁력 훼손 우려 커 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1287625.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "낡은 계급제·뇌물 승진…소방 조직 전면 개편을 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1287624.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI가 낮춘 범죄의 문턱 [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1287622.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "khan",
+   "name": "경향신문",
+   "lean": "진보",
+   "home": "https://www.khan.co.kr/opinion",
+   "items": [
+    {
+     "title": "연말 민생국회 와중에 내분으로 날 새는 무책임한 여당",
+     "link": "https://www.khan.co.kr/article/202611171933001/",
+     "pubDate": "2026-11-17T10:33:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "벤처기업에 극심한‘돈맥경화’, 이래서 혁신성장 가능하겠나",
+     "link": "https://www.khan.co.kr/article/202611171810011/",
+     "pubDate": "2026-11-17T09:10:01.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "수능 이틀 전 급조한 부정행위 대책, 혼란 없도록 철저 준비해야",
+     "link": "https://www.khan.co.kr/article/202611171810001/",
+     "pubDate": "2026-11-17T09:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "노동자 절반 실질임금 하락, ‘K양극화’ 극복 최우선 하길",
+     "link": "https://www.khan.co.kr/article/202611161857001/",
+     "pubDate": "2026-11-16T09:57:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "수능 D-2, 불안 조장 멈추고 시험 부정방지에 총력 다해야",
+     "link": "https://www.khan.co.kr/article/202611161815001/",
+     "pubDate": "2026-11-16T09:15:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "한덕수 선고기일 뒤늦게 잡은 대법, 국민 무서운 줄 이제 알았나",
+     "link": "https://www.khan.co.kr/article/202611161810001/",
+     "pubDate": "2026-11-16T09:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[송두율 칼럼]같은 기억, 다른 미래를 바랄 권리",
+     "link": "https://www.khan.co.kr/article/202611172006005/",
+     "pubDate": "2026-11-17T11:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김월회의 아로새김]AI시대? ‘AI문화’시대!",
+     "link": "https://www.khan.co.kr/article/202611172004025/",
+     "pubDate": "2026-11-17T11:04:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김택근의 묵언]산이 울고 있다",
+     "link": "https://www.khan.co.kr/article/202611172004015/",
+     "pubDate": "2026-11-17T11:04:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[국제칼럼]일해도 집을 못 구하는 청년들",
+     "link": "https://www.khan.co.kr/article/202611172004005/",
+     "pubDate": "2026-11-17T11:04:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[공감]오늘은 여기까지",
+     "link": "https://www.khan.co.kr/article/202611172000015/",
+     "pubDate": "2026-11-17T11:00:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[경제직필]물가 3%에 세계는 왜 흔들리나",
+     "link": "https://www.khan.co.kr/article/202611172000005/",
+     "pubDate": "2026-11-17T11:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[논설위원의 단도직입]“준비 시간 불인정·무급 폐강·아프면 실직…열악한 강사 처우, 학문·지식 생태계 위협”",
+     "link": "https://www.khan.co.kr/article/202611171957005/",
+     "pubDate": "2026-11-17T10:57:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[여적]얄타회담 2.0",
+     "link": "https://www.khan.co.kr/article/202611171832001/",
+     "pubDate": "2026-11-17T09:32:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[홍기빈의 두 번째 의견]‘테크브로’들의 패착",
+     "link": "https://www.khan.co.kr/article/202611162009005/",
+     "pubDate": "2026-11-16T11:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고]수능이 19일 인데…공정성 지킬 대책은 있는가",
+     "link": "https://www.khan.co.kr/article/202611162004025/",
+     "pubDate": "2026-11-16T11:04:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[직설]대화형 AI와 좋은 대화 하려면",
+     "link": "https://www.khan.co.kr/article/202611162004015/",
+     "pubDate": "2026-11-16T11:04:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[박형주의 세나수 | 세상에 나쁜 수학은 없다]인공지능 시대, 시험은 존속할 수 있을까",
+     "link": "https://www.khan.co.kr/article/202611162004005/",
+     "pubDate": "2026-11-16T11:04:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기자칼럼]K뮤지컬 ‘해피엔딩’ 되려면",
+     "link": "https://www.khan.co.kr/article/202611162000025/",
+     "pubDate": "2026-11-16T11:00:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[시론]법원의 위기, 대법원장은 무엇을 하고 있는가",
+     "link": "https://www.khan.co.kr/article/202611162000015/",
+     "pubDate": "2026-11-16T11:00:01.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  }
+ ]
+}
