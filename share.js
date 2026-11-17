@@ -30,7 +30,7 @@ $("#loginForm").addEventListener("submit", async e => {
   const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: location.origin + "/share", shouldCreateUser: true } });
   $("#sendBtn").disabled = false;
   const m = $("#loginMsg"); m.hidden = false;
-  m.textContent = error ? (/rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시(최대 1시간) 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`;
+  m.textContent = error ? (/signups? not allowed|signup_disabled/i.test(error.message) ? "아직 초대 등록이 안 된 이메일이야. 초대한 사람에게 이 이메일 주소를 알려주고, 초대 메일이 오면 그 링크로 들어와줘." : /rate|limit|seconds/i.test(error.message) ? "메일 발송 한도에 걸렸어. 잠시(최대 1시간) 뒤에 다시 해줘." : "링크를 보내지 못했어: " + error.message) : `${email}로 로그인 링크를 보냈어. 메일함(스팸함 포함)을 확인해줘.`;
 });
 $("#joinForm").addEventListener("submit", async e => {
   e.preventDefault();
