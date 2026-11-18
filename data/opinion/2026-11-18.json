@@ -1,6 +1,6 @@
 {
  "date": "2026-11-18",
- "generatedAt": "2026-11-17T21:59:35.578Z",
+ "generatedAt": "2026-11-18T02:20:28.378Z",
  "debates": [
   {
    "topic": [
@@ -252,6 +252,18 @@
      "kind": "사설"
     },
     {
+     "title": "[기고] 원화 국제화하려면 환율 방어에 국민연금 동원부터 멈춰야",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/17/NVVUMQQPWFFRLAJIXWSJTT3HIA/",
+     "pubDate": "2026-11-17T14:36:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[채승우의 카메라 타임머신] 생애 첫 입학시험",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/35VTB72OENEKBC6YTLOK2Y33EE/",
+     "pubDate": "2026-11-17T14:42:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[朝鮮칼럼] 태양광 없는 ‘겨울밤 電力’은 누가 책임지나",
      "link": "https://www.chosun.com/opinion/chosun_column/2026/11/18/T3DRXVMYQVGWZEQNJZ6XEM7WFA/",
      "pubDate": "2026-11-17T14:55:00.000Z",
@@ -276,12 +288,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "[채승우의 카메라 타임머신] 생애 첫 입학시험",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/35VTB72OENEKBC6YTLOK2Y33EE/",
-     "pubDate": "2026-11-17T14:42:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[유재덕의 공유주방] [45] 가슴에 넣고 사는 질문",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/4DATLMBFSJFTPO3H3LU2LE4FZA/",
      "pubDate": "2026-11-17T14:40:00.000Z",
@@ -291,12 +297,6 @@
      "title": "[김도훈의 엑스레이] [147] ‘스마트 어쩌고’가 사람 잡네",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/17/CYTAQA4FBZA4FCELRNXBA2TN5Q/",
      "pubDate": "2026-11-17T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] 원화 국제화하려면 환율 방어에 국민연금 동원부터 멈춰야",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/17/NVVUMQQPWFFRLAJIXWSJTT3HIA/",
-     "pubDate": "2026-11-17T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -654,18 +654,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "'산업인력공단 독점' 국가자격시험, 근본 재검토 필요하다",
-     "link": "https://www.hankookilbo.com/news/article/A2026111614400004883",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "민주당, 분열상 조속 해결하고 민심에 제대로 부응하길",
-     "link": "https://www.hankookilbo.com/news/article/A2026111612240005021",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
      "title": "\"엄마가 한국인이라서 미안해\"",
      "link": "https://www.hankookilbo.com/news/article/A2026111714090003841",
      "pubDate": null,
@@ -680,6 +668,18 @@
     {
      "title": "게으른 인간을 위한, 친절한 인공지능",
      "link": "https://www.hankookilbo.com/news/article/A2026111709400004046",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "'산업인력공단 독점' 국가자격시험, 근본 재검토 필요하다",
+     "link": "https://www.hankookilbo.com/news/article/A2026111614400004883",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "민주당, 분열상 조속 해결하고 민심에 제대로 부응하길",
+     "link": "https://www.hankookilbo.com/news/article/A2026111612240005021",
      "pubDate": null,
      "kind": "칼럼"
     },
