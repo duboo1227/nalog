@@ -251,7 +251,7 @@ function renderEdit(msg) {
     <label class="field"><span>📝 메모 / 공부할 것</span><textarea id="fMemo" class="studyta" rows="12" placeholder="이 케이스 보고 공부한 것, 찾아본 가이드라인·논문, 감별진단, 헷갈렸던 점, 다음에 볼 때 체크할 것">${esc(c.memo)}</textarea></label>
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="fTags" value="${esc((c.tags || []).join(", "))}"></label>
     <div class="field"><span>사진·동영상</span>
-      <div class="uploads">${c.images.map((p, k) => `<div class="u">${media(p, "edit")}<button type="button" data-rm="${k}" aria-label="빼기">×</button></div>`).join("")}</div>
+      <div class="uploads">${c.images.map((p, k, L) => `<div class="u">${media(p, "edit")}<button type="button" data-rm="${k}" aria-label="빼기">×</button><span class="uno">${k + 1}</span><span class="umv">${k ? `<button type="button" data-mv="${k}" data-d="-1" aria-label="앞으로">◀</button>` : ""}${k < L.length - 1 ? `<button type="button" data-mv="${k}" data-d="1" aria-label="뒤로">▶</button>` : ""}</span></div>`).join("")}</div>${c.images.length > 1 ? `<span class="muted uhint">◀ ▶로 순서 바꾸기 · 1번이 목록 썸네일</span>` : ""}
       <div class="pastebox" id="paste" contenteditable="true" role="textbox" aria-label="이미지 붙여넣기 칸" inputmode="none"><b>여기에 이미지 붙여넣기</b><span>PC: Ctrl+V (⌘V) · 끌어다 놓기 · 동영상은 끌어다 놓기나 '파일에서 선택'으로</span></div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px">
         <label class="linkbtn" style="cursor:pointer">파일에서 선택<input type="file" id="fFile" accept="image/*,video/*" multiple hidden></label>
@@ -327,6 +327,8 @@ async function save() {
 $("#sheet").addEventListener("click", async e => {
   const rm = e.target.closest("[data-rm]");
   if (rm && edit) { readForm(); edit.data.images.splice(Number(rm.dataset.rm), 1); renderEdit(); return; }
+  const mvb = e.target.closest("[data-mv]");
+  if (mvb && edit) { readForm(); const L = edit.data.images, k = Number(mvb.dataset.mv), j = k + Number(mvb.dataset.d); if (j >= 0 && j < L.length) { [L[k], L[j]] = [L[j], L[k]]; } renderEdit(); return; }
   const dc = e.target.closest("[data-delc]");
   if (dc) { const { error } = await sb.from("case_comments").delete().eq("id", dc.dataset.delc); if (error) status("삭제하지 못했어: " + error.message); else { loadComments(viewId); counts[viewId] = Math.max(0, (counts[viewId] || 1) - 1); render(); } return; }
   const a = e.target.closest("[data-act]"); if (!a) return;

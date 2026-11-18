@@ -590,3 +590,10 @@ nav.tabs a[aria-current="page"]{font-weight:400}
 .studybox{background:var(--hl-green, #E6F5EC);border-radius:12px;padding:10px 12px}
 .dhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .tplbtn{font-size:12.5px}
+
+/* 케이스 이미지 순서 바꾸기 */
+.uploads .u .uno{position:absolute;top:3px;left:3px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--surface);color:var(--ink);font-size:11.5px;font-weight:700;display:grid;place-items:center;line-height:1}
+.uploads .u .umv{position:absolute;left:0;right:0;bottom:3px;display:flex;justify-content:space-between;padding:0 3px;pointer-events:none}
+.uploads .u .umv button{position:static;pointer-events:auto;width:26px;height:24px;border-radius:8px;font-size:11px;background:var(--surface);color:var(--ink);opacity:.92}
+.uploads .u .umv button[data-d="1"]:only-child{margin-left:auto}
+.uhint{font-size:12px}

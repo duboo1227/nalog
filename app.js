@@ -1173,7 +1173,7 @@ async function renderCaseSheet(editing) {
     <label class="field"><span>태그 (쉼표로 구분)</span><input type="text" id="cTags" value="${esc((c.tags || []).join(", "))}" placeholder="예: 석회화, f/u, 조직검사"></label>
     ${shareReady ? `<label class="sharechk"><input type="checkbox" id="cShared" ${c.shared ? "checked" : ""}> 👥 친구들과 공유 <span class="muted">('케이스 같이 보기'에 올라가고 친구들이 댓글을 달 수 있어)</span></label>` : ""}
     <div class="field"><span>이미지·동영상 (메모 사진, 캡처, cine 클립)</span>
-      <div class="uploads">${(c.images || []).map((p, k) => `<div class="u">${mediaHtml(p, "edit")}<button data-rm-img="${k}" aria-label="빼기">×</button></div>`).join("")}</div>
+      <div class="uploads">${(c.images || []).map((p, k, L) => `<div class="u">${mediaHtml(p, "edit")}<button data-rm-img="${k}" aria-label="빼기">×</button><span class="uno">${k + 1}</span><span class="umv">${k ? `<button type="button" data-mv="${k}" data-d="-1" aria-label="앞으로">◀</button>` : ""}${k < L.length - 1 ? `<button type="button" data-mv="${k}" data-d="1" aria-label="뒤로">▶</button>` : ""}</span></div>`).join("")}</div>${(c.images || []).length > 1 ? `<span class="muted uhint">◀ ▶로 순서 바꾸기 · 1번이 목록 썸네일</span>` : ""}
       <div class="pastebox" id="cPaste" contenteditable="true" role="textbox" aria-label="이미지 붙여넣기 칸" inputmode="none">
         <b>여기에 이미지 붙여넣기</b>
         <span>PC: 복사 후 Ctrl+V (⌘V) · 폰: 이 칸을 길게 눌러 '붙여넣기' · 끌어다 놓기도 돼 · 동영상은 끌어다 놓기나 '파일에서 선택'으로</span>
@@ -1260,6 +1260,8 @@ async function saveCase() {
 $("#caseSheet").addEventListener("click", async e => {
   const rm = e.target.closest("[data-rm-img]");
   if (rm) { readForm(); editCase.data.images.splice(Number(rm.dataset.rmImg), 1); renderCaseSheet(true); return; }
+  const mvb = e.target.closest("[data-mv]");
+  if (mvb) { readForm(); const L = editCase.data.images, k = Number(mvb.dataset.mv), j = k + Number(mvb.dataset.d); if (j >= 0 && j < L.length) { [L[k], L[j]] = [L[j], L[k]]; } renderCaseSheet(true); return; }
   const a = e.target.closest("[data-act]"); if (!a) return;
   const act = a.dataset.act;
   if (act === "close") {
