@@ -1,6 +1,6 @@
 {
  "date": "2026-11-19",
- "generatedAt": "2026-11-19T02:19:45.887Z",
+ "generatedAt": "2026-11-19T06:11:28.200Z",
  "debates": [
   {
    "topic": [
@@ -165,6 +165,12 @@
    "home": "https://www.chosun.com/opinion/",
    "items": [
     {
+     "title": "1억 포상 노린 시험장 고발, 어떤 혼란 부를지 걱정된다",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/19/QBBFAM3KCNBXLISGUILHNBX6XA/",
+     "pubDate": "2026-11-18T15:20:00.000Z",
+     "kind": "사설"
+    },
+    {
      "title": "“나이 때문에 못할 것 같다”는 교육부 장관, 그만두면 된다",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/19/DZZOTW37SBFZPCOA3KJOFHGYCY/",
      "pubDate": "2026-11-18T15:10:00.000Z",
@@ -174,12 +180,6 @@
      "title": "사실상 ‘대통령 개인 로펌’에 380억, 왜 국민이 부담해야 하나",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/19/5HKFIW4ABJCA7DEVFXDMMVIKNY/",
      "pubDate": "2026-11-18T15:00:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "1억 포상 노린 시험장 고발, 어떤 혼란 부를지 걱정된다",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/19/QBBFAM3KCNBXLISGUILHNBX6XA/",
-     "pubDate": "2026-11-18T15:20:00.000Z",
      "kind": "사설"
     },
     {
@@ -204,6 +204,24 @@
      "title": "간첩보다 못한 한국 반도체 외교",
      "link": "https://www.chosun.com/opinion/economic_focus/2026/11/18/DHD4JYBRFFEHNEERTZRFSES53Q/",
      "pubDate": "2026-11-18T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] AI 단속만으론 한계… 평가기준 바꿔 시험제도 재설계를",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/18/ZVME33PQURCZ7HYJEEP7KJDPQY/",
+     "pubDate": "2026-11-18T14:35:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[논설실의 뉴스 읽기] 李 취임 초부터 재판 부담감 토로… ‘트럼프 공소기각’도 연구했다",
+     "link": "https://www.chosun.com/opinion/2026/11/18/FZ6HPTYHJFHNPLAPOTKALFXYII/",
+     "pubDate": "2026-11-18T14:31:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[존 프랭클의 문무겸전] 강의실에서든 도장에서든 ‘기본’에만 집중한다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/ONLNTE3DWNH4RIZ2IBMXRQJ5YI/",
+     "pubDate": "2026-11-18T14:32:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -237,27 +255,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[기고] AI 단속만으론 한계… 평가기준 바꿔 시험제도 재설계를",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/18/ZVME33PQURCZ7HYJEEP7KJDPQY/",
-     "pubDate": "2026-11-18T14:35:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[윤희영의 News English] 햇볕이 약이 되려면 하루 몇 분 쬐야 할까",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/LVVRF5BZHVAORDSFRHOCM7UNAM/",
      "pubDate": "2026-11-18T14:33:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[존 프랭클의 문무겸전] 강의실에서든 도장에서든 ‘기본’에만 집중한다",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/ONLNTE3DWNH4RIZ2IBMXRQJ5YI/",
-     "pubDate": "2026-11-18T14:32:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[논설실의 뉴스 읽기] 李 취임 초부터 재판 부담감 토로… ‘트럼프 공소기각’도 연구했다",
-     "link": "https://www.chosun.com/opinion/2026/11/18/FZ6HPTYHJFHNPLAPOTKALFXYII/",
-     "pubDate": "2026-11-18T14:31:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -573,6 +573,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "수 킴 전 CIA 분석가, 전략리스크 컨설턴트",
+     "link": "https://www.hankookilbo.com/news/article/A2026111714420004452",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "조귀동 명지대 겸임교수·정치컨설팅 민 전략실장",
      "link": "https://www.hankookilbo.com/news/article/A2026111812590002443",
      "pubDate": null,
@@ -599,12 +605,6 @@
     {
      "title": "‘조작 징계’ 개입 의혹 장동혁, 무시로 어물쩍 넘겨선 안 돼",
      "link": "https://www.hankookilbo.com/news/article/A2026111715470005486",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "수 킴 전 CIA 분석가, 전략리스크 컨설턴트",
-     "link": "https://www.hankookilbo.com/news/article/A2026111714420004452",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -689,6 +689,12 @@
      "kind": "사설"
     },
     {
+     "title": "우리가 필요해서 그들이 왔다 [아침햇발]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288126.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "한국에도 다문화 복지여왕이 탄생할까 [뉴스룸에서]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288050.html",
      "pubDate": null,
@@ -763,12 +769,6 @@
     {
      "title": "한덕수 대법 선고의 ‘절차적 흠결’ [유레카]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1287994.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "미-중-러 천하 중심에 선 ‘황제’와 복지부동 관리들",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1287850.html",
      "pubDate": null,
      "kind": "칼럼"
     }
