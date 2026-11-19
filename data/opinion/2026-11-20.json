@@ -1,6 +1,6 @@
 {
  "date": "2026-11-20",
- "generatedAt": "2026-11-19T18:00:01.224Z",
+ "generatedAt": "2026-11-19T21:57:45.146Z",
  "debates": [
   {
    "topic": [
@@ -639,6 +639,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "안진호 ㈜아이디이노랩 대표이사",
+     "link": "https://www.hankookilbo.com/news/article/A2026111909330001762",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "어둠 속에서 찾을 수 있는 것",
      "link": "https://www.hankookilbo.com/news/article/A2026111915010000580",
      "pubDate": null,
@@ -671,6 +677,12 @@
     {
      "title": "끝내 '육사 지우기'로 가는 사관학교 통합",
      "link": "https://www.hankookilbo.com/news/article/A2026111814580001595",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "젠슨 황과 마커스",
+     "link": "https://www.hankookilbo.com/news/article/A2026111819010003357",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -729,6 +741,18 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1287997.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "늙은 낚시꾼의 수다를 듣다 [진옥섭 풍류로드]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288260.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "조선업 임금제는 바뀌어야 한다",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288253.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "문제는 시험이 아니다 [박권일의 다이내믹 도넛]",
@@ -799,18 +823,6 @@
     {
      "title": "번역의 시대, 언어학습의 가치 [똑똑! 한국사회]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288032.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "망가진 트럼프 혐오 계산기 [한채윤의 비 온 뒤 무지개]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288031.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘배움의 벽’ 뚫어 문 내고 길 놓기를 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1288029.html",
      "pubDate": null,
      "kind": "칼럼"
     }
