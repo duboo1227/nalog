@@ -1,6 +1,6 @@
 {
  "date": "2026-11-19",
- "generatedAt": "2026-11-18T21:58:33.899Z",
+ "generatedAt": "2026-11-19T02:19:45.887Z",
  "debates": [
   {
    "topic": [
@@ -106,6 +106,31 @@
   },
   {
    "topic": [
+    "트럼프"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "트럼프 “김정은 만날 수도”… 치솟은 ‘출연료’는 누가 대나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042594/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "다시 북-미회담 띄운 트럼프, ‘한국 패싱’ 없게 해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287796.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
     "육사",
     "지우기",
     "사관학교"
@@ -140,12 +165,6 @@
    "home": "https://www.chosun.com/opinion/",
    "items": [
     {
-     "title": "1억 포상 노린 시험장 고발, 어떤 혼란 부를지 걱정된다",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/19/QBBFAM3KCNBXLISGUILHNBX6XA/",
-     "pubDate": "2026-11-18T15:20:00.000Z",
-     "kind": "사설"
-    },
-    {
      "title": "“나이 때문에 못할 것 같다”는 교육부 장관, 그만두면 된다",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/19/DZZOTW37SBFZPCOA3KJOFHGYCY/",
      "pubDate": "2026-11-18T15:10:00.000Z",
@@ -155,6 +174,12 @@
      "title": "사실상 ‘대통령 개인 로펌’에 380억, 왜 국민이 부담해야 하나",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/19/5HKFIW4ABJCA7DEVFXDMMVIKNY/",
      "pubDate": "2026-11-18T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "1억 포상 노린 시험장 고발, 어떤 혼란 부를지 걱정된다",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/19/QBBFAM3KCNBXLISGUILHNBX6XA/",
+     "pubDate": "2026-11-18T15:20:00.000Z",
      "kind": "사설"
     },
     {
@@ -176,15 +201,21 @@
      "kind": "사설"
     },
     {
+     "title": "간첩보다 못한 한국 반도체 외교",
+     "link": "https://www.chosun.com/opinion/economic_focus/2026/11/18/DHD4JYBRFFEHNEERTZRFSES53Q/",
+     "pubDate": "2026-11-18T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[양상훈 칼럼] ‘계엄 거부 못한 죄’ 처벌 지나치다",
      "link": "https://www.chosun.com/opinion/column/2026/11/18/VRYRCJOACFCX3PU5XWAZLYR6VU/",
      "pubDate": "2026-11-18T14:55:00.000Z",
      "kind": "칼럼"
     },
     {
-     "title": "[부산에 가면] 내가 기억하는, 어쩌면 나를 기억하는 가게들",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/ODYOJJ56D5DGDNQDTRBGH2X45A/",
-     "pubDate": "2026-11-18T14:34:00.000Z",
+     "title": "[이응준의 과거에서 보내는 엽서] [93] 링컨이 일깨운 국가의 의미",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/7RBESF3MBRFAJAEEKE665RIOIA/",
+     "pubDate": "2026-11-18T14:37:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -194,15 +225,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[경제포커스] 간첩보다 못한 한국 반도체 외교",
-     "link": "https://www.chosun.com/opinion/economic_focus/2026/11/18/DHD4JYBRFFEHNEERTZRFSES53Q/",
-     "pubDate": "2026-11-18T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[이응준의 과거에서 보내는 엽서] [93] 링컨이 일깨운 국가의 의미",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/7RBESF3MBRFAJAEEKE665RIOIA/",
-     "pubDate": "2026-11-18T14:37:00.000Z",
+     "title": "[부산에 가면] 내가 기억하는, 어쩌면 나를 기억하는 가게들",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/18/ODYOJJ56D5DGDNQDTRBGH2X45A/",
+     "pubDate": "2026-11-18T14:34:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -394,8 +419,128 @@
    "name": "동아일보",
    "lean": "보수",
    "home": "https://www.donga.com/news/Opinion",
-   "items": [],
-   "error": "https://rss.donga.com/editorials.xml… fetch failed"
+   "items": [
+    {
+     "title": "정직한 노력이 정당한 보상 받는 수능 돼야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050628/2",
+     "pubDate": "2026-11-18T14:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "AI가 뒤흔든 지식노동… 공인시험제도 전면 개편 불가피",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050632/2",
+     "pubDate": "2026-11-18T14:27:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "이번 국회 2년 반도 안 돼 6건이나 공개 사과한 최민희",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050630/2",
+     "pubDate": "2026-11-18T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "세계 4번째 수출 1조 달러… 한국 한국인 한국기업이 해냈다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042590/2",
+     "pubDate": "2026-11-17T14:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "트럼프 “김정은 만날 수도”… 치솟은 ‘출연료’는 누가 대나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042594/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "금융위기 맞먹는 ‘기업 부실 징후’… 호황 때 구조조정해야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042592/2",
+     "pubDate": "2026-11-17T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "“친절은 복리”[횡설수설/박희창]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050619/2",
+     "pubDate": "2026-11-18T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김형석 칼럼]애국심을 잃은 지도자는 정계를 떠나야 한다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050621/2",
+     "pubDate": "2026-11-18T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/정양환]AI 시대의 역설 ‘바이브 이코노미’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050635/2",
+     "pubDate": "2026-11-18T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/하정민]주거난 해결 못한 스페인의 임대차 규제",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050623/2",
+     "pubDate": "2026-11-18T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]대물림",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050616/2",
+     "pubDate": "2026-11-18T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "세 번 낙방한 거장의 걸작[이은화의 미술시간]〈449〉",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050625/2",
+     "pubDate": "2026-11-18T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "“신사계급 스포츠가 국민운동?” 반발에 30세 미만-평일 라운딩 금지[염복규의 경성, 서울의 기원]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050507/2",
+     "pubDate": "2026-11-18T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "젠슨 황의 추락, AI 생태계 덮친 ‘Contagion Risk’[이창수의 영어&뉴스 따라잡기]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050515/2",
+     "pubDate": "2026-11-18T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "누리호가 가리키는 7대 시드의 길[기고/배경훈]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050513/2",
+     "pubDate": "2026-11-18T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[횡설수설/우경임]美 ‘먹통 대란’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042603/2",
+     "pubDate": "2026-11-17T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[동아광장/유재동]천재 창업가의 숙명 ‘지니어스 트랩’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042605/2",
+     "pubDate": "2026-11-17T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/문병기]‘K뉴딜’의 그림자 드리운 미래대응기금",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042597/2",
+     "pubDate": "2026-11-17T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/정윤철]길어진 축구 수장 공백… 침묵 깨고 해법 찾아야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042607/2",
+     "pubDate": "2026-11-17T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]단잠",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261117/135042600/2",
+     "pubDate": "2026-11-17T14:06:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
   },
   {
    "id": "hankook",
@@ -458,8 +603,14 @@
      "kind": "칼럼"
     },
     {
-     "title": "수능 첨단 부정행위, 완벽 차단 않으면 후폭풍 감당 못한다",
-     "link": "https://www.hankookilbo.com/news/article/A2026111715430003761",
+     "title": "수 킴 전 CIA 분석가, 전략리스크 컨설턴트",
+     "link": "https://www.hankookilbo.com/news/article/A2026111714420004452",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "김보림 청소년기후행동 활동가",
+     "link": "https://www.hankookilbo.com/news/article/A2026111715410000563",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -490,12 +641,6 @@
     {
      "title": "게으른 인간을 위한, 친절한 인공지능",
      "link": "https://www.hankookilbo.com/news/article/A2026111709400004046",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "김정은에 잇단 유화 제스처, 시작부터 불안한 미중러 회담",
-     "link": "https://www.hankookilbo.com/news/article/A2026111712580001647",
      "pubDate": null,
      "kind": "칼럼"
     }
