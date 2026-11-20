@@ -1,6 +1,6 @@
 {
  "date": "2026-11-20",
- "generatedAt": "2026-11-19T21:57:45.146Z",
+ "generatedAt": "2026-11-20T02:19:03.935Z",
  "debates": [
   {
    "topic": [
@@ -261,6 +261,36 @@
      "kind": "사설"
     },
     {
+     "title": "[팀 알퍼의 런던 Eye] [62] 영국인의 취미 ‘건물 개조’",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/DAY7FFA5JBEUZORSAYROOQSXAI/",
+     "pubDate": "2026-11-19T14:39:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[특파원 리포트] 중국이 쥔 꽃놀이패 ‘한한령’",
+     "link": "https://www.chosun.com/international/international_general/2026/11/19/3LOU5O2Q6BH2HGPJ5XRY2Z5EEQ/",
+     "pubDate": "2026-11-19T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] 수출 1조달러 시대… ‘함께 크는 나라’로 다음 항해를",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/19/VAP6EA6IKFEMHMVMWJQTFZMB6I/",
+     "pubDate": "2026-11-19T14:36:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[카페 2030] ‘딸깍’ 대신 ‘덜컹’",
+     "link": "https://www.chosun.com/opinion/cafe_2040/2026/11/19/FCZDFWWGE5GGJADN2WJGBDQHYE/",
+     "pubDate": "2026-11-19T14:31:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[동서남북] 왜 ‘재벌’이란 말을 덜 쓰게 됐을까",
+     "link": "https://www.chosun.com/opinion/dongseonambuk/2026/11/19/OLA7XQB44JCQBDQLALXSXOWOQI/",
+     "pubDate": "2026-11-19T14:40:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[박성희의 커피하우스] ‘K-모든 것’이 훨훨 나는데 ‘K-저스티스’는 추락 중",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/VJEW3K5SLJEINPAU5H4WA6ZJCM/",
      "pubDate": "2026-11-19T14:32:00.000Z",
@@ -273,39 +303,15 @@
      "kind": "칼럼"
     },
     {
-     "title": "[특파원 리포트] 중국이 쥔 꽃놀이패 ‘한한령’",
-     "link": "https://www.chosun.com/international/international_general/2026/11/19/3LOU5O2Q6BH2HGPJ5XRY2Z5EEQ/",
-     "pubDate": "2026-11-19T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[유광종의 漢字로 보는 중국] [45] 뻣뻣한 공산당",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/CG4GRU42WFHAPFZ6CTDLH3B6NQ/",
      "pubDate": "2026-11-19T14:41:00.000Z",
      "kind": "칼럼"
     },
     {
-     "title": "[동서남북] 왜 ‘재벌’이란 말을 덜 쓰게 됐을까",
-     "link": "https://www.chosun.com/opinion/dongseonambuk/2026/11/19/OLA7XQB44JCQBDQLALXSXOWOQI/",
-     "pubDate": "2026-11-19T14:40:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[팀 알퍼의 런던 Eye] [62] 영국인의 취미 ‘건물 개조’",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/DAY7FFA5JBEUZORSAYROOQSXAI/",
-     "pubDate": "2026-11-19T14:39:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[알파고의 지식램프] [15] ‘빨리빨리’ 대한민국과 ‘괜찮아’ 이집트 사이의 외교",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/QMVMLBCNG5BFZPF6C46FBU4VPQ/",
      "pubDate": "2026-11-19T14:37:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] 수출 1조달러 시대… ‘함께 크는 나라’로 다음 항해를",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/19/VAP6EA6IKFEMHMVMWJQTFZMB6I/",
-     "pubDate": "2026-11-19T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -324,12 +330,6 @@
      "title": "[황유원의 어쩌다 마주친 문장] [103] 인생이라는 악보",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/19/7GHXIBBHSJFPXO2DNKZLLFBGI4/",
      "pubDate": "2026-11-19T14:33:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[카페 2030] ‘딸깍’ 대신 ‘덜컹’",
-     "link": "https://www.chosun.com/opinion/cafe_2040/2026/11/19/FCZDFWWGE5GGJADN2WJGBDQHYE/",
-     "pubDate": "2026-11-19T14:31:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -583,7 +583,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "“친절은 복리”[횡설수설/박희창]",
+     "title": "[횡설수설/박희창]“친절은 복리”",
      "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050619/2",
      "pubDate": "2026-11-18T14:18:00.000Z",
      "kind": "칼럼"
