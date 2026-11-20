@@ -1,6 +1,6 @@
 {
  "date": "2026-11-21",
- "generatedAt": "2026-11-20T18:04:17.821Z",
+ "generatedAt": "2026-11-20T21:55:44.755Z",
  "debates": [
   {
    "topic": [
@@ -260,6 +260,12 @@
      "kind": "사설"
     },
     {
+     "title": "[에스프레소] 젠슨 황은 미녀 스파이에 낚인 게 아니다",
+     "link": "https://www.chosun.com/opinion/espresso/2026/11/20/MWFX7MEVLZD5XMHD5UH3YGKBVA/",
+     "pubDate": "2026-11-20T14:37:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[강천석 칼럼] 수출 1조달러 바닥에 고인 땀과 눈물과 설움",
      "link": "https://www.chosun.com/opinion/column/2026/11/20/4BZ2FHD7IZH2HK6FWWVAB53KAA/",
      "pubDate": "2026-11-20T14:55:00.000Z",
@@ -269,12 +275,6 @@
      "title": "[박진배의 공간과 스타일] [366] 크라쿠프의 ‘독수리 약국’",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/20/KR37HEM3O5BFBBPEJOAEGTQBDA/",
      "pubDate": "2026-11-20T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[에스프레소] 젠슨 황은 미녀 스파이에 낚인 게 아니다",
-     "link": "https://www.chosun.com/opinion/espresso/2026/11/20/MWFX7MEVLZD5XMHD5UH3YGKBVA/",
-     "pubDate": "2026-11-20T14:37:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -622,6 +622,12 @@
     {
      "title": "민주당, 삼권분립 뒤흔드는 '탄핵의 정치' 멈춰야",
      "link": "https://www.hankookilbo.com/news/article/A2026112012230005566",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "박석원 정치국제사회부문장",
+     "link": "https://www.hankookilbo.com/news/article/A2026112014570002675",
      "pubDate": null,
      "kind": "칼럼"
     },
