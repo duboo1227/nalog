@@ -1,15 +1,14 @@
 {
  "date": "2026-11-20",
- "generatedAt": "2026-11-20T10:14:19.860Z",
+ "generatedAt": "2026-11-20T14:23:49.173Z",
  "debates": [
   {
    "topic": [
-    "미중러",
-    "한반",
-    "정상회담"
+    "한중",
+    "한반"
    ],
    "both": true,
-   "papers": 5,
+   "papers": 3,
    "sides": [
     {
      "title": "‘국제질서 교란’ 3頭의 회합… 그 ‘메뉴판’에 오를 한반도",
@@ -20,22 +19,6 @@
      "lean": "보수"
     },
     {
-     "title": "미·중·러 ‘거래’ 앞에서 우리 국익은 어떻게 지켜야 하나",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/20/US7P3P2UCZFMZBMV6O7OWDUS2Y/",
-     "pubDate": "2026-11-19T15:10:00.000Z",
-     "kind": "사설",
-     "src": "조선일보",
-     "lean": "보수"
-    },
-    {
-     "title": "한반도 운명 우리 각오 다져야 할 미중러 첫 정상회담",
-     "link": "https://www.hankookilbo.com/news/article/A2026111918120005872",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
      "title": "미·중·러 정상회담 앞두고 한반도 평화 중요성 확인한 한·중 정상",
      "link": "https://www.khan.co.kr/article/202611182000011/",
      "pubDate": "2026-11-18T11:00:01.000Z",
@@ -44,83 +27,8 @@
      "lean": "진보"
     },
     {
-     "title": "미·중·러 첫 정상회담, 국제 질서는 강대국만 아니라 함께 만드는 것",
-     "link": "https://www.khan.co.kr/article/202611192011001/",
-     "pubDate": "2026-11-19T11:11:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    },
-    {
      "title": "격변하는 정세 속 한·중 소통 더 강화해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288008.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    },
-    {
-     "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "한덕수",
-    "대법",
-    "계엄"
-   ],
-   "both": true,
-   "papers": 4,
-   "sides": [
-    {
-     "title": "‘12·3 계엄은 의문 여지없는 내란’ 대법 전원합의체 만장일치",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057592/3",
-     "pubDate": "2026-11-19T14:30:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "\"계엄은 내란\" 대법 첫 판단...한덕수 일부 무죄, 국민 법 감정 부합 의문",
-     "link": "https://www.hankookilbo.com/news/article/A2026111916130005327",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
-     "title": "한덕수 파기환송, 대법원 내란 단죄 의지 의심스럽다",
-     "link": "https://www.khan.co.kr/article/202611192035001/",
-     "pubDate": "2026-11-19T11:35:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    },
-    {
-     "title": "납득할 수 없는 대법의 ‘한덕수 파기환송’ 판결, 그렇다고 ‘조희대 탄핵’이 맞나",
-     "link": "https://www.khan.co.kr/article/202611201846001/",
-     "pubDate": "2026-11-20T09:46:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    },
-    {
-     "title": "‘계엄 해제 표결 방해’ 추경호 무죄 판결, 납득 어렵다",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288005.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    },
-    {
-     "title": "한덕수 형량 깎아주려 작정한 대법 파기환송 판결",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288226.html",
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
@@ -206,6 +114,33 @@
      "lean": "중도"
     }
    ]
+  },
+  {
+   "topic": [
+    "계엄",
+    "의문",
+    "대법"
+   ],
+   "both": false,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "‘12·3 계엄은 의문 여지없는 내란’ 대법 전원합의체 만장일치",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057592/3",
+     "pubDate": "2026-11-19T14:30:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "\"계엄은 내란\" 대법 첫 판단...한덕수 일부 무죄, 국민 법 감정 부합 의문",
+     "link": "https://www.hankookilbo.com/news/article/A2026111916130005327",
+     "pubDate": null,
+     "kind": "칼럼",
+     "src": "한국일보",
+     "lean": "중도"
+    }
+   ]
   }
  ],
  "outlets": [
@@ -250,6 +185,12 @@
      "link": "https://www.chosun.com/opinion/editorial/2026/11/19/5HKFIW4ABJCA7DEVFXDMMVIKNY/",
      "pubDate": "2026-11-18T15:00:00.000Z",
      "kind": "사설"
+    },
+    {
+     "title": "[만물상] 아파트 ‘세(勢) 과시’",
+     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/20/3ZFZOD7IUVAJZJXLD7OITI3XCU/",
+     "pubDate": "2026-11-20T11:52:09.000Z",
+     "kind": "칼럼"
     },
     {
      "title": "[팀 알퍼의 런던 Eye] [62] 영국인의 취미 ‘건물 개조’",
@@ -327,12 +268,6 @@
      "title": "[만물상] 의전 홀대",
      "link": "https://www.chosun.com/opinion/manmulsang/2026/11/19/R3G7MKCSQ5DMVCBFZ6YXQWBPOM/",
      "pubDate": "2026-11-19T11:34:21.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[경제포커스] 간첩보다 못한 한국 반도체 외교",
-     "link": "https://www.chosun.com/opinion/economic_focus/2026/11/18/DHD4JYBRFFEHNEERTZRFSES53Q/",
-     "pubDate": "2026-11-18T14:38:00.000Z",
      "kind": "칼럼"
     }
    ]
@@ -508,6 +443,42 @@
      "kind": "사설"
     },
     {
+     "title": "푸틴이 친구면, 나토는?[횡설수설/신광영]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063794/2",
+     "pubDate": "2026-11-20T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/우경임]‘세무냥이’가 한국 교육을 구할까",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063788/2",
+     "pubDate": "2026-11-20T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[동아시론/차태서]미-중-러의 귀환, 다시 만난 세계",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063796/2",
+     "pubDate": "2026-11-20T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/조건희]15세 여중생의 죽음, 그루밍 의심 때부터 차단해야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063798/2",
+     "pubDate": "2026-11-20T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]겨울 채비",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063791/2",
+     "pubDate": "2026-11-20T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "시인[박연준의 토요일은 시가 좋아]〈68〉",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261120/135063778/2",
+     "pubDate": "2026-11-20T14:03:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[횡설수설/우경임]올해의 단어 ‘human’",
      "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057492/2",
      "pubDate": "2026-11-19T14:18:00.000Z",
@@ -553,42 +524,6 @@
      "title": "2000만 명의 한국 이야기, 다음 장을 열다[기고/박성혁]",
      "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057332/2",
      "pubDate": "2026-11-19T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "촉촉한 생선살, 양념 밴 게장… 일품요리 같은 반찬을 만났다[김도언의 너희가 노포를 아느냐]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057339/2",
-     "pubDate": "2026-11-19T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[HBR 인사이트]AI가 러닝화로 나이키보다 브룩스 추천한 이유",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057335/2",
-     "pubDate": "2026-11-19T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "뜨거운 평화, 양평 ‘물의 집’[정성갑의 공간의 재발견]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057265/2",
-     "pubDate": "2026-11-19T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[횡설수설/박희창]“친절은 복리”",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050619/2",
-     "pubDate": "2026-11-18T14:18:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[김형석 칼럼]애국심을 잃은 지도자는 정계를 떠나야 한다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050621/2",
-     "pubDate": "2026-11-18T14:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[오늘과 내일/정양환]AI 시대의 역설 ‘바이브 이코노미’",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050635/2",
-     "pubDate": "2026-11-18T14:12:00.000Z",
      "kind": "칼럼"
     }
    ]
@@ -698,6 +633,12 @@
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
     {
+     "title": "‘한덕수 파기환송’ 잘못됐지만, 대법원장 탄핵은 끝까지 숙고해야 [사설]",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288403.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
      "title": "재건축 초과이익 부담금, 이번엔 유예 없이 부과해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288399.html",
      "pubDate": null,
@@ -724,12 +665,6 @@
     {
      "title": "격변하는 정세 속 한·중 소통 더 강화해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288008.html",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "‘계엄 해제 표결 방해’ 추경호 무죄 판결, 납득 어렵다",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288005.html",
      "pubDate": null,
      "kind": "사설"
     },
