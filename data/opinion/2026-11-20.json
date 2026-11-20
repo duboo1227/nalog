@@ -1,6 +1,6 @@
 {
  "date": "2026-11-20",
- "generatedAt": "2026-11-20T06:14:41.513Z",
+ "generatedAt": "2026-11-20T10:14:19.860Z",
  "debates": [
   {
    "topic": [
@@ -71,60 +71,9 @@
   },
   {
    "topic": [
-    "AI",
-    "전면",
-    "만전"
-   ],
-   "both": true,
-   "papers": 4,
-   "sides": [
-    {
-     "title": "AI가 뒤흔든 지식노동… 공인시험제도 전면 개편 불가피",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261118/135050632/2",
-     "pubDate": "2026-11-18T14:27:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "비극으로 끝난 ‘LEET 만점자’ 의혹… AI에 무너진 시험 공정성",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261119/135057594/2",
-     "pubDate": "2026-11-19T14:24:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "‘AI 커닝’ 사태 속에 치러지는 수능…혼란 없도록 만전 기해야",
-     "link": "https://www.joongang.co.kr/article/25479976",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "극단적 선택 부른 AI 커닝, 국가 시험 전면 개혁 착수해야",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/20/DMPTJRLKLVHLVD7NN6Z4ZEDCPM/",
-     "pubDate": "2026-11-19T15:20:00.000Z",
-     "kind": "사설",
-     "src": "조선일보",
-     "lean": "보수"
-    },
-    {
-     "title": "‘절충’ 택한 국군사관학교, 내부 설득과 소통에 만전을",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287997.html",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "계엄",
-    "무죄",
-    "의문"
+    "한덕수",
+    "대법",
+    "계엄"
    ],
    "both": true,
    "papers": 4,
@@ -146,9 +95,17 @@
      "lean": "중도"
     },
     {
-     "title": "계엄해제 표결 방해 추경호 1심 무죄, 상급심선 엄밀한 판단을",
-     "link": "https://www.khan.co.kr/article/202611181810001/",
-     "pubDate": "2026-11-18T09:10:00.000Z",
+     "title": "한덕수 파기환송, 대법원 내란 단죄 의지 의심스럽다",
+     "link": "https://www.khan.co.kr/article/202611192035001/",
+     "pubDate": "2026-11-19T11:35:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "납득할 수 없는 대법의 ‘한덕수 파기환송’ 판결, 그렇다고 ‘조희대 탄핵’이 맞나",
+     "link": "https://www.khan.co.kr/article/202611201846001/",
+     "pubDate": "2026-11-20T09:46:00.000Z",
      "kind": "사설",
      "src": "경향신문",
      "lean": "진보"
@@ -159,6 +116,40 @@
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
+     "lean": "진보"
+    },
+    {
+     "title": "한덕수 형량 깎아주려 작정한 대법 파기환송 판결",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288226.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "1조달러",
+    "수출"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "[기고] 수출 1조달러 시대… ‘함께 크는 나라’로 다음 항해를",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/19/VAP6EA6IKFEMHMVMWJQTFZMB6I/",
+     "pubDate": "2026-11-19T14:36:00.000Z",
+     "kind": "칼럼",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "수출 1조달러 시대, 장미빛 수치에 가려진 위험 직시하길",
+     "link": "https://www.khan.co.kr/article/202611201800001/",
+     "pubDate": "2026-11-20T09:00:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
      "lean": "진보"
     }
    ]
@@ -707,6 +698,12 @@
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
     {
+     "title": "재건축 초과이익 부담금, 이번엔 유예 없이 부과해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288399.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
      "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
      "pubDate": null,
@@ -733,12 +730,6 @@
     {
      "title": "‘계엄 해제 표결 방해’ 추경호 무죄 판결, 납득 어렵다",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288005.html",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "‘절충’ 택한 국군사관학교, 내부 설득과 소통에 만전을",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1287997.html",
      "pubDate": null,
      "kind": "사설"
     },
@@ -835,6 +826,18 @@
    "home": "https://www.khan.co.kr/opinion",
    "items": [
     {
+     "title": "납득할 수 없는 대법의 ‘한덕수 파기환송’ 판결, 그렇다고 ‘조희대 탄핵’이 맞나",
+     "link": "https://www.khan.co.kr/article/202611201846001/",
+     "pubDate": "2026-11-20T09:46:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "수출 1조달러 시대, 장미빛 수치에 가려진 위험 직시하길",
+     "link": "https://www.khan.co.kr/article/202611201800001/",
+     "pubDate": "2026-11-20T09:00:00.000Z",
+     "kind": "사설"
+    },
+    {
      "title": "한덕수 파기환송, 대법원 내란 단죄 의지 의심스럽다",
      "link": "https://www.khan.co.kr/article/202611192035001/",
      "pubDate": "2026-11-19T11:35:00.000Z",
@@ -856,18 +859,6 @@
      "title": "미·중·러 정상회담 앞두고 한반도 평화 중요성 확인한 한·중 정상",
      "link": "https://www.khan.co.kr/article/202611182000011/",
      "pubDate": "2026-11-18T11:00:01.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "시험부정 대비 ‘무사안일’했던 당국, 수능 끝나도 반드시 책임 물어야",
-     "link": "https://www.khan.co.kr/article/202611181815001/",
-     "pubDate": "2026-11-18T09:15:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "계엄해제 표결 방해 추경호 1심 무죄, 상급심선 엄밀한 판단을",
-     "link": "https://www.khan.co.kr/article/202611181810001/",
-     "pubDate": "2026-11-18T09:10:00.000Z",
      "kind": "사설"
     },
     {
