@@ -1,0 +1,767 @@
+{
+ "date": "2026-11-23",
+ "generatedAt": "2026-11-22T17:50:34.462Z",
+ "debates": [
+  {
+   "topic": [
+    "대법원장",
+    "탄핵",
+    "판결"
+   ],
+   "both": true,
+   "papers": 5,
+   "sides": [
+    {
+     "title": "조 대법원장 탄핵은 안 된다… 이 대통령이 제동 걸어야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070211/2",
+     "pubDate": "2026-11-22T14:40:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "대법 “12·3 비상계엄은 위헌·위법”…여야 정쟁 멈춰야",
+     "link": "https://www.joongang.co.kr/article/25480338",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "판결 다음날 대법원장 탄핵 결의, 집권당의 충동적 국헌문란",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/21/BAEGROUXLZFB5F43OJHACTW5EE/",
+     "pubDate": "2026-11-20T15:20:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "사흘 새 3번 바뀐 사유, 대법원장 탄핵이 장난인가",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/23/VQGOVYZSLFHYNNADPCI4ULJSKE/",
+     "pubDate": "2026-11-22T15:00:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "“계엄은 위헌·위법” 대법 판결에도 사과 없는 국민의힘",
+     "link": "https://www.khan.co.kr/article/202611221819001/",
+     "pubDate": "2026-11-22T09:19:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "‘한덕수 파기환송’ 잘못됐지만, 대법원장 탄핵은 끝까지 숙고해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288403.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    },
+    {
+     "title": "대법원 ‘이상민·박성재 판결’은 국민 눈높이 맞아야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288531.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "사퇴",
+    "개편",
+    "수능"
+   ],
+   "both": true,
+   "papers": 4,
+   "sides": [
+    {
+     "title": "최교진 사퇴… ‘대학선발권 강화’ 입시제도 개편 시동 걸 때",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070203/2",
+     "pubDate": "2026-11-22T14:38:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "정부 실패 속 치른 수능, 무능·무책임 교육장관 책임져야",
+     "link": "https://www.joongang.co.kr/article/25480341",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "최교진 사퇴…후임은 진영 떠나 미래 교육 이끌 인물로",
+     "link": "https://www.joongang.co.kr/article/25480915",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "‘수능 혼란 책임’ 교육부 장관 사퇴, 시험체계 전면 개편 서둘러야",
+     "link": "https://www.khan.co.kr/article/202611221810011/",
+     "pubDate": "2026-11-22T09:10:01.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "시험제도 개편, 미룰 수 없는 한국사회 과제 됐다",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288532.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "조희대",
+    "탄핵"
+   ],
+   "both": true,
+   "papers": 3,
+   "sides": [
+    {
+     "title": "조희대 탄핵 강행은 사실상 재판 불복 아닌가",
+     "link": "https://www.joongang.co.kr/article/25480916",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
+     "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
+     "pubDate": "2026-11-22T14:31:00.000Z",
+     "kind": "칼럼",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
+     "link": "https://www.khan.co.kr/article/202611221810001/",
+     "pubDate": "2026-11-22T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "강대국"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "강대국 정치로의 재편 예고 , 한·미 복원 더 시급해졌다",
+     "link": "https://www.joongang.co.kr/article/25480914",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  }
+ ],
+ "outlets": [
+  {
+   "id": "chosun",
+   "name": "조선일보",
+   "lean": "보수",
+   "home": "https://www.chosun.com/opinion/",
+   "items": [
+    {
+     "title": "속수무책 주가 폭락, 주식 사라고 부추긴 정책 후폭풍",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/23/RPJKWQ7QONHX3GO7G7PZCTQM5E/",
+     "pubDate": "2026-11-22T15:20:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "제 할 일 못하는 자격 미달 장관, 교육부뿐이겠나",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/23/MPCNCCUBV5F6XHRPLECLNY7RZU/",
+     "pubDate": "2026-11-22T15:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "사흘 새 3번 바뀐 사유, 대법원장 탄핵이 장난인가",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/23/VQGOVYZSLFHYNNADPCI4ULJSKE/",
+     "pubDate": "2026-11-22T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "판결 다음날 대법원장 탄핵 결의, 집권당의 충동적 국헌문란",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/21/BAEGROUXLZFB5F43OJHACTW5EE/",
+     "pubDate": "2026-11-20T15:20:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "과거 국가 시험 AI 커닝 의혹도 증거 따라 철저하게",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/21/VVKDW2AX2RB7JGUH6O2BCB2JQI/",
+     "pubDate": "2026-11-20T15:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "누가 뽑고 누가 뽑히는지 모르는 민주유공자법, 이래도 되나",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/21/ZX6R5I4QNZGXBJDR4HSCAUHYOM/",
+     "pubDate": "2026-11-20T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[朝鮮칼럼] 재난이 된 수능시험, 우리는 무엇을 평가했나",
+     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/22/TIYPOLYFBNHCLPOUIFOWTJVNIA/",
+     "pubDate": "2026-11-22T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[임희윤의 一日一板] [5] 검은 뿔테안경 전성시대",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/22/D6X6KDCZIBFXJG5Q5OLVWR66AI/",
+     "pubDate": "2026-11-22T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[태평로] 젠슨 황의 몰락이 던지는 질문",
+     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/22/VN5CWOOVQNGGNFKUF4MEPSHQXQ/",
+     "pubDate": "2026-11-22T14:37:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[데스크에서] ‘주가 폭락’도 특검이 밝혀라",
+     "link": "https://www.chosun.com/opinion/desk/2026/11/22/SPKULRP44ZAYDOJMPZPMEGXTRE/",
+     "pubDate": "2026-11-22T14:35:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] 노벨 평화상 수상자가 일깨운 AI 시대의 ‘착한 말’",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/22/EQ3DDFZWV5HKJG4YA3Q6RDIN2U/",
+     "pubDate": "2026-11-22T14:34:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김민섭의 다정함에 대하여] [11] 스스로에게 다정해지는 방법",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/22/AOSOZDDMX5D3LMPYWNU47SHILQ/",
+     "pubDate": "2026-11-22T14:33:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[新중동천일야화] 이란 전쟁 출구전략, ‘모두 지지 않는 길’이 있다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/NWPRBSKBZJBC7NMNFBNPDS5DWE/",
+     "pubDate": "2026-11-22T14:32:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
+     "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
+     "pubDate": "2026-11-22T14:31:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[만물상] 반려동물에도 신의 축복을",
+     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/22/OH3FD2KBQJBZLBDGAZEGSHH2ZM/",
+     "pubDate": "2026-11-22T11:08:48.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "joongang",
+   "name": "중앙일보",
+   "lean": "보수",
+   "home": "https://www.joongang.co.kr/opinion",
+   "items": [
+    {
+     "title": "조희대 탄핵 강행은 사실상 재판 불복 아닌가",
+     "link": "https://www.joongang.co.kr/article/25480916",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "최교진 사퇴…후임은 진영 떠나 미래 교육 이끌 인물로",
+     "link": "https://www.joongang.co.kr/article/25480915",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "강대국 정치로의 재편 예고 , 한·미 복원 더 시급해졌다",
+     "link": "https://www.joongang.co.kr/article/25480914",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "AI 커닝에 흔들린 국가시험, 근본부터 바꿔야",
+     "link": "https://www.joongang.co.kr/article/25480608",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "정부 실패 속 치른 수능, 무능·무책임 교육장관 책임져야",
+     "link": "https://www.joongang.co.kr/article/25480341",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "대법 “12·3 비상계엄은 위헌·위법”…여야 정쟁 멈춰야",
+     "link": "https://www.joongang.co.kr/article/25480338",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "[한 컷] 추운 줄",
+     "link": "https://www.joongang.co.kr/article/25480867",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "2027년 새해 트렌드와 대한민국",
+     "link": "https://www.joongang.co.kr/article/25480913",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "무책임 장관과 TF 정부",
+     "link": "https://www.joongang.co.kr/article/25480912",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "우리 머리 위 ‘다모클레스의 칼’",
+     "link": "https://www.joongang.co.kr/article/25480911",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘AI의 중앙은행’ 엔비디아가 돈줄 죄자 업계는 긴축 발작 중",
+     "link": "https://www.joongang.co.kr/article/25480910",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "스타십 귀환 첫 성공…발사 비용 한계 10분의 1로 줄어들까",
+     "link": "https://www.joongang.co.kr/article/25480909",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "후안무치의 전성시대",
+     "link": "https://www.joongang.co.kr/article/25480908",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "힘이 빠진 트럼프의 ‘악수’",
+     "link": "https://www.joongang.co.kr/article/25480906",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "수출 1조 달러, 숫자 너머의 사람들",
+     "link": "https://www.joongang.co.kr/article/25480904",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "신의주 반공학생의거",
+     "link": "https://www.joongang.co.kr/article/25480903",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "규제는 수요를 죽이지 못한다",
+     "link": "https://www.joongang.co.kr/article/25480900",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "선보양 vs 장완안",
+     "link": "https://www.joongang.co.kr/article/25480890",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "의료사고, 처벌보다 시스템 개선으로 예방해야",
+     "link": "https://www.joongang.co.kr/article/25400758",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "쿠팡 청문회가 드러낸 기술과 권력의 오만...이젠 소비자가 바꿔야 한다",
+     "link": "https://www.joongang.co.kr/article/25394046",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "donga",
+   "name": "동아일보",
+   "lean": "보수",
+   "home": "https://www.donga.com/news/Opinion",
+   "items": [
+    {
+     "title": "조 대법원장 탄핵은 안 된다… 이 대통령이 제동 걸어야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070211/2",
+     "pubDate": "2026-11-22T14:40:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "최교진 사퇴… ‘대학선발권 강화’ 입시제도 개편 시동 걸 때",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070203/2",
+     "pubDate": "2026-11-22T14:38:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "中 전기차 韓 점유율 상전벽해… 넋 놓다 안방 내준다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070549/1",
+     "pubDate": "2026-11-22T14:36:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[김승련 칼럼]이 지경에 이른 정치, 유권자 책임은 없나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070536/1",
+     "pubDate": "2026-11-22T14:33:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[횡설수설/김창덕]‘스톡 푸어’",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070533/1",
+     "pubDate": "2026-11-22T14:29:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[특파원 칼럼/곽도영]잡스를 넘어선 애플, 젠슨 황을 넘어설 엔비디아",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070206/2",
+     "pubDate": "2026-11-22T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/이민아]스마트안경 맞은편에 있는 사람의 권리는 누가 지키나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070217/2",
+     "pubDate": "2026-11-22T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]눈 맞춤",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070220/2",
+     "pubDate": "2026-11-22T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘클라이밍 여제’ 김자인 “2년 뒤 마흔, 첫 올림픽을 꿈꾼다”[이헌재의 인생홈런]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070078/2",
+     "pubDate": "2026-11-22T14:03:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "나무 사이를 날아다니는 꿀벌[내가 만난 명문장/임은미]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070208/2",
+     "pubDate": "2026-11-22T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "데뷔 20년 차 센터에 선 효연… 멈추지 않는 이에게 생기는 일[2030세상/박찬용]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135069929/2",
+     "pubDate": "2026-11-22T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "기후재원, 재난 닥치기 전 분쟁지역에 닿아야[기고/데이비드 밀리밴드]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135069925/2",
+     "pubDate": "2026-11-22T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "“씹어” “삼켜”… 재촉할수록 식사가 괴로워진다[오은영의 부모마음 아이마음]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135069927/2",
+     "pubDate": "2026-11-22T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "콩-보리-나물… 장내 미생물 챙기는 밥상[정세연의 음식처방]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070080/2",
+     "pubDate": "2026-11-22T14:00:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "hankook",
+   "name": "한국일보",
+   "lean": "중도",
+   "home": "https://www.hankookilbo.com/News/Opinion",
+   "items": [
+    {
+     "title": "장관 경질로 끝낼 일 아냐… 국가시험 근본 쇄신해야",
+     "link": "https://www.hankookilbo.com/news/article/A2026112215210003461",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "'깜깜이' 민주유공자법, 기준 명확히 하고 명단 공개를",
+     "link": "https://www.hankookilbo.com/news/article/A2026112214590004888",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "커지는 AI 거품 우려, 불안한 수출 1조 달러",
+     "link": "https://www.hankookilbo.com/news/article/A2026112213000002297",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "두 명의 미나미가 알려주는 한일관계",
+     "link": "https://www.hankookilbo.com/news/article/A2026112206320002867",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "[우리말 한 자밤] 커닝과 부정행위",
+     "link": "https://www.hankookilbo.com/news/article/A2026112213140002333",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "hani",
+   "name": "한겨레",
+   "lean": "진보",
+   "home": "https://www.hani.co.kr/arti/opinion",
+   "items": [
+    {
+     "title": "글로벌 주식시장 급락세, ‘AI 약세장’ 진입 대비해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288538.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "시험제도 개편, 미룰 수 없는 한국사회 과제 됐다",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288532.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "대법원 ‘이상민·박성재 판결’은 국민 눈높이 맞아야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288531.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "‘한덕수 파기환송’ 잘못됐지만, 대법원장 탄핵은 끝까지 숙고해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288403.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "재건축 초과이익 부담금, 이번엔 유예 없이 부과해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288399.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "‘시험 붕괴’ 이후의 공부 [한승훈 칼럼]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288542.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "만점자의 몰락이라는 희비극 [한겨레 프리즘]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288541.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "젠슨 황과 비트코인 [헬로, 크립토]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288540.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "유럽은 아프리카에서 배워야 하는가 [세계의 창]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288539.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "돼지국밥의 계절 [서울 말고]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288506.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI야, 동물도 생각해 줘 [이형주의 비인간동물사]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288505.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "차가운 시대, 사람 볕이 쬐고 싶었던 걸까 [양희은의 어떤 날]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288503.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI 시대 어린이 기자단과 ‘질문하는 능력’ [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288499.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "주택정책 성적표, ‘세입자 주거비’로 매겨야 [아침햇발]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288485.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "늙은 낚시꾼의 수다를 듣다 [진옥섭 풍류로드]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288260.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "조선업 임금제는 바뀌어야 한다",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288253.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "문제는 시험이 아니다 [박권일의 다이내믹 도넛]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288215.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘객관식 공정성’의 신화는 무너졌지만 [슬기로운 기자생활]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288214.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘명청대전’이 미국에는 없는 이유 [특파원 칼럼]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288213.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    }
+   ]
+  },
+  {
+   "id": "khan",
+   "name": "경향신문",
+   "lean": "진보",
+   "home": "https://www.khan.co.kr/opinion",
+   "items": [
+    {
+     "title": "“계엄은 위헌·위법” 대법 판결에도 사과 없는 국민의힘",
+     "link": "https://www.khan.co.kr/article/202611221819001/",
+     "pubDate": "2026-11-22T09:19:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "‘수능 혼란 책임’ 교육부 장관 사퇴, 시험체계 전면 개편 서둘러야",
+     "link": "https://www.khan.co.kr/article/202611221810011/",
+     "pubDate": "2026-11-22T09:10:01.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
+     "link": "https://www.khan.co.kr/article/202611221810001/",
+     "pubDate": "2026-11-22T09:10:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[요리에 과학 한 스푼]커피와 차, 같은 반응 다른 맛",
+     "link": "https://www.khan.co.kr/article/202611222015025/",
+     "pubDate": "2026-11-22T11:15:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[NGO 현장]주택 공급 정책, 이제는 변해야",
+     "link": "https://www.khan.co.kr/article/202611222015015/",
+     "pubDate": "2026-11-22T11:15:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[최정화의 사소한 세계]대도시의 물도둑",
+     "link": "https://www.khan.co.kr/article/202611222015005/",
+     "pubDate": "2026-11-22T11:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고]공무원에게 ‘생각할 용기’를 묻기 전에",
+     "link": "https://www.khan.co.kr/article/202611222011025/",
+     "pubDate": "2026-11-22T11:11:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김명희의 사회의학 클리닉]시민은 의료개혁의 동반자",
+     "link": "https://www.khan.co.kr/article/202611222011015/",
+     "pubDate": "2026-11-22T11:11:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[지금, 여기]몸 사리려다 몸 버리는 사회",
+     "link": "https://www.khan.co.kr/article/202611222011005/",
+     "pubDate": "2026-11-22T11:11:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[세계의 시, 시의 세계]내가 쪼개는 이 빵은",
+     "link": "https://www.khan.co.kr/article/202611222009025/",
+     "pubDate": "2026-11-22T11:09:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[아침을 열며]압도적 숫자는 축복인가 독인가",
+     "link": "https://www.khan.co.kr/article/202611222009015/",
+     "pubDate": "2026-11-22T11:09:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[시선]일하는 사람 기본법은 틀렸다",
+     "link": "https://www.khan.co.kr/article/202611222009005/",
+     "pubDate": "2026-11-22T11:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[미디어세상]그림자와 싸워서 이길 수는 없다",
+     "link": "https://www.khan.co.kr/article/202611222004015/",
+     "pubDate": "2026-11-22T11:04:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[정동칼럼]‘위대한 소수의견’, 오경미 대법관",
+     "link": "https://www.khan.co.kr/article/202611222004005/",
+     "pubDate": "2026-11-22T11:04:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[여적]‘집단학살이었다’",
+     "link": "https://www.khan.co.kr/article/202611221916001/",
+     "pubDate": "2026-11-22T10:16:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
+  }
+ ]
+}
