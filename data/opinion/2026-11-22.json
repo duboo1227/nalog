@@ -1,16 +1,24 @@
 {
  "date": "2026-11-22",
- "generatedAt": "2026-11-22T06:04:02.432Z",
+ "generatedAt": "2026-11-22T09:54:54.200Z",
  "debates": [
   {
    "topic": [
-    "한덕수",
-    "파기환송",
-    "판결"
+    "대법",
+    "판결",
+    "한덕수"
    ],
    "both": true,
-   "papers": 3,
+   "papers": 4,
    "sides": [
+    {
+     "title": "대법 “12·3 비상계엄은 위헌·위법”…여야 정쟁 멈춰야",
+     "link": "https://www.joongang.co.kr/article/25480338",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
     {
      "title": "판결 다음날 대법원장 탄핵 결의, 집권당의 충동적 국헌문란",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/21/BAEGROUXLZFB5F43OJHACTW5EE/",
@@ -23,6 +31,14 @@
      "title": "납득할 수 없는 대법의 ‘한덕수 파기환송’ 판결, 그렇다고 ‘조희대 탄핵’이 맞나",
      "link": "https://www.khan.co.kr/article/202611201846001/",
      "pubDate": "2026-11-20T09:46:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "“계엄은 위헌·위법” 대법 판결에도 사과 없는 국민의힘",
+     "link": "https://www.khan.co.kr/article/202611221819001/",
+     "pubDate": "2026-11-22T09:19:00.000Z",
      "kind": "사설",
      "src": "경향신문",
      "lean": "진보"
@@ -49,10 +65,10 @@
    "topic": [
     "커닝",
     "AI",
-    "근본"
+    "전면"
    ],
    "both": true,
-   "papers": 3,
+   "papers": 4,
    "sides": [
     {
      "title": "‘AI 커닝’ 사태 속에 치러지는 수능…혼란 없도록 만전 기해야",
@@ -87,8 +103,16 @@
      "lean": "보수"
     },
     {
-     "title": "신뢰 무너진 ‘시험제도’, 근본 대책 고민할 때다",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288206.html",
+     "title": "‘수능 혼란 책임’ 교육부 장관 사퇴, 시험체계 전면 개편 서둘러야",
+     "link": "https://www.khan.co.kr/article/202611221810011/",
+     "pubDate": "2026-11-22T09:10:01.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "시험제도 개편, 미룰 수 없는 한국사회 과제 됐다",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288532.html",
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
@@ -179,6 +203,32 @@
      "kind": "칼럼",
      "src": "한국일보",
      "lean": "중도"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "민주당",
+    "탄핵"
+   ],
+   "both": false,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "민주당, 삼권분립 뒤흔드는 '탄핵의 정치' 멈춰야",
+     "link": "https://www.hankookilbo.com/news/article/A2026112012230005566",
+     "pubDate": null,
+     "kind": "칼럼",
+     "src": "한국일보",
+     "lean": "중도"
+    },
+    {
+     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
+     "link": "https://www.khan.co.kr/article/202611221810001/",
+     "pubDate": "2026-11-22T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
     }
    ]
   }
@@ -495,6 +545,18 @@
      "link": "https://www.hankookilbo.com/news/article/A2026112014570002675",
      "pubDate": null,
      "kind": "칼럼"
+    },
+    {
+     "title": "두 명의 미나미가 알려주는 한일관계",
+     "link": "https://www.hankookilbo.com/news/article/A2026112206320002867",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "커닝과 부정행위",
+     "link": "https://www.hankookilbo.com/news/article/A2026112213140002333",
+     "pubDate": null,
+     "kind": "칼럼"
     }
    ]
   },
@@ -504,6 +566,18 @@
    "lean": "진보",
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
+    {
+     "title": "시험제도 개편, 미룰 수 없는 한국사회 과제 됐다",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288532.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "대법원 ‘이상민·박성재 판결’은 국민 눈높이 맞아야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288531.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
     {
      "title": "‘한덕수 파기환송’ 잘못됐지만, 대법원장 탄핵은 끝까지 숙고해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288403.html",
@@ -529,16 +603,28 @@
      "kind": "사설"
     },
     {
-     "title": "신뢰 무너진 ‘시험제도’, 근본 대책 고민할 때다",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288206.html",
+     "title": "돼지국밥의 계절 [서울 말고]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288506.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
     },
     {
-     "title": "격변하는 정세 속 한·중 소통 더 강화해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288008.html",
+     "title": "AI야, 동물도 생각해 줘 [이형주의 비인간동물사]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288505.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
+    },
+    {
+     "title": "차가운 시대, 사람 볕이 쬐고 싶었던 걸까 [양희은의 어떤 날]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288503.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI 시대 어린이 기자단과 ‘질문하는 능력’ [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288499.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "주택정책 성적표, ‘세입자 주거비’로 매겨야 [아침햇발]",
@@ -599,30 +685,6 @@
      "link": "https://www.hani.co.kr/arti/opinion/column/1288126.html",
      "pubDate": null,
      "kind": "칼럼"
-    },
-    {
-     "title": "한국에도 다문화 복지여왕이 탄생할까 [뉴스룸에서]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288050.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "18살의 나를 맡길 곳 [크리틱]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288049.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "대학과 학자의 갈 길은 [김민형의 여담]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288034.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "힘겨운 장애차별 소송과 담담한 사법개혁안 [세상읽기]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288033.html",
-     "pubDate": null,
-     "kind": "칼럼"
     }
    ]
   },
@@ -632,6 +694,24 @@
    "lean": "진보",
    "home": "https://www.khan.co.kr/opinion",
    "items": [
+    {
+     "title": "“계엄은 위헌·위법” 대법 판결에도 사과 없는 국민의힘",
+     "link": "https://www.khan.co.kr/article/202611221819001/",
+     "pubDate": "2026-11-22T09:19:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "‘수능 혼란 책임’ 교육부 장관 사퇴, 시험체계 전면 개편 서둘러야",
+     "link": "https://www.khan.co.kr/article/202611221810011/",
+     "pubDate": "2026-11-22T09:10:01.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
+     "link": "https://www.khan.co.kr/article/202611221810001/",
+     "pubDate": "2026-11-22T09:10:00.000Z",
+     "kind": "사설"
+    },
     {
      "title": "납득할 수 없는 대법의 ‘한덕수 파기환송’ 판결, 그렇다고 ‘조희대 탄핵’이 맞나",
      "link": "https://www.khan.co.kr/article/202611201846001/",
