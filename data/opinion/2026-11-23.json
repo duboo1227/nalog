@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "generatedAt": "2026-11-22T17:50:34.462Z",
+ "generatedAt": "2026-11-22T21:51:52.242Z",
  "debates": [
   {
    "topic": [
@@ -224,6 +224,12 @@
      "kind": "사설"
     },
     {
+     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
+     "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
+     "pubDate": "2026-11-22T14:31:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[朝鮮칼럼] 재난이 된 수능시험, 우리는 무엇을 평가했나",
      "link": "https://www.chosun.com/opinion/chosun_column/2026/11/22/TIYPOLYFBNHCLPOUIFOWTJVNIA/",
      "pubDate": "2026-11-22T14:55:00.000Z",
@@ -263,12 +269,6 @@
      "title": "[新중동천일야화] 이란 전쟁 출구전략, ‘모두 지지 않는 길’이 있다",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/NWPRBSKBZJBC7NMNFBNPDS5DWE/",
      "pubDate": "2026-11-22T14:32:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
-     "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
-     "pubDate": "2026-11-22T14:31:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -524,6 +524,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "젠슨 황 퇴진, 한국 반도체 파운드리에 열린 기회",
+     "link": "https://www.hankookilbo.com/news/article/A2026112214140004126",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "두 명의 미나미가 알려주는 한일관계",
      "link": "https://www.hankookilbo.com/news/article/A2026112206320002867",
      "pubDate": null,
@@ -532,6 +538,12 @@
     {
      "title": "[우리말 한 자밤] 커닝과 부정행위",
      "link": "https://www.hankookilbo.com/news/article/A2026112213140002333",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "전쟁을 시작한 자들의 평화선언",
+     "link": "https://www.hankookilbo.com/news/article/A2026112211070003396",
      "pubDate": null,
      "kind": "칼럼"
     }
@@ -578,6 +590,18 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "이것도 우리가 버려야 하는 거예요? [6411의 목소리]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288561.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "수고했어, 트럼프와 싸우느라 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288560.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "‘시험 붕괴’ 이후의 공부 [한승훈 칼럼]",
@@ -648,18 +672,6 @@
     {
      "title": "문제는 시험이 아니다 [박권일의 다이내믹 도넛]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288215.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘객관식 공정성’의 신화는 무너졌지만 [슬기로운 기자생활]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288214.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘명청대전’이 미국에는 없는 이유 [특파원 칼럼]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288213.html",
      "pubDate": null,
      "kind": "칼럼"
     }
