@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "generatedAt": "2026-11-23T02:21:53.789Z",
+ "generatedAt": "2026-11-23T06:13:35.846Z",
  "debates": [
   {
    "topic": [
@@ -137,7 +137,7 @@
      "lean": "보수"
     },
     {
-     "title": "“퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
+     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
      "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
      "pubDate": "2026-11-22T14:31:00.000Z",
      "kind": "칼럼",
@@ -224,7 +224,19 @@
      "kind": "사설"
     },
     {
-     "title": "“퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
+     "title": "[태평로] 젠슨 황의 몰락이 던지는 질문",
+     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/22/VN5CWOOVQNGGNFKUF4MEPSHQXQ/",
+     "pubDate": "2026-11-22T14:37:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고] 노벨 평화상 수상자가 일깨운 AI 시대의 ‘착한 말’",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/22/EQ3DDFZWV5HKJG4YA3Q6RDIN2U/",
+     "pubDate": "2026-11-22T14:34:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[에디터의 Q] “퇴임 후 재판받겠다 밝히면 떳떳, 조희대 탄핵 공격 중단해야”",
      "link": "https://www.chosun.com/opinion/2026/11/22/DJOZIAVPHBH7NAHPRSCNQJFUJ4/",
      "pubDate": "2026-11-22T14:31:00.000Z",
      "kind": "칼럼"
@@ -242,21 +254,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[태평로] 젠슨 황의 몰락이 던지는 질문",
-     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/22/VN5CWOOVQNGGNFKUF4MEPSHQXQ/",
-     "pubDate": "2026-11-22T14:37:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[데스크에서] ‘주가 폭락’도 특검이 밝혀라",
      "link": "https://www.chosun.com/opinion/desk/2026/11/22/SPKULRP44ZAYDOJMPZPMEGXTRE/",
      "pubDate": "2026-11-22T14:35:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] 노벨 평화상 수상자가 일깨운 AI 시대의 ‘착한 말’",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/22/EQ3DDFZWV5HKJG4YA3Q6RDIN2U/",
-     "pubDate": "2026-11-22T14:34:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -524,7 +524,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "젠슨 황 퇴진, 한국 반도체 파운드리에 열린 기회",
+     "title": "차상균 스탠퍼드대 HAI 석학 펠로우, 서울대 명예교수",
      "link": "https://www.hankookilbo.com/news/article/A2026112214140004126",
      "pubDate": null,
      "kind": "칼럼"
