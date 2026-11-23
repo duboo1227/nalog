@@ -1,53 +1,77 @@
 {
  "date": "2026-11-23",
- "generatedAt": "2026-11-23T10:21:52.073Z",
+ "generatedAt": "2026-11-23T14:30:42.207Z",
  "core": [
   {
-   "title": "'검은 월요일' 코스피 4700선 턱걸이 마감",
-   "link": "https://www.chosun.com/economy/money/2026/11/23/7WOMT6RNRRBCTDGUIZKYIUTELE/",
-   "src": "조선일보",
-   "pubDate": "2026-11-23T06:30:46.703Z",
+   "title": "[단독] 대한항공 조종사노조 ‘서열 정리’ 문제로 임단협 부결",
+   "link": "https://www.donga.com/news/Economy/article/all/20261123/135076045/1",
+   "src": "동아일보",
+   "pubDate": "2026-11-23T09:23:00.000Z",
    "papers": [
     "조선일보",
-    "연합뉴스"
+    "동아일보",
+    "서울경제"
    ],
-   "n": 2,
+   "n": 3,
    "top": true,
-   "excl": false,
-   "score": 6.5,
+   "excl": true,
+   "score": 10.5,
    "why": [
-    "2개 신문",
+    "3개 신문",
     "메인 1",
-    "시장·정책"
+    "단독"
    ],
    "more": [
     {
-     "src": "연합뉴스",
-     "title": "코스피, 3%대 급락 4,700선 턱걸이…코스닥 2년만에 최저(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261123129851008"
+     "src": "조선일보",
+     "title": "대한항공 조종사 임단협 잠정안 부결…트리니티항공은 교섭 결렬",
+     "link": "https://www.chosun.com/economy/industry-company/2026/11/23/HE2GCNJVMVSTSMJYGA2WGMZZGE/"
+    },
+    {
+     "src": "서울경제",
+     "title": "대한항공 조종사 임단협 잠정안 부결…통합 서열 갈등 지속",
+     "link": "https://www.sedaily.com/article/20117979"
     }
    ],
-   "_size": 2
+   "_size": 3
   },
   {
-   "title": "[단독] “OECD 가입 30년 한국, 기업간 AI활용 격차 해소에 미래 달려”",
-   "link": "https://www.donga.com/news/Inter/article/all/20261123/135070177/2",
-   "src": "동아일보",
-   "pubDate": "2026-11-22T19:30:00.000Z",
+   "title": "롯데, ‘상징’ 롯데월드타워 담보 2년 만에 풀렸다",
+   "link": "https://www.joongang.co.kr/article/25481200",
+   "src": "중앙일보",
+   "pubDate": "2026-11-23T11:33:26.000Z",
    "papers": [
+    "중앙일보",
+    "조선일보",
     "동아일보"
    ],
-   "n": 1,
+   "n": 3,
    "top": true,
-   "excl": true,
-   "score": 5.3,
+   "excl": false,
+   "score": 8.8,
    "why": [
+    "3개 신문",
     "메인 1",
-    "단독",
     "산업"
    ],
-   "more": [],
-   "_size": 1
+   "more": [
+    {
+     "src": "조선일보",
+     "title": "롯데월드타워 담보 풀렸다… 롯데, 재무개선 잰걸음",
+     "link": "https://www.chosun.com/economy/market_trend/2026/11/23/GQ3GCMZVGEZWEMJYGA4DCMRSGU/"
+    },
+    {
+     "src": "동아일보",
+     "title": "구조조정·자산 매각으로 재무숨통…롯데그룹, 롯데월드타워 담보 해지",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135075918/1"
+    },
+    {
+     "src": "동아일보",
+     "title": "롯데, 케미칼 회사채 8000억 상환…롯데월드타워 담보 풀렸다",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135074617/1"
+    }
+   ],
+   "_size": 4
   },
   {
    "title": "이형일 \"석유 최고가격제 내년에도 일정기간 유지\"",
@@ -81,7 +105,7 @@
    "src": "연합뉴스",
    "pubDate": "2026-11-23T08:40:57.000Z",
    "papers": [
-    "서울경제",
+    "조선일보",
     "연합뉴스"
    ],
    "n": 2,
@@ -94,9 +118,9 @@
    ],
    "more": [
     {
-     "src": "서울경제",
-     "title": "금융위, ‘매출 허위 계상’ 피델릭스에 과징금 부과",
-     "link": "https://www.sedaily.com/article/20117946"
+     "src": "조선일보",
+     "title": "금융위, ‘매출 허위 계상’ 피델릭스·임직원에 과징금 부과",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/23/MZQTOYZVMUZDGNJVMM4DOODCGU/"
     }
    ],
    "_size": 2
@@ -211,13 +235,13 @@
    "_size": 2
   },
   {
-   "title": "카카오T 2대 주주 TPG, 美상장 반대한 카카오에 1.5조 소송",
-   "link": "https://www.chosun.com/economy/tech_it/2026/11/23/XR5FJKQA65CG5KRXCMEQUTIU2I/",
-   "src": "조선일보",
-   "pubDate": "2026-11-23T01:51:21.000Z",
+   "title": "GS건설, 데이터센터 구축 속도 높인다…통합엔지니어링 추진",
+   "link": "https://www.sedaily.com/article/20117823",
+   "src": "서울경제",
+   "pubDate": "2026-11-23T06:40:56.000Z",
    "papers": [
-    "조선일보",
-    "동아일보"
+    "동아일보",
+    "서울경제"
    ],
    "n": 2,
    "top": false,
@@ -230,8 +254,8 @@
    "more": [
     {
      "src": "동아일보",
-     "title": "카카오T 2대 주주 TPG, 美상장 반대한 카카오에 1.5조 소송",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135075976/1"
+     "title": "GS건설, LS일렉트릭·LG유플러스·하니웰과 데이터센터 통합엔지니어링 협력",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135075017/1"
     }
    ],
    "_size": 2
@@ -245,25 +269,46 @@
    "via": "page",
    "items": [
     {
-     "title": "한강맨션 7억, 대전 1억, 대구 6000만원…전국이 재초환 ‘비상’",
-     "link": "https://www.joongang.co.kr/article/25480821",
-     "pubDate": "2026-11-22T07:32:24.000Z",
+     "title": "증안펀드 카드에도 “살 사람 없다”…연초로 되돌아간 코스피",
+     "link": "https://www.joongang.co.kr/article/25481116",
+     "pubDate": "2026-11-23T07:13:32.000Z",
      "n": 1,
-     "score": 0.5
+     "score": 3.5
+    },
+    {
+     "title": "사상 첫 수출 1조 달러 ‘세계 4위’ 한국, 반도체 뺐더니 벌어진 일",
+     "link": "https://www.joongang.co.kr/article/25480837",
+     "pubDate": "2026-11-22T08:53:54.000Z",
+     "n": 1,
+     "score": 3
+    },
+    {
+     "title": "롯데, ‘상징’ 롯데월드타워 담보 2년 만에 풀렸다",
+     "link": "https://www.joongang.co.kr/article/25481200",
+     "pubDate": "2026-11-23T11:33:26.000Z",
+     "n": 3,
+     "score": 8.8
+    },
+    {
+     "title": "삼진제약·온택트헬스, AI로 심장초음파 영상 분석한다",
+     "link": "https://www.joongang.co.kr/article/25481198",
+     "pubDate": "2026-11-23T11:25:00.000Z",
+     "n": 1,
+     "score": 0.8
     },
     {
      "title": "산업기술시험원, 취약계층 이용시설·지하공간 공기질 관리 논의",
      "link": "https://www.joongang.co.kr/article/25481186",
      "pubDate": "2026-11-23T10:06:00.000Z",
      "n": 1,
-     "score": 2
+     "score": 0
     },
     {
      "title": "소상공인시장진흥공단, 안전보건 인증 전국 12개 본부로 확대",
      "link": "https://www.joongang.co.kr/article/25481184",
      "pubDate": "2026-11-23T09:56:00.000Z",
      "n": 1,
-     "score": 2
+     "score": 0
     },
     {
      "title": "원전 전문가 3명 보이콧…원전 공론화위 시작부터 파행",
@@ -341,50 +386,29 @@
      "pubDate": "2026-11-23T07:34:52.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "증안펀드 카드에도 “살 사람 없다”…코스피 3000선 후반 전망도",
-     "link": "https://www.joongang.co.kr/article/25481116",
-     "pubDate": "2026-11-23T07:13:32.000Z",
-     "n": 1,
-     "score": 1.5
-    },
-    {
-     "title": "조성형 대한통증진단학회 회장, 이스탄불서 척추질환 워크숍 진행",
-     "link": "https://www.joongang.co.kr/article/25481111",
-     "pubDate": "2026-11-23T07:06:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "한화, 광명 하안5단지 재건축한다…최고 45층 2886가구",
-     "link": "https://www.joongang.co.kr/article/25481109",
-     "pubDate": "2026-11-23T06:55:00.000Z",
-     "n": 1,
-     "score": 0
     }
    ],
    "tops": [
     {
-     "title": "한강맨션 7억, 대전 1억, 대구 6000만원…전국이 재초환 ‘비상’",
-     "link": "https://www.joongang.co.kr/article/25480821",
-     "pubDate": "2026-11-22T07:32:24.000Z",
+     "title": "증안펀드 카드에도 “살 사람 없다”…연초로 되돌아간 코스피",
+     "link": "https://www.joongang.co.kr/article/25481116",
+     "pubDate": "2026-11-23T07:13:32.000Z",
      "n": 1,
-     "score": 0.5
+     "score": 3.5
     },
     {
-     "title": "산업기술시험원, 취약계층 이용시설·지하공간 공기질 관리 논의",
-     "link": "https://www.joongang.co.kr/article/25481186",
-     "pubDate": "2026-11-23T10:06:00.000Z",
+     "title": "사상 첫 수출 1조 달러 ‘세계 4위’ 한국, 반도체 뺐더니 벌어진 일",
+     "link": "https://www.joongang.co.kr/article/25480837",
+     "pubDate": "2026-11-22T08:53:54.000Z",
      "n": 1,
-     "score": 2
+     "score": 3
     },
     {
-     "title": "소상공인시장진흥공단, 안전보건 인증 전국 12개 본부로 확대",
-     "link": "https://www.joongang.co.kr/article/25481184",
-     "pubDate": "2026-11-23T09:56:00.000Z",
-     "n": 1,
-     "score": 2
+     "title": "롯데, ‘상징’ 롯데월드타워 담보 2년 만에 풀렸다",
+     "link": "https://www.joongang.co.kr/article/25481200",
+     "pubDate": "2026-11-23T11:33:26.000Z",
+     "n": 3,
+     "score": 8.8
     }
    ],
    "topsFrom": "page"
@@ -395,6 +419,13 @@
    "home": "https://www.mk.co.kr/news/economy/",
    "via": "rss",
    "items": [
+    {
+     "title": "저소득층 생계급여 문턱 확 낮춘다…지급대상 27만명 늘린다는데",
+     "link": "https://www.mk.co.kr/news/economy/12216518",
+     "pubDate": "2026-11-23T11:28:42.000Z",
+     "n": 1,
+     "score": 0
+    },
     {
      "title": "수출 1조달러 위업 이뤄낸 한국…코스피 우(憂) 범하지 않으려면 [기자24시]",
      "link": "https://www.mk.co.kr/news/economy/12216435",
@@ -422,13 +453,6 @@
      "pubDate": "2026-11-23T08:51:33.000Z",
      "n": 1,
      "score": 2.5
-    },
-    {
-     "title": "생계급여 대상 27만명 확대 … 1인가구 月82만원→96만원",
-     "link": "https://www.mk.co.kr/news/economy/12216386",
-     "pubDate": "2026-11-23T08:44:55.000Z",
-     "n": 1,
-     "score": 0
     },
     {
      "title": "이형일 \"석유 최고가격제 내년에도 일정기간 유지\"",
@@ -617,6 +641,69 @@
    "via": "rss",
    "items": [
     {
+     "title": "젠슨 황, 엔비디아 CEO 복귀",
+     "link": "https://www.chosun.com/economy/market_trend/2026/11/23/PGENFDTCAZFLZCRQGXT64EBQJU/",
+     "pubDate": "2026-11-23T14:18:28.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "中 “2030년까지 달에서 물·산소 채취”…우주 채굴 로드맵 공개했다",
+     "link": "https://www.chosun.com/economy/science/2026/11/23/77RUO3G2OVAZHA3L4VSXCAIBXY/",
+     "pubDate": "2026-11-23T07:34:32.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "‘엔비디아 차기 CEO’ 거론 르네 하스, Arm 남는다… 경영 계약 7년 연장",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/MZQWKYTFGVRDQYJRGFRWCYJXMY/",
+     "pubDate": "2026-11-23T13:45:37.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "크라우드스트라이크, 지스케일러 59조원에 인수… 보안업계 사상 최대 M&A",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/HE4DSYZUHBQTQMZWMQ3TKNTGMI/",
+     "pubDate": "2026-11-23T13:07:56.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "기업들, 자사주 사 ‘떠받치기’... 연기금은 팔아 ‘추락 부채질’",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/23/E3SAVG7P5NEXXIX3FH5WR4R2QM/",
+     "pubDate": "2026-11-23T11:36:05.000Z",
+     "n": 1,
+     "score": 2
+    },
+    {
+     "title": "초음파에 안 보이는 혈관 속 ‘시한폭탄’…빛으로 뇌졸중 위험 신호 찾아낸다",
+     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/52JBUC6CVRAS5DDMVVVBBXB4LM/",
+     "pubDate": "2026-11-23T08:54:29.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "개미들 563조 잃고 빚더미… 외국인은 224조 팔아 수익",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/23/V5DLSBKXWRFCDNI522LM3JQFUM/",
+     "pubDate": "2026-11-22T15:52:00.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "대한항공 조종사 임단협 잠정안 부결…트리니티항공은 교섭 결렬",
+     "link": "https://www.chosun.com/economy/industry-company/2026/11/23/HE2GCNJVMVSTSMJYGA2WGMZZGE/",
+     "pubDate": "2026-11-23T10:45:05.000Z",
+     "n": 3,
+     "score": 10.5
+    },
+    {
+     "title": "금융위, ‘매출 허위 계상’ 피델릭스·임직원에 과징금 부과",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/23/MZQTOYZVMUZDGNJVMM4DOODCGU/",
+     "pubDate": "2026-11-23T10:15:07.000Z",
+     "n": 2,
+     "score": 4.5
+    },
+    {
      "title": "與野, 전기차 국내생산세액공제 포함 결론 못 내",
      "link": "https://www.chosun.com/economy/economy_general/2026/11/23/GQZGGMDFGU2GGMRUGMYWCOLGMM/",
      "pubDate": "2026-11-23T09:59:26.000Z",
@@ -643,13 +730,6 @@
      "pubDate": "2026-11-23T09:23:22.000Z",
      "n": 1,
      "score": 0.8
-    },
-    {
-     "title": "초음파에 안 보이는 혈관 속 ‘시한폭탄’…빛으로 뇌졸중 위험 신호 찾아낸다",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/52JBUC6CVRAS5DDMVVVBBXB4LM/",
-     "pubDate": "2026-11-23T08:54:29.000Z",
-     "n": 1,
-     "score": 0
     },
     {
      "title": "치실로 혈당 잰다, 피 안 뽑는 ‘스마트 치실’ 개발",
@@ -690,8 +770,8 @@
      "title": "롯데월드타워 담보 풀렸다… 롯데, 재무개선 잰걸음",
      "link": "https://www.chosun.com/economy/market_trend/2026/11/23/GQ3GCMZVGEZWEMJYGA4DCMRSGU/",
      "pubDate": "2026-11-23T08:46:32.000Z",
-     "n": 2,
-     "score": 3
+     "n": 3,
+     "score": 8.8
     },
     {
      "title": "‘화려한 IPO’ 앤트로픽, 채권은 정크본드 등급 우려",
@@ -762,78 +842,15 @@
      "pubDate": "2026-11-23T08:16:05.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "CIA에서 불고기를? 美 명문 요리학교 한식 수업, 다음 학기도 ‘만석’",
-     "link": "https://www.chosun.com/economy/int_economy/2026/11/23/EMAP4YQP55HJNI4I6BXMBW24N4/",
-     "pubDate": "2026-11-23T01:12:00.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "40년 된 병원 건물이 명품 매장으로…5년 만에 740억에 팔렸다",
-     "link": "https://www.chosun.com/economy/realty/investment_trends/2026/11/23/GBQWCZRWG4YDKM3BGY4DMYRTGE/",
-     "pubDate": "2026-11-23T08:14:02.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "마운자로 병원 방문 없이 대마도 당일치기로 해결…'스시자로' 코스까지 등장",
-     "link": "https://www.chosun.com/economy/realty/realestate_news/2026/11/23/GJSGGNJQMEYWENJUG43DOY3FGU/",
-     "pubDate": "2026-11-23T08:10:08.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "공정위, 플레이스테이션 유통 ‘불공정 거래’ 혐의 소니 현장 조사",
-     "link": "https://www.chosun.com/economy/economy_general/2026/11/23/JNLPW5D6QND5ZBZRC2B3ZW244U/",
-     "pubDate": "2026-11-23T07:42:12.000Z",
-     "n": 1,
-     "score": 1.5
-    },
-    {
-     "title": "가스공사, LNG 트레이딩·냉열 사업 전담조직 신설",
-     "link": "https://www.chosun.com/economy/industry-company/2026/11/23/HAYTCM3CMVQTEMZVGFTDQN3CMM/",
-     "pubDate": "2026-11-23T08:05:47.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "中 “2030년까지 달에서 물·산소 채취”…우주 채굴 로드맵 공개했다",
-     "link": "https://www.chosun.com/economy/science/2026/11/23/77RUO3G2OVAZHA3L4VSXCAIBXY/",
-     "pubDate": "2026-11-23T07:34:32.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "카카오T 2대 주주 TPG, 美상장 반대한 카카오에 1.5조 소송",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/XR5FJKQA65CG5KRXCMEQUTIU2I/",
-     "pubDate": "2026-11-23T01:51:21.000Z",
-     "n": 2,
-     "score": 3.8
-    },
-    {
-     "title": "애경그룹, 고준 AK홀딩스 사장 승진… 임원 13명 인사",
-     "link": "https://www.chosun.com/economy/industry-company/2026/11/23/MFSGMM3EHEZWEMRVGI3DOMZXMU/",
-     "pubDate": "2026-11-23T07:59:56.000Z",
-     "n": 1,
-     "score": 0
-    },
-    {
-     "title": "고정밀 지도 반출 문 열린 구글…국내 공간정보업계와 협력 강화",
-     "link": "https://www.chosun.com/economy/tech_it/2026/11/23/MJQTKZRVGI2GIYTCHE4WIMRSG4/",
-     "pubDate": "2026-11-23T07:59:28.000Z",
-     "n": 1,
-     "score": 0
     }
    ],
    "tops": [
     {
-     "title": "'검은 월요일' 코스피 4700선 턱걸이 마감",
-     "link": "https://www.chosun.com/economy/money/2026/11/23/7WOMT6RNRRBCTDGUIZKYIUTELE/",
-     "pubDate": "2026-11-23T06:30:46.703Z",
-     "n": 2,
-     "score": 6.5
+     "title": "기업들, 자사주 사 '떠받치기'… 연기금은 팔아 '추락 부채질'",
+     "link": "https://www.chosun.com/economy/stock-finance/2026/11/23/E3SAVG7P5NEXXIX3FH5WR4R2QM/",
+     "pubDate": "2026-11-23T06:28:57.023Z",
+     "n": 1,
+     "score": 2
     },
     {
      "title": "은행, 대기업 대출 20% 늘릴 때 자영업자는 제자리",
@@ -859,18 +876,32 @@
    "via": "rss",
    "items": [
     {
+     "title": "SK바이오팜, 美서 세노바메이트 신규 연구 10건 발표…“환자·치료 범위 확대 기대”",
+     "link": "https://www.donga.com/news/K-TECH Global Leaders/article/all/20261123/135077228/1",
+     "pubDate": "2026-11-23T11:34:40.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "최종전의 여왕…티띠꾼, ‘전설’ 소렌스탐 넘고 LPGA 통산 상금 1위 등극",
+     "link": "https://www.donga.com/news/Sports/article/all/20261123/135074172/1",
+     "pubDate": "2026-11-23T10:52:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
      "title": "카카오T 2대 주주 TPG, 美상장 반대한 카카오에 1.5조 소송",
      "link": "https://www.donga.com/news/Economy/article/all/20261123/135075976/1",
      "pubDate": "2026-11-23T09:31:00.000Z",
-     "n": 2,
-     "score": 3.8
+     "n": 1,
+     "score": 2.8
     },
     {
-     "title": "[단독]대한항공 조종사노조 임단협 부결…아시아나와 ‘서열 정리’ 진통",
+     "title": "[단독]대한항공 조종사노조 ‘서열 정리’ 문제로 임단협 부결",
      "link": "https://www.donga.com/news/Economy/article/all/20261123/135076045/1",
      "pubDate": "2026-11-23T09:23:00.000Z",
-     "n": 1,
-     "score": 2.5
+     "n": 3,
+     "score": 10.5
     },
     {
      "title": "LG CNS, 고교생 대상 AI 교육 챌린지데이 진행…10개 우수팀 선발",
@@ -918,8 +949,8 @@
      "title": "구조조정·자산 매각으로 재무숨통…롯데그룹, 롯데월드타워 담보 해지",
      "link": "https://www.donga.com/news/Economy/article/all/20261123/135075918/1",
      "pubDate": "2026-11-23T08:55:36.000Z",
-     "n": 1,
-     "score": 0.8
+     "n": 3,
+     "score": 8.8
     },
     {
      "title": "‘트럼프 코인’ 고점 대비 98% 폭락…투자자 7.3조원 잃었다",
@@ -957,13 +988,6 @@
      "score": 1.5
     },
     {
-     "title": "롯데, 케미칼 회사채 8000억 상환…롯데월드타워 담보 풀렸다",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135074617/1",
-     "pubDate": "2026-11-23T08:09:00.000Z",
-     "n": 2,
-     "score": 3
-    },
-    {
      "title": "첨가물 최소화한 ‘클린라벨’ 국내 확산…빙그레·대상 등 신제품 눈길",
      "link": "https://www.donga.com/news/Economy/article/all/20261123/135073187/1",
      "pubDate": "2026-11-23T08:03:00.000Z",
@@ -975,7 +999,7 @@
      "link": "https://www.donga.com/news/Economy/article/all/20261123/135074815/1",
      "pubDate": "2026-11-23T08:03:00.000Z",
      "n": 1,
-     "score": 1.5
+     "score": 3.5
     },
     {
      "title": "GS건설, 1조7888억 원 규모 목동12단지 재건축 수주",
@@ -1046,41 +1070,27 @@
      "pubDate": "2026-11-23T07:19:00.000Z",
      "n": 1,
      "score": 1.5
-    },
-    {
-     "title": "피렐리, ‘아이스 제로 아시메트리코 2’ 겨울용 타이어 출시…빙판길 안정성↑",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135074604/1",
-     "pubDate": "2026-11-23T07:10:56.000Z",
-     "n": 1,
-     "score": -3
-    },
-    {
-     "title": "이형일 “불법 공매도 3개월 집중 감시”…증안펀드 투입은 유동적",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135074340/1",
-     "pubDate": "2026-11-23T07:09:00.000Z",
-     "n": 1,
-     "score": 1.5
     }
    ],
    "tops": [
     {
-     "title": "“연봉 6년치 증발” “증권사 앱 지웠다”…증시 폭락에 개미들 패닉",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135072234/1",
-     "pubDate": "2026-11-23T02:15:36.000Z",
+     "title": "“개미들, 코스피 6000선에서 저가매수…물타기 할 여윳돈 없어”",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135074815/1",
+     "pubDate": "2026-11-23T08:03:00.000Z",
      "n": 1,
      "score": 3.5
     },
     {
-     "title": "[단독] “OECD 가입 30년 한국, 기업간 AI활용 격차 해소에 미래 달려”",
-     "link": "https://www.donga.com/news/Inter/article/all/20261123/135070177/2",
-     "pubDate": "2026-11-22T19:30:00.000Z",
-     "n": 1,
-     "score": 5.3
+     "title": "[단독] 대한항공 조종사노조 ‘서열 정리’ 문제로 임단협 부결",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135076045/1",
+     "pubDate": "2026-11-23T09:23:00.000Z",
+     "n": 3,
+     "score": 10.5
     },
     {
-     "title": "‘저가’ 中전기차, 韓 잠식 세계 3번째 빨라… “국산 세액공제 필요”",
-     "link": "https://www.donga.com/news/Economy/article/all/20261123/135070386/2",
-     "pubDate": "2026-11-22T19:30:00.000Z",
+     "title": "카카오T 2대 주주 TPG, 美상장 반대한 카카오에 1.5조 소송",
+     "link": "https://www.donga.com/news/Economy/article/all/20261123/135075976/1",
+     "pubDate": "2026-11-23T09:31:00.000Z",
      "n": 1,
      "score": 2.8
     }
@@ -1136,7 +1146,7 @@
      "score": -3
     },
     {
-     "title": "지자체 재정난 호소에…내년 한시적으로 지원",
+     "title": "지자체 재정난 호소에…내년에만 한시적 세수 지원",
      "link": "https://www.hankyung.com/article/2026112349831",
      "pubDate": "2026-11-23T08:43:04.000Z",
      "n": 1,
@@ -1259,7 +1269,7 @@
      "link": "https://www.hankyung.com/article/2026112226011",
      "pubDate": "2026-11-22T10:40:30.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "지방은행 깡통대출 2조 넘어",
@@ -1364,13 +1374,6 @@
      "score": 1.5
     },
     {
-     "title": "IPO 성공한 앤트로픽…회사채 시장은 ‘정크본드’ 전망",
-     "link": "https://www.sedaily.com/article/20117951",
-     "pubDate": "2026-11-23T09:20:55.000Z",
-     "n": 2,
-     "score": 3.8
-    },
-    {
      "title": "아시아나 합병해 부채 2배…“신속한 시너지가 관건”",
      "link": "https://www.sedaily.com/article/20115573",
      "pubDate": "2026-11-17T08:49:02.000Z",
@@ -1448,6 +1451,13 @@
      "score": 1.5
     },
     {
+     "title": "IPO 성공한 앤트로픽…회사채 시장은 ‘정크본드’ 전망",
+     "link": "https://www.sedaily.com/article/20117951",
+     "pubDate": "2026-11-23T09:20:55.000Z",
+     "n": 2,
+     "score": 3.8
+    },
+    {
      "title": "현대차, 6억弗 투입…내년 美서 트레일러 만든다",
      "link": "https://www.sedaily.com/article/20117910",
      "pubDate": "2026-11-23T08:42:27.000Z",
@@ -1476,6 +1486,13 @@
      "score": 0
     },
     {
+     "title": "대한항공 조종사 임단협 잠정안 부결…통합 서열 갈등 지속",
+     "link": "https://www.sedaily.com/article/20117979",
+     "pubDate": "2026-11-23T11:09:33.000Z",
+     "n": 3,
+     "score": 10.5
+    },
+    {
      "title": "우리투자증권, 회사채 데뷔전 ‘흥행’…허브리츠 보증채도 완판",
      "link": "https://www.sedaily.com/article/20117960",
      "pubDate": "2026-11-23T09:29:14.000Z",
@@ -1488,13 +1505,6 @@
      "pubDate": "2026-11-23T09:21:29.000Z",
      "n": 1,
      "score": 0
-    },
-    {
-     "title": "금융위, ‘매출 허위 계상’ 피델릭스에 과징금 부과",
-     "link": "https://www.sedaily.com/article/20117946",
-     "pubDate": "2026-11-23T09:15:33.000Z",
-     "n": 2,
-     "score": 4.5
     },
     {
      "title": "목동8단지 수주 나선 대우건설 “분담금 최대 6년 유예”",
@@ -1672,8 +1682,8 @@
      "title": "코스피, 3%대 급락 4,700선 턱걸이…코스닥 2년만에 최저(종합)",
      "link": "https://www.yna.co.kr/view/AKR20261123129851008",
      "pubDate": "2026-11-23T07:11:06.000Z",
-     "n": 2,
-     "score": 6.5
+     "n": 1,
+     "score": 1.5
     },
     {
      "title": "환율, 글로벌 위험회피 심리에 상승…2주만에 장중 1,350원대",
