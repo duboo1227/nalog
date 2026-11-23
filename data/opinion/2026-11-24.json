@@ -1,6 +1,6 @@
 {
  "date": "2026-11-24",
- "generatedAt": "2026-11-23T18:08:27.982Z",
+ "generatedAt": "2026-11-23T21:59:19.564Z",
  "debates": [
   {
    "topic": [
@@ -410,7 +410,7 @@
    "lean": "보수",
    "home": "https://www.donga.com/news/Opinion",
    "items": [],
-   "error": "https://rss.donga.com/editorials.xml… The operation was aborted due to timeout"
+   "error": "https://rss.donga.com/editorials.xml… fetch failed"
   },
   {
    "id": "hankook",
@@ -437,6 +437,18 @@
      "kind": "칼럼"
     },
     {
+     "title": "김희원 뉴스스탠다드실장",
+     "link": "https://www.hankookilbo.com/news/article/A2026112316160004333",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "무주택자에게 2027년은",
+     "link": "https://www.hankookilbo.com/news/article/A2026112222100002030",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "차상균 스탠퍼드대 HAI 석학 펠로우, 서울대 명예교수",
      "link": "https://www.hankookilbo.com/news/article/A2026112214140004126",
      "pubDate": null,
@@ -457,6 +469,12 @@
     {
      "title": "커지는 AI 거품 우려, 불안한 수출 1조 달러",
      "link": "https://www.hankookilbo.com/news/article/A2026112213000002297",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "신부 없는 결혼식장의 '신랑'이었던 사람",
+     "link": "https://www.hankookilbo.com/news/article/A2026112312370004013",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -521,6 +539,12 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288531.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "민주주의는 읽는 수고를 요구한다 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288758.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "미국 민주당의 승리, 한국 민주당의 내전 [정의길 칼럼]",
@@ -597,12 +621,6 @@
     {
      "title": "젠슨 황과 비트코인 [헬로, 크립토]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288540.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "유럽은 아프리카에서 배워야 하는가 [세계의 창]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288539.html",
      "pubDate": null,
      "kind": "칼럼"
     }
