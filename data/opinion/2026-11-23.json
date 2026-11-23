@@ -1,6 +1,6 @@
 {
  "date": "2026-11-23",
- "generatedAt": "2026-11-23T06:13:35.846Z",
+ "generatedAt": "2026-11-23T10:21:54.084Z",
  "debates": [
   {
    "topic": [
@@ -151,30 +151,13 @@
      "kind": "사설",
      "src": "경향신문",
      "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "강대국"
-   ],
-   "both": true,
-   "papers": 2,
-   "sides": [
-    {
-     "title": "강대국 정치로의 재편 예고 , 한·미 복원 더 시급해졌다",
-     "link": "https://www.joongang.co.kr/article/25480914",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
     },
     {
-     "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
-     "pubDate": null,
+     "title": "‘법관 행동’ 촉구한 법관회의 의장, ‘조희대 코트’는 아무 잘못이 없나",
+     "link": "https://www.khan.co.kr/article/202611231810001/",
+     "pubDate": "2026-11-23T09:10:00.000Z",
      "kind": "사설",
-     "src": "한겨레",
+     "src": "경향신문",
      "lean": "진보"
     }
    ]
@@ -530,14 +513,14 @@
      "kind": "칼럼"
     },
     {
-     "title": "두 명의 미나미가 알려주는 한일관계",
-     "link": "https://www.hankookilbo.com/news/article/A2026112206320002867",
+     "title": "전쟁을 시작한 자들의 평화선언",
+     "link": "https://www.hankookilbo.com/news/article/A2026112211070003396",
      "pubDate": null,
      "kind": "칼럼"
     },
     {
-     "title": "전쟁을 시작한 자들의 평화선언",
-     "link": "https://www.hankookilbo.com/news/article/A2026112211070003396",
+     "title": "두 명의 미나미가 알려주는 한일관계",
+     "link": "https://www.hankookilbo.com/news/article/A2026112206320002867",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -555,6 +538,18 @@
    "lean": "진보",
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
+    {
+     "title": "새 외교안보 라인, 주체적·다각적 외교 노력해야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288740.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
+     "title": "증안펀드는 미봉책, ‘투자자 보호’ 중심 제도 개선을",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288712.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
     {
      "title": "글로벌 주식시장 급락세, ‘AI 약세장’ 진입 대비해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288538.html",
@@ -580,16 +575,46 @@
      "kind": "사설"
     },
     {
-     "title": "재건축 초과이익 부담금, 이번엔 유예 없이 부과해야",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288399.html",
+     "title": "미·중·러의 사상 첫 ‘민원해결 회담’ [뉴스룸에서]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288728.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
     },
     {
-     "title": "공동선언까지 발표하며 ‘강대국 유대’ 과시한 미·중·러",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288245.html",
+     "title": "고무줄 같은 병역판정 기준 [똑똑! 한국사회]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288727.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
+    },
+    {
+     "title": "기초연금 개편안, 하후상박 아니라 자승자박이다 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1288726.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘에이즈 예방법’ 전부개정안, HIV 감염인 차별 없앨 계기로 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1288724.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "공소청, 기계적 상소 남발 관행 벗어나야 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1288722.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "탄소중립 무관심한 기업 에너지 특혜법 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1288721.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "AI 기업들의 ‘투표권 독재’ [유레카]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288708.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "이것도 우리가 버려야 하는 거예요? [6411의 목소리]",
@@ -632,48 +657,6 @@
      "link": "https://www.hani.co.kr/arti/opinion/column/1288506.html",
      "pubDate": null,
      "kind": "칼럼"
-    },
-    {
-     "title": "AI야, 동물도 생각해 줘 [이형주의 비인간동물사]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288505.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "차가운 시대, 사람 볕이 쬐고 싶었던 걸까 [양희은의 어떤 날]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288503.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "AI 시대 어린이 기자단과 ‘질문하는 능력’ [유레카]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288499.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "주택정책 성적표, ‘세입자 주거비’로 매겨야 [아침햇발]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288485.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "늙은 낚시꾼의 수다를 듣다 [진옥섭 풍류로드]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288260.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "조선업 임금제는 바뀌어야 한다",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288253.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "문제는 시험이 아니다 [박권일의 다이내믹 도넛]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288215.html",
-     "pubDate": null,
-     "kind": "칼럼"
     }
    ]
   },
@@ -683,6 +666,24 @@
    "lean": "진보",
    "home": "https://www.khan.co.kr/opinion",
    "items": [
+    {
+     "title": "외교안보 라인 포함 중폭 개각, 국정 심기일전 전기 되길",
+     "link": "https://www.khan.co.kr/article/202611231831001/",
+     "pubDate": "2026-11-23T09:31:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "증안펀드 가동 준비, AI 약세장 대비하되 무리한 개입 말아야",
+     "link": "https://www.khan.co.kr/article/202611231810011/",
+     "pubDate": "2026-11-23T09:10:01.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "‘법관 행동’ 촉구한 법관회의 의장, ‘조희대 코트’는 아무 잘못이 없나",
+     "link": "https://www.khan.co.kr/article/202611231810001/",
+     "pubDate": "2026-11-23T09:10:00.000Z",
+     "kind": "사설"
+    },
     {
      "title": "“계엄은 위헌·위법” 대법 판결에도 사과 없는 국민의힘",
      "link": "https://www.khan.co.kr/article/202611221819001/",
@@ -700,6 +701,12 @@
      "link": "https://www.khan.co.kr/article/202611221810001/",
      "pubDate": "2026-11-22T09:10:00.000Z",
      "kind": "사설"
+    },
+    {
+     "title": "[여적]‘21세기 최대 야당’ 미국 민주당",
+     "link": "https://www.khan.co.kr/article/202611231817001/",
+     "pubDate": "2026-11-23T09:17:00.000Z",
+     "kind": "칼럼"
     },
     {
      "title": "[요리에 과학 한 스푼]커피와 차, 같은 반응 다른 맛",
