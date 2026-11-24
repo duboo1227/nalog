@@ -1,50 +1,7 @@
 {
  "date": "2026-11-24",
- "generatedAt": "2026-11-23T21:59:19.564Z",
+ "generatedAt": "2026-11-24T02:23:03.852Z",
  "debates": [
-  {
-   "topic": [
-    "조희대",
-    "아닌",
-    "재판"
-   ],
-   "both": true,
-   "papers": 3,
-   "sides": [
-    {
-     "title": "조희대 탄핵 강행은 사실상 재판 불복 아닌가",
-     "link": "https://www.joongang.co.kr/article/25480916",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "李 대통령 ‘대장동 의혹’ 또 반박, SNS 아닌 재판으로 해결을",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/24/RCJZKU4VUVBYBG272VVQMP2FN4/",
-     "pubDate": "2026-11-23T15:00:00.000Z",
-     "kind": "사설",
-     "src": "조선일보",
-     "lean": "보수"
-    },
-    {
-     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
-     "link": "https://www.khan.co.kr/article/202611221810001/",
-     "pubDate": "2026-11-22T09:10:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    },
-    {
-     "title": "‘법관 행동’ 촉구한 법관회의 의장, ‘조희대 코트’는 아무 잘못이 없나",
-     "link": "https://www.khan.co.kr/article/202611231810001/",
-     "pubDate": "2026-11-23T09:10:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    }
-   ]
-  },
   {
    "topic": [
     "라인",
@@ -52,8 +9,16 @@
     "외교안보"
    ],
    "both": true,
-   "papers": 3,
+   "papers": 4,
    "sides": [
+    {
+     "title": "정동영 이종석 교체… 동맹 난기류 넘어 ‘원팀’으로 거듭나야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077411/2",
+     "pubDate": "2026-11-23T14:30:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
     {
      "title": "본인 사건 특검 임명하는 대통령, ‘가이드 라인’ 제시하나",
      "link": "https://www.joongang.co.kr/article/25481283",
@@ -118,8 +83,16 @@
     "개편"
    ],
    "both": true,
-   "papers": 3,
+   "papers": 4,
    "sides": [
+    {
+     "title": "최교진 사퇴… ‘대학선발권 강화’ 입시제도 개편 시동 걸 때",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070203/2",
+     "pubDate": "2026-11-22T14:38:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
     {
      "title": "최교진 사퇴…후임은 진영 떠나 미래 교육 이끌 인물로",
      "link": "https://www.joongang.co.kr/article/25480915",
@@ -142,6 +115,49 @@
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "조희대",
+    "아닌",
+    "재판"
+   ],
+   "both": true,
+   "papers": 3,
+   "sides": [
+    {
+     "title": "조희대 탄핵 강행은 사실상 재판 불복 아닌가",
+     "link": "https://www.joongang.co.kr/article/25480916",
+     "pubDate": null,
+     "kind": "사설",
+     "src": "중앙일보",
+     "lean": "보수"
+    },
+    {
+     "title": "李 대통령 ‘대장동 의혹’ 또 반박, SNS 아닌 재판으로 해결을",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/24/RCJZKU4VUVBYBG272VVQMP2FN4/",
+     "pubDate": "2026-11-23T15:00:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "당내서도 “조희대 탄핵 인용 힘들다”는데, 민주당 냉정해야",
+     "link": "https://www.khan.co.kr/article/202611221810001/",
+     "pubDate": "2026-11-22T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    },
+    {
+     "title": "‘법관 행동’ 촉구한 법관회의 의장, ‘조희대 코트’는 아무 잘못이 없나",
+     "link": "https://www.khan.co.kr/article/202611231810001/",
+     "pubDate": "2026-11-23T09:10:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
      "lean": "진보"
     }
    ]
@@ -191,6 +207,54 @@
      "kind": "사설"
     },
     {
+     "title": "[기고] ‘북향민’으로 명칭 변경? 탈북민 반응은 싸늘하다",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/23/OZAM3NH5BVGLZAI7BVNE3XEEUM/",
+     "pubDate": "2026-11-23T14:30:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[유경숙의 축제 막전막후] [9] 개성 만점 생활밀착형 축제들",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/T63OZLGXB5BC3BGSSYJPYJMCVM/",
+     "pubDate": "2026-11-23T14:32:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[권오중의 프레임 너머] [13] 형제라는 이름의 전우애",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/4FLG5H5WIFGW3IZG347SZJJV7I/",
+     "pubDate": "2026-11-23T14:34:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[우정아의 아트 스토리] [659] 빈 작업실에 피어난 봄",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/O5QJLPGOXRBSLG3RITLOK5S42Y/",
+     "pubDate": "2026-11-23T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[윤영호의 게임의 시선] 품격은 돈과 권력의 한계를 인정할 때 나온다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/FRG3VMOBW5EPHECSQBZFJWTUSE/",
+     "pubDate": "2026-11-23T14:42:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[윤희영의 News English] 가난한 사람이 시야가 좁다는 통념은 틀렸다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/PMRCVNNLPBGWHPAPYRNUQDX2I4/",
+     "pubDate": "2026-11-23T14:40:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김성수의 지평선 너머] 한국 거주 외국인 5% 시대, 공존의 길을 열자",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/OJTIOLKG2RDKHMHAUSYJTA2STY/",
+     "pubDate": "2026-11-23T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[전문기자의 시선] 절·성당의 ‘실내 촬영 금지’ 유감",
+     "link": "https://www.chosun.com/opinion/column/2026/11/23/535X2JC5JVG6XD2DWT4F2H26DU/",
+     "pubDate": "2026-11-23T14:46:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[한삼희의 환경칼럼] ‘기저 부하’ 폭증하는데 ‘기저 전원’ 폐지한다는 정부",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/YZRAXWCJMFB2BDZHCUPWMLYZRM/",
      "pubDate": "2026-11-23T14:55:00.000Z",
@@ -209,57 +273,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[전문기자의 시선] 절·성당의 ‘실내 촬영 금지’ 유감",
-     "link": "https://www.chosun.com/opinion/column/2026/11/23/535X2JC5JVG6XD2DWT4F2H26DU/",
-     "pubDate": "2026-11-23T14:46:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[김성수의 지평선 너머] 한국 거주 외국인 5% 시대, 공존의 길을 열자",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/OJTIOLKG2RDKHMHAUSYJTA2STY/",
-     "pubDate": "2026-11-23T14:44:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[윤영호의 게임의 시선] 품격은 돈과 권력의 한계를 인정할 때 나온다",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/FRG3VMOBW5EPHECSQBZFJWTUSE/",
-     "pubDate": "2026-11-23T14:42:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[윤희영의 News English] 가난한 사람이 시야가 좁다는 통념은 틀렸다",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/PMRCVNNLPBGWHPAPYRNUQDX2I4/",
-     "pubDate": "2026-11-23T14:40:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[우정아의 아트 스토리] [659] 빈 작업실에 피어난 봄",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/O5QJLPGOXRBSLG3RITLOK5S42Y/",
-     "pubDate": "2026-11-23T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[문지혁의 슬기로운 문학생활] [45] 오탈자에 숨겨진 진실",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/FUIIEJYMUJBUBEJSSZX4O5MFZQ/",
      "pubDate": "2026-11-23T14:36:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[권오중의 프레임 너머] [13] 형제라는 이름의 전우애",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/4FLG5H5WIFGW3IZG347SZJJV7I/",
-     "pubDate": "2026-11-23T14:34:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[유경숙의 축제 막전막후] [9] 개성 만점 생활밀착형 축제들",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/T63OZLGXB5BC3BGSSYJPYJMCVM/",
-     "pubDate": "2026-11-23T14:32:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] ‘북향민’으로 명칭 변경? 탈북민 반응은 싸늘하다",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/23/OZAM3NH5BVGLZAI7BVNE3XEEUM/",
-     "pubDate": "2026-11-23T14:30:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -409,8 +425,128 @@
    "name": "동아일보",
    "lean": "보수",
    "home": "https://www.donga.com/news/Opinion",
-   "items": [],
-   "error": "https://rss.donga.com/editorials.xml… fetch failed"
+   "items": [
+    {
+     "title": "정동영 이종석 교체… 동맹 난기류 넘어 ‘원팀’으로 거듭나야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077411/2",
+     "pubDate": "2026-11-23T14:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "美 “金 팽창주의 아냐” 北 “팽창 추구 안 해”… 밀당은 계속된다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077415/2",
+     "pubDate": "2026-11-23T14:27:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "예산안 따지고 깎기는커녕 묻지 마 증액 나선 與野",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077413/2",
+     "pubDate": "2026-11-23T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "조 대법원장 탄핵은 안 된다… 이 대통령이 제동 걸어야",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070211/2",
+     "pubDate": "2026-11-22T14:40:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "최교진 사퇴… ‘대학선발권 강화’ 입시제도 개편 시동 걸 때",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070203/2",
+     "pubDate": "2026-11-22T14:38:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "中 전기차 韓 점유율 상전벽해… 넋 놓다 안방 내준다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070549/1",
+     "pubDate": "2026-11-22T14:36:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "[횡설수설/신광영]“커닝 안 했다” 인증 행렬",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077402/2",
+     "pubDate": "2026-11-23T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/김재영]포상금 1억이 ‘수능 도적’ 잡아올까",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077418/2",
+     "pubDate": "2026-11-23T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[한규섭 칼럼]아무도 가보지 않은 대법원장 탄핵의 길",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077404/2",
+     "pubDate": "2026-11-23T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/이상헌]공당의 윤리위 명단 이제는 공개하자",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077406/2",
+     "pubDate": "2026-11-23T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[이승재의 무비홀릭]불륜엔 없고 불륜영화엔 있는 것",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077198/2",
+     "pubDate": "2026-11-23T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]짧아진 해",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077399/2",
+     "pubDate": "2026-11-23T14:03:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "제국의 오만[임용한의 전쟁사]〈443〉",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077408/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘딸깍’ 한 번에 만점이라면… AI 시대, 결과만큼 중요한 건 과정 검증[강용수의 철학이 필요할 때]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077204/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "정보기관의 ‘섹스피오나지’[정일천의 정보전과 스파이]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077207/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[송재우의 야구 직관]한국 야구 유망주, 어떻게 키워야 할까",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077196/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[신문과 놀자!/인문학으로 세상 읽기]구상화 거장 이대원의 色… 21년만에 화려한 손짓",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135076947/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[신문과 놀자!/피플 in 뉴스]‘상대성 이론’ 111주년… 아인슈타인이 뒤집은 상식",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135076938/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[신문과 놀자!/미션 나의 문해력]북새통",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135076930/2",
+     "pubDate": "2026-11-23T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김승련 칼럼]이 지경에 이른 정치, 유권자 책임은 없나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261122/135070536/1",
+     "pubDate": "2026-11-22T14:33:00.000Z",
+     "kind": "칼럼"
+    }
+   ]
   },
   {
    "id": "hankook",
@@ -467,12 +603,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "커지는 AI 거품 우려, 불안한 수출 1조 달러",
-     "link": "https://www.hankookilbo.com/news/article/A2026112213000002297",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
      "title": "신부 없는 결혼식장의 '신랑'이었던 사람",
      "link": "https://www.hankookilbo.com/news/article/A2026112312370004013",
      "pubDate": null,
@@ -481,6 +611,12 @@
     {
      "title": "전쟁을 시작한 자들의 평화선언",
      "link": "https://www.hankookilbo.com/news/article/A2026112211070003396",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "커지는 AI 거품 우려, 불안한 수출 1조 달러",
+     "link": "https://www.hankookilbo.com/news/article/A2026112213000002297",
      "pubDate": null,
      "kind": "칼럼"
     },
