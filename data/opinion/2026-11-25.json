@@ -1,6 +1,6 @@
 {
  "date": "2026-11-25",
- "generatedAt": "2026-11-24T18:00:03.430Z",
+ "generatedAt": "2026-11-24T22:06:13.394Z",
  "debates": [
   {
    "topic": [
@@ -80,8 +80,7 @@
   {
    "topic": [
     "징계",
-    "국힘",
-    "수사"
+    "국힘"
    ],
    "both": true,
    "papers": 3,
@@ -90,14 +89,6 @@
      "title": "‘하명 징계’ vs ‘금품 요구’… 윤리위 둘러싼 국힘 진흙탕 싸움",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084483/2",
      "pubDate": "2026-11-24T14:24:00.000Z",
-     "kind": "사설",
-     "src": "동아일보",
-     "lean": "보수"
-    },
-    {
-     "title": "“신천지 민주 입당 1만4388명”… 당장 수사 나서라",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084485/2",
-     "pubDate": "2026-11-24T14:27:00.000Z",
      "kind": "사설",
      "src": "동아일보",
      "lean": "보수"
@@ -250,15 +241,15 @@
      "kind": "사설"
     },
     {
-     "title": "[정우상 칼럼] 민주당과 국민의힘, 함께 갈라서는 게 어떤가",
-     "link": "https://www.chosun.com/opinion/column/2026/11/24/2Z3JDIXLIVBDXL3P6W25EV35WU/",
-     "pubDate": "2026-11-24T14:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[태평로] 대한민국 공정 시스템에 울린 재난 경보",
      "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/24/GR32U72OKFGEZCRGN2LF4RQYVY/",
      "pubDate": "2026-11-24T14:50:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[정우상 칼럼] 민주당과 국민의힘, 함께 갈라서는 게 어떤가",
+     "link": "https://www.chosun.com/opinion/column/2026/11/24/2Z3JDIXLIVBDXL3P6W25EV35WU/",
+     "pubDate": "2026-11-24T14:55:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -622,6 +613,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "\"20년 이래 최악\"… 얼어붙은 G7 경제",
+     "link": "https://www.hankookilbo.com/news/article/A2026112409490003079",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "우리가 지키려는 것은 희망이다",
      "link": "https://www.hankookilbo.com/news/article/A2026112409380002119",
      "pubDate": null,
@@ -640,14 +637,32 @@
      "kind": "칼럼"
     },
     {
+     "title": "증시 5개월 새 반토막... '인위적 부양' 청구서 개미들 떠안아",
+     "link": "https://www.hankookilbo.com/news/article/A2026112315310002968",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "신부 없는 결혼식장의 '신랑'이었던 사람",
      "link": "https://www.hankookilbo.com/news/article/A2026112312370004013",
      "pubDate": null,
      "kind": "칼럼"
     },
     {
-     "title": "증시 5개월 새 반토막... '인위적 부양' 청구서 개미들 떠안아",
-     "link": "https://www.hankookilbo.com/news/article/A2026112315310002968",
+     "title": "지독한 불신의 시대가 왔다",
+     "link": "https://www.hankookilbo.com/news/article/A2026112412070000141",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "내용 정리: 한관우(대학원생)",
+     "link": "https://www.hankookilbo.com/news/article/A2026112411060003930",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "날개 꺾인 '앨커트래즈의 버드맨'",
+     "link": "https://www.hankookilbo.com/news/article/A2026112313090004801",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -700,6 +715,24 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288712.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "절대, 절대, 절대 돌아오지 마!",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288952.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "“보복 수사로 안보 담당자들이 본인 안위를 우선시할까 두렵다”",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288948.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "배려라는 이름으로 서로를 지울 때 [조형근의 낮은 목소리]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1288942.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "조선 민중과 일본 통치자의 동상이몽, 동아일보란 기적을 낳다",
@@ -764,24 +797,6 @@
     {
      "title": "고무줄 같은 병역판정 기준 [똑똑! 한국사회]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288727.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "기초연금 개편안, 하후상박 아니라 자승자박이다 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1288726.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘에이즈 예방법’ 전부개정안, HIV 감염인 차별 없앨 계기로 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1288724.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "공소청, 기계적 상소 남발 관행 벗어나야 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1288722.html",
      "pubDate": null,
      "kind": "칼럼"
     }
