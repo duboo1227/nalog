@@ -1,6 +1,6 @@
 {
  "date": "2026-11-25",
- "generatedAt": "2026-11-25T10:20:10.752Z",
+ "generatedAt": "2026-11-25T14:28:59.741Z",
  "debates": [
   {
    "topic": [
@@ -228,6 +228,12 @@
      "kind": "사설"
     },
     {
+     "title": "[만물상] 선글라스 낀 국정원장 후보자",
+     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/25/P5CRRH64NBEAVMNQTATRKPTPNI/",
+     "pubDate": "2026-11-25T11:49:26.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[태평로] 대한민국 공정 시스템에 울린 재난 경보",
      "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/24/GR32U72OKFGEZCRGN2LF4RQYVY/",
      "pubDate": "2026-11-24T14:50:00.000Z",
@@ -303,12 +309,6 @@
      "title": "[우정아의 아트 스토리] [659] 빈 작업실에 피어난 봄",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/O5QJLPGOXRBSLG3RITLOK5S42Y/",
      "pubDate": "2026-11-23T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[윤영호의 게임의 시선] 품격은 돈과 권력의 한계를 인정할 때 나온다",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/23/FRG3VMOBW5EPHECSQBZFJWTUSE/",
-     "pubDate": "2026-11-23T14:42:00.000Z",
      "kind": "칼럼"
     }
    ]
@@ -448,6 +448,18 @@
    "home": "https://www.donga.com/news/Opinion",
    "items": [
     {
+     "title": "원전 공론화 첫발부터 삐끗… 반도체-AI 수요 감당할 수 있나",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135092216/2",
+     "pubDate": "2026-11-25T14:27:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "“유지 땐 1855원, 폐지 땐 1828원”… 유가 최고가격제 필요한가",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091848/2",
+     "pubDate": "2026-11-25T14:24:00.000Z",
+     "kind": "사설"
+    },
+    {
      "title": "OECD 가입 30년, 환란 29년… ‘성급한 샴페인’ 뒤엔 ‘큰 위기’",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084481/2",
      "pubDate": "2026-11-24T14:30:00.000Z",
@@ -472,16 +484,58 @@
      "kind": "사설"
     },
     {
-     "title": "美 “金 팽창주의 아냐” 北 “팽창 추구 안 해”… 밀당은 계속된다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077415/2",
-     "pubDate": "2026-11-23T14:27:00.000Z",
-     "kind": "사설"
+     "title": "[송평인 칼럼]양방향의 국헌 문란",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091863/2",
+     "pubDate": "2026-11-25T14:21:00.000Z",
+     "kind": "칼럼"
     },
     {
-     "title": "예산안 따지고 깎기는커녕 묻지 마 증액 나선 與野",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077413/2",
-     "pubDate": "2026-11-23T14:24:00.000Z",
-     "kind": "사설"
+     "title": "[횡설수설/윤완준]韓 영공 위협, 北엔 기술 제공한 러시아",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091861/2",
+     "pubDate": "2026-11-25T14:18:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[오늘과 내일/이헌재]이치로의 ‘30년 발언’, 현실 될까 두렵다",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091853/2",
+     "pubDate": "2026-11-25T14:15:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[광화문에서/박선희]국가시험 뚫은 ‘AI쇼크’… 예술도 예외가 아닌 이유",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091865/2",
+     "pubDate": "2026-11-25T14:12:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "무용수를 지켜보는 검은 그림자[김민의 영감 한 스푼]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091710/2",
+     "pubDate": "2026-11-25T14:09:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[고양이 눈]새 인연",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091858/2",
+     "pubDate": "2026-11-25T14:06:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "왕의 귀에 닿지 못한 진실[이은화의 미술시간]〈450〉",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091843/2",
+     "pubDate": "2026-11-25T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "융합연구 쏟아져도 정책 반영 10%뿐… 기획부터 현장과 협업하라[박재혁의 데이터로 보는 세상]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091723/2",
+     "pubDate": "2026-11-25T14:00:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "1415년 11월 26일… 조선을 뒤흔든 한명회가 태어나다[이문영의 다시 보는 그날]",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091718/2",
+     "pubDate": "2026-11-25T14:00:00.000Z",
+     "kind": "칼럼"
     },
     {
      "title": "[이진영 칼럼]‘척하지 않는’ 이재명 정부",
@@ -511,60 +565,6 @@
      "title": "[고양이 눈]언제쯤?",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084295/2",
      "pubDate": "2026-11-24T14:06:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "단색화 넘어 설치-조각, 미디어아트까지… 美 뉴욕 ‘K아트’를 품다[글로벌 현장을 가다/곽도영]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084291/2",
-     "pubDate": "2026-11-24T14:03:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "생존과 승리[정덕현의 그 영화 이 대사]〈134〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084478/2",
-     "pubDate": "2026-11-24T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "“언젠가…” 꿈을 팔던 로봇, 실적으로 말하는 시장 연 美 1호 기업[최중혁의 월가를 흔드는 기업들]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084263/2",
-     "pubDate": "2026-11-24T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "톰 행크스를 한눈에 알아본 ‘촉’[서광원의 자연과 삶]〈132〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084255/2",
-     "pubDate": "2026-11-24T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "수능날 울린 경보음에 ‘토픽’ 시험을 떠올린 이유[카를로스 고리토 한국 블로그]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084253/2",
-     "pubDate": "2026-11-24T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[횡설수설/신광영]“커닝 안 했다” 인증 행렬",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077402/2",
-     "pubDate": "2026-11-23T14:18:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[오늘과 내일/김재영]포상금 1억이 ‘수능 도적’ 잡아올까",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077418/2",
-     "pubDate": "2026-11-23T14:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[한규섭 칼럼]아무도 가보지 않은 대법원장 탄핵의 길",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077404/2",
-     "pubDate": "2026-11-23T14:12:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[광화문에서/이상헌]공당의 윤리위 명단 이제는 공개하자",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261123/135077406/2",
-     "pubDate": "2026-11-23T14:09:00.000Z",
      "kind": "칼럼"
     }
    ]
@@ -668,6 +668,12 @@
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
     {
+     "title": "무분별한 ‘친중-반미’ 딱지 붙이기, 국익에 무슨 도움 되나",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1289143.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
      "title": "법관대표회의, ‘사법부 독립’ 주장 전에 자성부터 하라",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1289117.html",
      "pubDate": null,
@@ -698,10 +704,52 @@
      "kind": "사설"
     },
     {
-     "title": "국교위, 새로운 대입 평가 방식 논의 서두르길",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288746.html",
+     "title": "텅 빈 풍요 앞에서 금속탐지기를 남기다 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289133.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
+    },
+    {
+     "title": "마운자로가 일깨운 건강 계급 사회 [뉴스룸에서]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289132.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘국가가 작동한다’는 감각 [똑똑! 한국사회]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289131.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "납은 어떻게 황금이 되는가 [크리틱]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289130.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "읽을 수 있지만 쓸 수 없다 [로버트 파우저, 사회의 언어]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289129.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "민주주의 위기와 대결 정치…해법은 시민참여 제도화 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1289128.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "수백만번 안부전화에도 늘어난 고독사…복지행정의 이면 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1289127.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "정년퇴직 공무원 소득공백…11년째 모른 체 하는 정부 [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1289126.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "흔들리는 믿음 [옵스큐라]",
@@ -736,54 +784,6 @@
     {
      "title": "배려라는 이름으로 서로를 지울 때 [조형근의 낮은 목소리]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288942.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "조선 민중과 일본 통치자의 동상이몽, 동아일보란 기적을 낳다",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288930.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "“내가 여기 서 있나니, 달리 어찌할 수 없나이다” [아침햇발]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288924.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "돌봄을 기꺼이 받는다는 것 [세상읽기]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288913.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "공정한 시험이라는 신화 [홍성수 칼럼]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288912.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "균형발전, 명분만으론 안 돼 [전국 프리즘]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288911.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "별을 삼키는 별 [강석기의 과학풍경]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288910.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘짜릿한 손맛’은 어디서 오는가 [유레카]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288906.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "민주주의는 읽는 수고를 요구한다 [세상읽기]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288758.html",
      "pubDate": null,
      "kind": "칼럼"
     }
@@ -832,6 +832,78 @@
      "kind": "사설"
     },
     {
+     "title": "[기고]어르신이 ‘디지털’을 장착하면, 못할 게 없다",
+     "link": "https://www.khan.co.kr/article/202611252025005/",
+     "pubDate": "2026-11-25T11:25:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[전중환의 진화의 창]치이카와가 귀여운 진화적 이유",
+     "link": "https://www.khan.co.kr/article/202611251958025/",
+     "pubDate": "2026-11-25T10:58:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기고]경제 안보로 엮어낼 한국의 동아시아 경영",
+     "link": "https://www.khan.co.kr/article/202611251958015/",
+     "pubDate": "2026-11-25T10:58:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[역사와 현실]시대만 바뀐 ‘입시지옥’",
+     "link": "https://www.khan.co.kr/article/202611251958005/",
+     "pubDate": "2026-11-25T10:58:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[예술과 오늘]시작 앞에 선 그대들을 응원",
+     "link": "https://www.khan.co.kr/article/202611251956015/",
+     "pubDate": "2026-11-25T10:56:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[백승찬의 우회도로]“한강 스타일로 신춘문예용 단편소설을 써줘”",
+     "link": "https://www.khan.co.kr/article/202611251956005/",
+     "pubDate": "2026-11-25T10:56:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[숨]우리가 얽혀서",
+     "link": "https://www.khan.co.kr/article/202611251955005/",
+     "pubDate": "2026-11-25T10:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[임의진의 시골편지]낭만 휴게소",
+     "link": "https://www.khan.co.kr/article/202611251951025/",
+     "pubDate": "2026-11-25T10:51:02.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[경향의 눈]‘반칙’으로 승부하기",
+     "link": "https://www.khan.co.kr/article/202611251951015/",
+     "pubDate": "2026-11-25T10:51:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[겨를]생전 장례식",
+     "link": "https://www.khan.co.kr/article/202611251951005/",
+     "pubDate": "2026-11-25T10:51:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[문화와 삶]자신을 향한 자비심",
+     "link": "https://www.khan.co.kr/article/202611251947015/",
+     "pubDate": "2026-11-25T10:47:01.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[정동칼럼]복지국가, 이제는 지역이다",
+     "link": "https://www.khan.co.kr/article/202611251947005/",
+     "pubDate": "2026-11-25T10:47:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[여적]‘주황빛 세상’을 위하여",
      "link": "https://www.khan.co.kr/article/202611251849001/",
      "pubDate": "2026-11-25T09:49:00.000Z",
@@ -841,78 +913,6 @@
      "title": "[논설위원의 단도직입]정세균 전 국회의장 “개헌은 조득만실의 과제…정략 내려놓고 결단으로 성과 내야”",
      "link": "https://www.khan.co.kr/article/202611242023005/",
      "pubDate": "2026-11-24T11:23:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[이진우의 거리두기]‘AI 커닝’이 폭로하는 교육의 본질적 위기",
-     "link": "https://www.khan.co.kr/article/202611242019015/",
-     "pubDate": "2026-11-24T11:19:01.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고]압축과 연결로 풀어가야 할 국토 대전환",
-     "link": "https://www.khan.co.kr/article/202611242019005/",
-     "pubDate": "2026-11-24T11:19:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[특파원 칼럼]민주주의 회복의 지난한 길",
-     "link": "https://www.khan.co.kr/article/202611242015005/",
-     "pubDate": "2026-11-24T11:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[정보라의 세상 속으로]작은도서관을 살리자",
-     "link": "https://www.khan.co.kr/article/202611242014015/",
-     "pubDate": "2026-11-24T11:14:01.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[송혁기의 책상물림]도제와 사제, 전수와 자득",
-     "link": "https://www.khan.co.kr/article/202611242014005/",
-     "pubDate": "2026-11-24T11:14:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[공감]어떻게 함이 옳았을까",
-     "link": "https://www.khan.co.kr/article/202611242011005/",
-     "pubDate": "2026-11-24T11:11:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[경제직필]거대한 실패와 부담 가능성의 경제학",
-     "link": "https://www.khan.co.kr/article/202611242009005/",
-     "pubDate": "2026-11-24T11:09:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[여적]젠슨 황의 복귀",
-     "link": "https://www.khan.co.kr/article/202611241859001/",
-     "pubDate": "2026-11-24T09:59:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[서영채의 인/문학 현장]자기 존중의 힘, 도로표지판과 ‘호밀밭의 파수꾼’",
-     "link": "https://www.khan.co.kr/article/202611232005005/",
-     "pubDate": "2026-11-23T11:05:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[직설]파업전야엔 도착해야 할 것들",
-     "link": "https://www.khan.co.kr/article/202611232002025/",
-     "pubDate": "2026-11-23T11:02:02.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[하승우의 풀뿌리]이해당사자들의 합의로 만드는 안전한 사회",
-     "link": "https://www.khan.co.kr/article/202611232002005/",
-     "pubDate": "2026-11-23T11:02:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고]아·태 AI 다자외교 전략, 한국형 힘의 투사의 시작점",
-     "link": "https://www.khan.co.kr/article/202611232001005/",
-     "pubDate": "2026-11-23T11:01:00.000Z",
      "kind": "칼럼"
     }
    ]
