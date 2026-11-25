@@ -1,6 +1,6 @@
 {
  "date": "2026-11-25",
- "generatedAt": "2026-11-25T02:25:03.016Z",
+ "generatedAt": "2026-11-25T06:06:57.216Z",
  "debates": [
   {
    "topic": [
@@ -250,6 +250,12 @@
      "kind": "사설"
     },
     {
+     "title": "[김철중의 생로병사] 60대보다 약한 40대 체력, 퇴직하면 더 건강해지는 ‘슬픈 역설’",
+     "link": "https://www.chosun.com/opinion/essay/2026/11/24/OI7J74V3X5EDLJ6LXYHLPNW32A/",
+     "pubDate": "2026-11-24T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[기고] 호기심이 연구로 이어지는 ‘과학 인재 패스트 트랙’ 열어야",
      "link": "https://www.chosun.com/opinion/contribution/2026/11/24/TD6Y7PUOZFCW3N2FAYWC6PUIXY/",
      "pubDate": "2026-11-24T14:36:00.000Z",
@@ -259,12 +265,6 @@
      "title": "[김도훈의 엑스레이] [148] 돌고 돌아 소크라테스",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/24/734WI6Z4DRGWNHUZJGAR4V3KNI/",
      "pubDate": "2026-11-24T14:40:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "60대보다 약한 40대 체력, 퇴직하면 더 건강해지는 ‘슬픈 역설’",
-     "link": "https://www.chosun.com/opinion/essay/2026/11/24/OI7J74V3X5EDLJ6LXYHLPNW32A/",
-     "pubDate": "2026-11-24T14:44:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -512,7 +512,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "‘AI 커닝’ 내신 비상[횡설수설/우경임]",
+     "title": "[횡설수설/우경임]‘AI 커닝’ 내신 비상",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084298/2",
      "pubDate": "2026-11-24T14:18:00.000Z",
      "kind": "칼럼"
@@ -618,12 +618,6 @@
     {
      "title": "김희원 뉴스스탠다드실장",
      "link": "https://www.hankookilbo.com/news/article/A2026112316160004333",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "신문전용/ 100년 앞을 봐야 하는 결정, 신규 원전",
-     "link": "https://www.hankookilbo.com/news/article/A2026112510560000238",
      "pubDate": null,
      "kind": "칼럼"
     },
