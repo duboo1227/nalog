@@ -1,6 +1,6 @@
 {
  "date": "2026-11-25",
- "generatedAt": "2026-11-24T22:06:13.394Z",
+ "generatedAt": "2026-11-25T02:25:03.016Z",
  "debates": [
   {
    "topic": [
@@ -80,7 +80,8 @@
   {
    "topic": [
     "징계",
-    "국힘"
+    "국힘",
+    "수사"
    ],
    "both": true,
    "papers": 3,
@@ -89,6 +90,14 @@
      "title": "‘하명 징계’ vs ‘금품 요구’… 윤리위 둘러싼 국힘 진흙탕 싸움",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084483/2",
      "pubDate": "2026-11-24T14:24:00.000Z",
+     "kind": "사설",
+     "src": "동아일보",
+     "lean": "보수"
+    },
+    {
+     "title": "“신천지 민주 입당 1만4388명”… 당장 수사 나서라",
+     "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084485/2",
+     "pubDate": "2026-11-24T14:27:00.000Z",
      "kind": "사설",
      "src": "동아일보",
      "lean": "보수"
@@ -205,6 +214,12 @@
    "home": "https://www.chosun.com/opinion/",
    "items": [
     {
+     "title": "대북송금 수사 검사 징계 못푸는 이유, 조작기소 근거 사라질까봐",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/25/ST6EEKK3R5HRBFEGXT7JEZ5JJM/",
+     "pubDate": "2026-11-24T15:00:00.000Z",
+     "kind": "사설"
+    },
+    {
      "title": "삼권분립 흔드는 초유의 사법 탄핵, 떳떳하다면 의원직 걸라",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/25/4RW7HK5Q6BAVHKXHVUNXEJTIKA/",
      "pubDate": "2026-11-24T15:20:00.000Z",
@@ -214,12 +229,6 @@
      "title": "경력미달 검경 사령탑, 인사권자 관심은 오로지 ‘공소 취소’",
      "link": "https://www.chosun.com/opinion/editorial/2026/11/25/SYRU72T4U5AOHHPQVIOC7P5ELA/",
      "pubDate": "2026-11-24T15:10:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "대북송금 수사 검사 징계 못푸는 이유, 조작기소 근거 사라질까봐",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/25/ST6EEKK3R5HRBFEGXT7JEZ5JJM/",
-     "pubDate": "2026-11-24T15:00:00.000Z",
      "kind": "사설"
     },
     {
@@ -241,33 +250,9 @@
      "kind": "사설"
     },
     {
-     "title": "[태평로] 대한민국 공정 시스템에 울린 재난 경보",
-     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/24/GR32U72OKFGEZCRGN2LF4RQYVY/",
-     "pubDate": "2026-11-24T14:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[정우상 칼럼] 민주당과 국민의힘, 함께 갈라서는 게 어떤가",
-     "link": "https://www.chosun.com/opinion/column/2026/11/24/2Z3JDIXLIVBDXL3P6W25EV35WU/",
-     "pubDate": "2026-11-24T14:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[특파원 리포트] 자주국방과 필리핀의 충고",
-     "link": "https://www.chosun.com/opinion/correspondent_column/2026/11/24/4F4TVGERUVFPFJ6DCEVMSZGZ6U/",
-     "pubDate": "2026-11-24T14:48:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[김철중의 생로병사] 60대보다 약한 40대 체력, 퇴직하면 더 건강해지는 ‘슬픈 역설’",
-     "link": "https://www.chosun.com/opinion/essay/2026/11/24/OI7J74V3X5EDLJ6LXYHLPNW32A/",
-     "pubDate": "2026-11-24T14:44:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[유재덕의 공유주방] [46] 神은 ‘과정’ 속에 있다",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/24/FVG4BVEZMBGI7C7TCCAF45XPDU/",
-     "pubDate": "2026-11-24T14:42:00.000Z",
+     "title": "[기고] 호기심이 연구로 이어지는 ‘과학 인재 패스트 트랙’ 열어야",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/24/TD6Y7PUOZFCW3N2FAYWC6PUIXY/",
+     "pubDate": "2026-11-24T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -277,15 +262,39 @@
      "kind": "칼럼"
     },
     {
+     "title": "60대보다 약한 40대 체력, 퇴직하면 더 건강해지는 ‘슬픈 역설’",
+     "link": "https://www.chosun.com/opinion/essay/2026/11/24/OI7J74V3X5EDLJ6LXYHLPNW32A/",
+     "pubDate": "2026-11-24T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[정우상 칼럼] 민주당과 국민의힘, 함께 갈라서는 게 어떤가",
+     "link": "https://www.chosun.com/opinion/column/2026/11/24/2Z3JDIXLIVBDXL3P6W25EV35WU/",
+     "pubDate": "2026-11-24T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[조수빈의 말로 사람 읽기] [13] “자유는 갚아야 할 빚” 지오다노 창업주의 삶",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/24/M6ZDASW37VGZVCBECPQTEFRL2A/",
      "pubDate": "2026-11-24T14:38:00.000Z",
      "kind": "칼럼"
     },
     {
-     "title": "[기고] 호기심이 연구로 이어지는 ‘과학 인재 패스트 트랙’ 열어야",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/24/TD6Y7PUOZFCW3N2FAYWC6PUIXY/",
-     "pubDate": "2026-11-24T14:36:00.000Z",
+     "title": "[특파원 리포트] 자주국방과 필리핀의 충고",
+     "link": "https://www.chosun.com/opinion/correspondent_column/2026/11/24/4F4TVGERUVFPFJ6DCEVMSZGZ6U/",
+     "pubDate": "2026-11-24T14:48:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[태평로] 대한민국 공정 시스템에 울린 재난 경보",
+     "link": "https://www.chosun.com/opinion/taepyeongro/2026/11/24/GR32U72OKFGEZCRGN2LF4RQYVY/",
+     "pubDate": "2026-11-24T14:50:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[유재덕의 공유주방] [46] 神은 ‘과정’ 속에 있다",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/24/FVG4BVEZMBGI7C7TCCAF45XPDU/",
+     "pubDate": "2026-11-24T14:42:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -503,7 +512,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "[횡설수설/우경임]‘AI 커닝’ 내신 비상",
+     "title": "‘AI 커닝’ 내신 비상[횡설수설/우경임]",
      "link": "https://www.donga.com/news/Opinion/article/all/20261124/135084298/2",
      "pubDate": "2026-11-24T14:18:00.000Z",
      "kind": "칼럼"
@@ -609,6 +618,12 @@
     {
      "title": "김희원 뉴스스탠다드실장",
      "link": "https://www.hankookilbo.com/news/article/A2026112316160004333",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "신문전용/ 100년 앞을 봐야 하는 결정, 신규 원전",
+     "link": "https://www.hankookilbo.com/news/article/A2026112510560000238",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -723,7 +738,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "“보복 수사로 안보 담당자들이 본인 안위를 우선시할까 두렵다”",
+     "title": "서훈 “16명 살해한 북 흉악범, 국민 곁에 살게 할 순 없었다”",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288948.html",
      "pubDate": null,
      "kind": "칼럼"
