@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "generatedAt": "2026-11-25T17:56:32.512Z",
+ "generatedAt": "2026-11-25T22:04:30.385Z",
  "debates": [
   {
    "topic": [
@@ -524,7 +524,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "韓 영공 위협, 北엔 기술 제공한 러시아 [횡설수설/윤완준]",
+     "title": "[횡설수설/윤완준]韓 영공 위협, 北엔 기술 제공한 러시아",
      "link": "https://www.donga.com/news/Opinion/article/all/20261125/135091861/2",
      "pubDate": "2026-11-25T14:18:00.000Z",
      "kind": "칼럼"
@@ -628,6 +628,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "내일의 권력에 건네는 무기",
+     "link": "https://www.hankookilbo.com/news/article/A2026112512140000657",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "100년 앞을 봐야 하는 결정, 신규 원전",
      "link": "https://www.hankookilbo.com/news/article/A2026112509450000700",
      "pubDate": null,
@@ -642,6 +648,12 @@
     {
      "title": "우리가 지키려는 것은 희망이다",
      "link": "https://www.hankookilbo.com/news/article/A2026112409380002119",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "프랑스 시위가 절차적 민주주의에 던진 질문",
+     "link": "https://www.hankookilbo.com/news/article/A2026112409270005694",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -672,6 +684,24 @@
     {
      "title": "초라한 100일 성적표 김민석, 리더십 재정립하길",
      "link": "https://www.hankookilbo.com/news/article/A2026112415310004138",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "임방진 공인회계사·세무사",
+     "link": "https://www.hankookilbo.com/news/article/A2026112510030005172",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "팍스 아메리카나의 종언?",
+     "link": "https://www.hankookilbo.com/news/article/A2026112509510004013",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "오답률 92%, AI도 굴복한 수능 문제의 키워드는?",
+     "link": "https://www.hankookilbo.com/news/article/A2026112416240001784",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -724,6 +754,18 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1288904.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "나쁜 일자리라도 줄 테니 시간과 삶 내놓으라? [왜냐면]",
+     "link": "https://www.hani.co.kr/arti/opinion/because/1289160.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "느림은 미학이 아니다 [김은식의 이사만루]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289148.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "텅 빈 풍요 앞에서 금속탐지기를 남기다 [세상읽기]",
@@ -794,18 +836,6 @@
     {
      "title": "절대, 절대, 절대 돌아오지 마!",
      "link": "https://www.hani.co.kr/arti/opinion/column/1288952.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "서훈 “16명 살해한 북 흉악범, 국민 곁에 살게 할 순 없었다”",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288948.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "배려라는 이름으로 서로를 지울 때 [조형근의 낮은 목소리]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288942.html",
      "pubDate": null,
      "kind": "칼럼"
     }
