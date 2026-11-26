@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "generatedAt": "2026-11-26T17:59:58.759Z",
+ "generatedAt": "2026-11-26T22:02:44.489Z",
  "debates": [
   {
    "topic": [
@@ -209,21 +209,27 @@
      "kind": "사설"
     },
     {
+     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
+     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
+     "pubDate": "2026-11-26T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[동서남북] 차라리 ‘못마땅한 판결’을 특검하라",
      "link": "https://www.chosun.com/opinion/dongseonambuk/2026/11/26/TCMSNQ3PZND7HFOOC3BFREANN4/",
      "pubDate": "2026-11-26T14:50:00.000Z",
      "kind": "칼럼"
     },
     {
-     "title": "[팀 알퍼의 런던 Eye] [63] 노년엔 한국으로 돌아갈까",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/UB7CVTBSMNCOVDKQOA5TAAI7II/",
-     "pubDate": "2026-11-26T14:36:00.000Z",
+     "title": "[만물상] 뱃길로 이어진 在日교포 고향",
+     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/26/PDQRCRVBFJHUTPOCICYYXWH3CU/",
+     "pubDate": "2026-11-26T11:21:20.000Z",
      "kind": "칼럼"
     },
     {
-     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
-     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
-     "pubDate": "2026-11-26T14:55:00.000Z",
+     "title": "[팀 알퍼의 런던 Eye] [63] 노년엔 한국으로 돌아갈까",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/UB7CVTBSMNCOVDKQOA5TAAI7II/",
+     "pubDate": "2026-11-26T14:36:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -272,12 +278,6 @@
      "title": "[기고] 흔들리는 전기차 제조 기반, 국내 생산 세액공제 서둘러야",
      "link": "https://www.chosun.com/opinion/contribution/2026/11/26/FYFX77N3URAEZHY62Q6SHRXLPM/",
      "pubDate": "2026-11-26T14:32:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[만물상] 뱃길로 이어진 在日교포 고향",
-     "link": "https://www.chosun.com/opinion/manmulsang/2026/11/26/PDQRCRVBFJHUTPOCICYYXWH3CU/",
-     "pubDate": "2026-11-26T11:21:20.000Z",
      "kind": "칼럼"
     },
     {
@@ -599,6 +599,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "\"내일 당장 전작권 전환? 아직 이르다… 의지를 능력이 뒷받침해야\"",
+     "link": "https://www.hankookilbo.com/news/article/A2026112514550000222",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "자율주행 시대의 고삐",
      "link": "https://www.hankookilbo.com/news/article/A2026112613280004614",
      "pubDate": null,
@@ -623,6 +629,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "수출 1조 달러 온기 느껴지나요",
+     "link": "https://www.hankookilbo.com/news/article/A2026112611150002239",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "임방진 공인회계사·세무사",
      "link": "https://www.hankookilbo.com/news/article/A2026112510030005172",
      "pubDate": null,
@@ -631,12 +643,6 @@
     {
      "title": "팍스 아메리카나의 종언?",
      "link": "https://www.hankookilbo.com/news/article/A2026112509510004013",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "AI 디스토피아",
-     "link": "https://www.hankookilbo.com/news/article/A2026112512530003534",
      "pubDate": null,
      "kind": "칼럼"
     }
@@ -683,6 +689,18 @@
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1289113.html",
      "pubDate": null,
      "kind": "사설"
+    },
+    {
+     "title": "우리는 ‘디거’의 결말을 피할 수 있을까 [제정임의 탐조등]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289367.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "존엄하게 죽을 권리 위한 아우성 커지길",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289366.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "조희대 아니면 신천지 [슬기로운 기자생활]",
@@ -753,18 +771,6 @@
     {
      "title": "‘국가가 작동한다’는 감각 [똑똑! 한국사회]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1289131.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "납은 어떻게 황금이 되는가 [크리틱]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1289130.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "읽을 수 있지만 쓸 수 없다 [로버트 파우저, 사회의 언어]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1289129.html",
      "pubDate": null,
      "kind": "칼럼"
     }
