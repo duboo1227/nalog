@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "generatedAt": "2026-11-26T02:23:48.150Z",
+ "generatedAt": "2026-11-26T06:06:56.628Z",
  "debates": [
   {
    "topic": [
@@ -634,6 +634,12 @@
      "kind": "칼럼"
     },
     {
+     "title": "시험 부정, 잘못된 걸 시험하는 사회의 증상이다",
+     "link": "https://www.hankookilbo.com/news/article/A2026112510190002076",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "\"20년 이래 최악\"… 얼어붙은 G7 경제",
      "link": "https://www.hankookilbo.com/news/article/A2026112409490003079",
      "pubDate": null,
@@ -672,12 +678,6 @@
     {
      "title": "'공소 취소' 즉답 회피하는 이용철... 정치중립 의지 안 보인다",
      "link": "https://www.hankookilbo.com/news/article/A2026112415590000492",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "시험 부정, 잘못된 걸 시험하는 사회의 증상이다",
-     "link": "https://www.hankookilbo.com/news/article/A2026112510190002076",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -756,6 +756,12 @@
      "kind": "사설"
     },
     {
+     "title": "안재홍의 한탄과 이재명 정부 2기 외교·안보라인 [아침햇발]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289225.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "나쁜 일자리라도 줄 테니 시간과 삶 내놓으라? [왜냐면]",
      "link": "https://www.hani.co.kr/arti/opinion/because/1289160.html",
      "pubDate": null,
@@ -830,12 +836,6 @@
     {
      "title": "AI 플루언시 [유레카]",
      "link": "https://www.hani.co.kr/arti/opinion/column/1289059.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "절대, 절대, 절대 돌아오지 마!",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1288952.html",
      "pubDate": null,
      "kind": "칼럼"
     }
