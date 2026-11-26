@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "generatedAt": "2026-11-26T06:06:56.628Z",
+ "generatedAt": "2026-11-26T10:20:37.236Z",
  "debates": [
   {
    "topic": [
@@ -41,40 +41,6 @@
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "김민석",
-    "100일"
-   ],
-   "both": true,
-   "papers": 3,
-   "sides": [
-    {
-     "title": "민생 성과 없이 갈등만 증폭…제 역할 못 한 김민석 100일",
-     "link": "https://www.joongang.co.kr/article/25481680",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "초라한 100일 성적표 김민석, 리더십 재정립하길",
-     "link": "https://www.hankookilbo.com/news/article/A2026112415310004138",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
-     "title": "취임 100일 김민석 민주당 대표, 당 통합에 정치적 명운 걸어야",
-     "link": "https://www.khan.co.kr/article/202611241817001/",
-     "pubDate": "2026-11-24T09:17:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
      "lean": "진보"
     }
    ]
@@ -132,62 +98,26 @@
   },
   {
    "topic": [
-    "후보자",
-    "공소취소",
-    "법무장관"
+    "사법"
    ],
    "both": true,
    "papers": 2,
    "sides": [
     {
-     "title": "공소취소 않겠다는 말 끝내 회피한 법무장관 후보자",
-     "link": "https://www.joongang.co.kr/article/25481682",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "정보 문외한 국정원장 후보자, ‘정보전쟁’ 준비돼 있나",
-     "link": "https://www.joongang.co.kr/article/25482044",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "‘공소취소 안 한다’ 말 못하겠다는 법무장관 후보자",
-     "link": "https://www.khan.co.kr/article/202611251810001/",
-     "pubDate": "2026-11-25T09:10:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "공소",
-    "취소"
-   ],
-   "both": false,
-   "papers": 2,
-   "sides": [
-    {
-     "title": "경력미달 검경 사령탑, 인사권자 관심은 오로지 ‘공소 취소’",
-     "link": "https://www.chosun.com/opinion/editorial/2026/11/25/SYRU72T4U5AOHHPQVIOC7P5ELA/",
-     "pubDate": "2026-11-24T15:10:00.000Z",
+     "title": "삼권분립 흔드는 초유의 사법 탄핵, 떳떳하다면 의원직 걸라",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/25/4RW7HK5Q6BAVHKXHVUNXEJTIKA/",
+     "pubDate": "2026-11-24T15:20:00.000Z",
      "kind": "사설",
      "src": "조선일보",
      "lean": "보수"
     },
     {
-     "title": "'공소 취소' 즉답 회피하는 이용철... 정치중립 의지 안 보인다",
-     "link": "https://www.hankookilbo.com/news/article/A2026112415590000492",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
+     "title": "막 오른 판사회의, 사법 신뢰 훼손 성찰도 함께 가야",
+     "link": "https://www.khan.co.kr/article/202611261830001/",
+     "pubDate": "2026-11-26T09:30:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
     }
    ]
   },
@@ -262,6 +192,12 @@
      "kind": "사설"
     },
     {
+     "title": "[김창균 칼럼] “대통령은 머슴”이라던 이재명, 法 위에 서다",
+     "link": "https://www.chosun.com/opinion/column/2026/11/25/FLC3HLDTCJEDHB5DFJ4A3VJZW4/",
+     "pubDate": "2026-11-25T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[기고] 복귀한 젠슨 황이 한국 이사회와 거버넌스에 던지는 질문",
      "link": "https://www.chosun.com/opinion/contribution/2026/11/25/DZHZYUYFUBBE7LHBW3FLS5QAFE/",
      "pubDate": "2026-11-25T14:34:00.000Z",
@@ -283,12 +219,6 @@
      "title": "[기자의 시각] 2002 월드컵과 ‘세금 블랙홀’",
      "link": "https://www.chosun.com/opinion/journalist_view/2026/11/25/STJREYSUXBDHDHADRKD4ZEAD4E/",
      "pubDate": "2026-11-25T14:48:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[김창균 칼럼] “대통령은 머슴”이라던 이재명, 法 위에 서다",
-     "link": "https://www.chosun.com/opinion/column/2026/11/25/FLC3HLDTCJEDHB5DFJ4A3VJZW4/",
-     "pubDate": "2026-11-25T14:55:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -352,128 +282,8 @@
    "name": "중앙일보",
    "lean": "보수",
    "home": "https://www.joongang.co.kr/opinion",
-   "items": [
-    {
-     "title": "정보 문외한 국정원장 후보자, ‘정보전쟁’ 준비돼 있나",
-     "link": "https://www.joongang.co.kr/article/25482044",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대담해지는 러시아의 무력시위, 재발 막을 대응책 있나",
-     "link": "https://www.joongang.co.kr/article/25482043",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대법원장 직무정지용 탄핵 추진…명백한 권한 남용이다",
-     "link": "https://www.joongang.co.kr/article/25482042",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "공소취소 않겠다는 말 끝내 회피한 법무장관 후보자",
-     "link": "https://www.joongang.co.kr/article/25481682",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "민생 성과 없이 갈등만 증폭…제 역할 못 한 김민석 100일",
-     "link": "https://www.joongang.co.kr/article/25481680",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "러시아 카디즈 침범, 제대로 대응 못 하면 안보불안 키운다",
-     "link": "https://www.joongang.co.kr/article/25481678",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "[한 컷] 꽃 핀 추위",
-     "link": "https://www.joongang.co.kr/article/25481977",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "국민의힘을 보면 미래가 보인다",
-     "link": "https://www.joongang.co.kr/article/25482030",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘누더기 법안’ 될 가업상속공제",
-     "link": "https://www.joongang.co.kr/article/25482028",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "담뱃세에 의존하는 소방재정의 취약한 구조",
-     "link": "https://www.joongang.co.kr/article/25482024",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "“수능 우수자전형 완전 폐지하고, 입학부터 창업 교육할 것”",
-     "link": "https://www.joongang.co.kr/article/25482022",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "올해의 단어가 ‘인간’이라니",
-     "link": "https://www.joongang.co.kr/article/25482020",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "시험장을 바꿀 것인가, 시험을 바꿀 것인가",
-     "link": "https://www.joongang.co.kr/article/25482017",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "선수 30명 전입해 인구 늘린다?…삼척 황당한 시민축구단 창단",
-     "link": "https://www.joongang.co.kr/article/25482039",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "종잇장보다 얇은 게 인정(人情似紙張張薄 世事如棋局局新·인정사지장장박 세사여기국국신)",
-     "link": "https://www.joongang.co.kr/article/25482013",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘AI판 TVA’가 필요한 이유",
-     "link": "https://www.joongang.co.kr/article/25482009",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "비스마르크의 야망 ①",
-     "link": "https://www.joongang.co.kr/article/25482005",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "(356) 오늘",
-     "link": "https://www.joongang.co.kr/article/25481997",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "의료사고, 처벌보다 시스템 개선으로 예방해야",
-     "link": "https://www.joongang.co.kr/article/25400758",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "쿠팡 청문회가 드러낸 기술과 권력의 오만...이젠 소비자가 바꿔야 한다",
-     "link": "https://www.joongang.co.kr/article/25394046",
-     "pubDate": null,
-     "kind": "칼럼"
-    }
-   ]
+   "items": [],
+   "error": "page:https://www.joongang.co.kr/opinion/editorial… fetch failed | page:https://www.joongang.co.kr/opinion… fetch failed"
   },
   {
    "id": "donga",
@@ -628,8 +438,20 @@
      "kind": "칼럼"
     },
     {
+     "title": "AI 부정은 연구 현장에도 있다",
+     "link": "https://www.hankookilbo.com/news/article/A2026112511480004035",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
      "title": "내일의 권력에 건네는 무기",
      "link": "https://www.hankookilbo.com/news/article/A2026112512140000657",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "정상과 비정상의 사이에서",
+     "link": "https://www.hankookilbo.com/news/article/A2026112609290000481",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -652,14 +474,8 @@
      "kind": "칼럼"
     },
     {
-     "title": "프랑스 시위가 절차적 민주주의에 던진 질문",
-     "link": "https://www.hankookilbo.com/news/article/A2026112409270005694",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "AI 디스토피아",
-     "link": "https://www.hankookilbo.com/news/article/A2026112512530003534",
+     "title": "자율주행 시대의 고삐",
+     "link": "https://www.hankookilbo.com/news/article/A2026112613280004614",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -672,12 +488,6 @@
     {
      "title": "지독한 불신의 시대가 왔다",
      "link": "https://www.hankookilbo.com/news/article/A2026112412070000141",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "'공소 취소' 즉답 회피하는 이용철... 정치중립 의지 안 보인다",
-     "link": "https://www.hankookilbo.com/news/article/A2026112415590000492",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -700,14 +510,8 @@
      "kind": "칼럼"
     },
     {
-     "title": "초라한 100일 성적표 김민석, 리더십 재정립하길",
-     "link": "https://www.hankookilbo.com/news/article/A2026112415310004138",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "젠슨 황 전격 복귀, 시장 환호에 취할 때 아냐",
-     "link": "https://www.hankookilbo.com/news/article/A2026112414330003092",
+     "title": "AI 디스토피아",
+     "link": "https://www.hankookilbo.com/news/article/A2026112512530003534",
      "pubDate": null,
      "kind": "칼럼"
     }
@@ -719,6 +523,12 @@
    "lean": "진보",
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
+    {
+     "title": "무고성 아동학대 신고 대책, 신속한 사건 종결이 관건",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1289311.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
     {
      "title": "무분별한 ‘친중-반미’ 딱지 붙이기, 국익에 무슨 도움 되나",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1289143.html",
@@ -750,10 +560,40 @@
      "kind": "사설"
     },
     {
-     "title": "‘최대 퇴학’ 내신 부정행위, 엄벌 전 철저한 예방 교육을",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1288904.html",
+     "title": "조희대 아니면 신천지 [슬기로운 기자생활]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289323.html",
      "pubDate": null,
-     "kind": "사설"
+     "kind": "칼럼"
+    },
+    {
+     "title": "대법원장 탄핵의 허실 [이석태 칼럼]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289322.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "반도체가 벌어준 시간과 재정의 선택 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289321.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "만리장성 위의 해는 어디를 비추나 [특파원 칼럼] ​",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289320.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "‘착하게 살자’던 을사오적 [나는 역사다]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289318.html",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "세련 [말글살이]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289317.html",
+     "pubDate": null,
+     "kind": "칼럼"
     },
     {
      "title": "안재홍의 한탄과 이재명 정부 2기 외교·안보라인 [아침햇발]",
@@ -802,42 +642,6 @@
      "link": "https://www.hani.co.kr/arti/opinion/column/1289129.html",
      "pubDate": null,
      "kind": "칼럼"
-    },
-    {
-     "title": "민주주의 위기와 대결 정치…해법은 시민참여 제도화 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1289128.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "수백만번 안부전화에도 늘어난 고독사…복지행정의 이면 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1289127.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "정년퇴직 공무원 소득공백…11년째 모른 체 하는 정부 [왜냐면]",
-     "link": "https://www.hani.co.kr/arti/opinion/because/1289126.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "흔들리는 믿음 [옵스큐라]",
-     "link": "https://www.hani.co.kr/arti/opinion/dica/1289122.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "다시 4천피…우린 모두 한바탕 꿈을 꾼 것인가 [안선희 칼럼]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1289086.html",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "AI 플루언시 [유레카]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1289059.html",
-     "pubDate": null,
-     "kind": "칼럼"
     }
    ]
   },
@@ -847,6 +651,24 @@
    "lean": "진보",
    "home": "https://www.khan.co.kr/opinion",
    "items": [
+    {
+     "title": "언론 자유 위축 우려 큰 여당의 언론4법 속도전 안된다",
+     "link": "https://www.khan.co.kr/article/202611261845001/",
+     "pubDate": "2026-11-26T09:45:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "막 오른 판사회의, 사법 신뢰 훼손 성찰도 함께 가야",
+     "link": "https://www.khan.co.kr/article/202611261830001/",
+     "pubDate": "2026-11-26T09:30:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "교원 대상 무고성 아동학대 신고 근절 대책, 서이초 비극 다신 없길",
+     "link": "https://www.khan.co.kr/article/202611261810001/",
+     "pubDate": "2026-11-26T09:10:00.000Z",
+     "kind": "사설"
+    },
     {
      "title": "가계대출 금리 5% 돌파, 취약층 안전판 마련 서둘러야",
      "link": "https://www.khan.co.kr/article/202611251836001/",
@@ -866,22 +688,16 @@
      "kind": "사설"
     },
     {
-     "title": "취임 100일 김민석 민주당 대표, 당 통합에 정치적 명운 걸어야",
-     "link": "https://www.khan.co.kr/article/202611241817001/",
-     "pubDate": "2026-11-24T09:17:00.000Z",
-     "kind": "사설"
+     "title": "[여적]트럼프가 걱정한 한국 노동자 월급",
+     "link": "https://www.khan.co.kr/article/202611261856001/",
+     "pubDate": "2026-11-26T09:56:00.000Z",
+     "kind": "칼럼"
     },
     {
-     "title": "30대 절반이 미혼인 대한민국, 혼인 중심 복지틀 유효한가",
-     "link": "https://www.khan.co.kr/article/202611241816001/",
-     "pubDate": "2026-11-24T09:16:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "‘국민 삶의 질 지표’, 성장·민생 괴리 좁힐 실질적 정책이 관건",
-     "link": "https://www.khan.co.kr/article/202611241810001/",
-     "pubDate": "2026-11-24T09:10:00.000Z",
-     "kind": "사설"
+     "title": "김용준·권남근 ‘2026 자랑스러운 성균언론인상 언론 부문 수상",
+     "link": "https://www.khan.co.kr/article/202611261719001/",
+     "pubDate": "2026-11-26T08:19:00.000Z",
+     "kind": "칼럼"
     },
     {
      "title": "[기고]어르신이 ‘디지털’을 장착하면, 못할 게 없다",
@@ -953,18 +769,6 @@
      "title": "[정동칼럼]복지국가, 이제는 지역이다",
      "link": "https://www.khan.co.kr/article/202611251947005/",
      "pubDate": "2026-11-25T10:47:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[여적]‘주황빛 세상’을 위하여",
-     "link": "https://www.khan.co.kr/article/202611251849001/",
-     "pubDate": "2026-11-25T09:49:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[논설위원의 단도직입]정세균 전 국회의장 “개헌은 조득만실의 과제…정략 내려놓고 결단으로 성과 내야”",
-     "link": "https://www.khan.co.kr/article/202611242023005/",
-     "pubDate": "2026-11-24T11:23:00.000Z",
      "kind": "칼럼"
     }
    ]
