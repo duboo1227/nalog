@@ -1,6 +1,6 @@
 {
  "date": "2026-11-26",
- "generatedAt": "2026-11-25T22:04:30.385Z",
+ "generatedAt": "2026-11-26T02:23:48.150Z",
  "debates": [
   {
    "topic": [
@@ -262,27 +262,9 @@
      "kind": "사설"
     },
     {
-     "title": "[김창균 칼럼] “대통령은 머슴”이라던 이재명, 法 위에 서다",
-     "link": "https://www.chosun.com/opinion/column/2026/11/25/FLC3HLDTCJEDHB5DFJ4A3VJZW4/",
-     "pubDate": "2026-11-25T14:55:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[경제포커스] 한은 총재실에 ‘호미’를 갖다 둔 까닭",
-     "link": "https://www.chosun.com/opinion/economic_focus/2026/11/25/IMPVINNN7VA2FCUXCARH3SRRLY/",
-     "pubDate": "2026-11-25T14:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기자의 시각] 2002 월드컵과 ‘세금 블랙홀’",
-     "link": "https://www.chosun.com/opinion/journalist_view/2026/11/25/STJREYSUXBDHDHADRKD4ZEAD4E/",
-     "pubDate": "2026-11-25T14:48:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[윤희영의 News English] 1958년생 남녀 427명을 47년 관찰해 얻은 결론",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/25/JICUBQAQ4VA3NKD7P7C4Y2H3LE/",
-     "pubDate": "2026-11-25T14:44:00.000Z",
+     "title": "[기고] 복귀한 젠슨 황이 한국 이사회와 거버넌스에 던지는 질문",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/25/DZHZYUYFUBBE7LHBW3FLS5QAFE/",
+     "pubDate": "2026-11-25T14:34:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -292,9 +274,33 @@
      "kind": "칼럼"
     },
     {
+     "title": "[윤희영의 News English] 1958년생 남녀 427명을 47년 관찰해 얻은 결론",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/25/JICUBQAQ4VA3NKD7P7C4Y2H3LE/",
+     "pubDate": "2026-11-25T14:44:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기자의 시각] 2002 월드컵과 ‘세금 블랙홀’",
+     "link": "https://www.chosun.com/opinion/journalist_view/2026/11/25/STJREYSUXBDHDHADRKD4ZEAD4E/",
+     "pubDate": "2026-11-25T14:48:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[김창균 칼럼] “대통령은 머슴”이라던 이재명, 法 위에 서다",
+     "link": "https://www.chosun.com/opinion/column/2026/11/25/FLC3HLDTCJEDHB5DFJ4A3VJZW4/",
+     "pubDate": "2026-11-25T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[이응준의 과거에서 보내는 엽서] [94] 도쿄를 뒤흔든 할복",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/25/6ONB2CC4NBEKVOGZ3OKCY7PTIA/",
      "pubDate": "2026-11-25T14:40:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[경제포커스] 한은 총재실에 ‘호미’를 갖다 둔 까닭",
+     "link": "https://www.chosun.com/opinion/economic_focus/2026/11/25/IMPVINNN7VA2FCUXCARH3SRRLY/",
+     "pubDate": "2026-11-25T14:50:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -307,12 +313,6 @@
      "title": "[홍태화의 USA 인사이트] 아르헨티나 잠수함의 한반도 ‘나비효과’",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/25/FEXFEFABXRFBLLTIRGQ75LUMVY/",
      "pubDate": "2026-11-25T14:36:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] 복귀한 젠슨 황이 한국 이사회와 거버넌스에 던지는 질문",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/25/DZHZYUYFUBBE7LHBW3FLS5QAFE/",
-     "pubDate": "2026-11-25T14:34:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -634,12 +634,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "100년 앞을 봐야 하는 결정, 신규 원전",
-     "link": "https://www.hankookilbo.com/news/article/A2026112509450000700",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
      "title": "\"20년 이래 최악\"… 얼어붙은 G7 경제",
      "link": "https://www.hankookilbo.com/news/article/A2026112409490003079",
      "pubDate": null,
@@ -682,8 +676,8 @@
      "kind": "칼럼"
     },
     {
-     "title": "초라한 100일 성적표 김민석, 리더십 재정립하길",
-     "link": "https://www.hankookilbo.com/news/article/A2026112415310004138",
+     "title": "시험 부정, 잘못된 걸 시험하는 사회의 증상이다",
+     "link": "https://www.hankookilbo.com/news/article/A2026112510190002076",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -702,6 +696,12 @@
     {
      "title": "오답률 92%, AI도 굴복한 수능 문제의 키워드는?",
      "link": "https://www.hankookilbo.com/news/article/A2026112416240001784",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "초라한 100일 성적표 김민석, 리더십 재정립하길",
+     "link": "https://www.hankookilbo.com/news/article/A2026112415310004138",
      "pubDate": null,
      "kind": "칼럼"
     },
