@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "generatedAt": "2026-11-27T02:24:32.488Z",
+ "generatedAt": "2026-11-27T06:10:43.409Z",
  "debates": [
   {
    "topic": [
@@ -209,6 +209,12 @@
      "kind": "사설"
     },
     {
+     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
+     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
+     "pubDate": "2026-11-26T14:55:00.000Z",
+     "kind": "칼럼"
+    },
+    {
      "title": "[기고] 흔들리는 전기차 제조 기반, 국내 생산 세액공제 서둘러야",
      "link": "https://www.chosun.com/opinion/contribution/2026/11/26/FYFX77N3URAEZHY62Q6SHRXLPM/",
      "pubDate": "2026-11-26T14:32:00.000Z",
@@ -242,12 +248,6 @@
      "title": "[동서남북] 차라리 ‘못마땅한 판결’을 특검하라",
      "link": "https://www.chosun.com/opinion/dongseonambuk/2026/11/26/TCMSNQ3PZND7HFOOC3BFREANN4/",
      "pubDate": "2026-11-26T14:50:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
-     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
-     "pubDate": "2026-11-26T14:55:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -623,12 +623,6 @@
      "kind": "칼럼"
     },
     {
-     "title": "820조 슈퍼예산도 밀실 합의에 짬짜미 증액인가",
-     "link": "https://www.hankookilbo.com/news/article/A2026112515300002848",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
      "title": "수출 1조 달러 온기 느껴지나요",
      "link": "https://www.hankookilbo.com/news/article/A2026112611150002239",
      "pubDate": null,
@@ -643,6 +637,12 @@
     {
      "title": "팍스 아메리카나의 종언?",
      "link": "https://www.hankookilbo.com/news/article/A2026112509510004013",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "820조 슈퍼예산도 밀실 합의에 짬짜미 증액인가",
+     "link": "https://www.hankookilbo.com/news/article/A2026112515300002848",
      "pubDate": null,
      "kind": "칼럼"
     }
