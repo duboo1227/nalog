@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "generatedAt": "2026-11-26T22:02:44.489Z",
+ "generatedAt": "2026-11-27T02:24:32.488Z",
  "debates": [
   {
    "topic": [
@@ -209,15 +209,45 @@
      "kind": "사설"
     },
     {
-     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
-     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
-     "pubDate": "2026-11-26T14:55:00.000Z",
+     "title": "[기고] 흔들리는 전기차 제조 기반, 국내 생산 세액공제 서둘러야",
+     "link": "https://www.chosun.com/opinion/contribution/2026/11/26/FYFX77N3URAEZHY62Q6SHRXLPM/",
+     "pubDate": "2026-11-26T14:32:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[유광종의 漢字로 보는 중국] [46] 쩨쩨한 大國",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/KVKZMQHL3VHBZDJIQ5NHEKZHBM/",
+     "pubDate": "2026-11-26T14:38:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[채승병의 컴퓨팅 파워 쟁탈사] 나폴레옹의 교육혁명과 AI 시대 인재의 조건",
+     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/QWUYWCXZRVBFRKH53XV3RPTY2A/",
+     "pubDate": "2026-11-26T14:42:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[카페 2030] 우주에서 보이저호가 건넨 위로",
+     "link": "https://www.chosun.com/opinion/cafe_2040/2026/11/26/LAY2DO4TEVCDFEJLKID4R2TV6Q/",
+     "pubDate": "2026-11-26T14:46:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[기자의 시각] AI 커닝이 사회에 던진 진짜 시험",
+     "link": "https://www.chosun.com/opinion/journalist_view/2026/11/26/H3VMVAAEFZHR3GRSGDWAM7WPJ4/",
+     "pubDate": "2026-11-26T14:48:00.000Z",
      "kind": "칼럼"
     },
     {
      "title": "[동서남북] 차라리 ‘못마땅한 판결’을 특검하라",
      "link": "https://www.chosun.com/opinion/dongseonambuk/2026/11/26/TCMSNQ3PZND7HFOOC3BFREANN4/",
      "pubDate": "2026-11-26T14:50:00.000Z",
+     "kind": "칼럼"
+    },
+    {
+     "title": "[朝鮮칼럼] ‘필연적 실패’의 길로 접어든 이재명 정부",
+     "link": "https://www.chosun.com/opinion/chosun_column/2026/11/26/DMDRDY5XKFGNLNZSWTKO5TK65E/",
+     "pubDate": "2026-11-26T14:55:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -233,27 +263,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[기자의 시각] AI 커닝이 사회에 던진 진짜 시험",
-     "link": "https://www.chosun.com/opinion/journalist_view/2026/11/26/H3VMVAAEFZHR3GRSGDWAM7WPJ4/",
-     "pubDate": "2026-11-26T14:48:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[카페 2030] 우주에서 보이저호가 건넨 위로",
-     "link": "https://www.chosun.com/opinion/cafe_2040/2026/11/26/LAY2DO4TEVCDFEJLKID4R2TV6Q/",
-     "pubDate": "2026-11-26T14:46:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[장미란의 무게여 안녕] 옆사람 마음까지 환해지는 나만의 ‘마법 문장’",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/7FRTZRLOUJHYLCUHOUOAB7PX2I/",
      "pubDate": "2026-11-26T14:44:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[채승병의 컴퓨팅 파워 쟁탈사] 나폴레옹의 교육혁명과 AI 시대 인재의 조건",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/QWUYWCXZRVBFRKH53XV3RPTY2A/",
-     "pubDate": "2026-11-26T14:42:00.000Z",
      "kind": "칼럼"
     },
     {
@@ -263,21 +275,9 @@
      "kind": "칼럼"
     },
     {
-     "title": "[유광종의 漢字로 보는 중국] [46] 쩨쩨한 大國",
-     "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/KVKZMQHL3VHBZDJIQ5NHEKZHBM/",
-     "pubDate": "2026-11-26T14:38:00.000Z",
-     "kind": "칼럼"
-    },
-    {
      "title": "[황유원의 어쩌다 마주친 문장] [104] 발걸음의 소중함",
      "link": "https://www.chosun.com/opinion/specialist_column/2026/11/26/RIKQUY4JOZCJFI54UESVD36BRQ/",
      "pubDate": "2026-11-26T14:34:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[기고] 흔들리는 전기차 제조 기반, 국내 생산 세액공제 서둘러야",
-     "link": "https://www.chosun.com/opinion/contribution/2026/11/26/FYFX77N3URAEZHY62Q6SHRXLPM/",
-     "pubDate": "2026-11-26T14:32:00.000Z",
      "kind": "칼럼"
     },
     {
