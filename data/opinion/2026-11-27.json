@@ -1,42 +1,7 @@
 {
  "date": "2026-11-27",
- "generatedAt": "2026-11-27T06:10:43.409Z",
+ "generatedAt": "2026-11-27T10:16:55.657Z",
  "debates": [
-  {
-   "topic": [
-    "대법원장",
-    "탄핵",
-    "권한"
-   ],
-   "both": true,
-   "papers": 3,
-   "sides": [
-    {
-     "title": "대법원장 직무정지용 탄핵 추진…명백한 권한 남용이다",
-     "link": "https://www.joongang.co.kr/article/25482042",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "여당의 대법원장 탄핵 열차 급가속, 정당성 없는 권한 남용",
-     "link": "https://www.hankookilbo.com/news/article/A2026112515580000645",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
-     "title": "대법원장 탄핵의 허실 [이석태 칼럼]",
-     "link": "https://www.hani.co.kr/arti/opinion/column/1289322.html",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
   {
    "topic": [
     "훼손"
@@ -58,6 +23,57 @@
      "pubDate": "2026-11-26T09:30:00.000Z",
      "kind": "사설",
      "src": "경향신문",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "꼬라지"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "“야당이라도 구실을…” 기대 걷어차는 국민의힘 ‘당 꼬라지’",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/27/7THFMB7NYVDNZKVD77FOJ2EIZY/",
+     "pubDate": "2026-11-26T15:10:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "12·3 내란 2주년에 장외 나가겠다는 장동혁 대표 귀엔 “당 꼬라지” 탄식 안들리나",
+     "link": "https://www.khan.co.kr/article/202611271809001/",
+     "pubDate": "2026-11-27T09:09:00.000Z",
+     "kind": "사설",
+     "src": "경향신문",
+     "lean": "진보"
+    }
+   ]
+  },
+  {
+   "topic": [
+    "반도체",
+    "재정"
+   ],
+   "both": true,
+   "papers": 2,
+   "sides": [
+    {
+     "title": "본토에서 흔들리는 ‘AI 낙관론’, 반도체만 믿는 재정 괜찮나",
+     "link": "https://www.chosun.com/opinion/editorial/2026/11/26/ZGXFAZWOSZCXLIFLYL7RK6N4AA/",
+     "pubDate": "2026-11-25T15:20:00.000Z",
+     "kind": "사설",
+     "src": "조선일보",
+     "lean": "보수"
+    },
+    {
+     "title": "반도체가 벌어준 시간과 재정의 선택 [세상읽기]",
+     "link": "https://www.hani.co.kr/arti/opinion/column/1289321.html",
+     "pubDate": null,
+     "kind": "칼럼",
+     "src": "한겨레",
      "lean": "진보"
     }
    ]
@@ -90,31 +106,6 @@
   },
   {
    "topic": [
-    "후보자"
-   ],
-   "both": true,
-   "papers": 2,
-   "sides": [
-    {
-     "title": "정보 문외한 국정원장 후보자, ‘정보전쟁’ 준비돼 있나",
-     "link": "https://www.joongang.co.kr/article/25482044",
-     "pubDate": null,
-     "kind": "사설",
-     "src": "중앙일보",
-     "lean": "보수"
-    },
-    {
-     "title": "‘공소취소 안 한다’ 말 못하겠다는 법무장관 후보자",
-     "link": "https://www.khan.co.kr/article/202611251810001/",
-     "pubDate": "2026-11-25T09:10:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
     "관세"
    ],
    "both": true,
@@ -134,32 +125,6 @@
      "pubDate": null,
      "kind": "사설",
      "src": "한겨레",
-     "lean": "진보"
-    }
-   ]
-  },
-  {
-   "topic": [
-    "밀실",
-    "짬짜미"
-   ],
-   "both": false,
-   "papers": 2,
-   "sides": [
-    {
-     "title": "820조 슈퍼예산도 밀실 합의에 짬짜미 증액인가",
-     "link": "https://www.hankookilbo.com/news/article/A2026112515300002848",
-     "pubDate": null,
-     "kind": "칼럼",
-     "src": "한국일보",
-     "lean": "중도"
-    },
-    {
-     "title": "45조 미래대응기금도 밀실 소소위서 ‘짬짜미’하려는 건가",
-     "link": "https://www.khan.co.kr/article/202611251815001/",
-     "pubDate": "2026-11-25T09:15:00.000Z",
-     "kind": "사설",
-     "src": "경향신문",
      "lean": "진보"
     }
    ]
@@ -299,128 +264,8 @@
    "name": "중앙일보",
    "lean": "보수",
    "home": "https://www.joongang.co.kr/opinion",
-   "items": [
-    {
-     "title": "여권 추천해 대통령이 임명하는 특검, 공정한 수사 가능한가",
-     "link": "https://www.joongang.co.kr/article/25482425",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "“미래기금 104조는 빚으로 만든 재정 저수지”…학계 집단성명",
-     "link": "https://www.joongang.co.kr/article/25482422",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "노골적 핵 무력시위 나선 김정은, 불안한 한·미 공조",
-     "link": "https://www.joongang.co.kr/article/25482421",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "정보 문외한 국정원장 후보자, ‘정보전쟁’ 준비돼 있나",
-     "link": "https://www.joongang.co.kr/article/25482044",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대담해지는 러시아의 무력시위, 재발 막을 대응책 있나",
-     "link": "https://www.joongang.co.kr/article/25482043",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대법원장 직무정지용 탄핵 추진…명백한 권한 남용이다",
-     "link": "https://www.joongang.co.kr/article/25482042",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "[한 컷] 나도 맨발",
-     "link": "https://www.joongang.co.kr/article/25482371",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "한국: 경계국가에서 세계국가로",
-     "link": "https://www.joongang.co.kr/article/25482417",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "12·3의 한덕수 vs 한성숙의 의사봉",
-     "link": "https://www.joongang.co.kr/article/25482414",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘모두의 창업’ 성공 열쇠는 지원금보다 생태계",
-     "link": "https://www.joongang.co.kr/article/25482412",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "“예술은 날것” 쓰레기 활용하다 ‘배설물 작가’ 조롱",
-     "link": "https://www.joongang.co.kr/article/25482411",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "스타트업은 노동법 예외로, 임금체계는 전면 개편을",
-     "link": "https://www.joongang.co.kr/article/25482410",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "뻔한 것이 백 개 쌓이면",
-     "link": "https://www.joongang.co.kr/article/25482409",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "공감각을 열어주는 ‘환타지아’",
-     "link": "https://www.joongang.co.kr/article/25482406",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "외국인의 눈에 비친 대법원장 탄핵",
-     "link": "https://www.joongang.co.kr/article/25482404",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "포상금과 현상금",
-     "link": "https://www.joongang.co.kr/article/25482396",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "의료사고, 처벌보다 시스템 개선으로 예방해야",
-     "link": "https://www.joongang.co.kr/article/25400758",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "쿠팡 청문회가 드러낸 기술과 권력의 오만...이젠 소비자가 바꿔야 한다",
-     "link": "https://www.joongang.co.kr/article/25394046",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "역할 애매한 중수청…이대로는 사건 피해자 부담만 증가한다",
-     "link": "https://www.joongang.co.kr/article/25387011",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "순기능보다 역기능 커진 전세, 질서 있는 퇴장 정책 펴야",
-     "link": "https://www.joongang.co.kr/article/25379591",
-     "pubDate": null,
-     "kind": "칼럼"
-    }
-   ]
+   "items": [],
+   "error": "page:https://www.joongang.co.kr/opinion/editorial… fetch failed | page:https://www.joongang.co.kr/opinion… fetch failed"
   },
   {
    "id": "donga",
@@ -605,8 +450,8 @@
      "kind": "칼럼"
     },
     {
-     "title": "자율주행 시대의 고삐",
-     "link": "https://www.hankookilbo.com/news/article/A2026112613280004614",
+     "title": "'자랑스러운 OO인'의 조건",
+     "link": "https://www.hankookilbo.com/news/article/A2026112515360003504",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -619,6 +464,12 @@
     {
      "title": "여당의 대법원장 탄핵 열차 급가속, 정당성 없는 권한 남용",
      "link": "https://www.hankookilbo.com/news/article/A2026112515580000645",
+     "pubDate": null,
+     "kind": "칼럼"
+    },
+    {
+     "title": "[지평선] 자율주행 시대의 고삐",
+     "link": "https://www.hankookilbo.com/news/article/A2026112613280004614",
      "pubDate": null,
      "kind": "칼럼"
     },
@@ -655,6 +506,12 @@
    "home": "https://www.hani.co.kr/arti/opinion",
    "items": [
     {
+     "title": "학교 비정규직 총파업, 정부는 책임감 있게 대화 나서야",
+     "link": "https://www.hani.co.kr/arti/opinion/editorial/1289482.html",
+     "pubDate": null,
+     "kind": "사설"
+    },
+    {
      "title": "‘낙수효과’ 아직인데 금리는 상승, 취약층 보호해야",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1289337.html",
      "pubDate": null,
@@ -681,12 +538,6 @@
     {
      "title": "법관대표회의, ‘사법부 독립’ 주장 전에 자성부터 하라",
      "link": "https://www.hani.co.kr/arti/opinion/editorial/1289117.html",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "K자 양극화에 역자산효과까지, 체감경기 악화 대비를",
-     "link": "https://www.hani.co.kr/arti/opinion/editorial/1289113.html",
      "pubDate": null,
      "kind": "사설"
     },
@@ -783,6 +634,18 @@
    "home": "https://www.khan.co.kr/opinion",
    "items": [
     {
+     "title": "3명 중 1명이 교통 약자, ‘이동권 보장’되는 사회 서둘러야할 이유",
+     "link": "https://www.khan.co.kr/article/202611271812001/",
+     "pubDate": "2026-11-27T09:12:00.000Z",
+     "kind": "사설"
+    },
+    {
+     "title": "12·3 내란 2주년에 장외 나가겠다는 장동혁 대표 귀엔 “당 꼬라지” 탄식 안들리나",
+     "link": "https://www.khan.co.kr/article/202611271809001/",
+     "pubDate": "2026-11-27T09:09:00.000Z",
+     "kind": "사설"
+    },
+    {
      "title": "언론 자유 위축 우려 큰 여당의 언론4법 속도전 안된다",
      "link": "https://www.khan.co.kr/article/202611261845001/",
      "pubDate": "2026-11-26T09:45:00.000Z",
@@ -804,18 +667,6 @@
      "title": "가계대출 금리 5% 돌파, 취약층 안전판 마련 서둘러야",
      "link": "https://www.khan.co.kr/article/202611251836001/",
      "pubDate": "2026-11-25T09:36:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "45조 미래대응기금도 밀실 소소위서 ‘짬짜미’하려는 건가",
-     "link": "https://www.khan.co.kr/article/202611251815001/",
-     "pubDate": "2026-11-25T09:15:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "‘공소취소 안 한다’ 말 못하겠다는 법무장관 후보자",
-     "link": "https://www.khan.co.kr/article/202611251810001/",
-     "pubDate": "2026-11-25T09:10:00.000Z",
      "kind": "사설"
     },
     {
