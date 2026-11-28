@@ -92,8 +92,14 @@ function renderHeads() {
     }
     else if (paper === "관심") list = kwAll;
   else if (paper === "전체") {
-    list = []; const pick = s => (s.tops && s.tops.length ? s.tops : s.items), seen = new Set();
-    for (let r = 0; r < 3 && list.length < perPage(); r++) srcs.forEach(s => { const it = pick(s)[r]; if (it && !seen.has(it.link) && list.length < perPage()) { seen.add(it.link); list.push(Object.assign({ src: s.name, main: !!(s.tops && s.tops.length) }, it)); } });
+    // 각 신문 메인 기사(⭐)를 번갈아 먼저, 이어서 모든 신문 기사를 최신순으로 (같은 기사·비슷한 제목은 한 번만)
+    list = []; const seen = new Set(), seenT = new Set();
+    const keyT = t => (t || "").replace(/[\s\[\]"“”'‘’…·,.!?]/g, "").slice(0, 16);
+    const add = (it, src, main) => { const k = keyT(it.title); if (!it || seen.has(it.link) || seenT.has(k)) return; seen.add(it.link); seenT.add(k); list.push(Object.assign({ src, main }, it)); };
+    for (let r = 0; r < 3; r++) srcs.forEach(s => { const t = (s.tops || [])[r]; if (t) add(t, s.name, true); });
+    const rest = []; srcs.forEach(s => s.items.forEach((it, k) => rest.push([it, s.name, k])));
+    rest.sort((a, b) => (Date.parse(b[0].pubDate || "") || 0) - (Date.parse(a[0].pubDate || "") || 0) || a[2] - b[2]);
+    rest.forEach(([it, n]) => add(it, n, false));
   } else {
     const src = srcs.find(s => s.name === paper);
     const norm = u => (u || "").split("?")[0].replace(/\/+$/, "");

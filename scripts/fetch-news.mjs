@@ -24,11 +24,16 @@ const SOURCES = [
     feeds: ["https://www.yna.co.kr/rss/economy.xml", gn("yna.co.kr")] },
 ];
 
-const PER_SOURCE = 30;
+const PER_SOURCE = 50;      // 한 번 수집할 때 신문사별 최대 건수
+const MAX_STORE = 90;       // 하루 동안 쌓아두는 신문사별 최대 건수 (4시간마다 덮어쓰지 않고 누적)
 
 // 경제 관련성: 구글뉴스 경유 기사·메인 기사는 경제 키워드가 있어야 통과, 모든 기사에서 사건·정치·연예·스포츠는 제외
 export const ECON = /(경제|증시|코스피|코스닥|나스닥|다우|S&P|주가|주식|증권|상장|공모|IPO|시총|시가총액|금리|기준금리|환율|달러|원화|엔화|위안|물가|인플레|CPI|PPI|GDP|성장률|경기|침체|불황|금융|은행|대출|예금|적금|저축|이자|보험|카드사|카드|핀테크|투자|펀드|ETF|채권|국채|부동산|아파트값|아파트 가격|아파트 매매|아파트 거래|집값|주택|전세|월세|분양|청약|재건축|재개발|재초환|임대|세금|세제|세율|종부세|양도세|상속세|과세|국세청|예산|재정|국가채무|수출|수입|무역|관세|통상|공급망|반도체|메모리|HBM|파운드리|배터리|2차전지|전기차|자동차|완성차|조선|철강|석유|유가|원유|에너지|전력|원전|기업|대기업|중소기업|스타트업|벤처|실적|매출|영업이익|순이익|적자|흑자|주주|배당|자사주|인수|합병|M&A|지분|매각|고용|일자리|취업|실업|임금|연봉|성과급|최저임금|노조|파업|연금|국민연금|퇴직연금|가계|부채|빚투|신용|가상자산|비트코인|코인|가격|요금|인상|인하|할증|원가|소비|유통|이커머스|쿠팡|수익률|사금융|대부|이자율|공정위|금감원|금융위|한은|한국은행|연준|Fed|기재부|재경부|재정경제부|기획예산처|산업부|국토부|산업|업계|시장|매출액|억원|조원|억 달러|삼성|SK|하이닉스|현대|LG|롯데|한화|포스코|네이버|카카오|엔비디아|애플|테슬라|TSMC|구글|마이크로소프트|아마존|오픈AI|앤트로픽|AI 투자|데이터센터|CEO|회장|생산|소득|자산|창업|프랜차이즈|면세|관광객|항공|해운|물류|농산물|식품|K뷰티|K푸드|라면|화장품|삼전|삼전닉스|종목|근로자|노동|제품|장사|공장|기념품|관광|상품|판매|팔렸|매수|매도|저가매수|펀더멘털|수급|생애최초|입찰|건설|소상공인|채용|기술도입|빅파마|제약|바이오|식량|쌀값|회계|돈벼락|프라이스|차이나 워치|마켓)/i;
-export const NONECON = /(살해|살인|숨진|숨져|사망|시신|경찰|검찰|체포|구속|기소|재판|선고|징역|법무장관|청문회|후보자|국회의원|여당|야당|대통령실|인적 물갈이|불륜|열애|결혼식|이혼|배우|가수|아이돌|드라마|예능|연예|날씨|폭우|폭설|태풍|지진|교통사고|운세|암치료|구충제|건강법|다이어트|맛집|여행지|스포츠|야구|축구|골프 대회|올림픽|축제|입주민|찐팬|팬덤|콘서트|헌화|추모|기념식|조문|빈소|부고|별세|참배|봉사|나눔|일손 돕기|기부|성금|후원금|장학금|시상식|수상|위촉식|\[인사\]|\[부고\]|\[동정\])/;
+export const NONECON = /(살해|살인|숨진|숨져|사망|시신|경찰|검찰|체포|구속|기소|재판|선고|징역|법무장관|청문회|후보자|국회의원|여당|야당|대통령실|인적 물갈이|불륜|열애|결혼식|이혼|배우|가수|아이돌|드라마|예능|연예|날씨|폭우|폭설|태풍|지진|교통사고|운세|암치료|구충제|건강법|다이어트|맛집|여행지|스포츠|야구|축구|골프 대회|올림픽|부고|별세|\[인사\]|\[부고\]|\[동정\])/;
+// 행사·기부·수상 같은 말은 경제 기사에도 자주 나옴 (예: '기부금 리베이트' 과징금, 기업 수상 실적) → 확실한 경제 신호가 없을 때만 제외
+const NONECON_SOFT = /(축제|입주민|찐팬|팬덤|콘서트|헌화|추모|기념식|조문|빈소|참배|봉사|나눔|일손 돕기|기부|성금|후원금|장학금|시상식|수상|위촉식|위촉)/;
+const STRONG_ECON = /(과징금|리베이트|공정위|금감원|금융위|실적|매출|영업이익|주가|증시|코스피|금리|환율|인수|합병|M&A|상장|IPO|투자|대출|규제|관세|수출|공시)/;
+export const notEcon = t => NONECON.test(t) || (NONECON_SOFT.test(t) && !STRONG_ECON.test(t));
 
 // 광고·홍보성 기사 거르기
 const AD_WORDS = /(공동\s?구매|초특가|특가|최저가|할인\s?행사|\d+%\s?할인|사은품|무료\s?배송|쿠폰|한정\s?수량|구매\s?혜택|런칭\s?기념|출시\s?기념\s?이벤트|\[광고\]|\[AD\]|\[PR\]|\(광고\)|협찬|프로모션|이벤트\s?진행|체험단|선착순|분양\s?(중|개시|홍보)|모델하우스\s?오픈|\d+개월분)/i;
@@ -119,7 +124,7 @@ async function collect(src) {
       } else items = parseRss(await fetchText(url), src.name);
       const now = Date.now();
       const strict = url.includes("news.google.com");
-      items = items.filter(i => !isJunk(i, now) && !NONECON.test(i.title) && (!strict || ECON.test(i.title)));
+      items = items.filter(i => !isJunk(i, now) && !notEcon(i.title) && (!strict || ECON.test(i.title)));
       // 36시간 안 기사 먼저, 모자라면 7일 안 기사로 채움 (그보다 오래된 건 isJunk에서 제외)
       const fresh = items.filter(i => !i.pubDate || now - Date.parse(i.pubDate) < MAX_AGE_H * 3600e3);
       items = fresh.concat(items.filter(i => !fresh.includes(i)));
@@ -236,7 +241,30 @@ async function main() {
   const tops = await Promise.all(SOURCES.map(collectTops));
   sources.forEach((s, i) => { s.tops = tops[i]; s.topsFrom = tops[i].length ? "page" : "rss"; });
   await filterPaid(sources);
-  sources.forEach(s => console.log(`${s.name}: ${s.items.length}건 ${s.via || ""} · 메인 ${s.tops.length}건 ${s.error || ""}`));
+  // 오늘 앞서 모은 기사와 합치기: 피드에서 밀려난 아침 기사도 하루 동안 남아 있게
+  let prev = null;
+  try { prev = JSON.parse(await readFile(`data/news/${date}.json`, "utf8")); } catch {}
+  if (prev && prev.sources) {
+    const t0 = Date.now();
+    sources.forEach(s => {
+      const old = prev.sources.find(p => p.id === s.id || p.name === s.name);
+      if (!old) return;
+      const links = new Set(s.items.map(i => i.link)), titles = new Set(s.items.map(i => i.title));
+      const keepOld = (old.items || []).filter(i => !links.has(i.link) && !titles.has(i.title) && !isJunk(i, t0) && !notEcon(i.title));
+      const before = s.items.length;
+      s.items = s.items.concat(keepOld);
+      // 발행 시각이 있으면 최신순, 없으면 들어온 순서 유지
+      s.items = s.items.map((it, k) => [it, k]).sort((a, b) => {
+        const ta = Date.parse(a[0].pubDate || "") || 0, tb = Date.parse(b[0].pubDate || "") || 0;
+        return (ta && tb) ? tb - ta : a[1] - b[1];
+      }).map(x => x[0]).slice(0, MAX_STORE);
+      if (!s.items.length && old.items) s.items = old.items;
+      if (!(s.tops || []).length && (old.tops || []).length) s.tops = old.tops;   // 이번에 메인을 못 읽었으면 이전 메인 유지
+      s.added = before; s.kept = s.items.length - Math.min(before, s.items.length);
+      if (s.error && s.items.length) delete s.error;
+    });
+  }
+  sources.forEach(s => console.log(`${s.name}: ${s.items.length}건 (이번 ${s.added ?? s.items.length} + 이전 ${s.kept ?? 0}) ${s.via || ""} · 메인 ${s.tops.length}건 ${s.error || ""}`));
   const ranked = rank(sources);
   console.log(`핵심 이슈 ${ranked.core.length}개 (전체 ${ranked.clusters}묶음), 같은 신문 중복 ${ranked.removed}건 정리`);
   await mkdir("data/news", { recursive: true });
