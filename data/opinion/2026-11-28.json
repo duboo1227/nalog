@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "generatedAt": "2026-11-27T22:04:19.510Z",
+ "generatedAt": "2026-11-28T01:32:28.273Z",
  "debates": [
   {
    "topic": [
@@ -376,128 +376,8 @@
    "name": "동아일보",
    "lean": "보수",
    "home": "https://www.donga.com/news/Opinion",
-   "items": [
-    {
-     "title": "여야 지지율 횡보… 허구한 날 ‘안팎 삿대질’에 국민 진절머리",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106109/2",
-     "pubDate": "2026-11-27T14:30:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "정년연장특위 합의 불발… 임금체계 개편이 먼저",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106113/2",
-     "pubDate": "2026-11-27T14:27:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "‘전술핵 다종화’ 공개한 北… 탐지-타격-보복 ‘3축 체계’ 속도 내야",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106111/2",
-     "pubDate": "2026-11-27T14:24:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "“韓은 로봇 길 건너는 데 10여 개 기관” “中에 시간에서 밀린다”",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099370/2",
-     "pubDate": "2026-11-26T14:30:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "민형사 책임에 ‘정부 광고 중단’까지… 언론자유 위축시킬 것",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099374/2",
-     "pubDate": "2026-11-26T14:27:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "기준금리 인상, 주담대는 15년 만에 최고… ‘빚투 시대’ 저문다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099372/2",
-     "pubDate": "2026-11-26T14:24:00.000Z",
-     "kind": "사설"
-    },
-    {
-     "title": "[횡설수설/박희창]화웨이 ‘기술탈취’ 1심 유죄",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106096/2",
-     "pubDate": "2026-11-27T14:18:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[오늘과 내일/임우선]한중 서비스 FTA, 전례 없는 전쟁이 함께 온다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106116/2",
-     "pubDate": "2026-11-27T14:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[동아시론/김정]새 외교안보팀의 성패는 대통령의 조정력에 달렸다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106101/2",
-     "pubDate": "2026-11-27T14:12:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[광화문에서/박성민]AI 튜터 ‘칸미고’의 교훈… “AI는 교사를 대체 못한다”",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106103/2",
-     "pubDate": "2026-11-27T14:09:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[고양이 눈]만추",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106098/2",
-     "pubDate": "2026-11-27T14:06:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "신이 난다[박연준의 토요일은 시가 좋아]〈69〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261127/135106106/2",
-     "pubDate": "2026-11-27T14:03:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[횡설수설/장원재]‘뇌 칩’",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099361/2",
-     "pubDate": "2026-11-26T14:18:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[동아광장/정원수]‘대통령의 장관’ 아닌 ‘국민의 장관’이 더 필요하다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099363/2",
-     "pubDate": "2026-11-26T14:15:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[오늘과 내일/신수정]고용 없는 성장, ‘K라이프노믹스’로 넘자",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099377/2",
-     "pubDate": "2026-11-26T14:12:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[광화문에서/장윤정]젠슨 황 복귀가 보여준 빅테크 이사회의 민낯",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099365/2",
-     "pubDate": "2026-11-26T14:09:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "[고양이 눈]가을을 담다",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099358/2",
-     "pubDate": "2026-11-26T14:06:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "“54세에 만난 셔플댄스, 억눌린 춤 본능을 일깨웠죠”[양종구의 100세 시대 건강법]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099307/2",
-     "pubDate": "2026-11-26T14:03:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "벗의 거리[이준식의 한시 한 수]〈395〉",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099367/2",
-     "pubDate": "2026-11-26T14:00:00.000Z",
-     "kind": "칼럼"
-    },
-    {
-     "title": "굽기 쉬운 붕어빵, 손 가는 호떡… 겨울 간식의 ‘적자생존’[이용재의 식사의 窓]",
-     "link": "https://www.donga.com/news/Opinion/article/all/20261126/135099294/2",
-     "pubDate": "2026-11-26T14:00:00.000Z",
-     "kind": "칼럼"
-    }
-   ]
+   "items": [],
+   "error": "https://rss.donga.com/editorials.xml… The operation was aborted due to timeout"
   },
   {
    "id": "hankook",
@@ -524,7 +404,7 @@
      "kind": "칼럼"
     },
     {
-     "title": "망원렌즈를 내려놓지 못한 이유",
+     "title": "김주성 온라인총괄부문장",
      "link": "https://www.hankookilbo.com/news/article/A2026112709050003746",
      "pubDate": null,
      "kind": "칼럼"
@@ -554,14 +434,14 @@
      "kind": "칼럼"
     },
     {
-     "title": "여당의 정부광고법, 이중 처벌에 언론 통제 우려된다",
-     "link": "https://www.hankookilbo.com/news/article/A2026112615560004944",
+     "title": "수출 1조 달러 온기 느껴지나요",
+     "link": "https://www.hankookilbo.com/news/article/A2026112611150002239",
      "pubDate": null,
      "kind": "칼럼"
     },
     {
-     "title": "수출 1조 달러 온기 느껴지나요",
-     "link": "https://www.hankookilbo.com/news/article/A2026112611150002239",
+     "title": "여당의 정부광고법, 이중 처벌에 언론 통제 우려된다",
+     "link": "https://www.hankookilbo.com/news/article/A2026112615560004944",
      "pubDate": null,
      "kind": "칼럼"
     },
