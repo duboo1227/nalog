@@ -1,6 +1,6 @@
 {
  "date": "2026-11-28",
- "generatedAt": "2026-11-28T11:57:59.005Z",
+ "generatedAt": "2026-11-28T14:16:01.036Z",
  "debates": [
   {
    "topic": [
@@ -248,128 +248,8 @@
    "name": "중앙일보",
    "lean": "보수",
    "home": "https://www.joongang.co.kr/opinion",
-   "items": [
-    {
-     "title": "청년 피눈물 외면하는 정년연장은 안된다",
-     "link": "https://www.joongang.co.kr/article/25482693",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "여권 추천해 대통령이 임명하는 특검, 공정한 수사 가능한가",
-     "link": "https://www.joongang.co.kr/article/25482425",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "“미래기금 104조는 빚으로 만든 재정 저수지”…학계 집단성명",
-     "link": "https://www.joongang.co.kr/article/25482422",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "노골적 핵 무력시위 나선 김정은, 불안한 한·미 공조",
-     "link": "https://www.joongang.co.kr/article/25482421",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "정보 문외한 국정원장 후보자, ‘정보전쟁’ 준비돼 있나",
-     "link": "https://www.joongang.co.kr/article/25482044",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "대담해지는 러시아의 무력시위, 재발 막을 대응책 있나",
-     "link": "https://www.joongang.co.kr/article/25482043",
-     "pubDate": null,
-     "kind": "사설"
-    },
-    {
-     "title": "[한 컷] 나도 맨발",
-     "link": "https://www.joongang.co.kr/article/25482371",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "개혁과 개악, 그리고 혁명",
-     "link": "https://www.joongang.co.kr/article/25482691",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "증시에 필요한 건 ‘신뢰’",
-     "link": "https://www.joongang.co.kr/article/25482690",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "뿔테안경은 억울하다",
-     "link": "https://www.joongang.co.kr/article/25482688",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "가보지 못한 미래",
-     "link": "https://www.joongang.co.kr/article/25482684",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "한국: 경계국가에서 세계국가로",
-     "link": "https://www.joongang.co.kr/article/25482417",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "12·3의 한덕수 vs 한성숙의 의사봉",
-     "link": "https://www.joongang.co.kr/article/25482414",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "‘모두의 창업’ 성공 열쇠는 지원금보다 생태계",
-     "link": "https://www.joongang.co.kr/article/25482412",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "“예술은 날것” 쓰레기 활용하다 ‘배설물 작가’ 조롱",
-     "link": "https://www.joongang.co.kr/article/25482411",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "스타트업은 노동법 예외로, 임금체계는 전면 개편을",
-     "link": "https://www.joongang.co.kr/article/25482410",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "뻔한 것이 백 개 쌓이면",
-     "link": "https://www.joongang.co.kr/article/25482409",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "의료사고, 처벌보다 시스템 개선으로 예방해야",
-     "link": "https://www.joongang.co.kr/article/25400758",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "쿠팡 청문회가 드러낸 기술과 권력의 오만...이젠 소비자가 바꿔야 한다",
-     "link": "https://www.joongang.co.kr/article/25394046",
-     "pubDate": null,
-     "kind": "칼럼"
-    },
-    {
-     "title": "역할 애매한 중수청…이대로는 사건 피해자 부담만 증가한다",
-     "link": "https://www.joongang.co.kr/article/25387011",
-     "pubDate": null,
-     "kind": "칼럼"
-    }
-   ]
+   "items": [],
+   "error": "page:https://www.joongang.co.kr/opinion/editorial… fetch failed | page:https://www.joongang.co.kr/opinion… fetch failed"
   },
   {
    "id": "donga",

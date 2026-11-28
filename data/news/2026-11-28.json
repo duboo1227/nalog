@@ -1,12 +1,12 @@
 {
  "date": "2026-11-28",
- "generatedAt": "2026-11-28T11:57:56.856Z",
+ "generatedAt": "2026-11-28T14:15:39.961Z",
  "core": [
   {
-   "title": "GS, 동해 AI 데이터센터 첫삽…허태수 \"AI산업 미래 명소될 것\"",
-   "link": "https://www.yna.co.kr/view/AKR20261127140100003?section=economy/all",
-   "src": "연합뉴스",
-   "pubDate": "2026-11-28T03:05:00.000Z",
+   "title": "해뜨는 '동해'가 AI 거점으로 GS, 亞 최대 데이터센터 첫 삽",
+   "link": "https://www.chosun.com/economy/money/2026/11/28/35KRYMJUWZD7HNESBUB2S6ZTNY/",
+   "src": "조선일보",
+   "pubDate": "2026-11-28T01:05:12.540Z",
    "papers": [
     "중앙일보",
     "조선일보",
@@ -26,12 +26,7 @@
     {
      "src": "중앙일보",
      "title": "GS, 15조원 동해 AI 데이터센터 첫 삽…AI 인프라 사업 본격화",
-     "link": "https://www.joongang.co.kr/article/25482777"
-    },
-    {
-     "src": "조선일보",
-     "title": "해돋이 명소 동해가 AI 거점으로 GS그룹, 亞 최대 데이터센터 첫 삽",
-     "link": "https://www.chosun.com/economy/money/2026/11/28/35KRYMJUWZD7HNESBUB2S6ZTNY/"
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBTUlWN2g1dllRMzdkWXN6QmFCYk5ZUHo3c01XNk1uSTItUk1OMVJPSTQxY1pQcXZ3eHdGV0JZTVg4NDhpV1AyVTN2d1JtaU9lQzRGNGdR?oc=5"
     },
     {
      "src": "조선일보",
@@ -47,6 +42,11 @@
      "src": "동아일보",
      "title": "GS, 동해에 15조 투입해 1.2GW AI데이터센터 착공",
      "link": "https://www.donga.com/news/Economy/article/all/20261127/135103835/1"
+    },
+    {
+     "src": "연합뉴스",
+     "title": "GS, 동해 AI 데이터센터 첫삽…허태수 \"AI산업 미래 명소될 것\"",
+     "link": "https://www.yna.co.kr/view/AKR20261127140100003?section=economy/all"
     }
    ],
    "_size": 6
@@ -276,32 +276,6 @@
    "_size": 2
   },
   {
-   "title": "장재훈 “中과 원가 30% 차이 3년내 격차 좁힐 것”",
-   "link": "https://www.sedaily.com/article/20119987",
-   "src": "서울경제",
-   "pubDate": "2026-11-27T08:38:07.000Z",
-   "papers": [
-    "조선일보",
-    "서울경제"
-   ],
-   "n": 2,
-   "top": true,
-   "excl": false,
-   "score": 5,
-   "why": [
-    "2개 신문",
-    "메인 1"
-   ],
-   "more": [
-    {
-     "src": "조선일보",
-     "title": "장재훈 현대차 부회장 “중국과 원가 30% 차이… 3년 내 최대한 좁힐 것”",
-     "link": "https://www.chosun.com/economy/industry-company/2026/11/28/4AE22VK6QRF4VKYCYC2J6WAAQY/"
-    }
-   ],
-   "_size": 2
-  },
-  {
    "title": "정부 ESS 최대규모 입찰서 삼성SDI 63%, SK온 37% 확보",
    "link": "https://www.chosun.com/economy/industry-company/2026/11/27/GAZDSZJZMJTGEYZSMU3TOZDFGI/",
    "src": "조선일보",
@@ -331,6 +305,37 @@
     }
    ],
    "_size": 3
+  },
+  {
+   "title": "국민연금 9월 말 수익률 13.28%…기금규모 1664조 원",
+   "link": "https://www.sedaily.com/article/20120030",
+   "src": "서울경제",
+   "pubDate": "2026-11-27T09:20:17.000Z",
+   "papers": [
+    "조선일보",
+    "한국경제",
+    "서울경제"
+   ],
+   "n": 3,
+   "top": false,
+   "excl": false,
+   "score": 4.5,
+   "why": [
+    "3개 신문"
+   ],
+   "more": [
+    {
+     "src": "조선일보",
+     "title": "국민연금 3분기 운용수익률 13.28%...한 달 새 1.5%포인트 ‘뚝’",
+     "link": "https://www.chosun.com/economy/money/2026/11/27/TUEAZGK4SBCZTF5F53BAPDWYLY/"
+    },
+    {
+     "src": "한국경제",
+     "title": "국민연금, 9월 말 수익률 13.28%…기금 1664조원",
+     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BSVVuM0ZEWDRWVGNBN01McnJaaHpsWE56bXhtbDVycngyVzVyUUxQT1Rzak1XVWNmd21vSG42dzZ3bGh5a1NHeU9wNnhvbVQtdUlHRlJHbzJDZw?oc=5"
+    }
+   ],
+   "_size": 3
   }
  ],
  "sources": [
@@ -338,77 +343,154 @@
    "id": "joongang",
    "name": "중앙일보",
    "home": "https://www.joongang.co.kr/money",
-   "via": "page",
+   "via": "google",
    "items": [
     {
      "title": "한 차례 부결된 포스코 임금협상…기본급 2.6% 인상으로 타결",
-     "link": "https://www.joongang.co.kr/article/25482786",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5LWmV0Nk9obzBWN0FQU3dCeWpBOFpqSzJnbkpuLWk5X0dDbzRBMkYwNVB6R3ZLaTlhTjJzOTVreXE1U25PcGUtaUpqVUZRcVFUc2Flbjl3?oc=5",
      "pubDate": "2026-11-28T09:03:25.000Z",
      "n": 1,
      "score": 0
     },
     {
-     "title": "불금 밤 10시에 “400명 전원 출근해”…DL그룹 회장 또 논란",
-     "link": "https://www.joongang.co.kr/article/25482779",
-     "pubDate": "2026-11-28T05:31:55.000Z",
-     "n": 2,
-     "score": 5
+     "title": "“14세가 회계사 시험을?”…합격률 7.4% 뚫은 日 최연소 합격자",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5WNzMzcW4za2szZEN4OHdpZEpFSk5nOUVBcnBqREhsVGV3ZHNoRk9WZzlaVnVyNGJ3X0k1Q2JMenBOMWtaZTVWSElsSXhNZEw4UzVZcXFB?oc=5",
+     "pubDate": "2026-11-28T07:56:03.000Z",
+     "n": 1,
+     "score": 0
     },
     {
      "title": "GS, 15조원 동해 AI 데이터센터 첫 삽…AI 인프라 사업 본격화",
-     "link": "https://www.joongang.co.kr/article/25482777",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBBTUlWN2g1dllRMzdkWXN6QmFCYk5ZUHo3c01XNk1uSTItUk1OMVJPSTQxY1pQcXZ3eHdGV0JZTVg4NDhpV1AyVTN2d1JtaU9lQzRGNGdR?oc=5",
      "pubDate": "2026-11-28T05:08:36.000Z",
      "n": 4,
      "score": 13.3
     },
     {
+     "title": "李대통령 “전세계 AI 경쟁서 선도국가 되도록 모든 역량 동원”",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IVkQ4VjB6dmhkUG5DdDNZekJDYkEzZmZNOGNZOXVPeUo0M196U2xRWld5RUd6SGVPZllNbF9TNVdnSnR3Q2tNdzJYemEwTExUZTl0NGd3?oc=5",
+     "pubDate": "2026-11-28T03:28:00.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "“지상낙원이 돌아왔다”…4년간 관광객 막았더니 벌어진 기적",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE92XzNFczAtQmRJYUpqVmZHeUF3ZXppcTVJc0UtZ29WZ2ZVVGpVV01teXlsMnh4dkRld29MUW5vZ0ExQXdhSGFNdzdoQzJCRWE4dTJ1eHlR?oc=5",
+     "pubDate": "2026-11-28T03:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
      "title": "하차감 끝판왕? 내리기 싫은 회장님의 차 ‘GV90’ 총출동 해보니 [주말車담]",
-     "link": "https://www.joongang.co.kr/article/25482753",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5jTE9JdlNmM0ZFWU1UWTZVWHdqN2ItN1Z6ckRJd2taaFhEQVg4WkZGdk9RMGRmMmJSQ3BCbkgxRDBfcUFLZ29vNS1OOVowYlNYemgxYm9R?oc=5",
      "pubDate": "2026-11-27T23:18:03.000Z",
      "n": 1,
      "score": 0
     },
     {
      "title": "코스피200 ETF 샀는데 삼전닉스가 58%…‘분산투자’의 배신",
-     "link": "https://www.joongang.co.kr/article/25482745",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBhcU5nYVBDbHFuSndLa0s4OXFrVXBNRVFBSzhIZ3FlSFdBVWhPbjF1Yml5Q0RfZEhubWhFWWFEMDNlQnlhNEtkYWJBMms3R25BUVpfSDJR?oc=5",
      "pubDate": "2026-11-27T22:00:01.000Z",
      "n": 1,
      "score": 1.5
     },
     {
-     "title": "10개월 새 3.5억 뛰었다…무서운 서울 전세, 내년이 더 문제",
-     "link": "https://www.joongang.co.kr/article/25482744",
-     "pubDate": "2026-11-27T22:00:00.000Z",
-     "n": 1,
-     "score": 3.5
-    },
-    {
      "title": "같은 집인데 1.8억 vs 8.2억…반포 덮친 ‘고무줄 재초환’ [안장원의 부동산노트]",
-     "link": "https://www.joongang.co.kr/article/25482742",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBHdW50VzlYWFhRQTNRVl9WekNzUW5TTm0yNWtrRWVRZnI2cXJISzd0cHJMY21RNE02ZTZvczV2aDBwZHREWXBWMXJnOGliNF9jWm5PWjJn?oc=5",
      "pubDate": "2026-11-27T21:00:01.000Z",
      "n": 1,
      "score": 1.5
     },
     {
      "title": "반포 큰손들이 먼저 움직인다…주식 접고 택한 투자법",
-     "link": "https://www.joongang.co.kr/article/25482743",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE55d1BpcmUwZXVONEJ1MHhYSWd6RVdNZ2Y1c1NkS0ttSEd4V0VRaTRpWm8ySlJRU0JRbEdsNEZ5QXp3SkQtQkNUbGZiMVB0X2tta2xtWDlB?oc=5",
      "pubDate": "2026-11-27T21:00:01.000Z",
      "n": 1,
      "score": 0
+    },
+    {
+     "title": "“의사 연봉 3억 시대 끝난다” 의대 교수, 아들에 시키는 공부",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA2bEZFQ0h6bEZ5TlByN3NJakJmN29NMUVqUUVUY0lMZEpRZ2lzaDBQbWlMR0N3UlJDT0tSRTFubGZ3c19CVS1VeFJJRl9tcFhpMFRTUnVn?oc=5",
+     "pubDate": "2026-11-27T21:00:00.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "40억 명 데이터 쥔 구글…라이벌 AI 비서에 통행료",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE16Z1ZzV2h6SlpGa0RENDBPd1lUNWVtQnA3N21vRlh5bFhlVmN6WnFESC1HYV9KRENfVkFadmNfZ3BSc21KRmRBbU56anlmRDRkb3JsV0pn?oc=5",
+     "pubDate": "2026-11-27T16:35:42.000Z",
+     "n": 1,
+     "score": 0.8
+    },
+    {
+     "title": "기권율, 30대·여성·저학력·저소득층 높아",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB3aDJTbW8wa2RxSGFjdE5CRy1kVVJiNUJIYUgxZWRWY0c4bHhNTnNkUnpteHY3OEh3cWpqV21KVFlxOFZtLWVWR3lCSV95dk5PU2pLNnpB?oc=5",
+     "pubDate": "2026-11-27T16:23:08.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "‘윤 관저 예산 전용’ 김대기 집유",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBnSG14dHRSR183LUQ4UnU4YmdaZDBSZUJxeDMwVk9FenQtTExZWlBpbFNYQlF2UHAyMVNQaEV1UzFqY3pvUzROdWEtTWp4Znc0bG5FQllB?oc=5",
+     "pubDate": "2026-11-27T16:10:58.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "취약층 흔드는 고금리…중기 대출 연체율 두 배, 보험계약대출 잔액 3조 늘어",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5tTHA5N3M4RUFyd0lTWVRRSXpybER0SGxqQ3YtMkt6NnkwSjBRNDBBcW8xMC1lTGpvN09lSm5rcnFCWnc0SlJhemQ1a29OQnZFWjlDLW9R?oc=5",
+     "pubDate": "2026-11-27T16:08:34.000Z",
+     "n": 1,
+     "score": 2.5
+    },
+    {
+     "title": "삼성증권 자문사 CEO 포럼 “내년 칠천피 돌파”",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5iZWdQOFAtdEJrbDc5UUlPZnlnMDc2TjZkUFlWdjZSbFA2OG5PWm0wbUxkSUFEclFKMnJCNDNPbTduVE45YTNYN0g0Mmt5Y1BtOTN0anB3?oc=5",
+     "pubDate": "2026-11-27T16:00:13.000Z",
+     "n": 1,
+     "score": -3
+    },
+    {
+     "title": "[에디터 프리즘] 증시에 필요한 건 ‘신뢰’",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBFSDA2WWNNdEdwNzViQmxoNkgwdW5KdHNDYkZVb213NlpxdG9ST1RnQi1fejhSQVMxYWtta0IyRXZEWmtZc3VrWkZzSTBfMmM0M216UFBn?oc=5",
+     "pubDate": "2026-11-27T15:30:00.000Z",
+     "n": 1,
+     "score": 1.5
+    },
+    {
+     "title": "손나은과 진짜 가족 된다…LG임찬규, 프로골퍼 손새은과 결혼",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE44TXM1Q2lVeWd2QzJ1NnhSSU5fS0JNUWNBMkY4N1loZWV3QXFRemRNNmYtaW15Q2c1a2dsT0RNVm1rbEVneE9Hd3ZGcDNFT2VyX25aVDhB?oc=5",
+     "pubDate": "2026-11-27T15:22:58.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "[중앙SUNDAY 카툰] 빚내서 저축?",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1Sckc1bHNySG9WVkkzYy1OZFhhSnkwT0RqMVV3cVpGOGdIMVFyMU9UODRwZDBBeWdZXzR2TzBFQ2tvTW1GTExaME1idW5oSUw0a213cXhR?oc=5",
+     "pubDate": "2026-11-27T15:04:24.000Z",
+     "n": 1,
+     "score": 0
+    },
+    {
+     "title": "서울 ‘부동산 선거’ 뚜렷…경기·인천과 달랐다",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFByQ1hOTXB1YWFNWlhYZjN5WjhrR2YzQlFiNS0zcFVIcnR3cGpCR2piaWhFVlJHamk4SUNTVGg4VnlaS3E0UkQtU3hURjlHQ3dWdkVfbDd3?oc=5",
+     "pubDate": "2026-11-27T15:02:00.000Z",
+     "n": 1,
+     "score": 2.5
     },
     {
      "title": "삼성전자 3분기 배당금 지급, 이재용 회장 4000억원 받아",
      "link": "https://www.joongang.co.kr/article/25482657",
      "pubDate": "2026-11-27T12:51:22.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "국내 송금업체 이나인페이 해킹으로 25억원 피해…금감원 현장점검",
      "link": "https://www.joongang.co.kr/article/25482655",
      "pubDate": "2026-11-27T12:26:35.000Z",
      "n": 2,
-     "score": 4.5
+     "score": 3
     },
     {
      "title": "정부, 연속 야간근로 ‘3일 이하’ 권고…새벽배송 업계 우려",
@@ -436,7 +518,7 @@
      "link": "https://www.joongang.co.kr/article/25482617",
      "pubDate": "2026-11-27T08:09:28.000Z",
      "n": 1,
-     "score": -1.5
+     "score": 0
     },
     {
      "title": "코스맥스, ‘협력사 간담회’ 개최…내년 생산·공급 확대 논의",
@@ -511,9 +593,9 @@
      "score": 3.5
     }
    ],
-   "topsFrom": "page",
-   "added": 17,
-   "kept": 4
+   "topsFrom": "rss",
+   "added": 22,
+   "kept": 13
   },
   {
    "id": "mk",
@@ -1067,13 +1149,6 @@
      "score": 0
     },
     {
-     "title": "[시승기] 묵직하면서도 날렵한 ’4000만원대 벤츠 전기차’… 디 올 뉴 일렉트릭 CLA",
-     "link": "https://www.chosun.com/economy/industry-company/2026/11/28/MQ3TCNZZGRSGKODCGAZWIZTGMY/",
-     "pubDate": "2026-11-27T21:00:00.000Z",
-     "n": 1,
-     "score": 0.8
-    },
-    {
      "title": "중복상장 막힌 기업, 투자금 회수 막막한 FI… 카카오·TPG 분쟁 예의주시",
      "link": "https://www.chosun.com/economy/stock-finance/2026/11/28/GEYWGYZXGYYTQNZXGA3GEMDEGA/",
      "pubDate": "2026-11-27T21:00:00.000Z",
@@ -1093,6 +1168,13 @@
      "pubDate": "2026-11-27T21:00:00.000Z",
      "n": 1,
      "score": 0
+    },
+    {
+     "title": "[시승기] 묵직하면서도 날렵한 ’4000만원대 벤츠 전기차’… 디 올 뉴 일렉트릭 CLA",
+     "link": "https://www.chosun.com/economy/industry-company/2026/11/28/MQ3TCNZZGRSGKODCGAZWIZTGMY/",
+     "pubDate": "2026-11-27T21:00:00.000Z",
+     "n": 1,
+     "score": 0.8
     },
     {
      "title": "예결위 예산소위 종료…소소위 열고 미래대응기금·증액 심사 나선다",
@@ -1155,7 +1237,7 @@
      "link": "https://www.chosun.com/economy/industry-company/2026/11/28/4AE22VK6QRF4VKYCYC2J6WAAQY/",
      "pubDate": "2026-11-27T15:34:00.000Z",
      "n": 2,
-     "score": 5
+     "score": 3
     },
     {
      "title": "동국제강 장선익 사장 승진",
@@ -1211,21 +1293,21 @@
      "link": "https://www.chosun.com/economy/stock-finance/2026/11/27/GIYGCMTDGI3DMZDBGM4TAZBQGU/",
      "pubDate": "2026-11-27T14:06:57.000Z",
      "n": 1,
-     "score": 1.5
+     "score": 0
     },
     {
      "title": "與 최민희 ‘당원권 2년 정지’ 중징계…친청계 “도저히 납득 불가”",
      "link": "https://www.chosun.com/economy/economy_general/2026/11/27/MY4GIZJXMZRGKZRYGM3GINTEGE/",
      "pubDate": "2026-11-27T12:47:57.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "李 “전 부처 발주공사에 적정임금 지급 검토” 지시",
      "link": "https://www.chosun.com/economy/economy_general/2026/11/27/HFRGEYTCME2DCMBRGQ3TSMJVME/",
      "pubDate": "2026-11-27T12:14:56.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "정부 ESS 최대규모 입찰서 삼성SDI 63%, SK온 37% 확보",
@@ -1328,7 +1410,7 @@
      "score": 6.5
     },
     {
-     "title": "해돋이 명소 동해가 AI 거점으로 GS그룹, 亞 최대 데이터센터 첫 삽",
+     "title": "해뜨는 '동해'가 AI 거점으로 GS, 亞 최대 데이터센터 첫 삽",
      "link": "https://www.chosun.com/economy/money/2026/11/28/35KRYMJUWZD7HNESBUB2S6ZTNY/",
      "pubDate": "2026-11-28T01:05:12.540Z",
      "n": 4,
@@ -1493,11 +1575,11 @@
      "score": 0
     },
     {
-     "title": "공사 은퇴하고 사업 15년…연 매출 24억 일군 비결[은퇴 레시피]",
+     "title": "“사업은 농사 같아서 꾸준히 씨 뿌리고 밭 갈듯 해야 빛 봐”[은퇴 레시피]",
      "link": "https://www.donga.com/news/Economy/article/all/20261127/135105392/2",
      "pubDate": "2026-11-27T16:40:00.000Z",
      "n": 1,
-     "score": 0.8
+     "score": 0
     },
     {
      "title": "‘정년 65세 연장’ 與중재안 노사 합의 불발",
@@ -2049,7 +2131,7 @@
      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1Ha2twaFRLYXpBRnZVRnRMWi1QSWN6eE5MVG1DcE9FZTZCWWpGYU9GWGpKTlFoelBLSFhkMnJDQjAzZWZrSzZobWdaWVFBcHdMYzhidEdZN0dyUUxPVDMxSm1XLVhFM1R3VXdJ?oc=5",
      "pubDate": "2026-11-27T12:27:00.000Z",
      "n": 1,
-     "score": 0
+     "score": -1.5
     },
     {
      "title": "'한한령 풀리면 날아갈 줄 알았는데'…일주일 만에 '날벼락' [종목+]",
@@ -2520,6 +2602,13 @@
    "via": "page",
    "items": [
     {
+     "title": "트럼프 “이라크, 석유 밀수 차단 노력 지지”",
+     "link": "https://www.sedaily.com/article/20120165",
+     "pubDate": "2026-11-28T12:47:52.000Z",
+     "n": 1,
+     "score": 2
+    },
+    {
      "title": "젠슨 황 복귀 챙긴 머스크, 주가 반등까지 밀어주나",
      "link": "https://www.sedaily.com/article/20120025",
      "pubDate": "2026-11-28T11:00:00.000Z",
@@ -2664,7 +2753,7 @@
      "link": "https://www.sedaily.com/article/20119987",
      "pubDate": "2026-11-27T08:38:07.000Z",
      "n": 2,
-     "score": 5
+     "score": 3
     },
     {
      "title": "3분기 해외카드 결제액 9조 ‘역대 최대’",
@@ -2921,15 +3010,15 @@
      "score": 2
     },
     {
-     "title": "장재훈 “中과 원가 30% 차이 3년내 격차 좁힐 것”",
-     "link": "https://www.sedaily.com/article/20119987",
-     "pubDate": "2026-11-27T08:38:07.000Z",
-     "n": 2,
-     "score": 5
+     "title": "트럼프 “이라크, 석유 밀수 차단 노력 지지”",
+     "link": "https://www.sedaily.com/article/20120165",
+     "pubDate": "2026-11-28T12:47:52.000Z",
+     "n": 1,
+     "score": 2
     }
    ],
    "topsFrom": "page",
-   "added": 41,
+   "added": 42,
    "kept": 14
   },
   {
@@ -3048,7 +3137,7 @@
      "link": "https://www.yna.co.kr/view/AKR20261127162500002",
      "pubDate": "2026-11-27T10:48:58.000Z",
      "n": 2,
-     "score": 4.5
+     "score": 3
     },
     {
      "title": "피노, 188억5천만원 유상증자…이케이케이알파제이호사모투자합자회사에 제3자배정",
